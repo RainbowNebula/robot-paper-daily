@@ -290,10 +290,15 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
         papers = date_papers[date]
         paper_count = len(papers)
         date_display = f"{date}（{paper_count}篇论文）"
+
+        # -------------------------- 新增：按评分降序排序 --------------------------
+        # 以 llm_score 为键，从高到低排序（0分排最后）
+        sorted_papers = sorted(papers, key=lambda x: x.get("llm_score", 0), reverse=True)
+        # --------------------------------------------------------------------------
         
         # 生成表格行
         table_rows = []
-        for paper in papers:
+        for paper in sorted_papers:
             # 1. 文章标题（转义特殊字符）
             title = paper.get("title", "未知标题").replace("|", "\\|").replace("\n", " ")
             
@@ -328,7 +333,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             llm_html = f"<details><summary>总结</summary>{llm_summary}</details>" if llm_summary else "无"
             
             # 拼接表格行
-            row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} "
+            row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} |"
             table_rows.append(row)
         
         # 组装日期区块（当天展开，其他折叠）
