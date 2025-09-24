@@ -54,7 +54,7 @@ import os
 LLM_API_KEY = os.getenv("LLM_API_KEY")  # 从环境变量读取密钥
 LLM_API_HOST = "api.chatanywhere.tech"
 LLM_API_ENDPOINT = "/v1/chat/completions"
-LLM_MODEL = "gpt-3.5-turbo"
+LLM_MODEL = "gpt-5-nano"
 
 # 爬取配置
 REQUEST_INTERVAL = 1.2
