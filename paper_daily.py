@@ -54,7 +54,7 @@ import os
 LLM_API_KEY = os.getenv("LLM_API_KEY")  # 从环境变量读取密钥
 LLM_API_HOST = "api.chatanywhere.tech"
 LLM_API_ENDPOINT = "/v1/chat/completions"
-LLM_MODEL = "gpt-5-nano"
+LLM_MODEL = "gpt-4o-mini"
 
 # 爬取配置
 REQUEST_INTERVAL = 1.2
@@ -182,7 +182,7 @@ def get_first_author(authors_str: str) -> str:
 
 def call_llm_for_summary(title: str, abstract: str, introduction: str) -> Dict:
     """调用LLM生成总结，并提取1-5分相关性评分"""
-    system_prompt = """你是具身智能领域研究员，主要研究3D计算机视觉、vison-language、主动感知、robot maniuplation等，基于论文标题、摘要和引言，按以下格式输出：
+    system_prompt = """你是具身智能领域研究员，主要研究3D计算机视觉、vison-language、主动感知、robot maniuplation，不关心硬件相关创新，基于论文标题、摘要和引言，按以下格式输出：
 【关注的是什么问题】
 1. 核心问题1（≤40词）
 2. 核心问题2（≤40词）
