@@ -301,12 +301,12 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             
             # 4. PDF链接（可点击）
             pdf_link = paper.get("pdf_link", "")
-            pdf_html = f"[PDF]({pdf_link})" if pdf_link else "无"
+            pdf_html = f"[PDF]({pdf_link})" if pdf_link else "-"
             
             # 5. Code链接（多链接分行）
             code = paper.get("code", "")
             if not code:
-                code_html = "无"
+                code_html = "-"
             else:
                 code_list = [url.strip() for url in code.split(",") if url.strip()]
                 code_html = "<br>".join([f"[code{i+1}]({url})" for i, url in enumerate(code_list)])
@@ -316,7 +316,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             if 1 <= score <= 5:
                 score_html = "★" * score + "☆" * (5 - score)
             else:
-                score_html = "无"
+                score_html = "-"
             
             # 7. LLM总结（折叠展示）
             llm_summary = paper.get("llm_summary", "无").replace("|", "\\|").replace("\n", "<br>")
