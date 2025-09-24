@@ -269,7 +269,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     
     # 表格表头
     md_table_header = """| Title | Summary | Comment | PDF | Code | Relevance | Author |
-|----------|----------|---------|-----|------|--------|----------|"""
+|----------|-------------|-------|-----|----|-----|--------|"""
     
     # 按日期生成内容（当天展开，其他日期折叠）
     date_sections = []
