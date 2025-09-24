@@ -309,7 +309,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
                 code_html = "无"
             else:
                 code_list = [url.strip() for url in code.split(",") if url.strip()]
-                code_html = "<br>".join([f"[链接{i+1}]({url})" for i, url in enumerate(code_list)])
+                code_html = "<br>".join([f"[code{i+1}]({url})" for i, url in enumerate(code_list)])
             
             # 6. 相关性评分（1-5个星星）
             score = paper.get("llm_score", 0)
