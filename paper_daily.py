@@ -73,6 +73,10 @@ MD_SAVE_PATH = f"README.md"
 URL_PATTERN = re.compile(r'https?://\S+|www\.\S+')
 PDF_LINK_PATTERN = re.compile(r'pdf', re.IGNORECASE)  # 匹配含PDF的链接
 LLM_SCORE_PATTERN = re.compile(r'分数：(\d+)分')  # 提取LLM返回的1-5分评分
+PAGE_FIGURE_FRAGMENT_PATTERN = re.compile(
+    r'\d+\s+(pages?|page)\s*,?\s*\d*\s*(figures?|figure)?\s*,?\s*\d*\s*(tables?|table)?',
+    re.IGNORECASE  # 不区分大小写
+)
 
 
 # -------------------------- 工具函数 --------------------------
@@ -148,6 +152,15 @@ def process_comment_and_code(comment_tag: BeautifulSoup) -> Tuple[str, str]:
     raw_text = comment_tag.get_text(strip=True).replace("Comments:", "").strip()
     clean_comment = URL_PATTERN.sub("", raw_text).strip()
     clean_comment = re.sub(r'[,; ]+$', '', clean_comment)
+
+    # 3. 新增：过滤掉包含的页数/图表数片段（如 "8 pages, 4 figures"）
+    if clean_comment:
+        # 第一步：移除匹配的片段
+        clean_comment = PAGE_FIGURE_FRAGMENT_PATTERN.sub("", clean_comment)
+        # 第二步：清理残留的标点符号和空格（如 ",  " 变成 ""）
+        clean_comment = re.sub(r'\s*,\s*', ', ', clean_comment)  # 规范逗号格式
+        clean_comment = re.sub(r'^[,; ]+|[,:; ]+$', '', clean_comment)  # 移除首尾多余符号
+        clean_comment = clean_comment.strip()  # 最终清理
     
     return clean_comment, code
 
