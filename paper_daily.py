@@ -60,7 +60,7 @@ LLM_MODEL = "gpt-4o-mini"
 REQUEST_INTERVAL = 1.2
 PAPERS_PER_PAGE = 100
 MAX_CRAWL_PAGES = 1  # 最大爬取页数，None表示无限制
-INITIAL_ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?show=100"  # cs.RO领域最新论文
+INITIAL_ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?show=50"  # cs.RO领域最新论文
 
 # 存储配置
 JSON_SAVE_PATH = "arxiv_cs_ro_papers_final.json"
