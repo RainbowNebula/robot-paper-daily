@@ -122,7 +122,9 @@ def extract_introduction(soup: BeautifulSoup) -> str:
         for idx, li in enumerate(ul.find_all("li", class_="ltx_item"), 1):
             li_p = li.find("div", class_="ltx_para").find("p", class_="ltx_p")
             if li_p:
-                contents.append(f"{idx}. {li_p.get_text(strip=False).strip().replace('\xa0', ' ')}")
+                # contents.append(f"{idx}. {li_p.get_text(strip=False).strip().replace('\xa0', ' ')}")
+                text = li_p.get_text(strip=False).strip().replace('\xa0', ' ')
+                contents.append(f"{idx}. {text}")
     return "\n\n".join(contents) if contents else "未获取到引言"
 
 
