@@ -312,10 +312,10 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             
             # 7. LLM总结（折叠展示）
             llm_summary = paper.get("llm_summary", "无").replace("|", "\\|").replace("\n", "<br>")
-            llm_html = f"<details><summary>查看总结</summary>{llm_summary}</details>" if llm_summary else "无"
+            llm_html = f"<details><summary>总结</summary>{llm_summary}</details>" if llm_summary else "无"
             
             # 拼接表格行
-            row = f"| {title} | {llm_html} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {first_author} "
+            row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} "
             table_rows.append(row)
         
         # 组装日期区块（当天展开，其他折叠）
