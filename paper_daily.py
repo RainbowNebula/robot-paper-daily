@@ -52,7 +52,7 @@ ARXIV_HEADERS = {
 # 新代码（从环境变量获取）
 import os
 LLM_API_KEY = os.getenv("LLM_API_KEY")  # 从环境变量读取密钥
-LLM_API_HOST = "api.chatanywhere.tech"
+LLM_API_HOST = "api.chatanywhere.tech" # https://github.com/chatanywhere/GPT_API_free
 LLM_API_ENDPOINT = "/v1/chat/completions"
 LLM_MODEL = "gpt-4o-mini"
 
