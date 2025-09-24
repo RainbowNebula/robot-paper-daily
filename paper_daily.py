@@ -278,7 +278,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
     
     # 表格表头
-    md_table_header = """| Title | Author | Comment | PDF | Code | LLM Summary |  |
+    md_table_header = """| Title | Summary | Comment | PDF | Code | Relevance | Author |
 |----------|----------|---------|-----|------|--------|----------|"""
     
     # 按日期生成内容（当天展开，其他日期折叠）
@@ -325,7 +325,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             llm_html = f"<details><summary>查看总结</summary>{llm_summary}</details>" if llm_summary else "无"
             
             # 拼接表格行
-            row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} |"
+            row = f"| {title} | {llm_html} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {first_author} "
             table_rows.append(row)
         
         # 组装日期区块（当天展开，其他折叠）
