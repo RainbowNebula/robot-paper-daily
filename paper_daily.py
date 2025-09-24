@@ -276,7 +276,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
     
     # 表格表头
-    md_table_header = """| Title | Author | Comment | PDF | Code | Summary |  |
+    md_table_header = """| Title | Author | Comment | PDF | Code | LLM Summary |  |
 |----------|----------|---------|-----|------|--------|----------|"""
     
     # 按日期生成内容（当天展开，其他日期折叠）
