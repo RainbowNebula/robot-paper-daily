@@ -47,6 +47,7 @@ jobs:
       - name: Run daily arxiv 
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}  # 注入密钥到环境变量
+          LLM_PROMPT: ${{ vars.LLM_PROMPT }}
         run: |
           python paper_daily.py
           
