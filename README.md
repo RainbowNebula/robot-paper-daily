@@ -3,7 +3,11 @@
 > 说明：仅显示最近三天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
-## 2025-09-25（60篇论文）
+## 日期导航
+- [2025-09-25（60篇论文）](#date-20250925)
+- [2025-09-24（62篇论文）](#date-20250924)
+
+## <a id='date-20250925'></a>2025-09-25（60篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -69,7 +73,8 @@
 | Crater Observing Bio-inspired Rolling Articulator (COBRA) | Adarsh Salagame |  | [PDF](https://arxiv.org/pdf/2509.19473) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 <details>
-<summary>## 2025-09-24（62篇论文）</summary>
+            <summary>2025-09-24（62篇论文）</summary>
+            <div class="markdown-content" data-content="## <a id='date-20250924'></a>2025-09-24（62篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -134,6 +139,5 @@
 | Guaranteed Robust Nonlinear MPC via Disturbance Feedback | Antoine P. Leeman | <details><summary>detail</summary>Code:this https URL</details> | [PDF](https://arxiv.org/pdf/2509.18760) | [code1](https://github.com/antoineleeman/robust-nonlinear-mpc) | ★★☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何在存在扰动和模型不匹配的情况下确保机器人控制的安全性和稳定性。  <br>2. 如何实现快速、可扩展的非线性模型预测控制，以满足实时实施的需求。  <br><br>【用了什么创新的方案】  <br>提出了一种鲁棒模型预测控制（MPC）方法，通过将不确定的非线性系统分解为名义非线性动态模型、扰动反馈控制器和模型误差界限，联合优化这些组件以确保鲁棒约束满足、输入到状态的稳定性和递归可行性。采用高效的顺序凸编程算法实现实时部署，验证了在不同动态下的实时可行性，特别是在火箭着陆问题中展示了鲁棒性能。  <br><br>【相关性评分】  <br>分数：2分</details> |
 | Policy Gradient with Self-Attention for Model-Free Distributed Nonlinear Multi-Agent Games | Eduardo Sebastián |  | [PDF](https://arxiv.org/pdf/2509.18371) | - | ★★☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何在动态非线性多智能体游戏中学习分布式策略。  <br>2. 如何处理多智能体之间的时间变化通信拓扑。  <br>3. 如何在缺乏系统动态和成本函数模型的情况下实现模型无关的学习。  <br><br>【用了什么创新的方案】  <br>提出了一种基于自注意力机制的策略梯度方法，用于学习动态非线性多智能体游戏中的分布式策略。该方法通过非线性反馈增益的参数化，能够处理时间变化的多智能体通信结构，并且不需要对网络拓扑进行预测。通过使用神经网络参数化，方法能够有效地学习异质策略，适应不同团队的具体目标，并在多种设置中展示了良好的性能。  <br><br>【相关性评分】  <br>分数：2分</details> |
 | OrthoLoC: UAV 6-DoF Localization and Calibration Using Orthographic Geodata | Oussema Dhaouadi | <details><summary>detail</summary>Accepted at NeurIPS 2025</details> | [PDF](https://arxiv.org/pdf/2509.18350) | - | ★★☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. UAV视觉定位的准确性和资源限制下的挑战  <br>2. 现有UAV定位算法对地理数据的利用不足  <br>3. 跨域数据集缺乏导致的评估困难  <br><br>【用了什么创新的方案】  <br>本研究提出了OrthoLoC数据集，包含16,425幅UAV图像及多种地理数据，旨在解决UAV图像与地理数据之间的领域转移问题。通过配对结构，该数据集能够独立评估定位和校准性能。此外，提出的AdHoP技术可与任何特征匹配器集成，显著提高匹配精度和降低平移误差。  <br><br>【相关性评分】  <br>分数：2分</details> |
-| Learning Obstacle Avoidance using Double DQN for Quadcopter Navigation | Nishant Doshi |  | [PDF](https://arxiv.org/pdf/2509.18734) | - | ★☆☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何在城市环境中实现四旋翼无人机的可靠导航。  <br>2. 如何处理动态障碍物对无人机路径规划的影响。  <br>3. 如何在稀疏奖励环境中优化深度强化学习策略。  <br><br>【用了什么创新的方案】  <br>本研究提出了一种基于深度强化学习的虚拟四旋翼机器人代理，利用深度摄像头在模拟城市环境中进行导航。该方法通过实时更新策略来应对环境中的随机障碍物，并优化路径选择以避免碰撞，同时解决了稀疏奖励的问题。  <br><br>【相关性评分】  <br>分数：1分</details> |
-
-</details>
+| Learning Obstacle Avoidance using Double DQN for Quadcopter Navigation | Nishant Doshi |  | [PDF](https://arxiv.org/pdf/2509.18734) | - | ★☆☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何在城市环境中实现四旋翼无人机的可靠导航。  <br>2. 如何处理动态障碍物对无人机路径规划的影响。  <br>3. 如何在稀疏奖励环境中优化深度强化学习策略。  <br><br>【用了什么创新的方案】  <br>本研究提出了一种基于深度强化学习的虚拟四旋翼机器人代理，利用深度摄像头在模拟城市环境中进行导航。该方法通过实时更新策略来应对环境中的随机障碍物，并优化路径选择以避免碰撞，同时解决了稀疏奖励的问题。  <br><br>【相关性评分】  <br>分数：1分</details> |"></div>
+            </details>
