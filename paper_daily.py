@@ -254,7 +254,7 @@ def get_recent_dates(limit: int = 3) -> List[str]:
 
 
 def json_to_markdown(json_path: str, md_path: str) -> None:
-    """生成Markdown表格，最近三天数据，当天展开，其他日期折叠"""
+    """生成Markdown表格，最近三天数据，当天展开，其他日期折叠，添加日期导航"""
     try:
         with open(json_path, "r", encoding="utf-8") as f:
             date_papers = json.load(f)
@@ -280,6 +280,16 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     md_intro = "> 说明：仅显示最近三天数据，当天论文默认展开，其他日期点击标题可展开/折叠\n"
     md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
     
+    # 添加日期导航超链接列表
+    nav_links = []
+    for date in valid_dates:
+        paper_count = len(date_papers[date])
+        date_display = f"{date}（{paper_count}篇论文）"
+        # 使用日期作为锚点ID（替换特殊字符）
+        anchor_id = f"date-{date.replace('-', '')}"
+        nav_links.append(f"- [{date_display}](#{anchor_id})")
+    md_nav = "## 日期导航\n" + "\n".join(nav_links) + "\n\n"
+    
     # 表格表头
     md_table_header = """| Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|"""
@@ -290,11 +300,11 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
         papers = date_papers[date]
         paper_count = len(papers)
         date_display = f"{date}（{paper_count}篇论文）"
+        # 为每个日期区块创建唯一锚点ID
+        anchor_id = f"date-{date.replace('-', '')}"
 
-        # -------------------------- 新增：按评分降序排序 --------------------------
-        # 以 llm_score 为键，从高到低排序（0分排最后）
+        # 按评分降序排序
         sorted_papers = sorted(papers, key=lambda x: x.get("llm_score", 0), reverse=True)
-        # --------------------------------------------------------------------------
         
         # 生成表格行
         table_rows = []
@@ -336,26 +346,22 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} |"
             table_rows.append(row)
         
-        # 组装日期区块（当天展开，其他折叠）
+        # 组装日期区块（当天展开，其他折叠），并添加锚点
         if date == CURRENT_DATE:
-            # 当天内容不折叠
-            section = f"## {date_display}\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n"
+            # 当天内容不折叠，添加锚点
+            section = f"## <a id='{anchor_id}'></a>{date_display}\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n"
         else:
-            # 其他日期内容折叠
-            # table_content = f"{md_table_header}\n" + "\n".join(table_rows)
-            # section = f"<details>\n<summary>## {date_display}</summary>\n\n{table_content}\n\n</details>\n"
-            # 其他日期内容折叠
+            # 其他日期内容折叠，添加锚点
             table_content = f"{md_table_header}\n" + "\n".join(table_rows)
-            # 保留Markdown格式，不将标题放入summary
             section = f"""<details>
             <summary>{date_display}</summary>
-            <div class="markdown-content" data-content="## {date_display}\n\n{table_content}"></div>
+            <div class="markdown-content" data-content="## <a id='{anchor_id}'></a>{date_display}\n\n{table_content}"></div>
             </details>\n"""
         
         date_sections.append(section)
     
-    # 合并所有内容
-    md_content = f"{md_title}\n\n{md_intro}" + "\n".join(date_sections)
+    # 合并所有内容（标题 + 引言 + 导航 + 内容区块）
+    md_content = f"{md_title}\n\n{md_intro}{md_nav}" + "\n".join(date_sections)
     
     # 保存Markdown
     try:
