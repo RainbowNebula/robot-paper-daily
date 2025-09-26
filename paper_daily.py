@@ -402,7 +402,7 @@ def crawl_and_process_papers(initial_url: str, max_pages: Optional[int] = None) 
     
     while True:
         # 终止条件：达到最大页数
-        if max_pages and current_page > max_pages:
+        if current_page > max_pages:
             logging.info(f"已达最大爬取页数 {max_pages}，停止爬取")
             break
         
