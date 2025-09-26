@@ -276,7 +276,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     
     # 基础信息
     total_papers = sum(len(date_papers[date]) for date in valid_dates)
-    md_title = f"# {CURRENT_DATE} arXiv Robot 领域论文汇总（共{len(date_papers[CURRENT_DATE])}篇）"
+    md_title = f"# arXiv Robot 领域论文汇总（共{total_papers}篇）"
     md_intro = "> 说明：仅显示最近三天数据，当天论文默认展开，其他日期点击标题可展开/折叠\n"
     md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
     
