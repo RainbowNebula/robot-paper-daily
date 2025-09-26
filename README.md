@@ -65,8 +65,8 @@
 | Boosting LiDAR-Based Localization with Semantic Insight: Camera Projection versus Direct LiDAR Segmentation | Sven Ochs |  | [PDF](https://arxiv.org/pdf/2509.20486) | - | ★★☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何提升LiDAR数据的语义分割精度以增强定位系统的准确性和鲁棒性。  <br>2. 在复杂环境中，LiDAR定位方法如何克服特征稀疏和动态场景等挑战。  <br>3. 如何有效整合来自相机的语义信息以改善LiDAR定位性能。  <br><br>【用了什么创新方法】  <br>本研究提出了一种将相机的语义信息通过投影技术整合到LiDAR定位管道中的方法。该方法通过将LiDAR点映射到相机的语义分割空间，提升了LiDAR定位的精度和可靠性。与传统的LiDAR点云分割方法相比，实验结果表明，整合语义相机信息能够显著改善定位的准确性和对环境变化的鲁棒性。  <br><br>【相关性评分】  <br>分数：2分</details> |
 | Next-Generation Aerial Robots -- Omniorientational Strategies: Dynamic Modeling, Control, and Comparative Analysis | Ali Kafili Gavgani |  | [PDF](https://arxiv.org/pdf/2509.21210) | - | ★☆☆☆☆ | <details><summary>总结</summary>【关注的是什么问题】  <br>1. 如何克服传统多旋翼无人机在姿态与位置控制上的不足？  <br>2. 不同的无人机配置和控制策略如何影响能量消耗和性能？  <br>3. 如何设计有效的控制器以应对系统中的不确定性和干扰？  <br><br>【用了什么创新方法】  <br>本研究提出了几种独特的无人机配置，结合额外的控制输入以实现“全向控制”，使其能够独立控制所有六个自由度。通过使用Newton-Euler方法全面推导了动态模型，并在MATLAB Simscape Multibody环境中进行了验证。设计了两种控制器：一种滑模控制器用于强扰动处理，另一种新型PID控制器则集成了重力补偿和线性、非线性分配器，旨在提高计算效率。通过比较不同配置和控制器的能量效率、鲁棒性和控制效果，研究为未来的无人机设计提供了实用的见解和路线图。  <br><br>【相关性评分】  <br>分数：1分</details> |
 
-## <details>
-<summary> 2025-09-25（60篇论文） <a id='date-20250925'></a></summary>
+<details>
+<summary><a id='date-20250925'></a>2025-09-25（60篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -133,8 +133,8 @@
 
 </details>
 
-## <details>
-<summary> 2025-09-24（62篇论文） <a id='date-20250924'></a></summary>
+<details>
+<summary><a id='date-20250924'></a>2025-09-24（62篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
