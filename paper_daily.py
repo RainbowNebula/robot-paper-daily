@@ -393,7 +393,7 @@ def crawl_and_process_papers(initial_url: str, max_pages: Optional[int] = None) 
     
     # 计算当前已爬取的论文总数
     total_papers = sum(len(papers) for papers in all_papers_global.values())
-    current_page = total_papers // PAPERS_PER_PAGE + 1  # 当前页码
+    current_page = 0  # 当前页码
     current_date = datetime.now().strftime("%Y-%m-%d")  # 今日日期
     
     # 确保当前日期在字典中存在
