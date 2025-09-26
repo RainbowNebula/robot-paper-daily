@@ -352,8 +352,9 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             section = f"## <a id='{anchor_id}'></a>{date_display}\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n"
         else:
             # 其他日期内容折叠
-            table_content = f"{md_table_header}\n" + "\n".join(table_rows)
-            section = f"## <details>\n<summary> {date_display} <a id='{anchor_id}'></a></summary>\n\n{table_content}\n\n</details>\n"
+            # table_content = f"{md_table_header}\n" + "\n".join(table_rows)
+            # section = f"## <details>\n<summary> {date_display} <a id='{anchor_id}'></a></summary>\n\n{table_content}\n\n</details>\n"
+            section = f"<details>\n<summary><a id='{anchor_id}'></a>{date_display}</summary>\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n\n</details>\n"
             # 其他日期内容折叠，添加锚点
             # table_content = f"{md_table_header}\n" + "\n".join(table_rows)
             # section = f"""<details>
