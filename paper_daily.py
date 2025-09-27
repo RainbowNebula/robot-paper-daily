@@ -266,9 +266,12 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
         return
     
     # 获取最近三天日期（按从新到旧排序）
-    recent_dates = get_recent_dates(3)
+    recent_dates = get_recent_dates(5)
     # 筛选出有数据的日期，最多保留三天
     valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0]
+
+    # 确定最新有数据的日期（应该是valid_dates中的第一个）
+    latest_valid_date = valid_dates[0]
     
     if not valid_dates:
         logging.warning("无有效论文数据，无法生成 Markdown")
@@ -296,7 +299,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     
     # 按日期生成内容（当天展开，其他日期折叠）
     date_sections = []
-    for date in valid_dates:
+    for date in valid_dates[:3]:
         papers = date_papers[date]
         paper_count = len(papers)
         date_display = f"{date}（{paper_count}篇论文）"
@@ -347,7 +350,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
             table_rows.append(row)
         
         # 组装日期区块（当天展开，其他折叠），并添加锚点
-        if date == CURRENT_DATE:
+        if date == latest_valid_date:
             # 当天内容不折叠，添加锚点
             section = f"## <a id='{anchor_id}'></a>{date_display}\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n"
         else:
