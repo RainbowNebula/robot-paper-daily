@@ -268,7 +268,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     # 获取最近三天日期（按从新到旧排序）
     recent_dates = get_recent_dates(5)
     # 筛选出有数据的日期，最多保留三天
-    valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0]
+    valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0][:3]
 
     # 确定最新有数据的日期（应该是valid_dates中的第一个）
     latest_valid_date = valid_dates[0]
@@ -299,7 +299,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     
     # 按日期生成内容（当天展开，其他日期折叠）
     date_sections = []
-    for date in valid_dates[:3]:
+    for date in valid_dates:
         papers = date_papers[date]
         paper_count = len(papers)
         date_display = f"{date}（{paper_count}篇论文）"
