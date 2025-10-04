@@ -194,10 +194,50 @@ def get_first_author(authors_str: str) -> str:
     return first_author if first_author else "未知作者"
 
 
-def call_llm_for_summary(title: str, abstract: str, introduction: str) -> Dict:
+def extract_related_work(soup: BeautifulSoup) -> str:
+    """提取论文相关工作（S2章节）"""
+    # 定位ID为S2的Related work章节
+    related_work_section = soup.find("section", id="S2")
+    if not related_work_section:
+        logging.warning("Related work（S2章节）容器缺失")
+        return "未获取到相关工作"
+    
+    # 移除分页、隐藏按钮等无关元素
+    for tag in related_work_section.find_all(["div", "button"], class_=["ltx_pagination", "sr-only button"]):
+        tag.decompose()
+    
+    contents = []
+    # 1. 提取章节标题（如"II Related work"）
+    section_title = related_work_section.find("h2", class_="ltx_title_section")
+    if section_title:
+        title_text = section_title.get_text(strip=True).replace("\xa0", " ")
+        contents.append(f"# {title_text}")  # 用Markdown标题格式区分
+    
+    # 2. 提取所有子章节（如II-A、II-B）
+    subsection_list = related_work_section.find_all("section", class_="ltx_subsection")
+    for subsection in subsection_list:
+        # 子章节标题（如"II-A Human-in-the-loop learning..."）
+        sub_title = subsection.find("h3", class_="ltx_title_subsection")
+        if sub_title:
+            sub_title_text = sub_title.get_text(strip=True).replace("\xa0", " ")
+            contents.append(f"## {sub_title_text}")
+        
+        # 子章节下的段落内容
+        for para_div in subsection.find_all("div", class_="ltx_para"):
+            para_p = para_div.find("p", class_="ltx_p")
+            if para_p:
+                # 清理段落中的引用标记（如"[18, 30, 42]"），保留原文逻辑
+                para_text = para_p.get_text(strip=False).strip().replace("\xa0", " ")
+                contents.append(para_text)
+    
+    # 用空行分隔内容，增强可读性
+    return "\n\n".join(contents) if contents else "未获取到相关工作"
+
+
+def call_llm_for_summary(title: str, abstract: str, introduction: str,relate_work: str) -> Dict:
     """调用LLM生成总结，并提取1-5分相关性评分"""
     system_prompt = LLM_PROMPT
-    user_prompt = f"标题：{title}\n摘要：{abstract}\n引言：{introduction}"
+    user_prompt = f"标题：{title}\n摘要：{abstract}\n引言：{introduction}\n相关工作:{relate_work}"
     payload = json.dumps({
         "model": LLM_MODEL,
         "messages": [
@@ -494,9 +534,10 @@ def crawl_and_process_papers(initial_url: str, max_pages: Optional[int] = None) 
             # 3.5 提取摘要和引言
             abstract = extract_abstract(paper_soup)
             introduction = extract_introduction(paper_soup)
+            relate_work = extract_related_work(paper_soup)
             
             # 3.6 调用LLM生成总结和评分
-            llm_result = call_llm_for_summary(title, abstract, introduction)
+            llm_result = call_llm_for_summary(title, abstract, introduction,relate_work)
             
             # 3.7 组装论文数据
             paper_data = {
