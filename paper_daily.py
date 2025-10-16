@@ -305,10 +305,10 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
         logging.error(f"读取 JSON 失败：{str(e)}")
         return
     
-    # 获取最近三天日期（按从新到旧排序）
-    recent_dates = get_recent_dates(5)
-    # 筛选出有数据的日期，最多保留三天
-    valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0][:3]
+    # 获取最近n天日期（按从新到旧排序）
+    recent_dates = get_recent_dates(8)
+    # 筛选出有数据的日期，最多保留n天
+    valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0][:5]
 
     # 确定最新有数据的日期（应该是valid_dates中的第一个）
     latest_valid_date = valid_dates[0]
@@ -320,7 +320,7 @@ def json_to_markdown(json_path: str, md_path: str) -> None:
     # 基础信息
     total_papers = sum(len(date_papers[date]) for date in valid_dates)
     md_title = f"# arXiv Robot 领域论文汇总（共{total_papers}篇）"
-    md_intro = "> 说明：仅显示最近三天数据，当天论文默认展开，其他日期点击标题可展开/折叠\n"
+    md_intro = "> 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠\n"
     md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
     
     # 添加日期导航超链接列表
