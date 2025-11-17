@@ -253,7 +253,7 @@ def call_llm_for_summary(title: str, abstract: str, introduction: str,relate_wor
     }
     
     try:
-        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=30)
+        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=40)
         conn.request("POST", LLM_API_ENDPOINT, payload, headers)
         res = conn.getresponse()
         
