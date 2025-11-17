@@ -1,15 +1,52 @@
-# arXiv Robot 领域论文汇总（共137篇）
+# arXiv Robot 领域论文汇总（共167篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-11-17（30篇论文）](#date-20251117)
 - [2025-11-14（24篇论文）](#date-20251114)
 - [2025-11-13（22篇论文）](#date-20251113)
 - [2025-11-12（65篇论文）](#date-20251112)
 - [2025-11-10（26篇论文）](#date-20251110)
 
-## <a id='date-20251114'></a>2025-11-14（24篇论文）
+## <a id='date-20251117'></a>2025-11-17（30篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Phys-Liquid: A Physics-Informed Dataset for Estimating 3D Geometry and Volume of Transparent Deformable Liquids | Ke Ma | <details><summary>detail</summary>. Accepted as an oral paper at AAAI-26 (Main Technical Track). Code and dataset:this https URLProject page:this https URL</details> | [PDF](https://arxiv.org/pdf/2511.11077) | [code1](https://github.com/dualtransparency/Phys-Liquid-AAAI)<br>[code2](https://dualtransparency.github.io/Phys-Liquid/) | ★★☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 透明可变形液体的几何和体积特性估计面临光学复杂性和动态表面变形的挑战。  <br>2. 现有数据集缺乏全面的物理信息模拟数据，无法代表现实液体行为。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有研究未能充分考虑液体在动态场景中的表现。  <br>2. 现有数据集在模拟透明液体的几何和体积特性方面存在不足。  <br><br>【提出了什么创新的方法】  <br>我们提出了Phys-Liquid，一个包含97,200个模拟图像和相应3D网格的物理信息数据集，捕捉了多种实验室场景下液体动态。我们设计了一个四阶段的重建和估计流程，包括液体分割、多视图掩模生成、3D网格重建和现实世界缩放。实验结果显示，Phys-Liquid在重建液体几何和体积方面的准确性和一致性优于现有基准，为透明液体感知任务的未来进展提供了支持。  <br><br>【相关性评分】  <br>分数：2分</details> |
+| Volumetric Ergodic Control | Jueun Kwon |  | [PDF](https://arxiv.org/pdf/2511.11533) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Terrain Costmap Generation via Scaled Preference Conditioning | Luisa Mao |  | [PDF](https://arxiv.org/pdf/2511.11529) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Scalable Policy Evaluation with Video World Models | Wei-Cheng Tseng |  | [PDF](https://arxiv.org/pdf/2511.11520) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Scalable Coverage Trajectory Synthesis on GPUs as Statistical Inference | Max M. Sun | <details><summary>detail</summary>Presented at the "Workshop on Fast Motion Planning and Control in the Era of Parallelism" at Robotics: Science and Systems 2025. Workshop website:this https URL</details> | [PDF](https://arxiv.org/pdf/2511.11514) | [code1](https://sites.google.com/rice.edu/parallelized-planning-control/) | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Collaborative Representation Learning for Alignment of Tactile, Language, and Vision Modalities | Yiyun Zhou |  | [PDF](https://arxiv.org/pdf/2511.11512) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Rethinking Progression of Memory State in Robotic Manipulation: An Object-Centric Perspective | Nhat Chung | <details><summary>detail</summary>Accepted at AAAI 2026</details> | [PDF](https://arxiv.org/pdf/2511.11478) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| SimTac: A Physics-Based Simulator for Vision-Based Tactile Sensing with Biomorphic Structures | Xuyang Zhang |  | [PDF](https://arxiv.org/pdf/2511.11456) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Simulating an Autonomous System in CARLA using ROS 2 | Joseph Abdo |  | [PDF](https://arxiv.org/pdf/2511.11310) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Experiences from Benchmarking Vision-Language-Action Models for Robotic Manipulation | Yihao Zhang |  | [PDF](https://arxiv.org/pdf/2511.11298) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Sashimi-Bot: Autonomous Tri-manual Advanced Manipulation and Cutting of Deformable Objects | Sverre Herland |  | [PDF](https://arxiv.org/pdf/2511.11223) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Humanoid Whole-Body Badminton via Multi-Stage Reinforcement Learning | Chenhao Liu |  | [PDF](https://arxiv.org/pdf/2511.11218) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| AdaptPNP: Integrating Prehensile and Non-Prehensile Skills for Adaptive Robotic Manipulation | Jinxuan Zhu |  | [PDF](https://arxiv.org/pdf/2511.11052) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Latent-Space Autoregressive World Model for Efficient and Robust Image-Goal Navigation | Zhiwei Zhang |  | [PDF](https://arxiv.org/pdf/2511.11011) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Dynamic Reconfiguration of Robotic Swarms: Coordination and Control for Precise Shape Formation | Prab Prasertying | <details><summary>detail</summary>accepted at the 9th International Conference on Algorithms, Computing and Systems (ICACS 2025)</details> | [PDF](https://arxiv.org/pdf/2511.10989) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Dexterous Manipulation Transfer via Progressive Kinematic-Dynamic Alignment | Wenbin Bai | <details><summary>detail</summary>. Accepted by AAAI 2026</details> | [PDF](https://arxiv.org/pdf/2511.10987) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Terradynamics and design of tip-extending robotic anchors | Deniz Kerimoglu |  | [PDF](https://arxiv.org/pdf/2511.10901) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Collaborative Multi-Robot Non-Prehensile Manipulation via Flow-Matching Co-Generation | Yorai Shaoul |  | [PDF](https://arxiv.org/pdf/2511.10874) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| WetExplorer: Automating Wetland Greenhouse-Gas Surveys with an Autonomous Mobile Robot | Jose Vasquez | <details><summary>detail</summary>To be published in 2025 IEEE International Conference on Robotics and Biomimetics</details> | [PDF](https://arxiv.org/pdf/2511.10864) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Decentralized Swarm Control via SO(3) Embeddings for 3D Trajectories | Dimitria Silveria |  | [PDF](https://arxiv.org/pdf/2511.10858) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| MIGHTY: Hermite Spline-based Efficient Trajectory Planning | Kota Kondo |  | [PDF](https://arxiv.org/pdf/2511.10822) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| An Investigation into Dynamically Extensible and Retractable Robotic Leg Linkages for Multi-task Execution in Search and Rescue Scenarios | William Harris |  | [PDF](https://arxiv.org/pdf/2511.10816) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| $\rm{A}^{\rm{SAR}}$: $\varepsilon$-Optimal Graph Search for Minimum Expected-Detection-Time Paths with Path Budget Constraints for Search and Rescue | Eric Mugford | <details><summary>detail</summary>Submitted to IEEE International Conference on Robotics and Automation (ICRA) 2026, . The corresponding video can be found atthis https URL</details> | [PDF](https://arxiv.org/pdf/2511.10792) | [code1](https://www.youtube.com/watch?v=R73-YKWY78M) | - | <details><summary>总结</summary>大模型总结失败</details> |
+| From Framework to Reliable Practice: End-User Perspectives on Social Robots in Public Spaces | Samson Oruma |  | [PDF](https://arxiv.org/pdf/2511.10770) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Drone Swarm Energy Management | Michael Z. Zgurovsky | <details><summary>detail</summary>2 Figures</details> | [PDF](https://arxiv.org/pdf/2511.11557) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| RadAround: A Field-Expedient Direction Finder for Contested IoT Sensing & EM Situational Awareness | Owen A. Maute | <details><summary>detail</summary>. Cite as O. Maute, B. A. Roberts, and B. Peköz, "RadAround: A field-expedient direction finder for contested IoT sensing & EM situational awareness, " in Proc. 2025 IEEE Military Commun. Conf. (MILCOM), Los Angeles, USA, Oct. 2025, pp. 1-6</details> | [PDF](https://arxiv.org/pdf/2511.11392) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| 6D Strawberry Pose Estimation: Real-time and Edge AI Solutions Using Purely Synthetic Training Data | Saptarshi Neil Sinha |  | [PDF](https://arxiv.org/pdf/2511.11307) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Autonomous Vehicle Path Planning by Searching With Differentiable Simulation | Asen Nachkov |  | [PDF](https://arxiv.org/pdf/2511.11043) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Semantic VLM Dataset for Safe Autonomous Driving | Yuankai He |  | [PDF](https://arxiv.org/pdf/2511.10701) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| DualVision ArthroNav: Investigating Opportunities to Enhance Localization and Reconstruction in Image-based Arthroscopy Navigation via External Cameras | Hongchao Shu |  | [PDF](https://arxiv.org/pdf/2511.10699) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251114'></a>2025-11-14（24篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -37,6 +74,8 @@
 | PALMS+: Modular Image-Based Floor Plan Localization Leveraging Depth Foundation Model | Yunqian Cheng | <details><summary>detail</summary>Accepted to IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2026, Application Track. Main paper: . Supplementary material included</details> | [PDF](https://arxiv.org/pdf/2511.09724) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. Indoor localization in GPS-denied environments is critical for applications like emergency response and assistive navigation.  <br>2. Existing vision-based methods are limited by the short range of smartphone LiDAR and ambiguity in indoor layouts.  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. Prior work like PALMS enables stationary LiDAR scans for localization but is constrained by LiDAR range and geometric ambiguities.  <br>2. Other methods rely on extensive prior data collection or infrastructure, which is not always feasible.  <br><br>【提出了什么创新的方法】  <br>PALMS+ introduces a modular, image-based localization system that reconstructs 3D point clouds from RGB images using a monocular depth estimation model. It consists of two key modules: an observation module for depth estimation and a layout matching module for geometric feature matching with the floor plan. This system does not require LiDAR, making it compatible with standard smartphones. PALMS+ outputs a posterior density for user location and orientation, which can be utilized for both direct and sequential localization. The evaluation shows that PALMS+ outperforms previous methods in localization accuracy and robustness, demonstrating its potential for infrastructure-free applications.  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Improving dependability in robotized bolting operations | Lorenzo Pagliara |  | [PDF](https://arxiv.org/pdf/2511.10448) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Learning a Thousand Tasks in a Day | Kamil Dreczkowski | <details><summary>detail</summary>This is the author's version of the work. It is posted here by permission of the AAAS for personal use, not for redistribution. The definitive version was published in Science Robotics on 12 November 2025, DOI:this https URL. Link to project website:this https URL</details> | [PDF](https://arxiv.org/pdf/2511.10110) | [code1](https://www.science.org/doi/10.1126/scirobotics.adv7594)<br>[code2](https://www.robot-learning.uk/learning-1000-tasks) | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251113'></a>2025-11-13（22篇论文）</summary>
