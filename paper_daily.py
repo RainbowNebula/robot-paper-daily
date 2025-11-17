@@ -271,7 +271,7 @@ def call_llm_for_summary(title: str, abstract: str, introduction: str,relate_wor
         
         return {
             "summary": summary,
-            "score": score,  # 新增评分字段（1-5或0）
+            "score": score,  # 评分（1-5或0）
             "error": ""
         }
     except Exception as e:
