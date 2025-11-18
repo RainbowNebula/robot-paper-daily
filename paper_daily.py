@@ -488,7 +488,7 @@ def crawl_and_process_papers(initial_url: str, max_pages: Optional[int] = None) 
             is_duplicate = False
             for papers in all_papers_global.values():
                 for paper in papers:
-                    if paper.get("arxiv_html_link") == html_link and paper.get("llm_summary") == "大模型总结失败":
+                    if paper.get("arxiv_html_link") == html_link and paper.get("llm_summary") != "大模型总结失败":
                         is_duplicate = True
                         break
                 if is_duplicate:
