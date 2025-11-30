@@ -1,4 +1,4 @@
-# arXiv Robot 领域论文汇总（共139篇）
+# arXiv Robot 领域论文汇总（共135篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
@@ -8,7 +8,6 @@
 - [2025-11-26（77篇论文）](#date-20251126)
 - [2025-11-24（29篇论文）](#date-20251124)
 - [2025-11-23（2篇论文）](#date-20251123)
-- [2025-11-22（4篇论文）](#date-20251122)
 
 ## <a id='date-20251127'></a>2025-11-27（27篇论文）
 
@@ -169,18 +168,6 @@
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
-| Homogeneous Proportional-Integral-Derivative Controller in Mobile Robotic Manipulators | Luis Luna |  | [PDF](https://arxiv.org/pdf/2511.16406) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| The Shawshank Redemption of Embodied AI: Understanding and Benchmarking Indirect Environmental Jailbreaks | Chunyang Li |  | [PDF](https://arxiv.org/pdf/2511.16347) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251122'></a>2025-11-22（4篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| DynaMimicGen: A Data Generation Framework for Robot Learning of Dynamic Tasks | Vincenzo Pomponi |  | [PDF](https://arxiv.org/pdf/2511.16223) | - | ★★★★★ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 传统的模仿学习方法需要大量人类示范，收集过程耗时且不切实际。  <br>2. 如何在动态环境中生成大规模、高质量的机器人操作数据集，以支持有效的政策学习。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 以往的方法通常假设环境是静态的，难以适应动态任务设置。  <br>2. 现有方法依赖于人类示范中的变异性，缺乏对环境扰动的系统性考虑。  <br><br>【提出了什么创新的方法】  <br>DynaMimicGen (D-MG) 提出了一个新的数据生成框架，通过最少的人类示范（有时仅需一个示范）生成大规模的机器人操作数据集。该框架利用动态运动原语（DMPs）对示范行为进行编码，能够在动态环境中实时调整运动计划，适应物体位置或方向的变化。D-MG不仅增强了数据集的多样性，还提高了学习到的策略在复杂环境中的鲁棒性。实验表明，使用D-MG生成的数据训练的机器人代理在长时间和接触丰富的基准任务中表现出色，能够有效应对不可预测的环境变化。  <br><br>【相关性评分】  <br>分数：5分</details> |
-| Gimballed Rotor Mechanism for Omnidirectional Quadrotors | J. Cristobal | <details><summary>detail</summary>CASE 2025</details> | [PDF](https://arxiv.org/pdf/2511.15909) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 传统四旋翼无人机由于欠驱动，限制了其在复杂环境中的操作能力。  <br>2. 现有的全向四旋翼设计通常需要大量结构修改，影响轻便性和易集成性。  <br>3. 提高无人机的机动性、精确性和稳定性以适应复杂任务的需求。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 固定旋翼和倾斜旋翼设计提供全向控制，但存在效率低下和重量增加的问题。  <br>2. 现有的倾斜旋翼设计机械复杂且重，响应时间慢，增加了故障点。  <br>3. 现有设计通常需要对中央框架进行重大修改，降低了可修复性和可访问性。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一种万向旋翼机制，利用四个伺服电机直接连接到旋翼底座，简化了设计并保持了模块化和高效性。该设计在传统四旋翼框架上进行改造，允许旋翼在纵向和横向轴上倾斜，实现全向控制而无需大幅修改中央框架。通过使用小型高扭矩伺服电机，系统的响应速度得到了显著提升，同时降低了能耗。最终，实验验证了该设计在机动性和稳定性方面的有效性，展示了其在复杂环境中的应用潜力。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Homogeneous Proportional-Integral-Derivative Controller in Mobile Robotic Manipulators | Luis Luna |  | [PDF](https://arxiv.org/pdf/2511.16406) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | The Shawshank Redemption of Embodied AI: Understanding and Benchmarking Indirect Environmental Jailbreaks | Chunyang Li |  | [PDF](https://arxiv.org/pdf/2511.16347) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
