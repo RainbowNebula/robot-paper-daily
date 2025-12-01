@@ -1,4 +1,4 @@
-# arXiv Robot 领域论文汇总（共135篇）
+# arXiv Robot 领域论文汇总（共133篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
@@ -7,7 +7,6 @@
 - [2025-11-27（27篇论文）](#date-20251127)
 - [2025-11-26（77篇论文）](#date-20251126)
 - [2025-11-24（29篇论文）](#date-20251124)
-- [2025-11-23（2篇论文）](#date-20251123)
 
 ## <a id='date-20251127'></a>2025-11-27（27篇论文）
 
@@ -160,15 +159,5 @@
 | Reflection-Based Relative Localization for Cooperative UAV Teams Using Active Markers | Tim Lakemann |  | [PDF](https://arxiv.org/pdf/2511.17166) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 可靠的相对定位对于多机器人系统的协作任务至关重要。  <br>2. 现有的定位方法在动态和不规则表面上存在局限性。  <br>3. 需要一种不依赖于外部基础设施的定位解决方案，以提高操作灵活性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有方法如RTK和MoCap系统在特定环境中有效，但限制了无人机的操作空间。  <br>2. 许多视觉基础的定位方法依赖于预先定义的标记配置，限制了其灵活性。  <br>3. 反射基础的定位方法尚未在多机器人系统中得到充分探索。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一种基于表面反射的相对定位系统，利用通常被视为不利因素的反射来提高多机器人团队的定位精度。该方法不需要先验知识关于机器人大小或表面特性，能够在动态和不规则表面上可靠工作。通过考虑反射模式的扩散和传感器不确定性，该方法显著提高了定位的准确性和精度。实验结果表明，该方法在室内和室外环境中均表现优异，超越了现有的最先进方法，特别适用于微型无人机的近距离协作飞行。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | A*-based Temporal Logic Path Planning with User Preferences on Relaxed Task Satisfaction | Disha Kamale |  | [PDF](https://arxiv.org/pdf/2511.16844) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 复杂任务在大规模机器人环境中的时间效率规划需求日益增加。  <br>2. 在无法完全满足任务要求时，如何实现最佳的任务满意度成为关键问题。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 传统方法通过自动机、采样、优化或学习等技术处理时间逻辑规划，但在大规模环境中效率有限。  <br>2. 现有的放松方法多集中于单一放松策略，缺乏对多种用户偏好的综合考虑。  <br><br>【提出了什么创新的方法】  <br>我们提出了一种基于启发式的路径规划算法，结合用户的放松偏好和时间逻辑任务，旨在高效生成近似最优轨迹。该方法通过构建一个捕捉任务和用户偏好的放松规范自动机，显著减少了搜索节点的数量，提高了运行效率。通过广泛的案例研究，我们证明了该启发式方法在内存和计算时间上的显著改进，展示了其在复杂任务和大规模环境中的有效性。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | A segment anchoring-based balancing algorithm for agricultural multi-robot task allocation with energy constraints | Peng Chen |  | [PDF](https://arxiv.org/pdf/2511.17076) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 多机器人系统在农业中提高效率和降低成本的需求。  <br>2. 解决农业多机器人任务分配中的能量管理问题。  <br>3. 传统优化方法在动态负载和能量约束下的局限性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有研究主要集中在单次任务分配，未考虑多次操作和动态负载。  <br>2. 现有方法未能有效处理能量约束对任务调度的影响。  <br><br>【提出了什么创新的方法】  <br>本研究提出了基于段锚定的平衡算法（SABA），其核心在于两个机制的结合：顺序锚定和平衡机制，利用充电决策作为“锚”来系统性重构被能量约束打断的路径；比例分割基础的重平衡机制则负责对最终解决方案的makespan进行细致平衡和调整。通过在真实案例和基准实例上的广泛比较实验，SABA在解决收敛性和多样性方面全面超越了六种最先进的算法，展示了其在农业多机器人任务分配问题中的有效性和创新性。  <br><br>【相关性评分】  <br>分数：1分</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251123'></a>2025-11-23（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Homogeneous Proportional-Integral-Derivative Controller in Mobile Robotic Manipulators | Luis Luna |  | [PDF](https://arxiv.org/pdf/2511.16406) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| The Shawshank Redemption of Embodied AI: Understanding and Benchmarking Indirect Environmental Jailbreaks | Chunyang Li |  | [PDF](https://arxiv.org/pdf/2511.16347) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
