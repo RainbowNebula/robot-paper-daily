@@ -1,15 +1,25 @@
-# arXiv Robot 领域论文汇总（共143篇）
+# arXiv Robot 领域论文汇总（共146篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-12-06（3篇论文）](#date-20251206)
 - [2025-12-05（32篇论文）](#date-20251205)
 - [2025-12-04（37篇论文）](#date-20251204)
 - [2025-12-03（23篇论文）](#date-20251203)
 - [2025-12-02（51篇论文）](#date-20251202)
 
-## <a id='date-20251205'></a>2025-12-05（32篇论文）
+## <a id='date-20251206'></a>2025-12-06（3篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| On Disturbance-Aware Minimum-Time Trajectory Planning: Evidence from Tests on a Dynamic Driving Simulator | Matteo Masoni |  | [PDF](https://arxiv.org/pdf/2512.04917) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Embodied Co-Design for Rapidly Evolving Agents: Taxonomy, Frontiers, and Challenges | Yuxing Wang |  | [PDF](https://arxiv.org/pdf/2512.04770) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| FALCON: Actively Decoupled Visuomotor Policies for Loco-Manipulation with Foundation-Model-Based Coordination | Chengyang He |  | [PDF](https://arxiv.org/pdf/2512.04381) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251205'></a>2025-12-05（32篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -45,6 +55,8 @@
 | On Disturbance-Aware Minimum-Time Trajectory Planning: Evidence from Tests on a Dynamic Driving Simulator | Matteo Masoni |  | [PDF](https://arxiv.org/pdf/2512.04917) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Embodied Co-Design for Rapidly Evolving Agents: Taxonomy, Frontiers, and Challenges | Yuxing Wang |  | [PDF](https://arxiv.org/pdf/2512.04770) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | FALCON: Actively Decoupled Visuomotor Policies for Loco-Manipulation with Foundation-Model-Based Coordination | Chengyang He |  | [PDF](https://arxiv.org/pdf/2512.04381) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251204'></a>2025-12-04（37篇论文）</summary>
