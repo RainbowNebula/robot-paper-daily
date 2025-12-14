@@ -1,20 +1,29 @@
-# arXiv Robot 领域论文汇总（共115篇）
+# arXiv Robot 领域论文汇总（共112篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-12-14（1篇论文）](#date-20251214)
 - [2025-12-13（1篇论文）](#date-20251213)
 - [2025-12-12（32篇论文）](#date-20251212)
 - [2025-12-11（38篇论文）](#date-20251211)
 - [2025-12-10（40篇论文）](#date-20251210)
-- [2025-12-09（4篇论文）](#date-20251209)
 
-## <a id='date-20251213'></a>2025-12-13（1篇论文）
+## <a id='date-20251214'></a>2025-12-14（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Curriculum-Based Reinforcement Learning for Autonomous UAV Navigation in Unknown Curved Tubular Conduit | Zamirddine Mari |  | [PDF](https://arxiv.org/pdf/2512.10934) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251213'></a>2025-12-13（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Curriculum-Based Reinforcement Learning for Autonomous UAV Navigation in Unknown Curved Tubular Conduit | Zamirddine Mari |  | [PDF](https://arxiv.org/pdf/2512.10934) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251212'></a>2025-12-12（32篇论文）</summary>
@@ -147,17 +156,5 @@
 | Prospect Theory in Physical Human-Robot Interaction: A Pilot Study of Probability Perception | Yixiang Lin |  | [PDF](https://arxiv.org/pdf/2512.08481) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | A Multi-Agent LLM Framework for Design Space Exploration in Autonomous Driving Systems | Po-An Shih |  | [PDF](https://arxiv.org/pdf/2512.08476) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Chat with UAV -- Human-UAV Interaction Based on Large Language Models | Haoran Wang |  | [PDF](https://arxiv.org/pdf/2512.08145) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251209'></a>2025-12-09（4篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Physically-Based Simulation of Automotive LiDAR | L. Dudzik |  | [PDF](https://arxiv.org/pdf/2512.05932) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Optimal Safety-Aware Scheduling for Multi-Agent Aerial 3D Printing with Utility Maximization under Dependency Constraints | Marios-Nektarios Stamatopoulos |  | [PDF](https://arxiv.org/pdf/2512.05815) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Global stability of vehicle-with-driver dynamics via Sum-of-Squares programming | Martino Gulisano |  | [PDF](https://arxiv.org/pdf/2512.05806) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| An Integrated System for WEEE Sorting Employing X-ray Imaging, AI-based Object Detection and Segmentation, and Delta Robot Manipulation | Panagiotis Giannikos |  | [PDF](https://arxiv.org/pdf/2512.05599) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
