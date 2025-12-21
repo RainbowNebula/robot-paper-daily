@@ -1,20 +1,29 @@
-# arXiv Robot 领域论文汇总（共84篇）
+# arXiv Robot 领域论文汇总（共82篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-12-21（1篇论文）](#date-20251221)
 - [2025-12-20（1篇论文）](#date-20251220)
 - [2025-12-19（33篇论文）](#date-20251219)
 - [2025-12-18（20篇论文）](#date-20251218)
 - [2025-12-17（27篇论文）](#date-20251217)
-- [2025-12-16（3篇论文）](#date-20251216)
 
-## <a id='date-20251220'></a>2025-12-20（1篇论文）
+## <a id='date-20251221'></a>2025-12-21（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future | Tianshuai Hu | <details><summary>detail</summary>Preprint; ; GitHub atthis https URL</details> | [PDF](https://arxiv.org/pdf/2512.16760) | [code1](https://github.com/worldbench/awesome-vla-for-ad) | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251220'></a>2025-12-20（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future | Tianshuai Hu | <details><summary>detail</summary>Preprint; ; GitHub atthis https URL</details> | [PDF](https://arxiv.org/pdf/2512.16760) | [code1](https://github.com/worldbench/awesome-vla-for-ad) | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251219'></a>2025-12-19（33篇论文）</summary>
@@ -117,16 +126,5 @@
 | A Convex Obstacle Avoidance Formulation | Ricardo Tapia |  | [PDF](https://arxiv.org/pdf/2512.13836) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有的非线性模型预测控制器在动态环境中的碰撞避免能力不足。  <br>2. 现有的优化方法在时间关键场景中计算效率低，影响实时性能。  <br>3. 需要一种新的方法来处理障碍物在预测视野外的情况。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 传统的优化方法如潜在场方法和快速扩展随机树在动态环境中表现不佳。  <br>2. 现有的优化基于障碍物避免方法在处理非凸约束时效率低下，且通常需要障碍物在预测视野内。  <br>3. 现有方法在面对复杂的非线性动态时，难以保持高效的实时性能。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一种新的凸障碍物避免方法，称为放松凸障碍物避免（RCOA）。该方法通过利用凸性，增强了对无障碍轨迹的收敛性，并相较于非凸方法降低了计算复杂度。RCOA的一个关键特性是即使障碍物位于预测视野之外，仍能有效工作，从而允许更短的预测视野，提高计算效率。通过一系列仿真实验，RCOA在处理接近不可行的配置时表现出一致的性能，并在计算效率上与基准方法相当，甚至在某些情况下优于它们，展示了其在实时应用中的适用性。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Field evaluation and optimization of a lightweight lidar-based UAV navigation system for dense boreal forest environments | Aleksi Karhunen | <details><summary>detail</summary>This work has been submitted to the IEEE for possible publication</details> | [PDF](https://arxiv.org/pdf/2512.14340) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | ARCADE: Adaptive Robot Control with Online Changepoint-Aware Bayesian Dynamics Learning | Rishabh Dev Yadav |  | [PDF](https://arxiv.org/pdf/2512.14331) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251216'></a>2025-12-16（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| An Anatomy of Vision-Language-Action Models: From Modules to Milestones and Challenges | Chao Xu |  | [PDF](https://arxiv.org/pdf/2512.11362) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Design and Experimental Validation of Closed-Form CBF-Based Safe Control for Stewart Platform Under Multiple Constraints | Benedictus C. G. Cinun |  | [PDF](https://arxiv.org/pdf/2512.11125) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Two-dimensional Decompositions of High-dimensional Configurations for Efficient Multi-vehicle Coordination at Intelligent Intersections | Amirreza Akbari |  | [PDF](https://arxiv.org/pdf/2512.11713) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
