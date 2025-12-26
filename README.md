@@ -1,16 +1,26 @@
-# arXiv Robot 领域论文汇总（共73篇）
+# arXiv Robot 领域论文汇总（共76篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-12-26（4篇论文）](#date-20251226)
 - [2025-12-25（24篇论文）](#date-20251225)
 - [2025-12-24（17篇论文）](#date-20251224)
 - [2025-12-23（3篇论文）](#date-20251223)
 - [2025-12-22（28篇论文）](#date-20251222)
-- [2025-12-21（1篇论文）](#date-20251221)
 
-## <a id='date-20251225'></a>2025-12-25（24篇论文）
+## <a id='date-20251226'></a>2025-12-26（4篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Robust and Efficient MuJoCo-based Model Predictive Control via Web of Affine Spaces Derivatives | Chen Liang | <details><summary>detail</summary>Submitted to 2026 IEEE International Conference on Robotics & Automation (ICRA 2026)</details> | [PDF](https://arxiv.org/pdf/2512.21109) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Language-Guided Grasp Detection with Coarse-to-Fine Learning for Robotic Manipulation | Zebin Jiang | <details><summary>detail</summary>Submitted to IEEE Journal</details> | [PDF](https://arxiv.org/pdf/2512.21065) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Anytime Metaheuristic Framework for Global Route Optimization in Expected-Time Mobile Search | Jan Mikula(1 and 2) | <details><summary>detail</summary>(including subfigures); submitted to IEEE Transactions on Robotics (T-RO) in February 2025</details> | [PDF](https://arxiv.org/pdf/2512.20711) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Generalised Linear Models in Deep Bayesian RL with Learnable Basis Functions | Jingyang You |  | [PDF](https://arxiv.org/pdf/2512.20974) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251225'></a>2025-12-25（24篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -38,6 +48,8 @@
 | Language-Guided Grasp Detection with Coarse-to-Fine Learning for Robotic Manipulation | Zebin Jiang | <details><summary>detail</summary>Submitted to IEEE Journal</details> | [PDF](https://arxiv.org/pdf/2512.21065) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Anytime Metaheuristic Framework for Global Route Optimization in Expected-Time Mobile Search | Jan Mikula(1 and 2) | <details><summary>detail</summary>(including subfigures); submitted to IEEE Transactions on Robotics (T-RO) in February 2025</details> | [PDF](https://arxiv.org/pdf/2512.20711) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Generalised Linear Models in Deep Bayesian RL with Learnable Basis Functions | Jingyang You |  | [PDF](https://arxiv.org/pdf/2512.20974) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251224'></a>2025-12-24（17篇论文）</summary>
@@ -108,14 +120,5 @@
 | Deep Learning-based Robust Autonomous Navigation of Aerial Robots in Dense Forests | Guglielmo Del Col |  | [PDF](https://arxiv.org/pdf/2512.17553) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | ImagineNav++: Prompting Vision-Language Models as Embodied Navigator through Scene Imagination | Teng Wang | <details><summary>detail</summary>. arXiv admin note: text overlap witharXiv:2410.09874</details> | [PDF](https://arxiv.org/pdf/2512.17435) | [code1](https://arxiv.org/abs/2410.09874) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Personalized Gait Patterns During Exoskeleton-Aided Training May Have Minimal Effect on User Experience. Insights from a Pilot Study | Beatrice Luciani |  | [PDF](https://arxiv.org/pdf/2512.17425) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251221'></a>2025-12-21（1篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Vision-Language-Action Models for Autonomous Driving: Past, Present, and Future | Tianshuai Hu | <details><summary>detail</summary>Preprint; ; GitHub atthis https URL</details> | [PDF](https://arxiv.org/pdf/2512.16760) | [code1](https://github.com/worldbench/awesome-vla-for-ad) | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
