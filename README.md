@@ -1,16 +1,16 @@
-# arXiv Robot 领域论文汇总（共52篇）
+# arXiv Robot 领域论文汇总（共53篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2025-12-28（4篇论文）](#date-20251228)
 - [2025-12-27（4篇论文）](#date-20251227)
 - [2025-12-26（4篇论文）](#date-20251226)
 - [2025-12-25（24篇论文）](#date-20251225)
 - [2025-12-24（17篇论文）](#date-20251224)
-- [2025-12-23（3篇论文）](#date-20251223)
 
-## <a id='date-20251227'></a>2025-12-27（4篇论文）
+## <a id='date-20251228'></a>2025-12-28（4篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -18,6 +18,18 @@
 | Language-Guided Grasp Detection with Coarse-to-Fine Learning for Robotic Manipulation | Zebin Jiang | <details><summary>detail</summary>Submitted to IEEE Journal</details> | [PDF](https://arxiv.org/pdf/2512.21065) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Anytime Metaheuristic Framework for Global Route Optimization in Expected-Time Mobile Search | Jan Mikula(1 and 2) | <details><summary>detail</summary>(including subfigures); submitted to IEEE Transactions on Robotics (T-RO) in February 2025</details> | [PDF](https://arxiv.org/pdf/2512.20711) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Generalised Linear Models in Deep Bayesian RL with Learnable Basis Functions | Jingyang You |  | [PDF](https://arxiv.org/pdf/2512.20974) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20251227'></a>2025-12-27（4篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Robust and Efficient MuJoCo-based Model Predictive Control via Web of Affine Spaces Derivatives | Chen Liang | <details><summary>detail</summary>Submitted to 2026 IEEE International Conference on Robotics & Automation (ICRA 2026)</details> | [PDF](https://arxiv.org/pdf/2512.21109) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Language-Guided Grasp Detection with Coarse-to-Fine Learning for Robotic Manipulation | Zebin Jiang | <details><summary>detail</summary>Submitted to IEEE Journal</details> | [PDF](https://arxiv.org/pdf/2512.21065) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Anytime Metaheuristic Framework for Global Route Optimization in Expected-Time Mobile Search | Jan Mikula(1 and 2) | <details><summary>detail</summary>(including subfigures); submitted to IEEE Transactions on Robotics (T-RO) in February 2025</details> | [PDF](https://arxiv.org/pdf/2512.20711) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Generalised Linear Models in Deep Bayesian RL with Learnable Basis Functions | Jingyang You |  | [PDF](https://arxiv.org/pdf/2512.20974) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251226'></a>2025-12-26（4篇论文）</summary>
@@ -85,16 +97,5 @@
 | Finite-Time Control Based on Differential Flatness for Wheeled Mobile Robots with Experimental Validation | Imtiaz Ur Rehman |  | [PDF](https://arxiv.org/pdf/2512.20229) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 提高轮式移动机器人（WMR）在多种环境下的轨迹跟踪能力。  <br>2. 解决WMR在面对外部干扰时的控制稳定性问题。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 许多研究关注轨迹跟踪（TT），但未能有效应对外部干扰。  <br>2. 现有的滑模控制（SMC）算法虽然解决了鲁棒性问题，但缺乏有限时间收敛性（FTC）。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一种基于微分平坦性的积分非线性超平面滑模控制（INH-SMC）技术，首先将WMR的非线性运动模型转化为线性形式，以便于控制器设计。该方法结合了积分滑模控制和快速非奇异滑模控制的优点，通过引入滑模面来增强鲁棒性和快速收敛性。实验结果表明，该控制器在应对外部干扰时，能够实现精确的轨迹跟踪，并在鲁棒性和控制努力方面优于现有方法。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | A Class of Axis-Angle Attitude Control Laws for Rotational Systems | Francisco M. F. R. Gonçalves | <details><summary>detail</summary>. Accepted for publication in IEEE Control Systems Letters</details> | [PDF](https://arxiv.org/pdf/2512.19846) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有的姿态控制方法在稳定性和控制效果上存在局限性。  <br>2. 传统的四元数和几何方法在特定应用中不够灵活。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的控制器主要基于四元数、欧拉角或旋转矩阵，且各自存在特定的局限性。  <br>2. 传统方法在处理大旋转误差时表现不佳，且对控制策略的设计缺乏灵活性。  <br><br>【提出了什么创新的方法】  <br>提出了一种新的姿态控制法则，基于扩展的K∞函数和Lyapunov稳定性理论，推广了欧拉轴-角表示法。该方法允许用户根据平台和应用选择合适的比例控制函数，确保稳定性。通过仿真和实地测试，结果显示新方法在高速度翻滚恢复操作中，稳定时间更短，控制努力更低，相较于传统四元数和几何控制方法具有显著优势。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Enhancing annotations for 5D apple pose estimation through 3D Gaussian Splatting (3DGS) | Robert van de Ven | <details><summary>detail</summary>excluding appendices. 17 figures</details> | [PDF](https://arxiv.org/pdf/2512.20148) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251223'></a>2025-12-23（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Deep Learning-based Robust Autonomous Navigation of Aerial Robots in Dense Forests | Guglielmo Del Col |  | [PDF](https://arxiv.org/pdf/2512.17553) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| ImagineNav++: Prompting Vision-Language Models as Embodied Navigator through Scene Imagination | Teng Wang | <details><summary>detail</summary>. arXiv admin note: text overlap witharXiv:2410.09874</details> | [PDF](https://arxiv.org/pdf/2512.17435) | [code1](https://arxiv.org/abs/2410.09874) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Personalized Gait Patterns During Exoskeleton-Aided Training May Have Minimal Effect on User Experience. Insights from a Pilot Study | Beatrice Luciani |  | [PDF](https://arxiv.org/pdf/2512.17425) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
