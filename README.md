@@ -1,16 +1,24 @@
-# arXiv Robot 领域论文汇总（共115篇）
+# arXiv Robot 领域论文汇总（共113篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-01-02（2篇论文）](#date-20260102)
 - [2026-01-01（46篇论文）](#date-20260101)
 - [2025-12-31（42篇论文）](#date-20251231)
 - [2025-12-30（3篇论文）](#date-20251230)
 - [2025-12-29（20篇论文）](#date-20251229)
-- [2025-12-28（4篇论文）](#date-20251228)
 
-## <a id='date-20260101'></a>2026-01-01（46篇论文）
+## <a id='date-20260102'></a>2026-01-02（2篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Foundation models on the bridge: Semantic hazard detection and safety maneuvers for maritime autonomy with vision-language models | Kim Alexander Christensen | <details><summary>detail</summary>without bibliography or appendix. The main paper has 16 figures</details> | [PDF](https://arxiv.org/pdf/2512.24470) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| MSACL: Multi-Step Actor-Critic Learning with Lyapunov Certificates for Exponentially Stabilizing Control | Yongwei Zhang |  | [PDF](https://arxiv.org/pdf/2512.24955) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260101'></a>2026-01-01（46篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -60,6 +68,8 @@
 | Safe Sliding Mode Control for Marine Vessels Using High-Order Control Barrier Functions and Fast Projection | Spyridon Syntakas |  | [PDF](https://arxiv.org/pdf/2512.24281) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：如何在强环境干扰下实现海洋船舶的安全导航。  <br>2. 核心问题2：现有的滑模控制(SMC)方法缺乏对障碍物的安全保证。  <br>3. 核心问题3：标准的控制屏障函数(CBF)方法在嵌入式系统中计算复杂度过高。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. SMC在海洋操作中提供了对匹配干扰的鲁棒性，但未能提供安全保证。  <br>2. CBF在机器人和自动驾驶中得到广泛应用，但与SMC的结合在海洋船舶中尚未得到充分研究。  <br>3. 现有的CBF-QP方法计算复杂，难以在资源受限的嵌入式系统中实现。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一种安全滑模控制框架，结合了滑模控制(SMC)和高阶控制屏障函数(HOCBF)，并采用快速投影方法替代标准的CBF-QP。该方法在一个完全非线性的3-DOF海洋动力学模型上实现，确保了在强环境干扰下的安全性和鲁棒性。通过Lyapunov分析，证明了滑模表面的稳定性和安全集的前向不变性。仿真结果显示，该框架在保证障碍物避免的同时，具备实时性能和计算效率，适用于安全关键的控制任务。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Foundation models on the bridge: Semantic hazard detection and safety maneuvers for maritime autonomy with vision-language models | Kim Alexander Christensen | <details><summary>detail</summary>without bibliography or appendix. The main paper has 16 figures</details> | [PDF](https://arxiv.org/pdf/2512.24470) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | MSACL: Multi-Step Actor-Critic Learning with Lyapunov Certificates for Exponentially Stabilizing Control | Yongwei Zhang |  | [PDF](https://arxiv.org/pdf/2512.24955) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20251231'></a>2025-12-31（42篇论文）</summary>
@@ -147,17 +157,5 @@
 | Online Inertia Parameter Estimation for Unknown Objects Grasped by a Manipulator Towards Space Applications | Akiyoshi Uchida | <details><summary>detail</summary>Author's version of a manuscript accepted at the International Conference on Space Robotics 2025 (iSpaRo 2025). (c) IEEE</details> | [PDF](https://arxiv.org/pdf/2512.21886) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | MoonBot: Modular and On-Demand Reconfigurable Robot Toward Moon Base Construction | Kentaro Uno | <details><summary>detail</summary>This is the authors' version of a paper accepted for publication in IEEE Transactions on Field Robotics, (c) IEEE. The final published version is available atthis https URL</details> | [PDF](https://arxiv.org/pdf/2512.21853) | [code1](https://doi.org/10.1109/TFR.2025.3624346) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Developing a Fundamental Diagram for Urban Air Mobility Based on Physical Experiments | Hang Zhou |  | [PDF](https://arxiv.org/pdf/2512.21425) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251228'></a>2025-12-28（4篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Robust and Efficient MuJoCo-based Model Predictive Control via Web of Affine Spaces Derivatives | Chen Liang | <details><summary>detail</summary>Submitted to 2026 IEEE International Conference on Robotics & Automation (ICRA 2026)</details> | [PDF](https://arxiv.org/pdf/2512.21109) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Language-Guided Grasp Detection with Coarse-to-Fine Learning for Robotic Manipulation | Zebin Jiang | <details><summary>detail</summary>Submitted to IEEE Journal</details> | [PDF](https://arxiv.org/pdf/2512.21065) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Anytime Metaheuristic Framework for Global Route Optimization in Expected-Time Mobile Search | Jan Mikula(1 and 2) | <details><summary>detail</summary>(including subfigures); submitted to IEEE Transactions on Robotics (T-RO) in February 2025</details> | [PDF](https://arxiv.org/pdf/2512.20711) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Generalised Linear Models in Deep Bayesian RL with Learnable Basis Functions | Jingyang You |  | [PDF](https://arxiv.org/pdf/2512.20974) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
