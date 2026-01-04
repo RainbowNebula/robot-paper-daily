@@ -1,21 +1,31 @@
-# arXiv Robot 领域论文汇总（共95篇）
+# arXiv Robot 领域论文汇总（共94篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-01-04（2篇论文）](#date-20260104)
 - [2026-01-03（2篇论文）](#date-20260103)
 - [2026-01-02（2篇论文）](#date-20260102)
 - [2026-01-01（46篇论文）](#date-20260101)
 - [2025-12-31（42篇论文）](#date-20251231)
-- [2025-12-30（3篇论文）](#date-20251230)
 
-## <a id='date-20260103'></a>2026-01-03（2篇论文）
+## <a id='date-20260104'></a>2026-01-04（2篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Foundation models on the bridge: Semantic hazard detection and safety maneuvers for maritime autonomy with vision-language models | Kim Alexander Christensen | <details><summary>detail</summary>without bibliography or appendix. The main paper has 16 figures</details> | [PDF](https://arxiv.org/pdf/2512.24470) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | MSACL: Multi-Step Actor-Critic Learning with Lyapunov Certificates for Exponentially Stabilizing Control | Yongwei Zhang |  | [PDF](https://arxiv.org/pdf/2512.24955) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260103'></a>2026-01-03（2篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Foundation models on the bridge: Semantic hazard detection and safety maneuvers for maritime autonomy with vision-language models | Kim Alexander Christensen | <details><summary>detail</summary>without bibliography or appendix. The main paper has 16 figures</details> | [PDF](https://arxiv.org/pdf/2512.24470) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| MSACL: Multi-Step Actor-Critic Learning with Lyapunov Certificates for Exponentially Stabilizing Control | Yongwei Zhang |  | [PDF](https://arxiv.org/pdf/2512.24955) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260102'></a>2026-01-02（2篇论文）</summary>
@@ -128,16 +138,5 @@
 | Two-Robot Computational Landscape: A Complete Characterization of Model Power in Minimal Mobile Robot Systems | Naoki Kitamura |  | [PDF](https://arxiv.org/pdf/2512.22770) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Active Constraint Learning in High Dimensions from Demonstrations | Zheng Qiu | <details><summary>detail</summary>Under review</details> | [PDF](https://arxiv.org/pdf/2512.22757) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Evaluating an Adaptive Multispectral Turret System for Autonomous Tracking Across Variable Illumination Conditions | Aahan Sachdeva |  | [PDF](https://arxiv.org/pdf/2512.22263) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20251230'></a>2025-12-30（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Online Inertia Parameter Estimation for Unknown Objects Grasped by a Manipulator Towards Space Applications | Akiyoshi Uchida | <details><summary>detail</summary>Author's version of a manuscript accepted at the International Conference on Space Robotics 2025 (iSpaRo 2025). (c) IEEE</details> | [PDF](https://arxiv.org/pdf/2512.21886) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| MoonBot: Modular and On-Demand Reconfigurable Robot Toward Moon Base Construction | Kentaro Uno | <details><summary>detail</summary>This is the authors' version of a paper accepted for publication in IEEE Transactions on Field Robotics, (c) IEEE. The final published version is available atthis https URL</details> | [PDF](https://arxiv.org/pdf/2512.21853) | [code1](https://doi.org/10.1109/TFR.2025.3624346) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Developing a Fundamental Diagram for Urban Air Mobility Based on Physical Experiments | Hang Zhou |  | [PDF](https://arxiv.org/pdf/2512.21425) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
