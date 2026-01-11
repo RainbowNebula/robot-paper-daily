@@ -1,21 +1,31 @@
-# arXiv Robot 领域论文汇总（共84篇）
+# arXiv Robot 领域论文汇总（共85篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-01-11（2篇论文）](#date-20260111)
 - [2026-01-10（2篇论文）](#date-20260110)
 - [2026-01-09（27篇论文）](#date-20260109)
 - [2026-01-08（24篇论文）](#date-20260108)
 - [2026-01-07（30篇论文）](#date-20260107)
-- [2026-01-06（1篇论文）](#date-20260106)
 
-## <a id='date-20260110'></a>2026-01-10（2篇论文）
+## <a id='date-20260111'></a>2026-01-11（2篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | The RoboSense Challenge: Sense Anything, Navigate Anywhere, Adapt Across Platforms | Lingdong Kong | <details><summary>detail</summary>Official IROS 2025 RoboSense Challenge Report; ; Competition Website atthis https URL</details> | [PDF](https://arxiv.org/pdf/2601.05014) | [code1](https://robosense2025.github.io/) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Online Action-Stacking Improves Reinforcement Learning Performance for Air Traffic Control | Ben Carvell |  | [PDF](https://arxiv.org/pdf/2601.04287) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260110'></a>2026-01-10（2篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| The RoboSense Challenge: Sense Anything, Navigate Anywhere, Adapt Across Platforms | Lingdong Kong | <details><summary>detail</summary>Official IROS 2025 RoboSense Challenge Report; ; Competition Website atthis https URL</details> | [PDF](https://arxiv.org/pdf/2601.05014) | [code1](https://robosense2025.github.io/) | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Online Action-Stacking Improves Reinforcement Learning Performance for Air Traffic Control | Ben Carvell |  | [PDF](https://arxiv.org/pdf/2601.04287) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260109'></a>2026-01-09（27篇论文）</summary>
@@ -119,14 +129,5 @@
 | Making Infeasible Tasks Feasible: Planning to Reconfigure Disconnected 3D Environments with Movable Objects | Samarth Kalluraya |  | [PDF](https://arxiv.org/pdf/2601.02645) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Modeling the Mental World for Embodied AI: A Comprehensive Review | Biyuan Liu |  | [PDF](https://arxiv.org/pdf/2601.02378) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Nonlinear Spectral Modeling and Control of Soft-Robotic Muscles from Data | Leonardo Bettini |  | [PDF](https://arxiv.org/pdf/2601.03247) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260106'></a>2026-01-06（1篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| NMPC-Augmented Visual Navigation and Safe Learning Control for Large-Scale Mobile Robots | Mehdi Heydari Shahna |  | [PDF](https://arxiv.org/pdf/2601.00609) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
