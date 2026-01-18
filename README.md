@@ -4,17 +4,26 @@
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-01-18（1篇论文）](#date-20260118)
 - [2026-01-17（1篇论文）](#date-20260117)
 - [2026-01-16（20篇论文）](#date-20260116)
 - [2026-01-15（15篇论文）](#date-20260115)
 - [2026-01-14（24篇论文）](#date-20260114)
-- [2026-01-13（1篇论文）](#date-20260113)
 
-## <a id='date-20260117'></a>2026-01-17（1篇论文）
+## <a id='date-20260118'></a>2026-01-18（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | A Unified Framework for Kinematic Simulation of Rigid Foldable Structures | Dongwook Kwak | <details><summary>detail</summary>(main text), 11 figures (7 in main text, 4 in appendix)</details> | [PDF](https://arxiv.org/pdf/2601.10225) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260117'></a>2026-01-17（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| A Unified Framework for Kinematic Simulation of Rigid Foldable Structures | Dongwook Kwak | <details><summary>detail</summary>(main text), 11 figures (7 in main text, 4 in appendix)</details> | [PDF](https://arxiv.org/pdf/2601.10225) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260116'></a>2026-01-16（20篇论文）</summary>
@@ -96,14 +105,5 @@
 | Efficient Incremental SLAM via Information-Guided and Selective Optimization | Reza Arablouei |  | [PDF](https://arxiv.org/pdf/2601.08110) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有SLAM方法在动态数据丰富环境中面临计算成本高和实时性能下降的问题。  <br>2. 传统的增量SLAM方法在处理大量冗余测量时效率低下，难以保持全局一致性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 早期SLAM算法主要基于递归滤波，存在复杂度高和一致性下降的问题。  <br>2. 增量SLAM方法如iSAM和iSAM2虽然提高了实时更新能力，但仍需定期进行全局优化，影响效率。  <br>3. 信息驱动的图稀疏化方法虽能节省计算，但可能导致一致性丧失，且通常在离线或预处理阶段进行。  <br><br>【提出了什么创新的方法】  <br>我们提出了一种高效的增量SLAM框架，直接将基于信息的变量选择集成到优化后端，避免不必要的计算，同时保持全局一致性。该方法包括两个关键组件：  <br>1. 信息引导门控（IGG）：基于信息矩阵的对数行列式变化监控新测量的贡献，仅在信息增益超过阈值时触发全局更新。  <br>2. 选择性部分优化（SPO）：在每次迭代中，仅更新和重新线性化尚未收敛的变量，动态调整计算重点。  <br>通过理论分析，我们证明了该方法在标准光滑假设下保持与全GN相同的收敛性质。  <br>该方法在保持全测量的同时，限制优化于最具影响力的更新，结果是一个鲁棒且可扩展的SLAM后端，以较低的计算成本实现批处理级别的准确性。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Keyframe-based Dense Mapping with the Graph of View-Dependent Local Maps | Krzysztof Zielinski | <details><summary>detail</summary>Accepted in ICRA 2020</details> | [PDF](https://arxiv.org/pdf/2601.08520) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Safe Heterogeneous Multi-Agent RL with Communication Regularization for Coordinated Target Acquisition | Gabriele Calzolari(1) | <details><summary>detail</summary>submitted to the IFAC World Congress 2026</details> | [PDF](https://arxiv.org/pdf/2601.08327) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260113'></a>2026-01-13（1篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| PRISM: Protocol Refinement through Intelligent Simulation Modeling | Brian Hsu | <details><summary>detail</summary>submitted to RSC Digital Discovery. Equal contribution: B. Hsu, P.V. Setty, R.M. Butler. Corresponding author: A. Ramanathan</details> | [PDF](https://arxiv.org/pdf/2601.05356) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
