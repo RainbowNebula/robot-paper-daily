@@ -4,19 +4,30 @@
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-01-25（3篇论文）](#date-20260125)
 - [2026-01-24（3篇论文）](#date-20260124)
 - [2026-01-23（25篇论文）](#date-20260123)
 - [2026-01-22（31篇论文）](#date-20260122)
 - [2026-01-21（3篇论文）](#date-20260121)
-- [2026-01-20（3篇论文）](#date-20260120)
 
-## <a id='date-20260124'></a>2026-01-24（3篇论文）
+## <a id='date-20260125'></a>2026-01-25（3篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | D-Optimality-Guided Reinforcement Learning for Efficient Open-Loop Calibration of a 3-DOF Ankle Rehabilitation Robot | Qifan Hu |  | [PDF](https://arxiv.org/pdf/2601.15707) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Neural Collision Detection for Multi-arm Laparoscopy Surgical Robots Through Learning-from-Simulation | Sarvin Ghiasi |  | [PDF](https://arxiv.org/pdf/2601.15459) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Learning a Unified Latent Space for Cross-Embodiment Robot Control | Yashuai Yan |  | [PDF](https://arxiv.org/pdf/2601.15419) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260124'></a>2026-01-24（3篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| D-Optimality-Guided Reinforcement Learning for Efficient Open-Loop Calibration of a 3-DOF Ankle Rehabilitation Robot | Qifan Hu |  | [PDF](https://arxiv.org/pdf/2601.15707) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Neural Collision Detection for Multi-arm Laparoscopy Surgical Robots Through Learning-from-Simulation | Sarvin Ghiasi |  | [PDF](https://arxiv.org/pdf/2601.15459) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Learning a Unified Latent Space for Cross-Embodiment Robot Control | Yashuai Yan |  | [PDF](https://arxiv.org/pdf/2601.15419) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260123'></a>2026-01-23（25篇论文）</summary>
@@ -92,17 +103,6 @@
 
 <details>
 <summary><a id='date-20260121'></a>2026-01-21（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Approximately Optimal Global Planning for Contact-Rich SE(2) Manipulation on a Graph of Reachable Sets | Simin Liu | <details><summary>detail</summary>under submission to IEEE Transactions on Robotics</details> | [PDF](https://arxiv.org/pdf/2601.10827) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| A Survey of Real-Time Support, Analysis, and Advancements in ROS 2 | Daniel Casini |  | [PDF](https://arxiv.org/pdf/2601.10722) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Learning-Based Shrinking Disturbance-Invariant Tubes for State- and Input-Dependent Uncertainty | Abdelrahman Ramadan |  | [PDF](https://arxiv.org/pdf/2601.11426) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260120'></a>2026-01-20（3篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
