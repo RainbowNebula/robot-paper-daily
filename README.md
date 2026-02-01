@@ -1,20 +1,29 @@
-# arXiv Robot 领域论文汇总（共102篇）
+# arXiv Robot 领域论文汇总（共101篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-02-01（1篇论文）](#date-20260201)
 - [2026-01-31（1篇论文）](#date-20260131)
 - [2026-01-30（38篇论文）](#date-20260130)
 - [2026-01-29（20篇论文）](#date-20260129)
 - [2026-01-28（41篇论文）](#date-20260128)
-- [2026-01-27（2篇论文）](#date-20260127)
 
-## <a id='date-20260131'></a>2026-01-31（1篇论文）
+## <a id='date-20260201'></a>2026-02-01（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Flocking behavior for dynamic and complex swarm structures | Carmen D. R. Pita-Romero |  | [PDF](https://arxiv.org/pdf/2601.21772) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260131'></a>2026-01-31（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Flocking behavior for dynamic and complex swarm structures | Carmen D. R. Pita-Romero |  | [PDF](https://arxiv.org/pdf/2601.21772) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260130'></a>2026-01-30（38篇论文）</summary>
@@ -136,15 +145,5 @@
 | Estimating Trust in Human-Robot Collaboration through Behavioral Indicators and Explainability | Giulio Campagna |  | [PDF](https://arxiv.org/pdf/2601.19856) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Information-Theoretic Detection of Bimanual Interactions for Dual-Arm Robot Plan Generation | Elena Merlo |  | [PDF](https://arxiv.org/pdf/2601.19832) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | DeFM: Learning Foundation Representations from Depth for Robotics | Manthan Patel | <details><summary>detail</summary>Under review</details> | [PDF](https://arxiv.org/pdf/2601.18923) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260127'></a>2026-01-27（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Scalable Screw-Theoretic Synthesis for PDE-Based Dynamic Modeling of Multibody Flexible Manipulators | S. Yaqubi |  | [PDF](https://arxiv.org/pdf/2601.16242) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| An Efficient Insect-inspired Approach for Visual Point-goal Navigation | Lu Yihe |  | [PDF](https://arxiv.org/pdf/2601.16806) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
