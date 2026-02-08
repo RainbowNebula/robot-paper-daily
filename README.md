@@ -1,22 +1,33 @@
-# arXiv Robot 领域论文汇总（共156篇）
+# arXiv Robot 领域论文汇总（共155篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-02-08（3篇论文）](#date-20260208)
 - [2026-02-07（3篇论文）](#date-20260207)
 - [2026-02-06（44篇论文）](#date-20260206)
 - [2026-02-05（46篇论文）](#date-20260205)
 - [2026-02-04（59篇论文）](#date-20260204)
-- [2026-02-03（4篇论文）](#date-20260203)
 
-## <a id='date-20260207'></a>2026-02-07（3篇论文）
+## <a id='date-20260208'></a>2026-02-08（3篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | From Vision to Decision: Neuromorphic Control for Autonomous Navigation and Tracking | Chuwei Wang |  | [PDF](https://arxiv.org/pdf/2602.05683) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Location-Aware Dispersion on Anonymous Graphs | Himani | <details><summary>detail</summary>3 tables, 2 figures, 6 pseudo-codes</details> | [PDF](https://arxiv.org/pdf/2602.05948) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | MerNav: A Highly Generalizable Memory-Execute-Review Framework for Zero-Shot Object Goal Navigation | Dekang Qi | <details><summary>detail</summary>conference</details> | [PDF](https://arxiv.org/pdf/2602.05467) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260207'></a>2026-02-07（3篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| From Vision to Decision: Neuromorphic Control for Autonomous Navigation and Tracking | Chuwei Wang |  | [PDF](https://arxiv.org/pdf/2602.05683) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Location-Aware Dispersion on Anonymous Graphs | Himani | <details><summary>detail</summary>3 tables, 2 figures, 6 pseudo-codes</details> | [PDF](https://arxiv.org/pdf/2602.05948) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| MerNav: A Highly Generalizable Memory-Execute-Review Framework for Zero-Shot Object Goal Navigation | Dekang Qi | <details><summary>detail</summary>conference</details> | [PDF](https://arxiv.org/pdf/2602.05467) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260206'></a>2026-02-06（44篇论文）</summary>
@@ -188,17 +199,5 @@
 | Formal Evidence Generation for Assurance Cases for Robotic Software Models | Fang Yan | <details><summary>detail</summary>This is a preprint. The paper is currently under review at Software and Systems Modeling</details> | [PDF](https://arxiv.org/pdf/2602.03550) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Towards Considerate Embodied AI: Co-Designing Situated Multi-Site Healthcare Robots from Abstract Concepts to High-Fidelity Prototypes | Yuanchen Bai | <details><summary>detail</summary>To appear in Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI 2026)</details> | [PDF](https://arxiv.org/pdf/2602.03054) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Sub-optimality bounds for certainty equivalent policies in partially observed systems | Berk Bozkurt |  | [PDF](https://arxiv.org/pdf/2602.02814) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260203'></a>2026-02-03（4篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Toward Fully Autonomous Driving: AI, Challenges, Opportunities, and Needs | Lars Ullrich | <details><summary>detail</summary>Published in IEEE Access, 29 January 2026</details> | [PDF](https://arxiv.org/pdf/2601.22927) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Robust Rigid Body Assembly via Contact-Implicit Optimal Control with Exact Second-Order Derivatives | Christian Dietz | <details><summary>detail</summary>Submitted to Transactions on Robotics</details> | [PDF](https://arxiv.org/pdf/2601.22849) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Postural Virtual Fixtures for Ergonomic Physical Interactions with Supernumerary Robotic Bodies | Theodora Kastritsi | <details><summary>detail</summary>Published in The International Journal of Robotics Research</details> | [PDF](https://arxiv.org/pdf/2601.22672) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Advanced techniques and applications of LiDAR Place Recognition in Agricultural Environments: A Comprehensive Survey | Judith Vilella-Cantos |  | [PDF](https://arxiv.org/pdf/2601.22198) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
