@@ -1,16 +1,23 @@
-# arXiv Robot 领域论文汇总（共169篇）
+# arXiv Robot 领域论文汇总（共167篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-02-14（1篇论文）](#date-20260214)
 - [2026-02-13（41篇论文）](#date-20260213)
 - [2026-02-12（40篇论文）](#date-20260212)
 - [2026-02-11（45篇论文）](#date-20260211)
 - [2026-02-09（40篇论文）](#date-20260209)
-- [2026-02-08（3篇论文）](#date-20260208)
 
-## <a id='date-20260213'></a>2026-02-13（41篇论文）
+## <a id='date-20260214'></a>2026-02-14（1篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| ABot-M0: VLA Foundation Model for Robotic Manipulation with Action Manifold Learning | Yandan Yang | <details><summary>detail</summary>Project website:this https URL. Code:this https URL.</details> | [PDF](https://arxiv.org/pdf/2602.11236) | [code1](https://amap-cvlab.github.io/ABot-Manipulation/)<br>[code2](https://github.com/amap-cvlab/ABot-Manipulation) | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260213'></a>2026-02-13（41篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -55,6 +62,8 @@
 | Data-Driven Trajectory Imputation for Vessel Mobility Analysis | Giannis Spiliopoulos | <details><summary>detail</summary>International Conference on Extending Database Technology (EDBT 2026)</details> | [PDF](https://arxiv.org/pdf/2602.11890) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有AIS数据存在大量缺失，影响海洋活动分析的准确性。  <br>2. 船舶运动模式与传统车辆显著不同，现有插补方法不适用。  <br>3. 需要高质量的轨迹数据以支持海事决策和监控。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的轨迹插补技术主要针对地面交通，未考虑海洋环境的特殊性。  <br>2. 许多方法依赖于固定的道路网络，无法适应海上动态变化的航行模式。  <br><br>【提出了什么创新的方法】  <br>我们提出了HABIT，一个基于H3聚合的轻量级插补框架，专门用于船舶轨迹的缺失段插补。该方法通过提取和分析历史AIS数据中的运动模式，利用空间聚合来填补缺失的轨迹段。HABIT能够生成可导航的路径，避免了不切实际的插补结果。我们的实证研究表明，HABIT在准确性和延迟方面优于基线方法，同时考虑了船舶特性和运动模式，显著提升了轨迹数据的质量和实用性。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | GSO-SLAM: Bidirectionally Coupled Gaussian Splatting and Direct Visual Odometry | Jiung Yeon | <details><summary>detail</summary>RA-L accepted</details> | [PDF](https://arxiv.org/pdf/2602.11714) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有SLAM方法在跟踪和映射之间的耦合存在计算开销或冗余。  <br>2. 需要实现实时的几何准确的密集重建以满足机器人和增强现实的需求。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的密集表示SLAM方法如SDF和surfels在计算效率上存在局限。  <br>2. INR-based SLAM方法虽然提供更细致的重建，但因高计算成本限制了实时应用。  <br>3. 先前的GS方法虽然有效，但在跟踪和映射的耦合上仍存在性能瓶颈。  <br><br>【提出了什么创新的方法】  <br>我们提出了一种基于GS的密集表示SLAM，采用双向耦合的优化方法，结合视觉里程计（VO）和GS，利用期望最大化（EM）框架实现无额外计算开销的联合优化。通过引入高斯斑点初始化策略，充分利用VO的输出，显著加速收敛并提高重建精度。我们的系统在实时操作中实现了最先进的几何和光度保真度，验证了其有效性。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | ABot-M0: VLA Foundation Model for Robotic Manipulation with Action Manifold Learning | Yandan Yang | <details><summary>detail</summary>Project website:this https URL. Code:this https URL.</details> | [PDF](https://arxiv.org/pdf/2602.11236) | [code1](https://amap-cvlab.github.io/ABot-Manipulation/)<br>[code2](https://github.com/amap-cvlab/ABot-Manipulation) | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260212'></a>2026-02-12（40篇论文）</summary>
@@ -202,16 +211,5 @@
 | Dynamic Modeling, Parameter Identification and Numerical Analysis of Flexible Cables in Flexibly Connected Dual-AUV Systems | Kuo Chen |  | [PDF](https://arxiv.org/pdf/2602.06087) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 维护柔性电缆在复杂水动力条件下的稳定配置和可控载荷是拖曳系统性能的关键挑战。  <br>2. 现有的动态建模和参数识别方法在处理双AUV系统的非线性动态行为时存在不足。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 传统方法如有限元法和有限差分法在简化假设下建立模型，未能准确反映双AUV系统的实际状态。  <br>2. 现有研究主要集中于简化条件下的阻力系数识别，缺乏对等效杨氏模量的关注。  <br><br>【提出了什么创新的方法】  <br>本研究提出了一个统一的动态建模和参数识别框架，首先使用集中质量法对电缆进行离散化，结合轴向弹性、弯曲刚度等因素，建立非线性多体动态方程。其次，基于水槽实验数据构建参数反演的适应度函数，使用遗传算法识别等效杨氏模量和水动力系数。最后，通过模拟分析探讨不同材料属性和边界条件的影响。研究结果表明，柔性电缆在“松弛”和“拉紧”两种状态下表现出显著的非线性特征，影响系统的形成稳定性和峰值力响应。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | DriveWorld-VLA: Unified Latent-Space World Modeling with Vision-Language-Action for Autonomous Driving | Feiyang jia | <details><summary>detail</summary>12 figures</details> | [PDF](https://arxiv.org/pdf/2602.06521) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有的自主驾驶方法未能有效统一未来场景演变和动作规划。  <br>2. 现有方法在长远推理和因果理解方面存在局限性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的解耦交互方法将世界模型视为外部模拟器，导致VLA无法内化物理法则。  <br>2. 特征共享方法未能充分利用世界模型的因果推理能力，限制了主动规划的能力。  <br><br>【提出了什么创新的方法】  <br>DriveWorld-VLA提出了一种统一框架，通过以下三项核心创新实现VLA与世界模型的紧密结合：  <br>1. 特征级共享利用大语言模型的隐藏状态作为共享潜在空间，帮助内化物理法则和环境动态。  <br>2. 动作条件的“假设”推理使用扩散变换器架构进行候选动作的前瞻性评估，促进从反应式规划到主动优化的转变。  <br>3. 三阶段渐进训练范式通过顺序对齐多模态感知与BEV生成，稳定联合优化过程。  <br>通过广泛的开放环路和闭环评估，DriveWorld-VLA在推理准确性和安全规划方面显著超越了现有基线，达到了91.3 PDMS的NAVSIMv1表现。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Addressing the Waypoint-Action Gap in End-to-End Autonomous Driving via Vehicle Motion Models | Jorge Daniel Rodríguez-Vidal |  | [PDF](https://arxiv.org/pdf/2602.06214) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. E2E-AD系统的研究逐渐偏向于基于waypoint的方法，导致action-based策略的训练和比较变得困难。  <br>2. 现有的基准测试只支持waypoint模型，无法公平评估action-based策略。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 先前的研究主要集中在waypoint-based模型，忽视了action-based模型的潜力。  <br>2. 现有的基准测试缺乏支持action-based策略的机制，导致两者的比较不公平。  <br><br>【提出了什么创新的方法】  <br>我们提出了一种新颖的可微分车辆模型框架，通过将低级控制输出（如油门、转向和刹车）提升为waypoint轨迹，从而弥合了waypoint和action之间的差距。该方法允许action-based架构在不修改现有基准测试协议的情况下进行训练和评估。我们在多个具有挑战性的基准上进行了广泛评估，观察到与基线相比的一致性改进，特别是在NAVSIM navhard上实现了最先进的性能。我们的框架不仅提高了评估的稳定性和闭环性能，还增强了与驾驶结果的相关性。  <br><br>【相关性评分】  <br>分数：1分</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260208'></a>2026-02-08（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| From Vision to Decision: Neuromorphic Control for Autonomous Navigation and Tracking | Chuwei Wang |  | [PDF](https://arxiv.org/pdf/2602.05683) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Location-Aware Dispersion on Anonymous Graphs | Himani | <details><summary>detail</summary>3 tables, 2 figures, 6 pseudo-codes</details> | [PDF](https://arxiv.org/pdf/2602.05948) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| MerNav: A Highly Generalizable Memory-Execute-Review Framework for Zero-Shot Object Goal Navigation | Dekang Qi | <details><summary>detail</summary>conference</details> | [PDF](https://arxiv.org/pdf/2602.05467) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
