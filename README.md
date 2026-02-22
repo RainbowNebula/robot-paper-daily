@@ -1,20 +1,29 @@
-# arXiv Robot 领域论文汇总（共110篇）
+# arXiv Robot 领域论文汇总（共109篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-02-22（1篇论文）](#date-20260222)
 - [2026-02-21（1篇论文）](#date-20260221)
 - [2026-02-20（33篇论文）](#date-20260220)
 - [2026-02-19（42篇论文）](#date-20260219)
 - [2026-02-18（32篇论文）](#date-20260218)
-- [2026-02-17（2篇论文）](#date-20260217)
 
-## <a id='date-20260221'></a>2026-02-21（1篇论文）
+## <a id='date-20260222'></a>2026-02-22（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Physical Human-Robot Interaction for Grasping in Augmented Reality via Rigid-Soft Robot Synergy | Huishi Huang | <details><summary>detail</summary>Camera-ready version for RoboSoft 2026.</details> | [PDF](https://arxiv.org/pdf/2602.17128) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260221'></a>2026-02-21（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Physical Human-Robot Interaction for Grasping in Augmented Reality via Rigid-Soft Robot Synergy | Huishi Huang | <details><summary>detail</summary>Camera-ready version for RoboSoft 2026.</details> | [PDF](https://arxiv.org/pdf/2602.17128) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260220'></a>2026-02-20（33篇论文）</summary>
@@ -144,15 +153,5 @@
 | Fluoroscopy-Constrained Magnetic Robot Control via Zernike-Based Field Modeling and Nonlinear MPC | Xinhao Chen |  | [PDF](https://arxiv.org/pdf/2602.15357) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | A Comparison of Bayesian Prediction Techniques for Mobile Robot Trajectory Tracking | Jose Luis Peralta-Cabezas | <details><summary>detail</summary>Accepted in Robotica (Dec. 2007), vol. 26, n. 5, pp. 571-585 (c) 2008 Cambridge University Press.this https URL</details> | [PDF](https://arxiv.org/pdf/2602.15354) | [code1](https://doi.org/10.1017/S0263574708004153) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | A ROS2 Benchmarking Framework for Hierarchical Control Strategies in Mobile Robots for Mediterranean Greenhouses | Fernando Cañadas-Aránega |  | [PDF](https://arxiv.org/pdf/2602.15162) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260217'></a>2026-02-17（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Gradient-Enhanced Partitioned Gaussian Processes for Real-Time Quadrotor Dynamics Modeling | Xinhuan Sang | <details><summary>detail</summary>. Submitted to IEEE Transactions on Robotics (under review)</details> | [PDF](https://arxiv.org/pdf/2602.12487) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| A Lightweight Cubature Kalman Filter for Attitude and Heading Reference Systems Using Simplified Prediction Equations | Shunsei Yamagishi |  | [PDF](https://arxiv.org/pdf/2602.12283) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
