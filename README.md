@@ -4,19 +4,30 @@
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-03-01（3篇论文）](#date-20260301)
 - [2026-02-28（3篇论文）](#date-20260228)
 - [2026-02-27（33篇论文）](#date-20260227)
 - [2026-02-26（42篇论文）](#date-20260226)
 - [2026-02-25（44篇论文）](#date-20260225)
-- [2026-02-24（3篇论文）](#date-20260224)
 
-## <a id='date-20260228'></a>2026-02-28（3篇论文）
+## <a id='date-20260301'></a>2026-03-01（3篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | A Perspective on Open Challenges in Deformable Object Manipulation | Ryan Paul McKennaa |  | [PDF](https://arxiv.org/pdf/2602.22998) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Automated Robotic Needle Puncture for Percutaneous Dilatational Tracheostomy | Yuan Tang |  | [PDF](https://arxiv.org/pdf/2602.22952) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | SODA-CitrON: Static Object Data Association by Clustering Multi-Modal Sensor Detections Online | Jan Nausner | <details><summary>detail</summary>Submitted to the 2026 International Conference on Information Fusion (FUSION 2026). Under review</details> | [PDF](https://arxiv.org/pdf/2602.22243) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260228'></a>2026-02-28（3篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| A Perspective on Open Challenges in Deformable Object Manipulation | Ryan Paul McKennaa |  | [PDF](https://arxiv.org/pdf/2602.22998) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Automated Robotic Needle Puncture for Percutaneous Dilatational Tracheostomy | Yuan Tang |  | [PDF](https://arxiv.org/pdf/2602.22952) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| SODA-CitrON: Static Object Data Association by Clustering Multi-Modal Sensor Detections Online | Jan Nausner | <details><summary>detail</summary>Submitted to the 2026 International Conference on Information Fusion (FUSION 2026). Under review</details> | [PDF](https://arxiv.org/pdf/2602.22243) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260227'></a>2026-02-27（33篇论文）</summary>
@@ -158,16 +169,5 @@
 | Generalizing from References using a Multi-Task Reference and Goal-Driven RL Framework | Jiashun Wang |  | [PDF](https://arxiv.org/pdf/2602.20375) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Vision-Based Reasoning with Topology-Encoded Graphs for Anatomical Path Disambiguation in Robot-Assisted Endovascular Navigation | Jiyuan Zhao | <details><summary>detail</summary>This paper has been accepted by IEEE ICRA 2026.</details> | [PDF](https://arxiv.org/pdf/2602.20215) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Object-Scene-Camera Decomposition and Recomposition for Data-Efficient Monocular 3D Object Detection | Zhaonian Kuang | <details><summary>detail</summary>IJCV</details> | [PDF](https://arxiv.org/pdf/2602.20627) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260224'></a>2026-02-24（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Role-Adaptive Collaborative Formation Planning for Team of Quadruped Robots in Cluttered Environments | Magnus Norén |  | [PDF](https://arxiv.org/pdf/2602.18260) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Design and Characterization of a Dual-DOF Soft Shoulder Exosuit with Volume-Optimized Pneumatic Actuator | Rui Chen |  | [PDF](https://arxiv.org/pdf/2602.18212) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| GrandTour: A Legged Robotics Dataset in the Wild for Multi-Modal Perception and State Estimation | Jonas Frey | <details><summary>detail</summary>Jonas Frey and Turcan Tuna contributed equally. Submitted to Sage The International Journal of Robotics Research</details> | [PDF](https://arxiv.org/pdf/2602.18164) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
