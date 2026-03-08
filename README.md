@@ -1,20 +1,29 @@
-# arXiv Robot 领域论文汇总（共174篇）
+# arXiv Robot 领域论文汇总（共172篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-03-08（1篇论文）](#date-20260308)
 - [2026-03-07（1篇论文）](#date-20260307)
 - [2026-03-06（60篇论文）](#date-20260306)
 - [2026-03-05（59篇论文）](#date-20260305)
 - [2026-03-04（51篇论文）](#date-20260304)
-- [2026-03-03（3篇论文）](#date-20260303)
 
-## <a id='date-20260307'></a>2026-03-07（1篇论文）
+## <a id='date-20260308'></a>2026-03-08（1篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Risk-Aware Rulebooks for Multi-Objective Trajectory Evaluation under Uncertainty | Tichakorn Wongpiromsarn |  | [PDF](https://arxiv.org/pdf/2603.04603) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260307'></a>2026-03-07（1篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Risk-Aware Rulebooks for Multi-Objective Trajectory Evaluation under Uncertainty | Tichakorn Wongpiromsarn |  | [PDF](https://arxiv.org/pdf/2603.04603) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260306'></a>2026-03-06（60篇论文）</summary>
@@ -207,16 +216,5 @@
 | SPARC: Spatial-Aware Path Planning via Attentive Robot Communication | Sayang Mu |  | [PDF](https://arxiv.org/pdf/2603.02845) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Wukong-Omni: Design, Modeling and Control of a Multi-mode Robot for Air, Land, and Underwater Exploration with All-in-One Propulsion Unit | Yufan Liu |  | [PDF](https://arxiv.org/pdf/2603.02602) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Goal-Oriented Semantic Communication for ISAC-Enabled Robotic Obstacle Avoidance | Wenjie Liu |  | [PDF](https://arxiv.org/pdf/2603.02291) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260303'></a>2026-03-03（3篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| MicroPush: A Simulator and Benchmark for Contact-Rich Cell Pushing and Assembly with a Magnetic Rolling Microrobot | Yanda Yang |  | [PDF](https://arxiv.org/pdf/2602.23607) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Refining Almost-Safe Value Functions on the Fly | Sander Tonkens |  | [PDF](https://arxiv.org/pdf/2602.23478) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Cybersecurity of Teleoperated Quadruped Robots: A Systematic Survey of Vulnerabilities, Threats, and Open Defense Gaps | Mohammad Sabouri | <details><summary>detail</summary>survey paper; 23 tables; 9 figures; 132 references</details> | [PDF](https://arxiv.org/pdf/2602.23404) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
