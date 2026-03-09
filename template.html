@@ -1,4 +1,4 @@
-<!-- template.html -->
+<!-- template_enhanced.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,170 +6,559 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>arXiv 机器人领域论文汇总</title>
     <style>
-        /* 全局样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        /* ========== 全局变量（支持暗色模式）========== */
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --border-color: #e9ecef;
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+            --success-color: #28a745;
+            --success-hover: #218838;
+            --warning-color: #ffc107;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --transition: all 0.2s ease-in-out;
+            --radius: 8px;
         }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1a1a2e;
+                --bg-card: #16213e;
+                --text-primary: #e6e6e6;
+                --text-secondary: #a0a0a0;
+                --border-color: #2a2a4a;
+                --primary-color: #4dabf7;
+                --primary-hover: #74c0fc;
+                --success-color: #51cf66;
+                --success-hover: #69db7c;
+                --warning-color: #ffd43b;
+                --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+                --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+                --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+            }
+        }
+
+        /* ========== 基础重置 ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
-            background-color: #f8f9fa;
-            color: #333;
+            padding: 20px;
+            transition: var(--transition);
         }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ========== 头部样式 ========== */
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e9ecef;
+            padding: 30px 20px;
+            margin-bottom: 25px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border-bottom: 3px solid var(--primary-color);
         }
+
         h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-color), #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .intro {
-            color: #6c757d;
-            font-style: italic;
-            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        /* 导航样式 */
+
+        .intro p { margin: 4px 0; }
+
+        /* ========== 导航栏 ========== */
         .nav {
-            margin: 20px 0;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 5px;
+            background: var(--bg-card);
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            margin: 20px 0 25px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 15px;
         }
+
+        .nav strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
         .nav a {
-            color: #007bff;
+            color: var(--primary-color);
             text-decoration: none;
-            margin: 0 10px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 0.9rem;
         }
+
         .nav a:hover {
-            text-decoration: underline;
+            background: rgba(0,123,255,0.1);
+            color: var(--primary-hover);
+            transform: translateY(-1px);
         }
-        /* 日期区块样式 */
+
+        /* ========== 日期区块卡片 ========== */
         .date-section {
-            margin: 30px 0;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin: 20px 0;
             overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
         }
+
+        .date-section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
         .date-header {
-            padding: 15px 20px;
-            background-color: #007bff;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
             color: white;
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.15rem;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            user-select: none;
+            transition: var(--transition);
         }
+
+        .date-header:hover {
+            background: linear-gradient(135deg, var(--primary-hover), #004494);
+        }
+
+        .date-header .arrow {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
         .date-content {
-            padding: 20px;
+            padding: 20px 24px;
         }
-        /* 表格样式 */
+
+        /* ========== 表格样式 ========== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 10px 0;
+            font-size: 0.92rem;
+            min-width: 900px;
         }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e9ecef;
-        }
+
         th {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: var(--text-primary);
             font-weight: 600;
-            color: #2c3e50;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
+
+        @media (prefers-color-scheme: dark) {
+            th {
+                background: linear-gradient(135deg, #2a2a4a, #1e1e3a);
+            }
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
         tr:hover {
-            background-color: #f8f9fa;
+            background: rgba(0,123,255,0.04);
         }
-        /* 详情折叠样式 */
+
+        @media (prefers-color-scheme: dark) {
+            tr:hover {
+                background: rgba(77,171,247,0.08);
+            }
+        }
+
+        /* 标题列 */
+        td:first-child {
+            font-weight: 500;
+            min-width: 280px;
+            max-width: 350px;
+        }
+
+        td:first-child strong {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        /* 作者列 */
+        td:nth-child(2) {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            min-width: 120px;
+        }
+
+        /* 备注/详情列 */
         details {
-            margin: 5px 0;
+            margin: 2px 0;
         }
+
         summary {
             cursor: pointer;
-            color: #007bff;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.85rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
-        /* Zotero按钮样式 */
-        .zotero-btn {
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "▶";
+            font-size: 0.7rem;
+            transition: transform 0.2s;
             display: inline-block;
-            padding: 5px 10px;
-            background-color: #28a745;
-            color: white !important;
-            text-decoration: none;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        details small {
+            display: block;
+            margin-top: 8px;
+            padding: 10px;
+            background: rgba(0,123,255,0.05);
             border-radius: 4px;
-            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
+
+        @media (prefers-color-scheme: dark) {
+            details small {
+                background: rgba(77,171,247,0.1);
+            }
+        }
+
+        /* 链接样式 */
+        td a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        td a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        td a[target="_blank"]::after {
+            content: "↗";
+            font-size: 0.7em;
+            opacity: 0.7;
+        }
+
+        /* Zotero 按钮 */
+        .zotero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--success-color), #20c997);
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(40,167,69,0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
         .zotero-btn:hover {
-            background-color: #218838;
+            background: linear-gradient(135deg, var(--success-hover), #1ea882);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(40,167,69,0.4);
+        }
+
+        .zotero-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 星星评分 */
+        .stars {
+            color: var(--warning-color);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            color: var(--primary-color);
             text-decoration: none;
         }
-        /* 评分星星样式 */
-        .stars {
-            color: #ffc107;
-            font-size: 1.1em;
+
+        /* ========== 响应式适配 ========== */
+        @media (max-width: 1024px) {
+            body { padding: 15px; }
+            .date-header { padding: 14px 18px; font-size: 1.05rem; }
+            .date-content { padding: 16px 18px; }
+            th, td { padding: 12px 14px; font-size: 0.9rem; }
+            td:first-child { min-width: 220px; }
         }
-        /* 响应式适配 */
+
         @media (max-width: 768px) {
-            table {
-                font-size: 0.9em;
+            h1 { font-size: 1.5rem; }
+            .nav { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .nav a { padding: 6px 12px; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 10px 12px; }
+            td:first-child { min-width: 180px; }
+            .zotero-btn { padding: 5px 12px; font-size: 0.8rem; }
+            .stars { font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 20px 15px; }
+            .intro { font-size: 0.9rem; }
+            .date-header { padding: 12px 15px; font-size: 1rem; }
+            .date-content { padding: 12px 15px; }
+            table { font-size: 0.8rem; min-width: 700px; }
+            th, td { padding: 8px 10px; }
+            td:first-child { min-width: 150px; }
+            /* 移动端表格横向滚动提示 */
+            .table-wrapper::after {
+                content: "← 横向滑动查看更多列 →";
+                display: block;
+                text-align: center;
+                padding: 8px;
+                color: var(--text-secondary);
+                font-size: 0.8rem;
+                background: rgba(0,123,255,0.05);
             }
-            th, td {
-                padding: 8px 10px;
-            }
-            .date-header {
-                font-size: 1em;
-            }
+        }
+
+        /* ========== 动画效果 ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .date-section {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .date-section:nth-child(2) { animation-delay: 0.05s; }
+        .date-section:nth-child(3) { animation-delay: 0.1s; }
+        .date-section:nth-child(4) { animation-delay: 0.15s; }
+        .date-section:nth-child(5) { animation-delay: 0.2s; }
+
+        /* 加载状态（可选） */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+
+        .loading::after {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,123,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>arXiv 机器人领域论文汇总（共{total_papers}篇）</h1>
-        <div class="intro">
-            <p>仅显示最近五天数据，点击日期标题可展开/折叠 | 相关性评分：1-5分（★越多相关性越高）</p>
-            <p>Zotero按钮：点击可一键将论文添加到你的Zotero库（需提前安装Zotero和浏览器Connector）</p>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>🤖 arXiv 机器人领域论文汇总</h1>
+            <div class="intro">
+                <p>📊 共 <strong>{total_papers}</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
+            </div>
+        </header>
 
-    <!-- 日期导航 -->
-    <div class="nav">
-        <strong>日期导航：</strong>
-        {nav_links}
+        <!-- 日期导航 -->
+        <nav class="nav">
+            <strong>📅 日期导航：</strong>
+            {nav_links}
+        </nav>
+
+        <!-- 论文内容区块 -->
+        <main>
+            {date_sections}
+        </main>
+
+        <footer>
+            <p>
+                数据源: <a href="https://arxiv.org/list/cs.RO/recent" target="_blank">arXiv cs.RO</a> 
+                | 生成时间: <span id="update-time"></span>
+                | <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ 返回顶部</a>
+            </p>
+        </footer>
     </div>
 
-    <!-- 论文内容区块 -->
-    {date_sections}
-
     <script>
-        // 折叠/展开功能
+        // ========== 折叠/展开功能（带动画）==========
         document.querySelectorAll('.date-header').forEach(header => {
-            header.addEventListener('click', () => {
+            header.addEventListener('click', (e) => {
+                // 避免点击箭头时重复触发
+                if (e.target.classList.contains('arrow')) return;
+                
                 const content = header.nextElementSibling;
-                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                // 切换箭头
                 const arrow = header.querySelector('.arrow');
-                arrow.textContent = content.style.display === 'none' ? '▶' : '▼';
+                
+                if (content.style.display === 'none') {
+                    // 展开：淡入 + 滑动
+                    content.style.display = 'block';
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        content.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+                        content.style.opacity = '1';
+                        content.style.transform = 'translateY(0)';
+                    }, 10);
+                    arrow.textContent = '▼';
+                    arrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // 折叠：淡出 + 滑动
+                    content.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                        content.style.transition = 'none';
+                        content.style.opacity = '1';
+                        content.style.transform = 'translateY(0)';
+                    }, 200);
+                    arrow.textContent = '▶';
+                    arrow.style.transform = 'rotate(-90deg)';
+                }
             });
         });
 
-        // 页面加载时展开最新日期
-        window.onload = function() {
-            const latestHeader = document.querySelector('#{latest_anchor_id}').parentElement;
-            const latestContent = latestHeader.nextElementSibling;
-            latestContent.style.display = 'block';
-            latestHeader.querySelector('.arrow').textContent = '▼';
-        };
-    </script>
-</body>
-</html>
+        // ========== 页面加载：自动展开最新日期 ==========
+        window.addEventListener('DOMContentLoaded', () => {
+            // 设置更新时间
+            const updateTime = document.getElementById('update-time');
+            if (updateTime) {
+                updateTime.textContent = new Date().toLocaleString('zh-CN', {
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit'
+                });
+            }
+            
+            // 展开最新日期
+            const latestId = '{latest_anchor_id}';
+            if (latestId) {
+                const latestSection = document.getElementById(latestId);
+                if (latestSection) {
+                    const content = latestSection.querySelector('.date-content');
+                    const arrow = latestSection.querySelector('.arrow');
+                    if (content && arrow) {
+                        content.style.display = 'block';
+                        arrow.textContent = '▼';
+                    }
+                }
+            }
+            
+            // 平滑滚动：点击导航链接
+            document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // 高亮目标区块（可选）
+                        target.style.boxShadow = '0 0 0 3px rgba(0,123,255,0.3)';
+                        setTimeout(() => {
+                            target.style.boxShadow = '';
+                        }, 2000);
+                    }
+                });
+            });
+        });
+
+        // ========== Zotero 按钮增强：检测插件（可选）==========
+        document.querySelectorAll('.zotero-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // 如果用户未安装 Connector，给出友好提示（可选）
+                // 实际中 Connector 会自动拦截，此处仅为体验优化
+                if (!window.Zotero || !window.Zotero.Connector) {
+                    // 不阻止默认行为，让链接正常打开
+                    console.log('💡 提示：如已安装 Zotero Connector，页面加载
