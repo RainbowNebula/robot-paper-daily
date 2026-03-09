@@ -22,11 +22,6 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
-# -------------------------- 默认配置 --------------------------
-DEFAULT_JSON_PATH = "arxiv_cs_ro_papers_final.json"
-DEFAULT_TEMPLATE_PATH = "template.html"
-DEFAULT_OUTPUT_PATH = "index.html"
-DEFAULT_RECENT_DAYS = 5  # 显示最近几天的数据
 
 # -------------------------- 工具函数 --------------------------
 
@@ -339,6 +334,13 @@ def json_to_html(json_path: str, output_path: str, template_path: str) -> bool:
 
 # -------------------------- 命令行入口 --------------------------
 def main():
+
+    # -------------------------- 默认配置 --------------------------
+    DEFAULT_JSON_PATH = "arxiv_cs_ro_papers_final.json"
+    DEFAULT_TEMPLATE_PATH = "template.html"
+    DEFAULT_OUTPUT_PATH = "index.html"
+    DEFAULT_RECENT_DAYS = 5  # 显示最近几天的数据
+    
     parser = argparse.ArgumentParser(
         description="arXiv机器人论文汇总 - 生成带Zotero功能的HTML页面",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -370,9 +372,8 @@ Zotero使用说明:
                         help=f"显示最近N天的数据 (默认: {DEFAULT_RECENT_DAYS})")
     
     args = parser.parse_args()
-    
+
     # 更新全局配置
-    global DEFAULT_RECENT_DAYS
     DEFAULT_RECENT_DAYS = args.days
     
     logging.info("🚀 开始生成 HTML 页面...")
