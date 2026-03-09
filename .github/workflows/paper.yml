@@ -50,6 +50,7 @@ jobs:
           LLM_PROMPT: ${{ vars.LLM_PROMPT }}
         run: |
           python paper_daily.py
+          python create_index.py
           
       - name: Push new robot-arxiv-daily.md
         uses: github-actions-x/commit@v2.9
