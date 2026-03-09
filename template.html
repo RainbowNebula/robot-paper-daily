@@ -1,4 +1,4 @@
-<!-- template_enhanced.html -->
+<!-- template.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -18,11 +18,12 @@
             --success-color: #28a745;
             --success-hover: #218838;
             --warning-color: #ffc107;
+            --danger-color: #dc3545;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
             --transition: all 0.2s ease-in-out;
-            --radius: 8px;
+            --radius: 0.5em;
         }
         
         @media (prefers-color-scheme: dark) {
@@ -37,6 +38,7 @@
                 --success-color: #51cf66;
                 --success-hover: #69db7c;
                 --warning-color: #ffd43b;
+                --danger-color: #ff6b6b;
                 --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
                 --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
                 --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
@@ -51,31 +53,31 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 20px;
+            padding: 1.2em;
             transition: var(--transition);
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 90em;
             margin: 0 auto;
         }
 
         /* ========== 头部样式 ========== */
         header {
             text-align: center;
-            padding: 30px 20px;
-            margin-bottom: 25px;
+            padding: 1.8em 1.2em;
+            margin-bottom: 1.5em;
             background: var(--bg-card);
             border-radius: var(--radius);
             box-shadow: var(--shadow-md);
-            border-bottom: 3px solid var(--primary-color);
+            border-bottom: 0.2em solid var(--primary-color);
         }
 
         h1 {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 12px;
+            margin-bottom: 0.7em;
             background: linear-gradient(135deg, var(--primary-color), #6c5ce7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -85,37 +87,39 @@
         .intro {
             color: var(--text-secondary);
             font-size: 0.95rem;
-            max-width: 800px;
+            max-width: 50em;
             margin: 0 auto;
         }
 
-        .intro p { margin: 4px 0; }
+        .intro p { margin: 0.25em 0; }
+        .intro a { color: var(--primary-color); text-decoration: none; }
+        .intro a:hover { text-decoration: underline; }
 
         /* ========== 导航栏 ========== */
         .nav {
             background: var(--bg-card);
-            padding: 12px 20px;
+            padding: 0.7em 1.2em;
             border-radius: var(--radius);
-            margin: 20px 0 25px;
+            margin: 1.2em 0 1.5em;
             box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px 15px;
+            gap: 0.5em 1em;
         }
 
         .nav strong {
             color: var(--text-primary);
             font-weight: 600;
-            margin-right: 5px;
+            margin-right: 0.3em;
         }
 
         .nav a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 0.25em 0.6em;
+            border-radius: 0.25em;
             transition: var(--transition);
             font-size: 0.9rem;
         }
@@ -123,7 +127,7 @@
         .nav a:hover {
             background: rgba(0,123,255,0.1);
             color: var(--primary-hover);
-            transform: translateY(-1px);
+            transform: translateY(-0.1em);
         }
 
         /* ========== 日期区块卡片 ========== */
@@ -131,22 +135,22 @@
             background: var(--bg-card);
             border-radius: var(--radius);
             box-shadow: var(--shadow-md);
-            margin: 20px 0;
+            margin: 1.2em 0;
             overflow: hidden;
             transition: var(--transition);
-            border: 1px solid var(--border-color);
+            border: 0.06em solid var(--border-color);
         }
 
         .date-section:hover {
             box-shadow: var(--shadow-lg);
-            transform: translateY(-2px);
+            transform: translateY(-0.12em);
         }
 
         .date-header {
-            padding: 16px 24px;
+            padding: 1em 1.5em;
             background: linear-gradient(135deg, var(--primary-color), #0056b3);
             color: white;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
@@ -161,40 +165,42 @@
         }
 
         .date-header .arrow {
-            font-size: 1.1rem;
+            font-size: 1em;
             transition: transform 0.3s ease;
             font-weight: bold;
+            margin-left: 0.6em;
         }
 
         .date-content {
-            padding: 20px 24px;
+            padding: 1.2em 1.5em;
         }
 
-        /* ========== 表格样式 ========== */
+        /* ========== 表格样式（自适应）========== */
         .table-wrapper {
             overflow-x: auto;
-            margin: 10px 0;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+            margin: 0.6em 0;
+            border-radius: 0.4em;
+            border: 0.06em solid var(--border-color);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.92rem;
-            min-width: 900px;
+            font-size: 0.9rem;
+            table-layout: auto;
         }
 
         th {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             color: var(--text-primary);
             font-weight: 600;
-            padding: 14px 16px;
+            padding: 0.8em 1em;
             text-align: left;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 0.12em solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 10;
+            white-space: nowrap;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -204,8 +210,8 @@
         }
 
         td {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 0.8em 1em;
+            border-bottom: 0.06em solid var(--border-color);
             vertical-align: top;
         }
 
@@ -219,11 +225,12 @@
             }
         }
 
-        /* 标题列 */
+        /* ========== 列宽分配（资源列 12%）========== */
+        /* 标题列 - 占用最多空间 */
         td:first-child {
+            width: 40%;
+            min-width: 12em;
             font-weight: 500;
-            min-width: 280px;
-            max-width: 350px;
         }
 
         td:first-child strong {
@@ -234,62 +241,144 @@
             line-height: 1.4;
         }
 
-        /* 作者列 */
+        /* 作者列 - 紧凑 */
         td:nth-child(2) {
+            width: 12%;
+            min-width: 5em;
             color: var(--text-secondary);
-            font-size: 0.9rem;
-            min-width: 120px;
-        }
-
-        /* 备注/详情列 */
-        details {
-            margin: 2px 0;
-        }
-
-        summary {
-            cursor: pointer;
-            color: var(--primary-color);
-            font-weight: 500;
             font-size: 0.85rem;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            white-space: nowrap;
         }
 
-        summary::-webkit-details-marker {
+        /* 资源列 - 12%（用户要求）*/
+        td:nth-child(3) {
+            width: 12%;
+            min-width: 6em;
+            font-size: 0.75rem;
+            line-height: 1.3;
+        }
+
+        /* 相关性列 - 居中 */
+        td:nth-child(4) {
+            width: 8%;
+            min-width: 4em;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Zotero 列 - 居中 */
+        td:nth-child(5) {
+            width: 10%;
+            min-width: 4.5em;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* LLM 总结列 - 剩余空间 */
+        td:nth-child(6) {
+            width: 18%;
+            min-width: 9em;
+            font-size: 0.85rem;
+        }
+
+        /* ========== 资源标签（紧凑版）========== */
+        .resource-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2em;
+            padding: 0.2em 0.4em;
+            margin: 0.1em 0.2em 0.1em 0;
+            border-radius: 0.2em;
+            font-size: 0.75em;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .resource-tag.pdf {
+            background: rgba(0,123,255,0.1);
+            color: var(--primary-color);
+        }
+        .resource-tag.pdf:hover {
+            background: rgba(0,123,255,0.2);
+        }
+
+        .resource-tag.code {
+            background: rgba(40,167,69,0.1);
+            color: var(--success-color);
+        }
+        .resource-tag.code:hover {
+            background: rgba(40,167,69,0.2);
+        }
+
+        /* ========== 备注折叠（紧凑版）========== */
+        .resource-comment details {
+            display: inline-block;
+            margin: 0.1em 0;
+            max-width: 100%;
+        }
+
+        .resource-comment summary {
+            cursor: pointer;
+            padding: 0.2em 0.4em;
+            background: rgba(108,117,125,0.1);
+            color: var(--text-secondary);
+            border-radius: 0.2em;
+            font-size: 0.75em;
+            list-style: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2em;
+            transition: var(--transition);
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .resource-comment summary:hover {
+            background: rgba(108,117,125,0.2);
+        }
+
+        .resource-comment summary::-webkit-details-marker {
             display: none;
         }
 
-        summary::before {
+        .resource-comment summary::before {
             content: "▶";
-            font-size: 0.7rem;
+            font-size: 0.6em;
             transition: transform 0.2s;
             display: inline-block;
         }
 
-        details[open] summary::before {
+        .resource-comment details[open] summary::before {
             transform: rotate(90deg);
         }
 
-        details small {
+        .resource-comment small {
             display: block;
-            margin-top: 8px;
-            padding: 10px;
+            margin-top: 0.3em;
+            padding: 0.4em 0.5em;
             background: rgba(0,123,255,0.05);
-            border-radius: 4px;
+            border-radius: 0.2em;
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.75em;
+            line-height: 1.3;
+            max-width: 100%;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         @media (prefers-color-scheme: dark) {
-            details small {
+            .resource-comment small {
                 background: rgba(77,171,247,0.1);
             }
         }
 
-        /* 链接样式 */
+        /* ========== 链接通用样式 ========== */
         td a {
             color: var(--primary-color);
             text-decoration: none;
@@ -297,7 +386,7 @@
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 0.25em;
         }
 
         td a:hover {
@@ -307,54 +396,106 @@
 
         td a[target="_blank"]::after {
             content: "↗";
-            font-size: 0.7em;
+            font-size: 0.65em;
             opacity: 0.7;
+            margin-left: 0.1em;
         }
 
-        /* Zotero 按钮 */
+        /* ========== Zotero 按钮 ========== */
         .zotero-btn {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            padding: 6px 14px;
+            justify-content: center;
+            gap: 0.3em;
+            padding: 0.4em 0.9em;
             background: linear-gradient(135deg, var(--success-color), #20c997);
             color: white !important;
             text-decoration: none !important;
-            border-radius: 6px;
+            border-radius: 0.4em;
             font-size: 0.85rem;
             font-weight: 500;
-            box-shadow: 0 2px 4px rgba(40,167,69,0.3);
+            box-shadow: 0 0.12em 0.25em rgba(40,167,69,0.3);
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .zotero-btn:hover {
             background: linear-gradient(135deg, var(--success-hover), #1ea882);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(40,167,69,0.4);
+            transform: translateY(-0.12em);
+            box-shadow: 0 0.25em 0.5em rgba(40,167,69,0.4);
         }
 
         .zotero-btn:active {
             transform: translateY(0);
         }
 
-        /* 星星评分 */
+        /* ========== 星星评分 ========== */
         .stars {
             color: var(--warning-color);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-size: 1rem;
+            letter-spacing: 0.06em;
+            text-shadow: 0 0.06em 0.12em rgba(0,0,0,0.1);
+            white-space: nowrap;
         }
 
-        /* 页脚 */
+        /* ========== LLM 总结折叠 ========== */
+        .summary-details {
+            font-size: 0.85rem;
+        }
+
+        .summary-details summary {
+            cursor: pointer;
+            color: var(--primary-color);
+            font-weight: 500;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25em;
+        }
+
+        .summary-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .summary-details summary::before {
+            content: "📋";
+            font-size: 0.9rem;
+        }
+
+        .summary-details small {
+            display: block;
+            margin-top: 0.4em;
+            padding: 0.6em;
+            background: rgba(0,123,255,0.05);
+            border-radius: 0.25em;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            max-width: 100%;
+            word-break: break-word;
+        }
+
+        .summary-details small .error {
+            color: var(--danger-color);
+            font-weight: 500;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .summary-details small {
+                background: rgba(77,171,247,0.1);
+            }
+        }
+
+        /* ========== 页脚 ========== */
         footer {
             text-align: center;
-            padding: 25px;
-            margin-top: 30px;
+            padding: 1.5em;
+            margin-top: 1.8em;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 0.06em solid var(--border-color);
         }
 
         footer a {
@@ -362,49 +503,75 @@
             text-decoration: none;
         }
 
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* ========== 响应式适配 ========== */
         @media (max-width: 1024px) {
-            body { padding: 15px; }
-            .date-header { padding: 14px 18px; font-size: 1.05rem; }
-            .date-content { padding: 16px 18px; }
-            th, td { padding: 12px 14px; font-size: 0.9rem; }
-            td:first-child { min-width: 220px; }
+            body { padding: 1em; }
+            .date-header { padding: 0.9em 1.1em; font-size: 1rem; }
+            .date-content { padding: 1em 1.1em; }
+            th, td { padding: 0.7em 0.9em; font-size: 0.85rem; }
+            td:first-child { width: 38%; min-width: 10em; }
+            td:nth-child(2) { width: 14%; min-width: 4em; }
+            td:nth-child(3) { width: 12%; min-width: 5em; }
+            td:nth-child(4), td:nth-child(5) { width: 8%; min-width: 3.5em; }
+            td:nth-child(6) { width: 20%; min-width: 7em; }
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 1.5rem; }
-            .nav { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .nav a { padding: 6px 12px; }
-            table { font-size: 0.85rem; }
-            th, td { padding: 10px 12px; }
-            td:first-child { min-width: 180px; }
-            .zotero-btn { padding: 5px 12px; font-size: 0.8rem; }
-            .stars { font-size: 1rem; }
+            .nav { flex-direction: column; align-items: flex-start; gap: 0.5em; }
+            .nav a { padding: 0.4em 0.8em; width: 100%; text-align: center; }
+            table { font-size: 0.8rem; min-width: 38em; }
+            th, td { padding: 0.6em 0.75em; }
+            td:first-child { width: 35%; min-width: 8em; }
+            td:nth-child(2) { width: 15%; min-width: 3.5em; font-size: 0.8rem; }
+            td:nth-child(3) { width: 12%; min-width: 4.5em; }
+            td:nth-child(4), td:nth-child(5) { width: 10%; min-width: 3em; }
+            td:nth-child(6) { width: 18%; min-width: 6em; }
+            .zotero-btn { padding: 0.3em 0.7em; font-size: 0.8rem; }
+            .stars { font-size: 0.9rem; }
+            .resource-tag { padding: 0.15em 0.35em; font-size: 0.7em; margin: 0.1em 0.15em 0.1em 0; }
+            .resource-comment summary, .resource-comment small {
+                font-size: 0.75em !important;
+                padding: 0.25em 0.4em !important;
+            }
         }
 
         @media (max-width: 480px) {
-            header { padding: 20px 15px; }
-            .intro { font-size: 0.9rem; }
-            .date-header { padding: 12px 15px; font-size: 1rem; }
-            .date-content { padding: 12px 15px; }
-            table { font-size: 0.8rem; min-width: 700px; }
-            th, td { padding: 8px 10px; }
-            td:first-child { min-width: 150px; }
-            /* 移动端表格横向滚动提示 */
+            header { padding: 1.2em 1em; }
+            .intro { font-size: 0.85rem; }
+            .date-header { padding: 0.75em 1em; font-size: 0.95rem; }
+            .date-content { padding: 0.75em 1em; }
+            table { font-size: 0.75rem; min-width: 34em; }
+            th, td { padding: 0.5em 0.6em; }
+            td:first-child { width: 32%; min-width: 6em; }
+            td:nth-child(2) { width: 16%; min-width: 3em; }
+            td:nth-child(3) { width: 12%; min-width: 4em; }
+            td:nth-child(4), td:nth-child(5) { width: 12%; min-width: 2.5em; }
+            td:nth-child(6) { width: 16%; min-width: 5em; }
+            .zotero-btn { padding: 0.25em 0.6em; font-size: 0.75rem; }
+            .stars { font-size: 0.85rem; }
+            .resource-tag { padding: 0.12em 0.3em; font-size: 0.68em; gap: 0.15em; }
+            .resource-comment summary::before { font-size: 0.55em; }
+            
             .table-wrapper::after {
-                content: "← 横向滑动查看更多列 →";
+                content: "← 横向滑动查看更多 →";
                 display: block;
                 text-align: center;
-                padding: 8px;
+                padding: 0.5em;
                 color: var(--text-secondary);
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 background: rgba(0,123,255,0.05);
+                border-radius: 0 0 0.4em 0.4em;
             }
         }
 
         /* ========== 动画效果 ========== */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(0.6em); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -417,28 +584,9 @@
         .date-section:nth-child(4) { animation-delay: 0.15s; }
         .date-section:nth-child(5) { animation-delay: 0.2s; }
 
-        /* 加载状态（可选） */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-secondary);
-        }
-
-        .loading::after {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0,123,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -465,64 +613,72 @@
 
         <footer>
             <p>
-                数据源: <a href="https://arxiv.org/list/cs.RO/recent" target="_blank">arXiv cs.RO</a> 
-                | 生成时间: <span id="update-time"></span>
+                数据源：<a href="https://arxiv.org/list/cs.RO/recent" target="_blank">arXiv cs.RO</a> 
+                | 生成时间：<span id="update-time"></span>
                 | <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ 返回顶部</a>
             </p>
         </footer>
     </div>
 
     <script>
-        // ========== 折叠/展开功能（带动画）==========
-        document.querySelectorAll('.date-header').forEach(header => {
-            header.addEventListener('click', (e) => {
-                // 避免点击箭头时重复触发
-                if (e.target.classList.contains('arrow')) return;
+        // ========== 折叠/展开功能 ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.date-header').forEach(header => {
+                header.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') return;
+                    
+                    const content = this.nextElementSibling;
+                    const arrow = this.querySelector('.arrow');
+                    
+                    if (!content || !arrow) return;
+                    
+                    const isHidden = content.style.display === 'none' || !content.style.display;
+                    
+                    if (isHidden) {
+                        content.style.display = 'block';
+                        void content.offsetWidth;
+                        content.style.opacity = '0';
+                        content.style.transform = 'translateY(-0.5em)';
+                        content.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                        
+                        requestAnimationFrame(() => {
+                            content.style.opacity = '1';
+                            content.style.transform = 'translateY(0)';
+                        });
+                        
+                        arrow.textContent = '▼';
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+                        content.style.opacity = '0';
+                        content.style.transform = 'translateY(-0.5em)';
+                        
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                            content.style.transition = 'none';
+                            content.style.opacity = '1';
+                            content.style.transform = 'translateY(0)';
+                        }, 150);
+                        
+                        arrow.textContent = '▶';
+                        arrow.style.transform = 'rotate(-90deg)';
+                    }
+                });
                 
-                const content = header.nextElementSibling;
                 const arrow = header.querySelector('.arrow');
-                
-                if (content.style.display === 'none') {
-                    // 展开：淡入 + 滑动
-                    content.style.display = 'block';
-                    content.style.opacity = '0';
-                    content.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        content.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-                        content.style.opacity = '1';
-                        content.style.transform = 'translateY(0)';
-                    }, 10);
-                    arrow.textContent = '▼';
-                    arrow.style.transform = 'rotate(0deg)';
-                } else {
-                    // 折叠：淡出 + 滑动
-                    content.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-                    content.style.opacity = '0';
-                    content.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
-                        content.style.display = 'none';
-                        content.style.transition = 'none';
-                        content.style.opacity = '1';
-                        content.style.transform = 'translateY(0)';
-                    }, 200);
-                    arrow.textContent = '▶';
-                    arrow.style.transform = 'rotate(-90deg)';
+                if (arrow) {
+                    arrow.style.cursor = 'pointer';
+                    arrow.style.transition = 'transform 0.2s ease, color 0.2s ease';
+                    arrow.addEventListener('mouseenter', function() {
+                        this.style.color = 'rgba(255,255,255,0.9)';
+                    });
+                    arrow.addEventListener('mouseleave', function() {
+                        this.style.color = '';
+                    });
                 }
             });
-        });
-
-        // ========== 页面加载：自动展开最新日期 ==========
-        window.addEventListener('DOMContentLoaded', () => {
-            // 设置更新时间
-            const updateTime = document.getElementById('update-time');
-            if (updateTime) {
-                updateTime.textContent = new Date().toLocaleString('zh-CN', {
-                    year: 'numeric', month: '2-digit', day: '2-digit',
-                    hour: '2-digit', minute: '2-digit'
-                });
-            }
             
-            // 展开最新日期
+            // ========== 自动展开最新日期 ==========
             const latestId = '{latest_anchor_id}';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
@@ -532,33 +688,65 @@
                     if (content && arrow) {
                         content.style.display = 'block';
                         arrow.textContent = '▼';
+                        arrow.style.transform = 'rotate(0deg)';
                     }
                 }
             }
             
-            // 平滑滚动：点击导航链接
+            // ========== 设置更新时间 ==========
+            const updateTime = document.getElementById('update-time');
+            if (updateTime) {
+                updateTime.textContent = new Date().toLocaleString('zh-CN', {
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+            }
+            
+            // ========== 导航链接平滑滚动 ==========
             document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
-                link.addEventListener('click', (e) => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
+                    const targetId = this.getAttribute('href').substring(1);
                     const target = document.getElementById(targetId);
+                    
                     if (target) {
+                        const content = target.querySelector('.date-content');
+                        const arrow = target.querySelector('.arrow');
+                        if (content && arrow && content.style.display === 'none') {
+                            content.style.display = 'block';
+                            arrow.textContent = '▼';
+                            arrow.style.transform = 'rotate(0deg)';
+                        }
+                        
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // 高亮目标区块（可选）
-                        target.style.boxShadow = '0 0 0 3px rgba(0,123,255,0.3)';
+                        target.style.boxShadow = '0 0 0 0.2em rgba(0,123,255,0.4)';
                         setTimeout(() => {
                             target.style.boxShadow = '';
                         }, 2000);
                     }
                 });
             });
+            
+            // ========== Zotero 按钮点击反馈 ==========
+            document.querySelectorAll('.zotero-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+                });
+            });
+            
+            // ========== 资源标签悬停反馈 ==========
+            document.querySelectorAll('.resource-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-0.1em)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
         });
-
-        // ========== Zotero 按钮增强：检测插件（可选）==========
-        document.querySelectorAll('.zotero-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // 如果用户未安装 Connector，给出友好提示（可选）
-                // 实际中 Connector 会自动拦截，此处仅为体验优化
-                if (!window.Zotero || !window.Zotero.Connector) {
-                    // 不阻止默认行为，让链接正常打开
-                    console.log('💡 提示：如已安装 Zotero Connector，页面加载
+    </script>
+</body>
+</html>
