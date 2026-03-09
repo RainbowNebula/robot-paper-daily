@@ -11,6 +11,7 @@ import re
 import sys
 import argparse
 import logging
+import os  # ✅ 补充：main() 中使用了 os.path.abspath
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 from urllib.parse import quote
@@ -22,6 +23,11 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
+# -------------------------- 默认配置 --------------------------
+DEFAULT_JSON_PATH = "arxiv_cs_ro_papers_final.json"
+DEFAULT_TEMPLATE_PATH = "template.html"
+DEFAULT_OUTPUT_PATH = "index.html"
+DEFAULT_RECENT_DAYS = 5  # 显示最近几天的数据
 
 # -------------------------- 工具函数 --------------------------
 
@@ -42,7 +48,6 @@ def extract_arxiv_id(url: str) -> str:
     """从arXiv链接中提取论文ID，如 2403.12345"""
     if not url:
         return ""
-    # 匹配多种arXiv链接格式
     patterns = [
         r'arxiv\.org/abs/([\w\.]+)',
         r'arxiv\.org/pdf/([\w\.]+)',
@@ -59,12 +64,9 @@ def get_first_author(authors_str: str) -> str:
     """提取第一作者姓名"""
     if not authors_str:
         return "未知作者"
-    # 处理 "Zhang, San; Li, Si" 或 "Zhang, San et al." 格式
     first = authors_str.split(",")[0].strip()
-    # 如果包含 "et al." 则只取第一个作者
     if "et al" in authors_str.lower():
         return first
-    # 如果有多个作者用分号分隔，取第一个
     if ";" in authors_str:
         first = authors_str.split(";")[0].strip().split(",")[0].strip()
     return first if first else "未知作者"
@@ -80,20 +82,10 @@ def get_recent_dates(limit: int = 5) -> List[str]:
 
 
 def generate_zotero_link(pdf_url: str, abs_url: str = "") -> str:
-    """
-    生成 Zotero 一键保存链接
-    优先使用 abstract 页面链接（Connector识别更准确），其次用PDF链接
-    """
-    # 优先使用 abstract 页面，Zotero Connector 能更好识别元数据
+    """生成 Zotero 一键保存链接"""
     target_url = abs_url if abs_url else pdf_url
     if not target_url:
         return "#"
-    
-    # 方式1: 使用 Zotero Save API（通用，会跳转到保存确认页）
-    # return f"https://api.zotero.org/save?url={quote(target_url)}"
-    
-    # 方式2: 直接提供链接，依赖用户安装的 Zotero Connector 自动识别（推荐）
-    # 用户点击后，Connector 会拦截并弹出保存对话框
     return target_url
 
 
@@ -112,8 +104,6 @@ def generate_zotero_button_html(pdf_url: str, abs_url: str = "", title: str = ""
     if not target_url:
         return '<span style="color:#6c757d">-</span>'
     
-    # 按钮点击行为：直接打开arXiv页面，依赖Zotero Connector自动识别
-    # 添加 title 属性提升用户体验
     display_title = title[:30] + "..." if len(title) > 30 else (title or "论文")
     return f'''<a class="zotero-btn" 
            href="{html_escape(target_url)}" 
@@ -124,7 +114,7 @@ def generate_zotero_button_html(pdf_url: str, abs_url: str = "", title: str = ""
 
 
 def generate_paper_row(paper: Dict) -> str:
-    """生成单篇论文的表格行HTML"""
+    """生成单篇论文的表格行HTML（备注+代码+PDF合并为一列）"""
     # 基础字段
     title = html_escape(paper.get("title", "未知标题"))
     authors = paper.get("authors", "未知作者")
@@ -137,26 +127,41 @@ def generate_paper_row(paper: Dict) -> str:
     llm_score = paper.get("llm_score", 0)
     llm_error = paper.get("llm_error", "")
     
-    # Comment列：长内容折叠展示
-    if comment and comment != "":
-        comment_html = f'<details><summary style="cursor:pointer;color:#007bff">📝 详情</summary><small>{comment}</small></details>'
-    else:
-        comment_html = '<span style="color:#6c757d">-</span>'
+    # 🔹【合并列】资源列：包含 PDF + Code + Comment
+    resource_parts = []
     
-    # PDF列：可点击链接
+    # PDF 标签
     if pdf_link:
-        pdf_html = f'<a href="{html_escape(pdf_link)}" target="_blank" style="color:#007bff;text-decoration:none">📄 PDF</a>'
-    else:
-        pdf_html = '<span style="color:#6c757d">-</span>'
+        resource_parts.append(
+            f'<a href="{html_escape(pdf_link)}" target="_blank" '
+            f'style="display:inline-block;padding:3px 8px;background:#007bff15;color:#007bff;'
+            f'text-decoration:none;border-radius:4px;font-size:0.8rem;margin:2px 0">'
+            f'📄 PDF</a>'
+        )
     
-    # Code列：支持多个链接，分行显示
+    # Code 标签（支持多个）
     if code and code.strip():
         code_list = [c.strip() for c in code.split(",") if c.strip()]
-        code_links = [f'<a href="{html_escape(c)}" target="_blank" style="color:#28a745">🔗 code{i+1}</a>' 
-                      for i, c in enumerate(code_list)]
-        code_html = "<br>".join(code_links)
-    else:
-        code_html = '<span style="color:#6c757d">-</span>'
+        for i, c in enumerate(code_list):
+            resource_parts.append(
+                f'<a href="{html_escape(c)}" target="_blank" '
+                f'style="display:inline-block;padding:3px 8px;background:#28a74515;color:#28a745;'
+                f'text-decoration:none;border-radius:4px;font-size:0.8rem;margin:2px 0">'
+                f'🔗 Code{i+1}</a>'
+            )
+    
+    # Comment 折叠详情
+    if comment and comment != "":
+        resource_parts.append(
+            f'<details style="display:inline-block;margin:2px 0">'
+            f'<summary style="cursor:pointer;padding:3px 8px;background:#6c757d15;color:#6c757d;'
+            f'border-radius:4px;font-size:0.8rem;list-style:none">📝 备注</summary>'
+            f'<small style="display:block;margin-top:5px;padding:8px;background:#f8f9fa;'
+            f'border-radius:4px;color:#6c757d;font-size:0.75rem;line-height:1.4">{comment}</small>'
+            f'</details>'
+        )
+    
+    resource_html = "<br>".join(resource_parts) if resource_parts else '<span style="color:#6c757d">-</span>'
     
     # 相关性评分：星星展示
     stars_html = generate_stars_html(llm_score)
@@ -164,7 +169,7 @@ def generate_paper_row(paper: Dict) -> str:
     # Zotero按钮列
     zotero_html = generate_zotero_button_html(pdf_link, abs_link, paper.get("title", ""))
     
-    # LLM总结列：折叠展示，如有错误则标注
+    # LLM总结列：折叠展示
     if llm_error and llm_error.strip():
         summary_content = f'{html_escape(llm_summary)}<br><small style="color:#dc3545">⚠️ {html_escape(llm_error)}</small>'
     elif llm_summary and llm_summary != "大模型总结失败" and llm_summary.strip():
@@ -173,17 +178,18 @@ def generate_paper_row(paper: Dict) -> str:
         summary_content = "暂无总结"
     
     if summary_content and summary_content != "暂无总结":
-        summary_html = f'<details><summary style="cursor:pointer;color:#007bff">📋 查看</summary><small>{summary_content}</small></details>'
+        summary_html = f'<details><summary style="cursor:pointer;color:#007bff;font-size:0.85rem">📋 查看</summary>' \
+                      f'<small style="display:block;margin-top:5px;padding:8px;background:rgba(0,123,255,0.05);' \
+                      f'border-radius:4px;color:var(--text-secondary);font-size:0.8rem;line-height:1.4">' \
+                      f'{summary_content}</small></details>'
     else:
-        summary_html = '<span style="color:#6c757d">暂无总结</span>'
+        summary_html = '<span style="color:#6c757d;font-size:0.85rem">暂无总结</span>'
     
-    # 拼接表格行
+    # 🔹【修改】表格行：6列 → 5列（合并资源列）
     return f'''<tr>
         <td><strong>{title}</strong></td>
         <td>{first_author}</td>
-        <td>{comment_html}</td>
-        <td>{pdf_html}</td>
-        <td>{code_html}</td>
+        <td>{resource_html}</td>
         <td style="text-align:center">{stars_html}</td>
         <td style="text-align:center">{zotero_html}</td>
         <td>{summary_html}</td>
@@ -195,18 +201,15 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
     paper_count = len(papers)
     date_display = f"{date}（{paper_count}篇论文）"
     
-    # 按相关性评分降序排序
     sorted_papers = sorted(papers, key=lambda x: x.get("llm_score", 0) or 0, reverse=True)
     
-    # 生成表格头
+    # 🔹【修改】表格头：6列 → 5列
     table_header = '''<table>
         <thead>
             <tr>
                 <th>标题</th>
                 <th>作者</th>
-                <th>备注</th>
-                <th>PDF</th>
-                <th>代码</th>
+                <th>资源</th>
                 <th style="text-align:center">相关性</th>
                 <th style="text-align:center">Zotero</th>
                 <th>LLM总结</th>
@@ -214,12 +217,9 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
         </thead>
         <tbody>'''
     
-    # 生成所有论文行
     table_rows = "\n".join(generate_paper_row(p) for p in sorted_papers)
-    
     table_footer = "</tbody></table>"
     
-    # 内容显示状态：最新日期默认展开，其他折叠
     if is_latest:
         content_style = "display: block;"
         arrow = "▼"
@@ -227,7 +227,6 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
         content_style = "display: none;"
         arrow = "▶"
     
-    # 组装日期区块
     return f'''<div class="date-section" id="{anchor_id}">
     <div class="date-header">
         <span>{date_display}</span>
@@ -239,7 +238,6 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
         {table_footer}
     </div>
 </div>'''
-
 
 def generate_nav_links(valid_dates: List[str], date_papers: Dict) -> str:
     """生成顶部日期导航链接HTML"""
@@ -287,8 +285,7 @@ def json_to_html(json_path: str, output_path: str, template_path: str) -> bool:
     valid_dates = [d for d in recent_dates if d in date_papers and date_papers[d]]
     
     if not valid_dates:
-        logging.warning("⚠️ 最近 {} 天内无有效论文数据".format(DEFAULT_RECENT_DAYS))
-        # 仍尝试生成空页面
+        logging.warning(f"⚠️ 最近 {DEFAULT_RECENT_DAYS} 天内无有效论文数据")
         valid_dates = []
     
     latest_date = valid_dates[0] if valid_dates else None
@@ -307,7 +304,7 @@ def json_to_html(json_path: str, output_path: str, template_path: str) -> bool:
         section_html = generate_date_section(date, date_papers[date], is_latest, anchor_id)
         date_sections_html.append(section_html)
     
-    # 6. 填充模板变量
+    # 6. 准备替换字典
     replacements = {
         "total_papers": str(total_papers),
         "nav_links": nav_links_html,
@@ -315,10 +312,21 @@ def json_to_html(json_path: str, output_path: str, template_path: str) -> bool:
         "latest_anchor_id": f"date-{latest_date.replace('-', '')}" if latest_date else ""
     }
     
+    # 🔧 【关键修复】使用 replace() 替代 format()，避免CSS花括号冲突
     try:
-        html_content = template.format(**replacements)
-    except KeyError as e:
-        logging.error(f"模板缺少占位符: {e}")
+        html_content = template
+        for key, value in replacements.items():
+            placeholder = "{" + key + "}"  # 构造如 {total_papers}
+            html_content = html_content.replace(placeholder, str(value))
+        
+        # 可选：验证是否所有占位符都被替换
+        for key in replacements.keys():
+            if "{" + key + "}" in html_content:
+                logging.warning(f"⚠️ 占位符 {{{key}}} 可能未被正确替换")
+        
+        logging.info("✓ 模板变量替换完成")
+    except Exception as e:
+        logging.error(f"模板替换失败: {e}")
         return False
     
     # 7. 保存HTML文件
@@ -334,13 +342,6 @@ def json_to_html(json_path: str, output_path: str, template_path: str) -> bool:
 
 # -------------------------- 命令行入口 --------------------------
 def main():
-
-    # -------------------------- 默认配置 --------------------------
-    DEFAULT_JSON_PATH = "arxiv_cs_ro_papers_final.json"
-    DEFAULT_TEMPLATE_PATH = "template.html"
-    DEFAULT_OUTPUT_PATH = "index.html"
-    DEFAULT_RECENT_DAYS = 5  # 显示最近几天的数据
-    
     parser = argparse.ArgumentParser(
         description="arXiv机器人论文汇总 - 生成带Zotero功能的HTML页面",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -356,8 +357,8 @@ def main():
   python generate_html.py --days 3
 
 Zotero使用说明:
-  1. 安装 Zotero: https://www.zotero.org/
-  2. 安装浏览器 Connector: https://www.zotero.org/download/connectors
+  1. 安装 Zotero: https://www.zotero.org/  
+  2. 安装浏览器 Connector: https://www.zotero.org/download/connectors  
   3. 在生成的页面中点击「📚 添加」按钮，将自动弹出保存对话框
         """
     )
@@ -368,24 +369,20 @@ Zotero使用说明:
                         help=f"HTML模板文件路径 (默认: {DEFAULT_TEMPLATE_PATH})")
     parser.add_argument("--output", default=DEFAULT_OUTPUT_PATH,
                         help=f"输出HTML文件路径 (默认: {DEFAULT_OUTPUT_PATH})")
-    parser.add_argument("--days", type=int, default=DEFAULT_RECENT_DAYS,
-                        help=f"显示最近N天的数据 (默认: {DEFAULT_RECENT_DAYS})")
     
     args = parser.parse_args()
 
-    # 更新全局配置
-    DEFAULT_RECENT_DAYS = args.days
-    
     logging.info("🚀 开始生成 HTML 页面...")
     logging.info(f"   数据源: {args.json}")
     logging.info(f"   模板: {args.template}")
     logging.info(f"   输出: {args.output}")
-    logging.info(f"   时间范围: 最近 {args.days} 天")
+    logging.info(f"   时间范围: 最近 {DEFAULT_RECENT_DAYS} 天")
     
     success = json_to_html(args.json, args.output, args.template)
     
     if success:
-        logging.info("✨ 生成成功！请用浏览器打开查看: file:///" + os.path.abspath(args.output))
+        abs_path = os.path.abspath(args.output)
+        logging.info(f"✨ 生成成功！请用浏览器打开查看: file:///{abs_path}")
         return 0
     else:
         logging.error("❌ 生成失败，请检查日志")
@@ -393,6 +390,4 @@ Zotero使用说明:
 
 
 if __name__ == "__main__":
-    # 添加os导入（argparse需要）
-    import os
     sys.exit(main())
