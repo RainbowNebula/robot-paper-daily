@@ -70,7 +70,7 @@ def get_first_author(authors_str: str) -> str:
     return first if first else "未知作者"
 
 
-def get_recent_dates(limit: int = DEFAULT_RECENT_DAYS) -> List[str]:
+def get_recent_dates(limit: int = 5) -> List[str]:
     """获取最近N天的日期列表，格式 YYYY-MM-DD"""
     dates = []
     for i in range(limit):
