@@ -1,22 +1,33 @@
-# arXiv Robot 领域论文汇总（共197篇）
+# arXiv Robot 领域论文汇总（共198篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-03-15（3篇论文）](#date-20260315)
 - [2026-03-14（3篇论文）](#date-20260314)
 - [2026-03-13（57篇论文）](#date-20260313)
 - [2026-03-12（60篇论文）](#date-20260312)
 - [2026-03-11（75篇论文）](#date-20260311)
-- [2026-03-10（2篇论文）](#date-20260310)
 
-## <a id='date-20260314'></a>2026-03-14（3篇论文）
+## <a id='date-20260315'></a>2026-03-15（3篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
 | Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260314'></a>2026-03-14（3篇论文）</summary>
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260313'></a>2026-03-13（57篇论文）</summary>
@@ -231,15 +242,5 @@
 | Predictive Control with Indirect Adaptive Laws for Payload Transportation by Quadrupedal Robots | Leila Amanzadeh | <details><summary>detail</summary>. Published in IEEE Robotics and Automation Letters</details> | [PDF](https://arxiv.org/pdf/2603.08831) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 开发实时轨迹规划和控制算法以应对四足机器人在运输未知负载时的挑战。  <br>2. 提高控制系统在实际场景中对负载变化的适应性和鲁棒性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的自适应控制方法未能有效处理全阶运动模型的高维性和不确定性。  <br>2. 现有的模型预测控制（MPC）算法通常依赖于已知的模板模型参数，缺乏对未知参数的自适应估计。  <br><br>【提出了什么创新的方法】  <br>提出了一种新颖的间接自适应估计算法与MPC相结合的分层控制框架。该方法通过梯度下降法估计模板模型的未知参数，并在MPC框架中嵌入稳定性条件作为约束。实验结果表明，所提方法在运输未知静态负载时表现出显著的性能提升，能够在平坦和粗糙地形上分别运输109%和91%的负载。  <br><br>【文章缺点】  <br>该方法的复杂性可能导致在实时应用中计算负担较重，尤其是在动态环境中。此外，间接自适应估计的稳定性依赖于模型的准确性，可能在极端情况下表现不佳。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Receptogenesis in a Vascularized Robotic Embodiment | Kadri-Ann Pankratov | <details><summary>detail</summary>Supplementary Files currently unavailable online. Please contact the First Author to request any Supplementary Files</details> | [PDF](https://arxiv.org/pdf/2603.09473) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Fly, Track, Land: Infrastructure-less Magnetic Localization for Heterogeneous UAV-UGV Teaming | Valerio Brunacci | <details><summary>detail</summary>Submitted to IEEE Transactions on Robotics (T-RO). Supplementary video available</details> | [PDF](https://arxiv.org/pdf/2603.08926) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260310'></a>2026-03-10（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| HarvestFlex: Strawberry Harvesting via Vision-Language-Action Policy Adaptation in the Wild | Ziyang Zhao |  | [PDF](https://arxiv.org/pdf/2603.05982) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| RFM-HRI : A Multimodal Dataset of Medical Robot Failure, User Reaction and Recovery Preferences for Item Retrieval Tasks | Yashika Batra |  | [PDF](https://arxiv.org/pdf/2603.05641) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
