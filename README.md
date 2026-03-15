@@ -1,19 +1,22 @@
-# arXiv Robot 领域论文汇总（共198篇）
+# arXiv Robot 领域论文汇总（共201篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
-- [2026-03-15（3篇论文）](#date-20260315)
+- [2026-03-15（6篇论文）](#date-20260315)
 - [2026-03-14（3篇论文）](#date-20260314)
 - [2026-03-13（57篇论文）](#date-20260313)
 - [2026-03-12（60篇论文）](#date-20260312)
 - [2026-03-11（75篇论文）](#date-20260311)
 
-## <a id='date-20260315'></a>2026-03-15（3篇论文）
+## <a id='date-20260315'></a>2026-03-15（6篇论文）
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
+| Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
