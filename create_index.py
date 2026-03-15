@@ -30,17 +30,19 @@ DEFAULT_RECENT_DAYS = 5
 
 # -------------------------- 工具函数 --------------------------
 
-def html_escape(text: str) -> str:
+def html_escape(text: str, preserve_newlines: bool = False) -> str:
     """转义 HTML 特殊字符"""
     if not text:
         return ""
-    return (str(text)
-            .replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-            .replace("'", "&#39;")
-            .replace("\n", " "))
+    text = str(text)
+    text = (text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace('"', "&quot;")
+                .replace("'", "&#39;"))
+    if not preserve_newlines:
+        text = text.replace("\n", " ")
+    return text
 
 
 def extract_arxiv_id(url: str) -> str:
@@ -147,7 +149,7 @@ def generate_paper_row(paper: Dict) -> str:
     if llm_error and llm_error.strip():
         summary_content = f'{html_escape(llm_summary)}<br><small style="color:#dc3545">⚠️ {html_escape(llm_error)}</small>'
     elif llm_summary and llm_summary != "大模型总结失败" and llm_summary.strip():
-        summary_content = html_escape(llm_summary)
+        summary_content = html_escape(llm_summary, preserve_newlines=True)
     else:
         summary_content = "暂无总结"
     
