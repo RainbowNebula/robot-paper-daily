@@ -187,7 +187,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
-            table-layout: auto;
+            table-layout: fixed; /* ✅ 改用 fixed 布局，精确控制列宽 */
         }
 
         th {
@@ -225,40 +225,41 @@
             }
         }
 
-        /* ========== 列宽分配（资源列 12%）========== */
-        /* 标题列 - 占用最多空间 */
+        /* ========== 🔧 列宽分配（修改版：总结列40% + Title自动换行）========== */
+        
+        /* 标题列 - 22%，允许自动换行 */
         td:first-child {
-            width: 40%;
-            min-width: 12em;
+            width: 22%;
+            min-width: 10em;
             font-weight: 500;
         }
 
         td:first-child strong {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            display: block;              /* ✅ 改为 block 支持换行 */
+            white-space: normal;         /* ✅ 允许正常换行 */
+            word-break: break-word;      /* ✅ 长单词断行 */
+            overflow-wrap: break-word;   /* ✅ 兼容写法 */
             line-height: 1.4;
         }
 
-        /* 作者列 - 紧凑 */
+        /* 作者列 - 9% */
         td:nth-child(2) {
-            width: 12%;
-            min-width: 5em;
+            width: 9%;
+            min-width: 4.5em;
             color: var(--text-secondary);
             font-size: 0.85rem;
             white-space: nowrap;
         }
 
-        /* 资源列 - 12%（用户要求）*/
+        /* 资源列 - 9% */
         td:nth-child(3) {
-            width: 12%;
-            min-width: 6em;
+            width: 9%;
+            min-width: 5em;
             font-size: 0.75rem;
             line-height: 1.3;
         }
 
-        /* 相关性列 - 居中 */
+        /* 相关性列 - 8% */
         td:nth-child(4) {
             width: 8%;
             min-width: 4em;
@@ -266,19 +267,35 @@
             white-space: nowrap;
         }
 
-        /* Zotero 列 - 居中 */
+        /* Zotero 列 - 12% */
         td:nth-child(5) {
-            width: 10%;
+            width: 12%;
             min-width: 4.5em;
             text-align: center;
             white-space: nowrap;
         }
 
-        /* LLM 总结列 - 剩余空间 */
+        /* ✅ LLM 总结列 - 40%（加宽） */
         td:nth-child(6) {
-            width: 18%;
-            min-width: 9em;
+            width: 40%;
+            min-width: 12em;
             font-size: 0.85rem;
+        }
+
+        /* ✅ 总结列内部优化 */
+        td:nth-child(6) .summary-details small {
+            background: rgba(0,123,255,0.05);
+            padding: 0.5em;
+            border-radius: 0.25em;
+            line-height: 1.6;
+            text-align: justify;
+            display: block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            td:nth-child(6) .summary-details small {
+                background: rgba(77,171,247,0.1);
+            }
         }
 
         /* ========== 资源标签（紧凑版）========== */
@@ -508,17 +525,19 @@
             text-decoration: underline;
         }
 
-        /* ========== 响应式适配 ========== */
+        /* ========== 🔧 响应式适配（同步修改列宽）========== */
         @media (max-width: 1024px) {
             body { padding: 1em; }
             .date-header { padding: 0.9em 1.1em; font-size: 1rem; }
             .date-content { padding: 1em 1.1em; }
             th, td { padding: 0.7em 0.9em; font-size: 0.85rem; }
-            td:first-child { width: 38%; min-width: 10em; }
-            td:nth-child(2) { width: 14%; min-width: 4em; }
-            td:nth-child(3) { width: 12%; min-width: 5em; }
-            td:nth-child(4), td:nth-child(5) { width: 8%; min-width: 3.5em; }
-            td:nth-child(6) { width: 20%; min-width: 7em; }
+            
+            /* ✅ 响应式列宽 - 总结列保持40%+ */
+            td:first-child { width: 20%; min-width: 8em; }
+            td:nth-child(2) { width: 10%; min-width: 3.5em; }
+            td:nth-child(3) { width: 10%; min-width: 4em; }
+            td:nth-child(4), td:nth-child(5) { width: 8%; min-width: 3em; }
+            td:nth-child(6) { width: 44%; min-width: 10em; }
         }
 
         @media (max-width: 768px) {
@@ -527,11 +546,14 @@
             .nav a { padding: 0.4em 0.8em; width: 100%; text-align: center; }
             table { font-size: 0.8rem; min-width: 38em; }
             th, td { padding: 0.6em 0.75em; }
-            td:first-child { width: 35%; min-width: 8em; }
-            td:nth-child(2) { width: 15%; min-width: 3.5em; font-size: 0.8rem; }
-            td:nth-child(3) { width: 12%; min-width: 4.5em; }
-            td:nth-child(4), td:nth-child(5) { width: 10%; min-width: 3em; }
-            td:nth-child(6) { width: 18%; min-width: 6em; }
+            
+            /* ✅ 小屏幕列宽 */
+            td:first-child { width: 18%; min-width: 6em; }
+            td:nth-child(2) { width: 10%; min-width: 3em; font-size: 0.8rem; }
+            td:nth-child(3) { width: 10%; min-width: 4em; }
+            td:nth-child(4), td:nth-child(5) { width: 10%; min-width: 2.8em; }
+            td:nth-child(6) { width: 42%; min-width: 8em; }
+            
             .zotero-btn { padding: 0.3em 0.7em; font-size: 0.8rem; }
             .stars { font-size: 0.9rem; }
             .resource-tag { padding: 0.15em 0.35em; font-size: 0.7em; margin: 0.1em 0.15em 0.1em 0; }
@@ -548,11 +570,14 @@
             .date-content { padding: 0.75em 1em; }
             table { font-size: 0.75rem; min-width: 34em; }
             th, td { padding: 0.5em 0.6em; }
-            td:first-child { width: 32%; min-width: 6em; }
-            td:nth-child(2) { width: 16%; min-width: 3em; }
-            td:nth-child(3) { width: 12%; min-width: 4em; }
-            td:nth-child(4), td:nth-child(5) { width: 12%; min-width: 2.5em; }
-            td:nth-child(6) { width: 16%; min-width: 5em; }
+            
+            /* ✅ 超小屏幕列宽 */
+            td:first-child { width: 16%; min-width: 5em; }
+            td:nth-child(2) { width: 11%; min-width: 2.8em; }
+            td:nth-child(3) { width: 11%; min-width: 3.5em; }
+            td:nth-child(4), td:nth-child(5) { width: 11%; min-width: 2.5em; }
+            td:nth-child(6) { width: 40%; min-width: 7em; }
+            
             .zotero-btn { padding: 0.25em 0.6em; font-size: 0.75rem; }
             .stars { font-size: 0.85rem; }
             .resource-tag { padding: 0.12em 0.3em; font-size: 0.68em; gap: 0.15em; }
