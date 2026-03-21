@@ -1,16 +1,24 @@
-# arXiv Robot 领域论文汇总（共216篇）
+# arXiv Robot 领域论文汇总（共212篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-03-21（2篇论文）](#date-20260321)
 - [2026-03-20（57篇论文）](#date-20260320)
 - [2026-03-19（45篇论文）](#date-20260319)
 - [2026-03-18（64篇论文）](#date-20260318)
 - [2026-03-16（44篇论文）](#date-20260316)
-- [2026-03-15（6篇论文）](#date-20260315)
 
-## <a id='date-20260320'></a>2026-03-20（57篇论文）
+## <a id='date-20260321'></a>2026-03-21（2篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| TiBCLaG: A Trigger-induced Bistable Compliant Laparoscopic Grasper | Joel J Nellikkunnel |  | [PDF](https://arxiv.org/pdf/2603.18559) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| DriveVLM-RL: Neuroscience-Inspired Reinforcement Learning with Vision-Language Models for Safe and Deployable Autonomous Driving | Zilin Huang | <details><summary>detail</summary>. Code and demo available online</details> | [PDF](https://arxiv.org/pdf/2603.18315) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260320'></a>2026-03-20（57篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -71,6 +79,8 @@
 | Proprioceptive-only State Estimation for Legged Robots with Set-Coverage Measurements of Learned Dynamics | Abhijeet M. Kulkarni |  | [PDF](https://arxiv.org/pdf/2603.18308) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 当前的状态估计方法依赖于高需求的外部传感器，易受环境干扰，影响机器人性能。  <br>2. 现有的基于高斯噪声假设的算法在有限训练数据情况下，易导致不一致和退化的估计。  <br>3. 需要一种新的方法来处理噪声模型，从而在非高斯误差行为下保持状态估计的可靠性。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 经典的方法使用融合IMU数据和腿部运动学的滤波或因子图方法，但对接触检测的依赖可能影响性能。  <br>2. 一些学习基础的方法尝试使用神经网络来生成伪测量，但仍然依赖高斯噪声假设，且在有限数据情况下会导致估计偏差。  <br>3. 现有的鲁棒滤波器和分布鲁棒方法虽然能够处理噪声偏差，但通常不能在回归到点估计方面实现高效性和实时性。  <br><br>【提出了什么创新的方法】  <br>通过引入一种无高斯假设的自身感应状态估计框架，采用集合覆盖的不确定性表示来处理伪测量误差。方法包括使用现代不确定性量化工具，通过覆盖约束高效融合伪测量与状态估计，最后验证表明该方法在实际噪声环境下具有更高的鲁棒性，并且防止估计偏差。  <br><br>【文章缺点】  <br>1. 该方法可能在高动态环境中仍存在计算复杂度的问题，虽然在普通情况下能够实时处理，但在极端条件下影响性能。  <br>2. 聚焦于腿部机器人，这意味着该框架的适应性在其他类型机器人或平台上目前未经验证，可能限制广泛应用。  <br><br>【类似工作】  <br>1. “Robust Kalman Filtering Variants” - 探索鲁棒滤波器在处理偏置方面的效果，强调了对系统稳定性的必要性。  <br>2. “Distributionally Robust Formulations” - 该工作提出了优化对噪声分布的不确定性，但在实现上较重，难以</details> |
 | Generation Models Know Space: Unleashing Implicit 3D Priors for Scene Understanding | Xianjin Wu |  | [PDF](https://arxiv.org/pdf/2603.19235) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：Multimodal Large Language Models（MLLMs）在几何推理和物理动态方面存在空间盲点。  <br>2. 核心问题2：现有解决方案依赖于明确的3D模态，面临数据稀缺和泛化挑战。  <br>3. 核心问题3：如何利用视频生成模型中隐含的3D结构先验来增强3D视觉理解。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 早期研究通过直接使用3D模态（如点云）来提供几何基础，但依赖高质量3D数据。  <br>2. 以多视角方法为主的研究，尝试通过辅助几何监督将2D特征提升为3D表示，但通常需要复杂的多阶段训练和任务特定的几何标注。  <br><br>【提出了什么创新的方法】  <br>我们提出VEGA-3D框架，利用预训练的视频生成模型作为潜在世界模拟器，提取时空特征并通过自适应门控融合机制与语义表示结合，从而在无明确3D监督的情况下，为MLLMs提供丰富的几何线索。该方法在3D场景理解、空间推理和机器人操作等基准测试中表现优异，展示了生成先验对物理世界理解的可扩展基础。  <br><br>【文章缺点】  <br>1. 缺点1：对中间表示的依赖可能导致对最终输出质量的不确定性，例如，在高频细节捕捉上依赖可能不足。  <br>2. 缺点2：方法复杂性较高，适配现有模型时可能面临严重的学习曲线问题，尤其是对不同数据集的适配。  <br><br>【类似工作】  <br>1. Paper 1: PointLLM - 尝试将点云编码器与语言模型结合用于3D理解，关注3D数据的质量。  <br>2. Paper 2: Video-3D LLM - 通过投影2D特征到3D空间，尝试引入额外的几何信息，强调多视角学习的作用。  <br><br>【相关性评分】  <br>分数：</details> |
 | GSMem: 3D Gaussian Splatting as Persistent Spatial Memory for Zero-Shot Embodied Exploration and Reasoning | Yiren Lu | <details><summary>detail</summary>Project page atthis https URL</details> | [PDF](https://arxiv.org/pdf/2603.19137) | [code1](https://vulab-ai.github.io/GSMem/) | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 像人类一样，智能体需要能够积累和保留空间知识以进行有效的体态探索。  <br>2. 当前的场景表示方法缺乏后期重新观察的能力，一旦发生记忆遗漏，便无法恢复。  <br>3. 要实现高保真视觉推理，智能体需要能够回访过往区域并从新视角获取信息。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有对象中心的方法依赖于实时感知模块的准确性，并且在一次检测失败后，记忆无法恢复。  <br>2. 观测基础的表示方法由于视图依赖和稀疏性，无法提供足够几何保真度以支持高效推理。  <br><br>【提出了什么创新的方法】  <br>GSMem框架采用3D Gaussian Splatting作为持久空间记忆，允许智能体通过明确参数化连续几何和密集外观来实现空间回忆。其多级检索-渲染机制结合了对象级场景图和语义级语言特征，以确保可靠的目标区域本地化。最后，该框架还引入了一种结合了VLM驱动语义评分和基于3DGS的覆盖目标的混合探索策略，以支持任务导向的零-shot探索。通过广泛的实验，GSMem在体态问答和终身导航任务中展现了良好的效果。  <br><br>【文章缺点】  <br>1. 在高动态环境下，实时性能可能受到3DGS复杂性增加的影响，导致响应延迟。  <br>2. 框架的依赖于语义级特征的准确性，对于模糊或复杂场景的对象可能导致本地化失败，影响最终的推理结果。  <br><br>【类似工作】  <br>1. 3D Scene Graphs [gu2024conceptgraphs] - 侧重对象关系的离散表示，但缺乏几何保真度。  <br>2. 2D Top-Down Maps [yokoyama2024vlfm] - 使用基于视图的表示方法，不足以处理动态场景中的不确定性。  <br><br>【相关性评分】  <br>分数：</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260319'></a>2026-03-19（45篇论文）</summary>
@@ -246,19 +256,5 @@
 | SmoothTurn: Learning to Turn Smoothly for Agile Navigation with Quadrupedal Robots | Zunzhi You |  | [PDF](https://arxiv.org/pdf/2603.12842) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有的灵活导航方法无法有效处理需要快速转向的连续目标。  <br>2. 现有的目标导向方法主要关注单一目标，缺乏对连续目标的平滑转向能力的研究。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的模型基于控制方法在稳定性上表现良好，但在极端灵活性需求下表现不佳。  <br>2. 许多学习方法关注于单一目标的到达，未能有效处理高速度下的方向变化。  <br><br>【提出了什么创新的方法】  <br>SmoothTurn是一个学习型控制框架，专注于在快速运行中平滑转向以实现灵活的连续局部导航。该方法引入了新的顺序目标奖励、扩展的观察空间以及自动目标课程，旨在鼓励机器人在目标序列中持续前进。经过训练的策略在仿真和实际环境中均表现出色，实现了更快的穿越速度和更平滑的转向。  <br><br>【文章缺点】  <br>该方法依赖于特定的目标序列，可能在面对未知或动态环境中的目标时表现不佳。此外，SmoothTurn的训练过程可能需要大量的计算资源和时间。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Motion-Specific Battery Health Assessment for Quadrotors Using High-Fidelity Battery Models | Joonhee Kim | <details><summary>detail</summary>. Accepted to IEEE International Conference on Robotics and Automation (ICRA) 2026</details> | [PDF](https://arxiv.org/pdf/2603.12791) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：现有的电池管理方法将电池视为简单的能量储存装置，忽视了飞行运动对电池动态电流负载的影响。  <br>2. 核心问题2：缺乏对不同飞行动作如何影响电池降解机制的系统分析。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 早期研究集中在能量约束的规划和控制，但未考虑电池的电化学特性。  <br>2. 近期研究虽然量化了运动引起的负载对电池耐久性的影响，但未能解析电流波形的瞬态特征与降解机制之间的关系。  <br><br>【提出了什么创新的方法】  <br>提出了一种端到端框架，结合真实飞行传感、电池模型校准和虚拟实验，实现运动感知的电池健康评估。通过开发宽范围电流传感模块，捕捉运动特定的电流特征，并利用高保真电池模型进行校准，系统分析了不同飞行动作如何导致电池的降解模式。结果表明，即使在相同的平均能量消耗下，不同的瞬态负载结构也会导致不同的降解路径。  <br><br>【文章缺点】  <br>该方法依赖于高保真电池模型的准确性，若模型参数不够精确，可能导致降解路径分析的结果不可靠。此外，研究主要集中在四旋翼电池上，缺乏对其他类型电池的普适性验证。  <br><br>【相关性评分】  <br>分数：1分</details> |
 | Early Pruning for Public Transport Routing | Andrii Rohovyi |  | [PDF](https://arxiv.org/pdf/2603.12592) | - | ★☆☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 公共交通路由算法在转乘松弛阶段面临性能瓶颈，尤其是在密集转乘图上。  <br>2. 限制转乘距离或排除某些转乘选项会降低路径的最优性和多模式选择。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. RAPTOR及其变体是广泛使用的公共交通路由算法，但在密集转乘图上效率低下。  <br>2. 现有方法未能有效解决转乘松弛阶段的性能瓶颈，导致查询时间过长。  <br><br>【提出了什么创新的方法】  <br>提出了Early Pruning技术，通过对每个站点的所有出发转乘边进行预排序，提前终止迭代以避免不必要的计算。该方法仅需一次预处理步骤，且在多种真实交通网络上实现了查询时间减少高达57%。  <br><br>【文章缺点】  <br>该方法依赖于边的预排序，可能在动态交通条件下表现不佳，且未考虑极端情况下的转乘选择多样性。  <br><br>【相关性评分】  <br>分数：1分</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260315'></a>2026-03-15（6篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Robust Co-design Optimisation for Agile Fixed-Wing UAVs | Adrian Andrei Buda |  | [PDF](https://arxiv.org/pdf/2603.11130) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Thousand-GPU Large-Scale Training and Optimization Recipe for AI-Native Cloud Embodied Intelligence Infrastructure | Chen Zhou |  | [PDF](https://arxiv.org/pdf/2603.11101) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Adapting Dijkstra for Buffers and Unlimited Transfers | Denys Katkalo |  | [PDF](https://arxiv.org/pdf/2603.11729) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
