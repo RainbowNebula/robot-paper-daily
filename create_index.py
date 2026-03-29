@@ -124,6 +124,11 @@ def generate_paper_row(paper: Dict) -> str:
         resource_parts.append(
             f'<a class="resource-tag pdf" href="{html_escape(pdf_link)}" target="_blank" rel="noopener">📄 PDF</a>'
         )
+        arxiv_number = pdf_link.split("/")[-1]
+        alpha_base = f"https://www.alphaxiv.org/zh/overview/{arxiv_number}" # 2603.24844
+        resource_parts.append(
+            f'<a class="resource-tag alphaxiv" href="{html_escape(alpha_link)}" target="_blank" rel="noopener">🧠 AlphaXiv</a>'
+        )
     
     if code and code.strip():
         code_list = [c.strip() for c in code.split(",") if c.strip()]
