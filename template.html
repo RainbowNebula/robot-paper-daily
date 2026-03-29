@@ -268,15 +268,15 @@
         }
 
         /* Zotero 列 - 12% */
-        td:nth-child(5) {
+        /* td:nth-child(5) {
             width: 12%;
             min-width: 4.5em;
             text-align: center;
             white-space: nowrap;
-        }
+        } */
 
         /* ✅ LLM 总结列 - 40%（加宽） */
-        td:nth-child(6) {
+        td:nth-child(5) {
             width: 40%;
             min-width: 12em;
             font-size: 0.85rem;
@@ -303,10 +303,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.2em;
-            padding: 0.2em 0.4em;
-            margin: 0.1em 0.2em 0.1em 0;
-            border-radius: 0.2em;
-            font-size: 0.75em;
+
+            padding: 0.35em 0.7em;   /* 🔥 放大 */
+            margin: 0.15em 0.25em 0.15em 0;
+            border-radius: 0.25em;
+            font-size: 0.85em;
+            
             text-decoration: none;
             transition: var(--transition);
             white-space: nowrap;
