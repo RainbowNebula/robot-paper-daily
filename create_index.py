@@ -188,7 +188,7 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
                 <th>标题</th>
                 <th>作者</th>
                 <th>资源</th>
-                <th style="text-align:center">相关性</th>
+                <th>相关性</th>
                 <th>总结</th>
             </tr>
         </thead>
