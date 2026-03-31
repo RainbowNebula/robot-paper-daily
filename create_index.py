@@ -183,6 +183,14 @@ def generate_date_section(date: str, papers: List[Dict], is_latest: bool, anchor
     
     # 🔹 表格头：5 列
     table_header = '''<table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 10%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 45%">  <!-- Summary -->
+        </colgroup>
         <thead>
             <tr>
                 <th>标题</th>
