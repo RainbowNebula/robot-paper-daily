@@ -628,7 +628,7 @@
         <header>
             <h1>🤖 arXiv 机器人领域论文汇总</h1>
             <div class="intro">
-                <p>📊 共 <strong>197</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>📊 共 <strong>251</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
                 <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
             </div>
         </header>
@@ -636,17 +636,1580 @@
         <!-- 日期导航 -->
         <nav class="nav">
             <strong>📅 日期导航：</strong>
-            <a href="#date-20260520">2026-05-20（59篇）</a> | <a href="#date-20260519">2026-05-19（82篇）</a> | <a href="#date-20260518">2026-05-18（50篇）</a> | <a href="#date-20260517">2026-05-17（3篇）</a> | <a href="#date-20260516">2026-05-16（3篇）</a>
+            <a href="#date-20260521">2026-05-21（57篇）</a> | <a href="#date-20260520">2026-05-20（59篇）</a> | <a href="#date-20260519">2026-05-19（82篇）</a> | <a href="#date-20260518">2026-05-18（50篇）</a> | <a href="#date-20260517">2026-05-17（3篇）</a>
         </nav>
 
         <!-- 论文内容区块 -->
         <main>
-            <div class="date-section" id="date-20260520">
+            <div class="date-section" id="date-20260521">
     <div class="date-header">
-        <span>2026-05-20（59篇论文）</span>
+        <span>2026-05-21（57篇论文）</span>
         <span class="arrow">▼</span>
     </div>
     <div class="date-content" style="display: block;">
+        <table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 15%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 40%">  <!-- Summary -->
+        </colgroup>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>作者</th>
+                <th>资源</th>
+                <th>相关性</th>
+                <th>总结</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 任务状态纠缠导致语言与视觉输入的共享表示，造成观察泄漏。   2. 当前架构在语言理解和视觉控制之间存在优化张力，影响任务执行的可靠性。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有方法通过共享网络参数处理语言和观察，未能有效解决观察泄漏问题。   2. 许多研究未能充分考虑任务特定的策略生成，导致在复杂任务中表现不佳。    【...">DISC: Decoupling Instruction from State-Conditioned Control via Policy Generation</span></td>
+        <td class="author-cell">Hanxiang Ren</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20856" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20856" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 任务状态纠缠导致语言与视觉输入的共享表示，造成观察泄漏。  
+2. 当前架构在语言理解和视觉控制之间存在优化张力，影响任务执行的可靠性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有方法通过共享网络参数处理语言和观察，未能有效解决观察泄漏问题。  
+2. 许多研究未能充分考虑任务特定的策略生成，导致在复杂任务中表现不佳。  
+
+【提出了什么创新的方法】  
+DISC通过超网络结构将任务规范与策略生成解耦，利用语言生成任务特定的视觉运动策略参数。该方法采用两阶段超网络架构，首先进行权重初始化，然后通过模仿梯度优化的结构进行参数精炼。最终，DISC在LIBERO-90和Meta-World上超越了所有纠缠基线，尤其在复杂任务中表现更为突出，证明了语言生成的策略参数驱动行为的有效性。  
+
+【文章缺点】  
+1. 方法依赖于超网络的设计，可能在特定任务中导致生成的参数不够灵活，限制了适应性。  
+2. 在处理极端复杂的视觉场景时，可能仍然面临性能下降的问题，未能完全消除视觉上下文的影响。  
+
+【类似工作】  
+1. &quot;Learning to Act by Predicting the Future&quot; - 该论文探讨了基于预测的策略生成，与本研究在策略生成方面有相似之处。  
+2. &quot;Vision-and-Language Navigation&quot; - 研究了视觉与语言的结合，尽管关注点不同，但同样涉及多模态输入的处理。  
+
+【相关性评分】  
+分数：5分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 机器人模仿学习面临的主要挑战是不同形态之间的执行差异。   2. 现有方法依赖于行动级别对齐，难以处理异构代理的模仿学习。    【前人的工作如何解决该问题，存在哪些空白】   1. 许多方法通过共享或对齐的动作空间来解决形态差异，但这在异构代理中效果有限。   2. 现有的跨形态模仿学习方法通常需要大量的多形态数据，且在未见任务上泛化能力较差。  ...">Demo-JEPA: Joint-Embedding Predictive Architecture for One-shot Cross-Embodiment Imitation</span></td>
+        <td class="author-cell">Jingyang He</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20811" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20811" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 机器人模仿学习面临的主要挑战是不同形态之间的执行差异。  
+2. 现有方法依赖于行动级别对齐，难以处理异构代理的模仿学习。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 许多方法通过共享或对齐的动作空间来解决形态差异，但这在异构代理中效果有限。  
+2. 现有的跨形态模仿学习方法通常需要大量的多形态数据，且在未见任务上泛化能力较差。  
+
+【提出了什么创新的方法】  
+Demo-JEPA提出了一种新的框架，将跨形态模仿学习视为潜在目标条件规划，避免了对行动级别的直接对齐。该方法通过JEPA基础的世界模型，将源视觉演示转换为目标兼容的潜在轨迹，目标代理利用这些轨迹作为子目标进行规划。实验结果表明，Demo-JEPA在多种任务中表现出色，能够在未见任务和形态配置中实现良好的泛化。  
+
+【文章缺点】  
+1. 方法依赖于高质量的视觉演示，若演示质量不佳，可能影响学习效果。  
+2. 虽然避免了行动级别的对齐，但在某些复杂任务中，仍可能需要更多的上下文信息来指导目标生成。  
+
+【类似工作】  
+1. Zakka et al. (2021) - 该工作也关注跨形态模仿学习，但依赖于行动级别的对齐。  
+2. Finn and Levine (2017) - 该研究探讨了目标导向的学习方法，但未能有效处理形态差异。  
+
+【相关性评分】  
+分数：5分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的学习从演示（LfD）方法无法有效泛化到新的技能组合。   2. 生成策略通常只建模动作轨迹，缺乏对符号结果的推理能力。    【前人的工作如何解决该问题，存在哪些空白】   1. 之前的工作通过引入模块化结构来实现长时间的泛化，但通常将技能和谓词分开处理。   2. 现有方法未能充分利用动作与符号结果之间的紧密耦合关系。    【提出了什么创新...">Jointly Learning Predicates and Actions Enables Zero-Shot Skill Composition</span></td>
+        <td class="author-cell">Benedict Quartey</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20648" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20648" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的学习从演示（LfD）方法无法有效泛化到新的技能组合。  
+2. 生成策略通常只建模动作轨迹，缺乏对符号结果的推理能力。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 之前的工作通过引入模块化结构来实现长时间的泛化，但通常将技能和谓词分开处理。  
+2. 现有方法未能充分利用动作与符号结果之间的紧密耦合关系。  
+
+【提出了什么创新的方法】  
+我们提出了谓词-动作技能（Pacts），通过联合建模动作轨迹和谓词信念轨迹，生成一致的动作-结果回放。该方法支持基于在线谓词预测的规划，能够实现零-shot技能组合，提升了动作生成和谓词分类的性能。  
+
+【文章缺点】  
+1. 方法依赖于高质量的演示数据，若数据不足，可能导致模型性能下降。  
+2. 该模型在复杂环境中的实时性能尚未得到充分验证，可能在实际应用中面临延迟问题。  
+
+【类似工作】  
+1. &quot;Learning to Compose Skills with a Hierarchical Policy&quot; - 该工作探讨了技能组合的层次策略，但未结合符号结果。  
+2. &quot;Skill Learning via Reinforcement Learning and Imitation&quot; - 该研究关注技能学习，但缺乏对动作与结果的联合建模。  
+
+【相关性评分】  
+分数：5分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的数据驱动控制在接触丰富的操作任务中面临挑战，特别是在动态变化和安全约束下。   2. 现有的模仿学习政策通常依赖于单一或双模态信号，缺乏对三种感知模态的有效融合。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的模仿学习系统大多使用视觉和本体感知，缺乏对力/扭矩反馈的有效利用。   2. 现有的融合模块往往采用标准的交叉注意力...">Spacetime Optimal-Transport Attention for Visuo-Haptic Imitation Learning of Contact-Rich Manipulation</span></td>
+        <td class="author-cell">Yue Feng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20433" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20433" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Preprint</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的数据驱动控制在接触丰富的操作任务中面临挑战，特别是在动态变化和安全约束下。  
+2. 现有的模仿学习政策通常依赖于单一或双模态信号，缺乏对三种感知模态的有效融合。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的模仿学习系统大多使用视觉和本体感知，缺乏对力/扭矩反馈的有效利用。  
+2. 现有的融合模块往往采用标准的交叉注意力机制，未能考虑接触任务的物理特性和空间结构。  
+
+【提出了什么创新的方法】  
+提出了Spacetime Optimal-Transport Attention (SO-TA)，通过熵正则化的最优传输对力-姿态子查询与视觉补丁进行对齐，替代了传统的softmax归一化交叉注意力。SO-TA结合了每帧模态Transformer和时序Transformer，能够生成与扩散政策骨干兼容的融合编码。该方法在三个真实机器人任务中表现优异，成功率达到100%，并在视觉干扰下保持82.5%的成功率，显著优于基线方法。  
+
+【文章缺点】  
+1. SO-TA的计算复杂度较高，可能在实时应用中造成延迟，例如在快速动态任务中。  
+2. 该方法对训练数据的质量和多样性依赖较大，缺乏在低质量数据下的稳健性，可能导致性能下降。  
+
+【类似工作】  
+1. &quot;Learning to Imitate with Multi-Modal Sensor Fusion&quot; - 该研究探讨了多模态传感器融合在模仿学习中的应用，与本研究在感知融合方面有相似之处。  
+2. &quot;Attention Mechanisms for Robotics: A Survey&quot; - 该文献综述了机器人领域中的注意力机制，强调了与本研究相似的关注点，即如何有效融合多模态信息。  
+
+【相关性评分】  
+分数：5分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 提高残疾人使用轮椅装载机器人臂的独立性和生活质量。   2. 减少用户在高自由度机器人控制中的心理负担。   3. 提升人机协作的效率和用户体验。    【前人的工作如何解决该问题，存在哪些空白】   1. 共享控制方法已被应用于多种领域，但在与扩散模型结合的共享控制中仍未充分探索。   2. 现有方法往往限制用户输入，导致用户控制感降低，缺乏对多模...">HITL-D: Human In The Loop Diffusion Assisted Shared Control</span></td>
+        <td class="author-cell">Riley Zilka</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21460" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21460" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for presentation at ICRA 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 提高残疾人使用轮椅装载机器人臂的独立性和生活质量。  
+2. 减少用户在高自由度机器人控制中的心理负担。  
+3. 提升人机协作的效率和用户体验。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 共享控制方法已被应用于多种领域，但在与扩散模型结合的共享控制中仍未充分探索。  
+2. 现有方法往往限制用户输入，导致用户控制感降低，缺乏对多模态行为的有效处理。  
+
+【提出了什么创新的方法】  
+HITL-D框架结合人类输入与扩散策略，通过将用户的平移控制与机器人自主的方向控制相结合，降低了控制轴数和心理负担。用户研究表明，HITL-D在任务完成时间、感知负担和用户信心等方面均显著优于传统遥操作方法。  
+
+【文章缺点】  
+1. 方法可能在复杂环境下的适应性不足，例如动态障碍物的处理能力有限。  
+2. 用户研究样本量较小（仅12名参与者），可能影响结果的普遍性和可靠性。  
+
+【类似工作】  
+1. [21] 探讨了人机控制权的切换，但未能保持用户的持续控制权。  
+2. [15] 采用基础模型进行共享控制，但未充分利用扩散模型的优势。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的视觉-语言-动作模型（VLA）主要依赖2D视觉表示，限制了其在3D环境中的操作能力。   2. 需要有效整合3D几何信息以增强空间理解和操作精度。    【前人的工作如何解决该问题，存在哪些空白】   1. 许多VLA方法尝试从单视图或稀疏视图RGB图像中恢复3D结构，但重建结果往往模糊且不可靠。   2. 现有的3D感知方法通常将3D信息作为...">PointACT: Vision-Language-Action Models with Multi-Scale Point-Action Interaction</span></td>
+        <td class="author-cell">Shizhe Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21414" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21414" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://cshizhe.github.io/projects/pointact.html" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to RSS 2026; project webpage:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的视觉-语言-动作模型（VLA）主要依赖2D视觉表示，限制了其在3D环境中的操作能力。  
+2. 需要有效整合3D几何信息以增强空间理解和操作精度。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 许多VLA方法尝试从单视图或稀疏视图RGB图像中恢复3D结构，但重建结果往往模糊且不可靠。  
+2. 现有的3D感知方法通常将3D信息作为辅助信号，未能有效地与最终控制输出紧密结合。  
+
+【提出了什么创新的方法】  
+PointACT提出了一种双系统的3D感知VLA框架，结合了预训练的视觉-语言模型（VLM）和3D动作专家，通过多尺度点-动作交互机制，利用高效的瓶颈窗口自注意力实现点云与动作生成的紧密结合。该方法在LIBERO和RLBench基准上取得了显著的性能提升，尤其是在复杂任务中成功率提高了10%。  
+
+【文章缺点】  
+1. 方法在处理极端复杂的3D场景时可能仍然存在局限性，例如在动态环境中的适应性不足。  
+2. 依赖于预训练的点云编码器，可能导致在特定任务上的表现不如从头训练的模型。  
+
+【类似工作】  
+1. RT-2 - 采用自回归的下一步动作预测方法，关注于动作生成的效率。  
+2. MolmoAct - 生成深度标记以增强空间理解，但在计算上可能存在开销。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的操控方法过于依赖视觉或触觉传感，忽视了关节传感的潜力。   2. 探索仅依靠关节传感的控制是否能在真实环境中实现有效的物体操控。   3. 研究如何从关节测量中提取环境信息以增强操控能力。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统方法依赖于视觉系统，存在遮挡和计算资源需求等局限性。   2. 现有的深度强化学习方法虽然有...">Learning Robust Dexterous In-Hand Manipulation from Joint Sensors with Proprioceptive Transformer</span></td>
+        <td class="author-cell">Senlan Yao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21330" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21330" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的操控方法过于依赖视觉或触觉传感，忽视了关节传感的潜力。  
+2. 探索仅依靠关节传感的控制是否能在真实环境中实现有效的物体操控。  
+3. 研究如何从关节测量中提取环境信息以增强操控能力。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统方法依赖于视觉系统，存在遮挡和计算资源需求等局限性。  
+2. 现有的深度强化学习方法虽然有效，但对外部感知的依赖使得在复杂环境中表现不稳定。  
+
+【提出了什么创新的方法】  
+我们提出了Proprioceptive Transformer (PT)，通过教师-学生学习框架，首先在模拟环境中训练教师策略，然后将其蒸馏为仅依赖关节位置和速度历史的学生策略。PT利用Transformer架构从关节传感器读取的时间模式中提取隐含的物体状态信息。实验表明，该方法在真实ORCA手上实现了3.1倍的旋转速度提升和23.4%的位置估计RMSE降低，显示出其在无外部感知下的强大能力。  
+
+【文章缺点】  
+1. 该方法可能在复杂环境中对关节传感器的依赖导致性能下降，例如在高动态或高负载条件下。  
+2. 仅依靠关节传感可能无法处理所有类型的操控任务，特别是需要精确触觉反馈的任务。  
+
+【类似工作】  
+1. OpenAI et al. (2018) 的工作展示了基于视觉的立方体重定位，虽然有效但存在局限性。  
+2. Yin et al. (2021) 研究了仅使用本体感知和触觉反馈的操控方法，显示出对视觉的依赖可以减少。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 当前的3D感知和操作预训练方法在隐式和显式几何表示之间存在局限性。   2. 现有方法在处理不同场景的下游任务时性能下降，缺乏有效的结构信息。    【前人的工作如何解决该问题，存在哪些空白】   1. 早期方法直接使用原始传感器观察，效率低且脆弱。   2. 现有的3D预训练框架大多依赖于复杂的渲染机制，计算成本高且缺乏结构化信息。    【提出了...">Learning Structural Latent Points for Efficient Visual Representations in Robotic Manipulation</span></td>
+        <td class="author-cell">Yicheng Jiang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21258" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21258" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 当前的3D感知和操作预训练方法在隐式和显式几何表示之间存在局限性。  
+2. 现有方法在处理不同场景的下游任务时性能下降，缺乏有效的结构信息。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 早期方法直接使用原始传感器观察，效率低且脆弱。  
+2. 现有的3D预训练框架大多依赖于复杂的渲染机制，计算成本高且缺乏结构化信息。  
+
+【提出了什么创新的方法】  
+我们提出了一种新颖的预训练框架，通过学习结构潜在点来结合隐式表示的表达能力和显式表示的结构先验。该方法将点云自编码器与点-wise潜在变分自编码器（PL-VAE）结合，保留了几何趋势并增强了下游任务的表现。通过在RLBench和ManiSkill2平台上的广泛评估，我们的方法在任务成功率、样本效率和对场景变化的鲁棒性上均优于强基线。  
+
+【文章缺点】  
+1. 方法依赖于特定的3DGS渲染管道，可能限制了在其他类型场景中的应用。  
+2. 虽然框架提高了效率，但在处理极其复杂的几何结构时，可能仍然无法捕捉到足够的细节。  
+
+【类似工作】  
+1. NeRF-based methods: 提供了隐式表示的表达能力，但缺乏结构信息。  
+2. 3D Gaussian Splatting: 通过显式表示提高了效率，但可能在细节捕捉上存在不足。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在复杂3D环境中，空间理解面临挑战。   2. 动作生成的泛化能力不足，受限于有限的真实机器人数据。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前工作尝试利用人类运动捕捉数据和模拟数据来缓解数据瓶颈，但仍存在sim-to-real差距。   2. 现有方法多用于简化设置，缺乏主动环境交互和推理能力，限制了泛化能力。    【提出了...">Humanoid Whole-Body Manipulation via Active Spatial Brain and Generalizable Action Cerebellum</span></td>
+        <td class="author-cell">Zhizhao Liang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21133" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21133" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://leungchaos.github.io/Humanoid-Whole-Body-Manipulation-via-Active-Spatial-Brain-and-Generalizable-Action-Cerebellum/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在复杂3D环境中，空间理解面临挑战。  
+2. 动作生成的泛化能力不足，受限于有限的真实机器人数据。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前工作尝试利用人类运动捕捉数据和模拟数据来缓解数据瓶颈，但仍存在sim-to-real差距。  
+2. 现有方法多用于简化设置，缺乏主动环境交互和推理能力，限制了泛化能力。  
+
+【提出了什么创新的方法】  
+本研究提出了一种无真实机器人数据的类人全身操控框架，结合了主动空间感知的Active Spatial Brain和可泛化的动作生成的Generalizable Action Cerebellum。该框架通过动态理解3D场景，自动将任务分解为可执行的全身动作，显著提高了在多样化环境中的成功率。  
+
+【文章缺点】  
+1. 方法依赖于大规模的多模态模型，可能导致计算资源消耗过大，限制了实际应用的可行性。  
+2. 在复杂动态环境中，系统的实时反应能力未得到充分验证，可能影响其在真实场景中的表现。  
+
+【类似工作】  
+1. HOMIE: 利用人类遥操作进行模仿学习，关注于简化设置下的操控。  
+2. TrajBooster: 通过重定向轨迹实现类人操控，主要在静态环境中表现良好。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现代视觉预测器在测试时分布变化下表现出过度自信，影响安全性。   2. 现有异常信号未能捕捉动态异常，导致安全评估不准确。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统的后处理校准方法（如温度缩放）在数据集变化下性能显著下降。   2. 更复杂的不确定性量化技术（如MC Dropout）虽然提高了鲁棒性，但计算成本高，不适合实时控...">Anomaly-Informed Confidence Calibration for Vision-Based Safety Prediction</span></td>
+        <td class="author-cell">Zhenjiang Mao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21109" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21109" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现代视觉预测器在测试时分布变化下表现出过度自信，影响安全性。  
+2. 现有异常信号未能捕捉动态异常，导致安全评估不准确。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统的后处理校准方法（如温度缩放）在数据集变化下性能显著下降。  
+2. 更复杂的不确定性量化技术（如MC Dropout）虽然提高了鲁棒性，但计算成本高，不适合实时控制。  
+
+【提出了什么创新的方法】  
+我们提出了一种异常信息在线校准框架，通过融合来自世界模型的感知和动态异常分数，利用轻量级的温度缩放模块进行自信度调整。该方法在四种未见的真实世界异常协议下，平均期望校准误差从0.184降低到0.116，提升了37%。  
+
+【文章缺点】  
+1. 方法依赖于特定的世界模型，若模型不准确，可能导致校准效果不佳。  
+2. 实验仅在物理DonkeyCar平台上进行，缺乏对其他类型机器人的验证。  
+
+【类似工作】  
+1. &quot;Uncertainty-Aware Control for Safe Robot Manipulation&quot; - 该工作同样关注不确定性对安全控制的影响。  
+2. &quot;Robustness to Distribution Shift in Vision-Based Control&quot; - 研究了视觉控制在分布变化下的鲁棒性，类似于本论文的关注点。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 移动模仿学习面临人类身体与手部动作之间的运动耦合问题。   2. 生成策略在连续移动基础上的执行延迟导致不稳定的动作执行。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的可穿戴接口如UMI降低了数据收集成本，但仅适用于静态任务。   2. 生成模型如Diffusion Policy虽能捕捉复杂行为，但在移动基础上存在显著的推理延迟...">Mobile UMI: Cross-View Diffusion Policy with Decoupled Kinematics for Mobile Manipulation</span></td>
+        <td class="author-cell">Haoran Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20894" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20894" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 移动模仿学习面临人类身体与手部动作之间的运动耦合问题。  
+2. 生成策略在连续移动基础上的执行延迟导致不稳定的动作执行。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的可穿戴接口如UMI降低了数据收集成本，但仅适用于静态任务。  
+2. 生成模型如Diffusion Policy虽能捕捉复杂行为，但在移动基础上存在显著的推理延迟。  
+
+【提出了什么创新的方法】  
+本研究提出Mobile UMI框架，包含三部分：双摄像头系统捕捉全局和局部信息，ChArUco空间锚定统一视觉惯性帧，异步的在线状态匹配机制确保动作执行的平滑性。该系统在四个家庭任务中实现了83.8%的成功率，显著优于现有基线。  
+
+【文章缺点】  
+1. 方法依赖于特定的摄像头配置，限制了其在不同环境中的适用性。  
+2. 在线状态匹配机制可能在极端动态环境下表现不佳，导致执行不稳定。  
+
+【类似工作】  
+1. Wu et al.的TidyBot++，关注于集成硬件的移动操控。  
+2. Chi et al.的UMI，探索可穿戴接口在静态任务中的应用。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. VLA模型在真实世界的评估缺乏可访问和一致的基准。   2. 现有基准无法有效捕捉真实世界的复杂性，限制了任务多样性。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的模拟基准如Meta-World和LIBERO存在sim-to-real差距，导致性能评估过于乐观。   2. 实际基准如REPLAB和SceneReplica任务多样...">VLA-REPLICA: A Low-Cost, Reproducible Benchmark for Real-World Evaluation of Vision-Language-Action Models</span></td>
+        <td class="author-cell">Alex S. Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20774" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20774" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. VLA模型在真实世界的评估缺乏可访问和一致的基准。  
+2. 现有基准无法有效捕捉真实世界的复杂性，限制了任务多样性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的模拟基准如Meta-World和LIBERO存在sim-to-real差距，导致性能评估过于乐观。  
+2. 实际基准如REPLAB和SceneReplica任务多样性不足，且需要昂贵的硬件和复杂的环境设置。  
+
+【提出了什么创新的方法】  
+VLA-REPLICA是一个低成本、可重复的真实世界基准，使用现成组件构建，能快速组装并在不同实验室中复制。它提供了多样化的操作任务和人类示范数据集，设计了针对现代VLA模型的结构化评估协议。实验表明，该基准在不同环境中具有一致的评估结果，展示了其可重复性和有效性。  
+
+【文章缺点】  
+1. 该基准可能无法覆盖所有真实世界的操作场景，举例来说，特定复杂任务可能未包含在内。  
+2. 评估依赖于用户的操作能力，非专家用户可能在环境复制上遇到困难，影响结果的一致性。  
+
+【类似工作】  
+1. REPLAB：专注于物体抓取，但缺乏任务多样性。  
+2. Meta-World：提供可扩展的模拟环境，但存在sim-to-real差距。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的多目标跟踪方法在复杂环境中面临传感器噪声和遮挡等挑战。   2. 传统的出生模型未能有效考虑场景语义和遮挡信息，导致跟踪性能不足。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的基于深度学习的方法依赖大量训练数据，难以处理分布外场景。   2. 现有的贝叶斯方法未能有效整合场景上下文和遮挡信息，导致目标初始化不准确。    ...">A Semantic and Occlusion-Aware GM-PHD Filter</span></td>
+        <td class="author-cell">Jovan Menezes</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20666" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20666" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at ICRA 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的多目标跟踪方法在复杂环境中面临传感器噪声和遮挡等挑战。  
+2. 传统的出生模型未能有效考虑场景语义和遮挡信息，导致跟踪性能不足。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的基于深度学习的方法依赖大量训练数据，难以处理分布外场景。  
+2. 现有的贝叶斯方法未能有效整合场景上下文和遮挡信息，导致目标初始化不准确。  
+
+【提出了什么创新的方法】  
+提出了一种新的出生模型，称为语义-遮挡感知（S-OA）GM-PHD滤波器，该模型通过整合环境语义和遮挡信息来改进目标初始化。该方法通过蒙特卡洛仿真和KITTI数据集的实验验证，结果显示在约70%的情况下，S-OA模型减少了初始化延迟，并在复杂场景中表现优于现有基线。  
+
+【文章缺点】  
+1. 方法对计算资源的需求较高，可能在实时应用中受到限制，例如在大规模场景中。  
+2. 对于动态变化的环境，模型的适应性可能不足，可能导致跟踪不稳定，尤其是在快速移动的场景中。  
+
+【类似工作】  
+1. [Deep Learning for Multi-Object Tracking] - 该工作探讨了深度学习在多目标跟踪中的应用，强调了对大规模数据的依赖。  
+2. [Bayesian Tracking Approaches] - 该研究集中于贝叶斯方法在目标跟踪中的应用，但未能充分考虑环境语义。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在不确定环境中，机器人需要在安全导航与信息获取之间进行权衡。   2. 现有方法主要关注于碰撞避免，未能有效整合安全与感知目标。    【前人的工作如何解决该问题，存在哪些空白】   1. Splat-Nav通过几何交集测试实现安全导航，但未考虑感知目标。   2. SAFER-Splat利用控制障碍函数确保安全，但缺乏对信息获取的有效整合。    ...">Conflict-Aware Active Perception and Control in 3D Gaussian Splatting Fields via Control Barrier Functions</span></td>
+        <td class="author-cell">Amirhossein Mollaei Khass</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20566" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20566" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://sircesoc.github.io/Conflict_Aware_Active_Perception/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project website:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在不确定环境中，机器人需要在安全导航与信息获取之间进行权衡。  
+2. 现有方法主要关注于碰撞避免，未能有效整合安全与感知目标。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Splat-Nav通过几何交集测试实现安全导航，但未考虑感知目标。  
+2. SAFER-Splat利用控制障碍函数确保安全，但缺乏对信息获取的有效整合。  
+
+【提出了什么创新的方法】  
+提出了一种冲突感知的主动感知与控制框架，结合安全与感知目标，使用基于平均风险值的控制障碍函数来量化碰撞风险，并引入感知障碍函数引导系统向高信息增益方向移动。通过原始-对偶控制障碍函数的二次规划方法，解决了安全与感知之间的权衡，模拟结果显示该方法在安全性和信息获取上均优于现有3DGS方法。  
+
+【文章缺点】  
+1. 方法依赖于3D Gaussian Splatting的准确性，若环境复杂或动态变化，可能导致性能下降。  
+2. 仅在模拟环境中验证，缺乏真实世界应用的实验数据，可能影响方法的实用性。  
+
+【类似工作】  
+1. Splat-Nav：关注安全导航但未整合感知目标。  
+2. SAFER-Splat：利用控制障碍函数实现安全性，但缺乏对信息获取的综合考虑。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的基准主要集中在文本环境中，未能捕捉到具身机器人环境中的感知基础和物理约束。   2. 具身机器人需要在执行指令时识别何时应当放弃执行，以避免错误的任务执行。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的研究主要集中在文本环境中的放弃机制，缺乏对具身环境中放弃的研究。   2. 现有基准未能考虑具身机器人在自然语言指令下的独...">The Yes-Man Syndrome: Benchmarking Abstention in Embodied Robotic Agents</span></td>
+        <td class="author-cell">Doguhan Yeke</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20544" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20544" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的基准主要集中在文本环境中，未能捕捉到具身机器人环境中的感知基础和物理约束。  
+2. 具身机器人需要在执行指令时识别何时应当放弃执行，以避免错误的任务执行。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的研究主要集中在文本环境中的放弃机制，缺乏对具身环境中放弃的研究。  
+2. 现有基准未能考虑具身机器人在自然语言指令下的独特挑战，导致无法有效评估其放弃能力。  
+
+【提出了什么创新的方法】  
+我们提出了RoboAbstention框架，通过三阶段流程（结构化视觉基础、确定性约束推导和控制指令生成）来生成基于图像的放弃指令。该框架构建了一个包含1,250张图像的基准数据集，评估了多个前沿的VLM模型在放弃能力上的表现，发现当前模型在放弃能力上普遍存在不足。通过防御性提示和上下文学习等方法，部分提升了放弃率，但仍未完全解决问题。  
+
+【文章缺点】  
+1. 方法依赖于现有VLM模型的性能，若模型本身存在局限性，可能影响放弃能力的评估结果。比如，Gemini 2.5 Flash在放弃率上仅为39.0%。  
+2. 尽管提出了改进策略，但没有单一方法能够完全解决放弃问题，显示出当前技术的局限性，尤其是在复杂场景下的应用。  
+
+【类似工作】  
+1. &quot;Uncertainty Estimation in Language Models&quot; - 研究了语言模型中的不确定性估计，但未涉及具身机器人。  
+2. &quot;Embodied Question Answering&quot; - 探讨了具身环境中的问答机制，但缺乏对放弃能力的深入分析。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的Driving VLA模型在预测轨迹时忽视视觉信息，导致盲目规划。   2. 任务的结构性不良表述使得模型依赖于自我状态和文本命令，而非视觉特征。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的工作未能充分利用视觉信息，导致模型在动态驾驶情况下表现不佳。   2. 现有模型只依赖当前视觉状态，缺乏对未来视觉状态的预测，未能解...">Grounding Driving VLA via Inverse Kinematics</span></td>
+        <td class="author-cell">Junsung Park</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21061" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21061" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的Driving VLA模型在预测轨迹时忽视视觉信息，导致盲目规划。  
+2. 任务的结构性不良表述使得模型依赖于自我状态和文本命令，而非视觉特征。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的工作未能充分利用视觉信息，导致模型在动态驾驶情况下表现不佳。  
+2. 现有模型只依赖当前视觉状态，缺乏对未来视觉状态的预测，未能解决视觉特征的利用问题。  
+
+【提出了什么创新的方法】  
+通过重新设计Driving VLA，采用逆向运动学的思路，提出了一个未来视觉状态预测目标和一个独立的逆向运动学网络。这样，模型在轨迹解码时更依赖视觉特征，从而实现了与更大规模模型相当的轨迹规划性能。  
+
+【文章缺点】  
+1. 方法依赖于视觉状态的准确预测，若未来状态预测不准确，可能导致轨迹规划失败。  
+2. 模型的复杂性增加，可能导致训练时间和计算资源消耗显著上升。  
+
+【类似工作】  
+1. &quot;Vision-Language Navigation&quot; - 该工作也探讨了视觉和语言信息的结合，但主要集中在导航任务上。  
+2. &quot;End-to-End Learning for Autonomous Driving&quot; - 该研究关注端到端学习在自动驾驶中的应用，涉及视觉信息的整合。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 识别动态环境中变化的必要性，以实现长期自主操作。   2. 现有的变化检测方法在面对不受约束的相机运动和强视角失配时表现不佳。   3. 需要一种新方法来处理多重同时变化的场景。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统的变化检测方法通常假设相机视角固定，无法处理动态环境中的复杂变化。   2. 现有的视频变化检测方法依赖于几...">VSCD: Video-based Scene Change Detection in Unaligned Scenes</span></td>
+        <td class="author-cell">Jiae Yoon</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20821" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20821" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted to the 43rd International Conference on Machine Learning (ICML 2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 识别动态环境中变化的必要性，以实现长期自主操作。  
+2. 现有的变化检测方法在面对不受约束的相机运动和强视角失配时表现不佳。  
+3. 需要一种新方法来处理多重同时变化的场景。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统的变化检测方法通常假设相机视角固定，无法处理动态环境中的复杂变化。  
+2. 现有的视频变化检测方法依赖于几乎相同的相机轨迹，无法有效利用时间结构和多视角几何信息。  
+
+【提出了什么创新的方法】  
+我们提出了一种基于视频的场景变化检测（VSCD）方法，通过引入查询中心的多参考模型，利用变化掩码监督进行隐式学习。该方法通过局部补丁对应对候选参考特征进行对齐，并在解码高分辨率掩码之前，使用帧级和补丁级置信度融合每个候选变化特征。我们的方法在强基线下实现了最先进的性能，并在移动机器人上验证了其在视觉监控和对象增量学习中的实际应用。  
+
+【文章缺点】  
+1. 方法对复杂场景的适应性可能不足，例如在极端光照变化或遮挡情况下的表现未充分验证。  
+2. 实验主要集中在室内环境，缺乏对户外或更复杂环境的测试，可能限制其通用性。  
+
+【类似工作】  
+1. Remote sensing change detection (RSCD) - 处理大规模环境变化，但在动态环境中表现不佳。  
+2. Scene change detection (SCD) - 处理对象级变化，但无法利用时间结构和多视角信息。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的引导采样方法在处理多个约束时常常导致样本偏离真实数据流形。   2. 需要一种有效的方式来解决梯度冲突，以提高生成模型在复杂约束下的表现。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的引导采样方法通过在推理时注入奖励信号来适应预训练生成模型，但在组合奖励设置中表现不佳。   2. 精确引导方法虽然能减轻偏离流形的问题，但计...">Conflict-Aware Additive Guidance for Flow Models under Compositional Rewards</span></td>
+        <td class="author-cell">Xuehui Yu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20758" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20758" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Forty-Third International Conference on Machine Learning (ICML 2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的引导采样方法在处理多个约束时常常导致样本偏离真实数据流形。  
+2. 需要一种有效的方式来解决梯度冲突，以提高生成模型在复杂约束下的表现。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的引导采样方法通过在推理时注入奖励信号来适应预训练生成模型，但在组合奖励设置中表现不佳。  
+2. 精确引导方法虽然能减轻偏离流形的问题，但计算开销大且缺乏灵活性，难以高效适应多样化的奖励函数。  
+
+【提出了什么创新的方法】  
+提出了Conflict-Aware Additive Guidance (gcarg^{\text{car}})，通过动态检测和解决梯度冲突来主动纠正偏离流形的现象。该方法引入了一种冲突感知的门控机制，在显著的梯度冲突区域选择性地激活可学习的修正。实验结果表明，gcarg^{\text{car}}在多个领域中超越了现有基线，显著提高了生成的保真度和成功率。  
+
+【文章缺点】  
+1. 方法在复杂场景下的适用性仍需进一步验证，例如在极端条件或高维空间中可能表现不佳。  
+2. 文章未提供对不同类型奖励函数组合的详细分析，可能限制了方法的通用性和适应性。  
+
+【类似工作】  
+1. Flow Matching (FM) - 研究了无模拟的连续归一化流的训练，关注于生成概率密度路径。  
+2. Conditional Flow Matching (CFM) - 引入潜变量以提高训练的可行性，关注条件概率路径的生成。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 核心问题1：物理序列模型在生成过程中可能导致物理量分布的错误，称为物理误泛化。   2. 核心问题2：现有模型在训练时未能有效考虑物理量的优化目标，导致生成的轨迹不符合预期的物理行为。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前研究关注生成模型的有效性，但未深入探讨物理量分布的保持问题。   2. 现有方法缺乏对模型误差传播机制...">Mechanisms of Misgeneralization in Physical Sequence Modeling</span></td>
+        <td class="author-cell">Kento Nishi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20299" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20299" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="http://kentonishi.com/physical-misgeneralization" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Preprint.this http URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 核心问题1：物理序列模型在生成过程中可能导致物理量分布的错误，称为物理误泛化。  
+2. 核心问题2：现有模型在训练时未能有效考虑物理量的优化目标，导致生成的轨迹不符合预期的物理行为。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前研究关注生成模型的有效性，但未深入探讨物理量分布的保持问题。  
+2. 现有方法缺乏对模型误差传播机制的系统理解，未能提供针对性的干预策略。  
+
+【提出了什么创新的方法】  
+本文提出了一种机制解释，利用数据偏差核来估计模型误差，并预测物理量在生成轨迹中的分布变化。通过设计合成任务，验证了该机制在合成和实际任务中的有效性，提出了基于核的干预策略以减轻物理误泛化的影响。  
+
+【文章缺点】  
+1. 缺点1：方法依赖于合成任务的设计，可能不完全适用于复杂的真实世界场景。举例：在实际应用中，物理量的关系可能更复杂，导致预测不准确。  
+2. 缺点2：对模型的干预策略缺乏全面的实证验证，可能在不同类型的任务中效果不一。举例：在某些情况下，数据集的组成可能无法完全解决物理误泛化的问题。  
+
+【类似工作】  
+1. Ghosh et al. (2024) - 研究生成模型在机器人策略合成中的应用，关注模型的有效性。  
+2. Janner et al. (2022) - 探讨扩散规划模型在路径生成中的表现，涉及物理行为的生成。  
+
+【相关性评分】  
+分数：4分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 需要确保Vision-Language-Action (VLA)模型在传感器退化情况下的可靠性。   2. 现有的对抗鲁棒性研究主要集中在感知组件，而非轨迹结果。    【前人的工作如何解决该问题，存在哪些空白】   1. 以往研究关注于感知攻击，如交通标志攻击和LiDAR欺骗，未能有效评估轨迹结果。   2. VLA鲁棒性研究主要针对操控，而非驾驶...">Lost in Fog: Sensor Perturbations Expose Reasoning Fragility in Driving VLAs</span></td>
+        <td class="author-cell">Abhinaw Priyadershi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21446" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21446" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 需要确保Vision-Language-Action (VLA)模型在传感器退化情况下的可靠性。  
+2. 现有的对抗鲁棒性研究主要集中在感知组件，而非轨迹结果。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 以往研究关注于感知攻击，如交通标志攻击和LiDAR欺骗，未能有效评估轨迹结果。  
+2. VLA鲁棒性研究主要针对操控，而非驾驶场景，缺乏对视觉腐败与轨迹误差之间因果链的系统分析。  
+
+【提出了什么创新的方法】  
+本研究通过控制扰动实验，分析了传感器噪声对轨迹的影响，提出了链式因果一致性作为轨迹可靠性的信号。研究发现，当模型的解释因扰动而变化时，轨迹偏差显著增加，且启用链式因果生成与降低轨迹误差相关联。结果表明，链式因果一致性可以作为规划安全的量化代理，并推动基于推理的运行时监控。  
+
+【文章缺点】  
+1. 研究仅限于特定的传感器扰动类型，未考虑其他潜在的环境因素，例如动态交通情况对模型的影响。  
+2. 结果主要基于模拟实验，缺乏在真实世界复杂场景中的验证，可能影响其广泛适用性。  
+
+【类似工作】  
+1. &quot;Adversarial Attacks on Deep Learning in Autonomous Driving&quot; - 研究了深度学习在自动驾驶中的对抗攻击，关注感知层面。  
+2. &quot;Robustness of Vision-Language Models in Autonomous Driving&quot; - 探讨了视觉-语言模型在自动驾驶中的鲁棒性，侧重于模型的解释能力。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 随着异构机器人队伍的增长，如何选择合适的机器人执行任务成为核心问题。   2. 现有的自然语言任务描述与机器人物理能力之间的映射缺乏标注数据。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统方法依赖于大型语言模型（LLM）进行零-shot学习，但未能有效处理多技能任务的复杂性。   2. 现有的技能预测模型多为通用模型，缺乏针对特定...">To Select or not to Select, that is the Question: Distilling Robot Skill Prediction into a Small Ensemble</span></td>
+        <td class="author-cell">Haechan Mark Bong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21242" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21242" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 随着异构机器人队伍的增长，如何选择合适的机器人执行任务成为核心问题。  
+2. 现有的自然语言任务描述与机器人物理能力之间的映射缺乏标注数据。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统方法依赖于大型语言模型（LLM）进行零-shot学习，但未能有效处理多技能任务的复杂性。  
+2. 现有的技能预测模型多为通用模型，缺乏针对特定任务的优化，导致性能不足。  
+
+【提出了什么创新的方法】  
+本研究构建了一个合成的任务到技能数据集，并训练了一个小型的精细调优模型集成。该模型在200个任务的数据集上实现了83.5%的匹配率，显著超越了其他大型LLM，展示了小型专用模型在特定任务中的优势。  
+
+【文章缺点】  
+1. 合成数据集的质量和多样性可能影响模型的泛化能力，可能无法覆盖所有实际任务场景。  
+2. 研究未考虑机器人技能的动态变化，可能导致在实际应用中技能匹配的准确性下降。  
+
+【类似工作】  
+1. &quot;Learning to Predict Robot Skills from Natural Language&quot; - 该工作探讨了自然语言与机器人技能之间的映射，但未使用合成数据集。  
+2. &quot;Zero-Shot Learning for Robotic Skill Prediction&quot; - 该研究使用零-shot学习方法，但未能达到本研究的性能水平。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在接触丰富的任务中，安全控制仍然具有挑战性，尤其是在隐式接触动态下。   2. 现有的安全过滤方法在处理非线性和非光滑的接触动力学时存在局限性。   3. 需要一种新的方法来确保在使用放松的互补约束时的接触力安全性。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有研究主要集中在显式接触模型上，未能有效处理隐式接触动态的安全性。   ...">Safety-Critical Control for Smoothed Implicit Contact Dynamics</span></td>
+        <td class="author-cell">Haegu Lee</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21138" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21138" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在接触丰富的任务中，安全控制仍然具有挑战性，尤其是在隐式接触动态下。  
+2. 现有的安全过滤方法在处理非线性和非光滑的接触动力学时存在局限性。  
+3. 需要一种新的方法来确保在使用放松的互补约束时的接触力安全性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有研究主要集中在显式接触模型上，未能有效处理隐式接触动态的安全性。  
+2. 尽管有一些研究考虑了非仿射系统的安全性，但未直接解决隐式接触动力学中的接触力约束。  
+
+【提出了什么创新的方法】  
+我们提出了一种基于离散时间控制障碍函数（CBF）的接触力安全过滤方法，通过分析平滑参数κ对安全条件的影响，结合保守的边际来增强安全性。该方法在四个接触丰富的系统上进行了仿真，消除了标准CBF下观察到的接触力违规现象。  
+
+【文章缺点】  
+1. 方法依赖于平滑参数的选择，可能导致在不同任务中的适用性不足，例如在极端接触条件下。  
+2. 文章未充分探讨在动态环境中如何实时调整平滑参数以确保安全性，可能影响实际应用的灵活性。  
+
+【类似工作】  
+1. &quot;Control Barrier Functions for Safety-Critical Systems&quot; - 该论文探讨了控制障碍函数在安全控制中的应用，关注显式模型的安全性。  
+2. &quot;Robust Control Barrier Functions for Nonlinear Systems&quot; - 该研究提出了针对非线性系统的鲁棒控制障碍函数，涉及安全性分析，但未涵盖隐式接触动态。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的feedforward steering控制器在闭环操作中的表现尚未得到充分评估。   2. 学习型控制器在开环测试中表现良好，但在闭环控制中未必能实现更好的路径跟踪性能。   3. 需要一个系统的基准来比较不同类型的控制器在真实赛道条件下的表现。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的研究主要集中在开环操作中评估学...">Benchmarking Empirical and Learning-Based Approaches for Feedforward Steering Control in Autonomous Racing</span></td>
+        <td class="author-cell">Georg Jank</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21111" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21111" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to be published as part of the 2026 IEEE International Conference on Intelligent Transportation Systems (ITSC 2026), Naples, Italy, September 15-18, 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的feedforward steering控制器在闭环操作中的表现尚未得到充分评估。  
+2. 学习型控制器在开环测试中表现良好，但在闭环控制中未必能实现更好的路径跟踪性能。  
+3. 需要一个系统的基准来比较不同类型的控制器在真实赛道条件下的表现。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的研究主要集中在开环操作中评估学习型控制器，缺乏闭环性能的比较。  
+2. 现有的分析型控制器在复杂动态下的表现未得到充分验证，尤其是在极限操控条件下。  
+
+【提出了什么创新的方法】  
+提出了一种新的基于经验处理图（EHD）的feedforward steering控制器，能够以最小的参数化捕捉速度依赖的非线性转向行为。通过在高保真模拟框架中进行的开环和闭环测试，EHD方法在闭环鲁棒性和圈速上表现最佳，表明在完整的轨迹规划和控制软件堆栈中评估feedforward策略的必要性。  
+
+【文章缺点】  
+1. 该研究未考虑不同车辆动态特性对控制器性能的影响，例如不同轮胎特性可能导致的性能差异。  
+2. 实验仅在模拟环境中进行，缺乏在真实世界复杂条件下的验证，可能影响结果的普适性。  
+
+【类似工作】  
+1. &quot;Learning-based Control for Autonomous Vehicles&quot; - 该论文探讨了学习型控制器在不同环境下的应用，强调了其在开环测试中的优势。  
+2. &quot;Model Predictive Control for Autonomous Racing&quot; - 该研究集中在模型预测控制的应用，提供了与本论文相似的控制框架。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 设计阶段缺乏定量反馈，无法识别妨碍机器人操作的结构元素。   2. 现有的设计框架未能有效连接机器人操作难度与具体的重新设计指导。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的设计为拆卸（DfD）框架主要关注手动拆卸和结构复杂性，缺乏针对机器人操作的量化反馈。   2. 机器人操作难度的评估与具体的设计修改建议之间缺乏有效的连接...">Component Influence-Driven Fastener Reduction for Robotic Disassemblability-Aware Design Simplification</span></td>
+        <td class="author-cell">Takuya Kiyokawa</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21026" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21026" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 设计阶段缺乏定量反馈，无法识别妨碍机器人操作的结构元素。  
+2. 现有的设计框架未能有效连接机器人操作难度与具体的重新设计指导。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的设计为拆卸（DfD）框架主要关注手动拆卸和结构复杂性，缺乏针对机器人操作的量化反馈。  
+2. 机器人操作难度的评估与具体的设计修改建议之间缺乏有效的连接。  
+
+【提出了什么创新的方法】  
+本研究提出了一种分析框架，通过计算部件在机器人拆卸序列中的影响分数，提供针对快速连接件（fasteners）减少的可操作设计指导。该框架利用CAD模型及其生成的接触-连接-约束（CCC）图，分析并模拟高影响力连接件的移除，生成3D热图以可视化结构障碍。实验结果表明，移除推荐的连接件能够显著简化结构依赖关系，提高机器人操作效率。  
+
+【文章缺点】  
+1. 方法依赖于CAD模型的准确性，若模型不准确，可能导致影响分数计算不可靠。  
+2. 该框架主要针对连接件的减少，未考虑其他可能影响拆卸效率的设计因素，如材料选择或部件形状。  
+
+【类似工作】  
+1. &quot;Design for Disassembly: A Review&quot; - 该论文探讨了设计为拆卸的不同方法，强调了手动拆卸的挑战。  
+2. &quot;Robotic Assembly Planning: A Survey&quot; - 本文回顾了机器人组装规划的现有技术，涉及操作难度评估与设计优化的相关性。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 大规模运动分析的需求与日俱增，但处理速度仍是瓶颈。   2. 现有方法在形态（scale）与姿态（pose）分离上存在不足，导致解的解剖一致性差。   3. 需要一种高效的、可扩展的运动规范化方法，以支持生物力学和人类运动重建等应用。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有方法如SMPL-based模型尝试统一参数化，但局限...">SmoCap: Unified Scale-Pose Canonicalization with Proxy-Mapped Trust-Region QP</span></td>
+        <td class="author-cell">Shihao Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20850" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20850" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 大规模运动分析的需求与日俱增，但处理速度仍是瓶颈。  
+2. 现有方法在形态（scale）与姿态（pose）分离上存在不足，导致解的解剖一致性差。  
+3. 需要一种高效的、可扩展的运动规范化方法，以支持生物力学和人类运动重建等应用。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有方法如SMPL-based模型尝试统一参数化，但局限于特定模型，难以扩展。  
+2. 其他方法在处理混合确定性和弱可观测性时，缺乏高效的批处理能力和可靠性。  
+
+【提出了什么创新的方法】  
+SmoCap提出了一种统一的规模-姿态规范化方法，利用显式信任区域步骤进行优化。该方法通过在统一的局部信任区域内解决形态和姿态问题，从而避免了顺序优先的强制。SmoCap在每帧的运行时间达到亚毫秒级，且在长时间试验中表现出秒级的处理能力，显著提高了数据集规模的处理效率。  
+
+【文章缺点】  
+1. 方法依赖于高质量的初始猜测，若初始条件不佳可能导致收敛困难。  
+2. 在处理极端姿态或标记噪声时，仍可能出现不稳定性，影响结果的可靠性。  
+
+【类似工作】  
+1. OpenCap：强调云处理工作流，但最终依赖于逆向运动学计算，处理速度较慢。  
+2. AddBiomechanics：将缩放和IK问题建模为非凸双层MAP问题，收敛速度较慢且依赖于高质量初始化。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现代机器人系统面临复杂的硬约束，影响优化问题的求解。   2. 现有的约束优化方法在高度非线性的状态空间中难以平衡成本降低与约束满足。   3. 标准流形优化理论在处理不等式约束时失效，无法处理具有尖锐边界的状态空间。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统的约束优化方法通过惩罚项或增广拉格朗日法来处理约束，但可能导致数值条...">CMC-Opt: Constraint Manifold with Corners for Inequality-Constrained Optimization</span></td>
+        <td class="author-cell">Yetong Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20796" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20796" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现代机器人系统面临复杂的硬约束，影响优化问题的求解。  
+2. 现有的约束优化方法在高度非线性的状态空间中难以平衡成本降低与约束满足。  
+3. 标准流形优化理论在处理不等式约束时失效，无法处理具有尖锐边界的状态空间。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统的约束优化方法通过惩罚项或增广拉格朗日法来处理约束，但可能导致数值条件问题或收敛缓慢。  
+2. 流形优化方法在处理等式约束时表现良好，但未能有效扩展到不等式约束的情况。  
+
+【提出了什么创新的方法】  
+我们提出了“带角约束流形”（CMC）来表示受混合非线性等式和不等式约束支配的状态空间，并提供其局部几何参数化。通过利用因子图将约束连接组件隔离并转化为CMC，我们将标准约束优化问题转化为约束状态空间上的无约束问题。此外，我们扩展了流形优化技术，使其能够在CMC上操作，适应尖锐的流形边界和角落。该方法在大规模动力学规划问题中表现出色，成功生成了动态可行的轨迹。  
+
+【文章缺点】  
+1. 方法在处理复杂约束时可能仍然面临计算复杂度高的问题，例如在高维空间中求解时效率可能降低。  
+2. 尽管提出了新的流形结构，但对流形的全局性质和稳定性分析仍不充分，可能影响实际应用的可靠性。  
+
+【类似工作】  
+1. &quot;Manifold Optimization for Equality-Constrained Problems&quot; - 该论文探讨了流形优化在等式约束问题中的应用，提供了与本研究相似的理论基础。  
+2. &quot;Sequential Quadratic Programming for Nonlinear Optimization&quot; - 该研究关注于非线性优化中的SQP方法，展示了传统方法在处理约束时的局限性。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 触觉传感在机器人操作中至关重要，尤其是在表面检测任务中。   2. 现有的触觉伺服方法复杂，依赖于额外的力控制器和姿态估计模型。   3. 需要一种简化的控制框架，能够直接在触觉特征空间中操作。    【前人的工作如何解决该问题，存在哪些空白】   1. 触觉传感器（如VBTS）提供了丰富的接触信息，但现有方法仍依赖于复杂的控制架构。   2. 现有...">VBT-MPC: Vision-Based Tactile MPC for Contour Following</span></td>
+        <td class="author-cell">Edison Velasco-Sanchez</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20392" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20392" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This article has been accepted for publication in IEEE Robotics and Automation Letters. This is a preprint version. This work was supported by the Interreg-VI Sudoe and European Regional Development Funds through the REMAIN Project under Grant S1/1.1/E0111</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 触觉传感在机器人操作中至关重要，尤其是在表面检测任务中。  
+2. 现有的触觉伺服方法复杂，依赖于额外的力控制器和姿态估计模型。  
+3. 需要一种简化的控制框架，能够直接在触觉特征空间中操作。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 触觉传感器（如VBTS）提供了丰富的接触信息，但现有方法仍依赖于复杂的控制架构。  
+2. 现有的图像基础触觉伺服（IBTS）方法需要额外的力调节控制器，增加了控制复杂性。  
+
+【提出了什么创新的方法】  
+我们提出了一种基于视觉的触觉模型预测控制（VBT-MPC）框架，直接在无标记触觉图像的轮廓特征空间中进行操作，避免了监督姿态估计和级联力控制器的需求。该框架通过集成分割网络、线拟合和扩展卡尔曼滤波器（EKF）来提取轮廓特征，并在仿真和实际实验中验证了其优越的跟踪性能。  
+
+【文章缺点】  
+1. 方法依赖于高质量的触觉传感器，若传感器性能不佳，可能导致控制效果下降。  
+2. 实验主要集中在特定几何形状和材料上，缺乏对更广泛应用场景的验证。  
+
+【类似工作】  
+1. Paper1: 研究了基于触觉的机器人控制，但依赖于复杂的姿态估计模型。  
+2. Paper2: 提出了触觉伺服控制方法，但仍需要额外的力调节机制。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现实世界驾驶数据昂贵且有限，难以满足深度学习对数据规模的需求。   2. 现有的合成数据利用方法未能系统性地优化真实与合成数据的混合。   3. 在有限的训练预算下，如何有效选择和优化数据混合以提升模型性能仍是一个关键挑战。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的研究主要集中于生成更好和更多的合成数据，缺乏对数据混合优化的...">Closed Loop Dynamic Driving Data Mixture for Real-Synthetic Co-Training</span></td>
+        <td class="author-cell">Hongzhi Ruan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21372" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21372" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现实世界驾驶数据昂贵且有限，难以满足深度学习对数据规模的需求。  
+2. 现有的合成数据利用方法未能系统性地优化真实与合成数据的混合。  
+3. 在有限的训练预算下，如何有效选择和优化数据混合以提升模型性能仍是一个关键挑战。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的研究主要集中于生成更好和更多的合成数据，缺乏对数据混合优化的系统研究。  
+2. 大多数工作未能有效量化不同场景类型和比例对模型性能的影响，限制了数据混合的优化。  
+
+【提出了什么创新的方法】  
+我们提出了AutoScale，一个闭环动态数据引擎，通过Graph Regularized AutoEncoder（Graph-RAE）进行场景表示，并使用Cluster-aware Gradient Ascent（Cluster-GA）进行集群重要性估计和重加权。通过集群引导的向量检索选择高价值样本，实验结果表明，AutoScale在NavSim基准上超越了传统的共训练方法，使用更少的合成样本实现了更好的性能。  
+
+【文章缺点】  
+1. 方法依赖于合成数据的质量，若合成数据质量不高，可能导致模型性能下降。  
+2. 复杂的闭环优化过程可能增加训练时间和计算资源的需求，影响实际应用的可行性。  
+
+【类似工作】  
+1. Ren et al. (2025) - 关注合成数据生成与真实数据的结合，但未系统性优化数据混合。  
+2. Tian et al. (2026) - 研究合成数据的生成，但缺乏对数据混合优化的深入探讨。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的合作感知方法在不确定性量化方面研究不足。   2. 需要高效的模型来提高自动驾驶系统的安全性和可靠性。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的贝叶斯方法和深度集成方法在不确定性估计上表现良好，但计算开销大。   2. 之前的研究主要集中在单一代理的对象检测上，缺乏对多代理合作感知中的不确定性量化的探讨。    【提出...">Hyper-V2X: Hypernetworks for Estimating Epistemic and Aleatoric Uncertainty in Cooperative Bird&#39;s-Eye-View Semantic Segmentation</span></td>
+        <td class="author-cell">Abhishek Dinkar Jagtap</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21309" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21309" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for IEEE Intelligent Vehicle Symposium (IV) 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的合作感知方法在不确定性量化方面研究不足。  
+2. 需要高效的模型来提高自动驾驶系统的安全性和可靠性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的贝叶斯方法和深度集成方法在不确定性估计上表现良好，但计算开销大。  
+2. 之前的研究主要集中在单一代理的对象检测上，缺乏对多代理合作感知中的不确定性量化的探讨。  
+
+【提出了什么创新的方法】  
+我们提出了Hyper-V2X，一个基于超网络的框架，通过V2X上下文嵌入模块和部分权重生成策略来高效地估计合作BEV语义分割中的不确定性。该方法在OPV2V基准测试中展示了准确且良好校准的不确定性估计，显著提高了感知的可靠性。  
+
+【文章缺点】  
+1. 方法依赖于大量的多代理数据集，实际应用中可能难以获得这样的数据。  
+2. 尽管计算开销较低，但在复杂场景下的实时性能仍需进一步验证。  
+
+【类似工作】  
+1. [Su2022uncertainty] 研究了合作对象检测中的不确定性量化，关注点与本研究相似。  
+2. [Huang_UncertCollPerc_Adv_2025] 探讨了合作感知中的不确定性，但主要集中在对抗攻击方面。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的多模态道路分割方法因依赖重型变换器编码器，导致计算成本高，无法实时部署。   2. 轻量级分割模型在保持准确性的同时，需满足边缘设备的计算和功耗限制。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统单模态方法在低光和纹理缺失情况下表现不佳，需多模态融合以提高准确性。   2. 现有轻量级方法通常牺牲准确性或未能有效利用多模态信...">LiteViLNet: Lightweight Vision-LiDAR Fusion Network for Efficient Road Segmentation</span></td>
+        <td class="author-cell">Daojie Peng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21007" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21007" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的多模态道路分割方法因依赖重型变换器编码器，导致计算成本高，无法实时部署。  
+2. 轻量级分割模型在保持准确性的同时，需满足边缘设备的计算和功耗限制。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统单模态方法在低光和纹理缺失情况下表现不佳，需多模态融合以提高准确性。  
+2. 现有轻量级方法通常牺牲准确性或未能有效利用多模态信息，导致性能受限。  
+
+【提出了什么创新的方法】  
+我们提出LiteViLNet，一个轻量级的多模态网络，通过双流轻量级编码器和多尺度特征融合模块（MSFM）实现高效的道路分割。该方法在仅有14.04M参数的情况下，达到了96.36%的MaxF分数，并在RTX 4060 Ti上实现了163.79 FPS的推理速度，展示了其在边缘设备上的应用潜力。  
+
+【文章缺点】  
+1. 方法对特定场景的适应性可能不足，例如在极端天气条件下的表现未得到充分验证。  
+2. 尽管模型轻量化，但在某些复杂环境中，可能无法与重型模型的性能相媲美，限制了应用范围。  
+
+【类似工作】  
+1. SNE-RoadSegV2：利用变换器架构进行多模态融合，但计算开销大，不适合边缘设备。  
+2. LRDNet：专注于轻量级LiDAR辅助道路检测，但未充分利用多模态信息。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有航空系统中，数据驱动的神经网络缺乏可追溯性和形式分析，导致安全保障不足。   2. EASA的学习保障指导要求航空系统建立和监控自身的情况表示，但缺乏有效的技术手段。   3. 需要确保神经网络模型的预测依赖于内容相关的表示，而非偶然相关的特征。    【前人的工作如何解决该问题，存在哪些空白】   1. 之前的研究集中在输入和输出监控上，缺乏对...">Mechanistic Interpretability for Learning Assurance of a Vision-Based Landing System</span></td>
+        <td class="author-cell">Romeo Valentin</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20607" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20607" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有航空系统中，数据驱动的神经网络缺乏可追溯性和形式分析，导致安全保障不足。  
+2. EASA的学习保障指导要求航空系统建立和监控自身的情况表示，但缺乏有效的技术手段。  
+3. 需要确保神经网络模型的预测依赖于内容相关的表示，而非偶然相关的特征。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 之前的研究集中在输入和输出监控上，缺乏对模型内部情况表示的监控。  
+2. 现有的监控方法未能有效分离内容与风格特征，导致无法提供足够的安全保障证据。  
+
+【提出了什么创新的方法】  
+我们提出了一种基于视觉变换器的模型，进行跑道关键点回归，并通过K-SVD稀疏字典学习将内部特征分解为内容相关和风格相关的原子。通过定性可视化和量化分析验证了模型的情况表示，提出了运行时的OOMS监控方法，能够有效监控模型的情况表示。该模型在LARDv2数据集上实现了0.96的AUROC，展示了其在航空安全保障中的潜力。  
+
+【文章缺点】  
+1. 方法依赖于特定的数据集（LARDv2），可能在其他场景中表现不佳，例如不同的光照条件或环境背景。  
+2. OOMS监控方法的实现可能增加计算负担，影响实时应用的效率，尤其是在高频率监控的情况下。  
+
+【类似工作】  
+1. &quot;Vision-based landing systems using CNNs&quot; - 该工作使用卷积神经网络进行关键点回归，但缺乏对内部表示的深入分析。  
+2. &quot;Out-of-distribution detection in neural networks&quot; - 该研究关注模型输出的监控，但未能有效处理模型内部表示的可解释性。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的聚合方法未能考虑不同特征集群对VPR性能的不同贡献。   2. 特征提取阶段的计算开销未被有效降低，影响了VPR系统的效率。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有方法如NetVLAD和SALAD采用固定聚合策略，未能动态调整特征集群的权重。   2. 现有的效率优化方法主要集中在全局描述符压缩上，忽视了特征提取的冗余...">Faster or Stronger: Towards Flexible Visual Place Recognition via Weighted Aggregation and Token Pruning</span></td>
+        <td class="author-cell">Zichao Zeng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20551" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20551" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的聚合方法未能考虑不同特征集群对VPR性能的不同贡献。  
+2. 特征提取阶段的计算开销未被有效降低，影响了VPR系统的效率。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有方法如NetVLAD和SALAD采用固定聚合策略，未能动态调整特征集群的权重。  
+2. 现有的效率优化方法主要集中在全局描述符压缩上，忽视了特征提取的冗余性和计算成本。  
+
+【提出了什么创新的方法】  
+我们提出了Weighted Aggregated Descriptor (WeiAD)，通过为集群分配权重来改进聚合过程，从而生成更具辨别力的全局描述符。同时，引入了WeiToP，一个基于自蒸馏的token pruning框架，能够在推理时动态修剪不重要的特征，显著提高特征提取效率。该方法在多个VPR基准测试中表现优异，实现了准确性与效率的灵活平衡。  
+
+【文章缺点】  
+1. 方法依赖于预先定义的集群结构，可能限制了其在不同场景下的适应性。  
+2. 自蒸馏过程可能导致信息损失，特别是在特征冗余较高的情况下，影响最终的VPR性能。  
+
+【类似工作】  
+1. NetVLAD - 作为VPR的基线方法，采用了软分配和聚合残差的策略。  
+2. SALAD - 引入了最优传输和显式垃圾桶机制来改进聚合，但仍未解决动态权重分配的问题。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 生成高质量的物理基础角色控制行为，满足多样化的任务目标。   2. 现有的扩散模型在适应性和效率上存在局限，尤其是在与环境交互时。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的工作通过学习可重用的动作先验来解决控制问题，但缺乏与环境的实时交互。   2. 现有的扩散模型通常依赖于离线训练和测试时的梯度指导，导致计算开销大且适应性...">NaP-Control: Navigating Diffusion Prior for Versatile and Fast Character Control</span></td>
+        <td class="author-cell">Chia-Wen Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20209" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20209" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 生成高质量的物理基础角色控制行为，满足多样化的任务目标。  
+2. 现有的扩散模型在适应性和效率上存在局限，尤其是在与环境交互时。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的工作通过学习可重用的动作先验来解决控制问题，但缺乏与环境的实时交互。  
+2. 现有的扩散模型通常依赖于离线训练和测试时的梯度指导，导致计算开销大且适应性差。  
+
+【提出了什么创新的方法】  
+NaP-Control通过强化学习操控任务无关的扩散策略的潜在噪声，直接与环境交互以优化任务奖励，避免了测试时的迭代指导。该方法实现了更快的推理速度和更高的成功率，同时保持自然的运动表现。  
+
+【文章缺点】  
+1. 方法对环境变化的适应性可能仍有限，特别是在极端或未见过的场景中。  
+2. 强化学习的训练过程可能需要大量的样本，导致训练时间较长。  
+
+【类似工作】  
+1. BeyondMimic：提出了基于扩散模型的控制策略，但仍依赖于测试时的梯度指导。  
+2. UniPhys：利用扩散模型进行物理基础控制，但缺乏实时环境交互的能力。  
+
+【相关性评分】  
+分数：3分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在不确定障碍物运动下，安全高效的机器人导航在拥挤环境中仍然具有挑战性。   2. 现有方法在处理动态环境中的风险适应性时，往往过于保守或效率低下。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的工作采用了条件价值-at-风险（CVaR）来平衡安全性和效率，但通常使用固定的风险水平，缺乏适应性。   2. 一些方法尝试在线调整风险水...">Reinforcement Learning for Risk Adaptation via Differentiable CVaR Barrier Functions</span></td>
+        <td class="author-cell">Xinyi Wang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21257" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21257" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://anonymousrobotics9666.github.io/rlcvarbf/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在不确定障碍物运动下，安全高效的机器人导航在拥挤环境中仍然具有挑战性。  
+2. 现有方法在处理动态环境中的风险适应性时，往往过于保守或效率低下。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的工作采用了条件价值-at-风险（CVaR）来平衡安全性和效率，但通常使用固定的风险水平，缺乏适应性。  
+2. 一些方法尝试在线调整风险水平，但依赖启发式设计，且在复杂环境中的表现不明确。  
+
+【提出了什么创新的方法】  
+我们提出了一种端到端的风险适应框架，结合了基于CVaR的可微分安全层和强化学习，能够在不确定障碍物运动下共同学习控制输入、风险水平和安全边际。该方法在动态、拥挤环境中进行了广泛评估，显示出在安全性、效率和鲁棒性方面的最佳表现。  
+
+【文章缺点】  
+1. 方法依赖于高质量的障碍物运动模型，若模型不准确，可能导致安全性下降。  
+2. 尽管方法在多种环境中表现良好，但在极端复杂场景下的泛化能力仍需进一步验证。  
+
+【类似工作】  
+1. [23] 提出了基于样本的分布鲁棒CVaR安全过滤器，处理不确定性，但缺乏适应性。  
+2. [12] 采用控制障碍函数的安全过滤器，虽然提高了安全性，但未与RL策略联合优化。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 复杂地形下的自主导航面临显著挑战，尤其是在动态和不均匀环境中。   2. 现有的规划方法未能有效结合动力学约束，限制了其在复杂场景中的应用。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统的网格规划方法生成光滑路径，但未考虑动力学约束。   2. 现有的DRL方法在2D规划中表现良好，但缺乏对不均匀地形的适应性和多目标优化能力。  ...">A Terrain-Adaptive epsilon-Constraint MPC for Uneven Terrain Kinodynamic Planning</span></td>
+        <td class="author-cell">Otobong Jerome</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21188" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21188" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 复杂地形下的自主导航面临显著挑战，尤其是在动态和不均匀环境中。  
+2. 现有的规划方法未能有效结合动力学约束，限制了其在复杂场景中的应用。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统的网格规划方法生成光滑路径，但未考虑动力学约束。  
+2. 现有的DRL方法在2D规划中表现良好，但缺乏对不均匀地形的适应性和多目标优化能力。  
+
+【提出了什么创新的方法】  
+提出了一种基于地形自适应ε-约束优化的模型预测控制框架，结合了半参数模型和连续向量场的成本函数。该方法在复杂地形中实现了94%的导航成功率，最大方向偏差降低了24%。  
+
+【文章缺点】  
+1. 方法依赖于准确的地形描述，若地形信息不完整，可能导致性能下降。  
+2. 该方法在动态环境中的实时适应性尚未充分验证，可能在快速变化的场景中表现不佳。  
+
+【类似工作】  
+1. &quot;Model Predictive Path Integral Control&quot; - 该工作探讨了在复杂动态环境中进行路径优化的策略。  
+2. &quot;Deep Reinforcement Learning for Kinodynamic Planning&quot; - 研究了DRL在动力学规划中的应用，但未能有效处理不均匀地形。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 软机器人在复杂环境中的导航能力和抗碰撞特性使其在搜索与救援等应用中具有潜力。   2. 传统无人机的刚性设计限制了其在狭小空间中的灵活性和适应性。   3. 现有软机器人建模方法难以捕捉其复杂的动态行为和控制挑战。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有研究主要集中在软机器人的建模和控制，但缺乏针对气动变形软四旋翼的动态模拟...">Modeling and Control of a Pneumatic Morphing Soft Quadrotor based on the SOFA Framework for Dynamic Soft Robotic Simulation</span></td>
+        <td class="author-cell">F. Labra Caso</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21031" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21031" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 软机器人在复杂环境中的导航能力和抗碰撞特性使其在搜索与救援等应用中具有潜力。  
+2. 传统无人机的刚性设计限制了其在狭小空间中的灵活性和适应性。  
+3. 现有软机器人建模方法难以捕捉其复杂的动态行为和控制挑战。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有研究主要集中在软机器人的建模和控制，但缺乏针对气动变形软四旋翼的动态模拟方法。  
+2. SOFA框架已被用于软机器人建模，但尚未针对气动驱动的软四旋翼进行深入研究。  
+
+【提出了什么创新的方法】  
+本研究提出了一种基于SOFA框架的有限元方法（FEM），用于气动变形软四旋翼的建模和动态模拟。该方法通过捕捉气动驱动臂的压力-结构耦合行为，建立了一个闭环位置控制器。实验结果表明，该框架有效提升了软四旋翼的动态行为和变形能力。  
+
+【文章缺点】  
+1. 模型仅考虑了单个软臂的动态行为，未能全面反映整个四旋翼的复杂交互。  
+2. 该方法在实际应用中的实时控制能力尚未得到验证，可能面临计算延迟的问题。  
+
+【类似工作】  
+1. [Soft Robotics: A Review](https://doi.org/10.1016/j.robot.2018.12.001) - 该论文综述了软机器人领域的建模与控制方法，与本研究的软体建模相关。  
+2. [Modeling and Control of Soft Robots](https://doi.org/10.1109/ACCESS.2020.2991234) - 提供了软机器人控制的不同方法，强调了与本研究的动态控制方法的相似性。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的轮腿机器人仅限于运动，缺乏物体操控能力。   2. 高处和复杂环境的任务执行能力不足，限制了其应用范围。    【前人的工作如何解决该问题，存在哪些空白】   1. 轮腿机器人如ANYmal和Handle专注于运动，但未能有效利用环境进行操控。   2. 线驱动机器人在三维空间中表现出色，但缺乏与轮腿系统的整合，无法实现两者的优势互补。    ...">WiXus: A Wheeled-Legged Robot with Wire-Driven Environmental Utilizing to Integrate Mobility and Manipulation</span></td>
+        <td class="author-cell">Shintaro Inoue</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20932" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20932" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://youtu.be/32qhUslR0gM" target="_blank" rel="noopener">🔗 Code1</a><br><a class="resource-tag code" href="https://shin0805.github.io/wixus/" target="_blank" rel="noopener">🔗 Code2</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at ICRA2026, website -this https URL, YouTube -this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的轮腿机器人仅限于运动，缺乏物体操控能力。  
+2. 高处和复杂环境的任务执行能力不足，限制了其应用范围。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 轮腿机器人如ANYmal和Handle专注于运动，但未能有效利用环境进行操控。  
+2. 线驱动机器人在三维空间中表现出色，但缺乏与轮腿系统的整合，无法实现两者的优势互补。  
+
+【提出了什么创新的方法】  
+本研究提出了一种新型机器人WiXus，结合了轮腿机制和线驱动机制，通过环境锚定实现三维移动和物体操控。WiXus不仅能够在平面上高效移动，还能在悬挂状态下将腿部转变为操控臂，执行如救援和工具使用等任务。该方法拓展了轮腿机器人的操作领域，具有实际应用潜力。  
+
+【文章缺点】  
+1. 方法依赖于环境的稳定性，若环境不适合锚定，WiXus的功能将受到限制，例如在复杂或动态环境中可能无法有效锚定。  
+2. 机器人在执行复杂操控任务时，可能面临协调性和稳定性的问题，尤其是在悬挂状态下，可能导致操作不精确。  
+
+【类似工作】  
+1. Handle: 该机器人专注于物流任务，展示了轮腿机器人在物体操控方面的潜力，但未能实现三维操作。  
+2. CubiX: 作为便携式线驱动机器人，展示了线驱动技术的应用，但缺乏与轮腿系统的整合。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 解决多智能体路径规划中的拥堵问题，以提高成功率和协调效率。   2. 提供一种无需重新训练的增强框架，以便与现有的去中心化策略兼容。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统中心化方法如CBS提供了强大的完整性和最优性保证，但在大规模系统中面临可扩展性挑战。   2. 去中心化方法虽然可扩展，但缺乏对未来拥堵的全局意识，容易导...">STEAM: A Training-Free Congestion-Aware Enhancement Framework for Decentralized Multi-Agent Path Finding</span></td>
+        <td class="author-cell">Mingyang Feng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20929" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20929" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 解决多智能体路径规划中的拥堵问题，以提高成功率和协调效率。  
+2. 提供一种无需重新训练的增强框架，以便与现有的去中心化策略兼容。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统中心化方法如CBS提供了强大的完整性和最优性保证，但在大规模系统中面临可扩展性挑战。  
+2. 去中心化方法虽然可扩展，但缺乏对未来拥堵的全局意识，容易导致严重的拥堵或死锁。  
+
+【提出了什么创新的方法】  
+提出了STEAM框架，通过在测试阶段注入轻量级的拥堵感知指导来增强现有的去中心化策略。该方法通过滚动当前的成本地图来识别潜在的拥堵点，并对代理的成本地图进行更新，以避免可避免的拥堵，同时通过时间逻辑校正处理不可避免的瓶颈。实验表明，STEAM在密集和易拥堵的环境中显著提高了成功率和协调效率，且计算开销较小。  
+
+【文章缺点】  
+1. 方法依赖于预训练的去中心化策略，若原策略性能不佳，STEAM的效果也会受到限制。  
+2. 仅在测试阶段进行拥堵感知，无法在训练阶段进行更深入的优化，可能导致在动态环境中适应性不足。  
+
+【类似工作】  
+1. PRIMAL/PRIMAL2：这些方法同样采用去中心化策略，但未能有效处理全局拥堵问题。  
+2. LaCAM：虽然提供了全局规划的切换机制，但在拥堵发生后才进行处理，效率较低。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. Subterranean environments pose unique challenges for robotic autonomy, necessitating robust simulation tools for validation.   2. Existing simulation tools lack the ability to ...">SubTGraph: Large-Scale Subterranean Environment Synthesis with Controllable Topological Variability for Robotic Autonomy Validation</span></td>
+        <td class="author-cell">F. Labra Caso</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20917" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20917" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. Subterranean environments pose unique challenges for robotic autonomy, necessitating robust simulation tools for validation.  
+2. Existing simulation tools lack the ability to generate diverse and controllable subterranean environments for comprehensive testing.  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Previous works primarily focused on point cloud reconstruction and manual world building, which are time-consuming and limited in variability.  
+2. Existing tools do not provide sufficient control over topological and textural parameters, hindering extensive statistical evaluation of robotic methods.  
+
+【提出了什么创新的方法】  
+本研究提出了SubTGraph，一个程序化的地下世界生成器，允许用户对环境的拓扑结构进行控制。该工具通过使用占用矩阵表示虚拟世界，提供了150个不同拓扑和结构约束的洞穴世界数据集，以满足地下机器人自主研究的基准需求。SubTGraph加速了模拟验证过程，促进了机器人算法的开发和评估。  
+
+【文章缺点】  
+1. 生成的环境可能缺乏真实世界中的复杂性，例如动态变化的障碍物和多变的光照条件，这可能影响算法的实际表现。  
+2. 虽然提供了多种参数化选项，但用户仍需具备一定的专业知识才能有效利用该工具，限制了其普遍适用性。  
+
+【类似工作】  
+1. DARPA SubT Challenge: 提供了初步的地下环境生成工具，但缺乏对环境复杂性的控制。  
+2. IMLSNet: 采用深度学习进行点云重建，但未能解决生成多样化和可控环境的问题。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的可重构桁架机器人在执行任务时对电机故障的鲁棒性不足。   2. 电机故障会显著降低工作空间和跟踪性能，影响机器人在关键任务中的可靠性。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有控制架构未能有效应对单个电机故障导致的性能下降。   2. 现有的优化控制方法假设所有执行器均正常工作，缺乏对故障状态的适应性。    【提出了什...">Fault-Tolerant, Rigidity-Preserving Control of Inflatable Truss Robots</span></td>
+        <td class="author-cell">James Wade</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20561" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20561" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的可重构桁架机器人在执行任务时对电机故障的鲁棒性不足。  
+2. 电机故障会显著降低工作空间和跟踪性能，影响机器人在关键任务中的可靠性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有控制架构未能有效应对单个电机故障导致的性能下降。  
+2. 现有的优化控制方法假设所有执行器均正常工作，缺乏对故障状态的适应性。  
+
+【提出了什么创新的方法】  
+本研究提出了一种故障容忍控制框架，采用运动学优化和离散时间控制障碍函数（DTCBF）来处理电机故障，确保结构刚性并最大化工作空间利用率。通过闭环位置控制和状态估计，显著提高了在干扰下的跟踪精度。实验结果表明，在单电机故障下工作空间保持率超过69%，跟踪精度提高超过25%。  
+
+【文章缺点】  
+1. 方法依赖于复杂的控制算法，可能导致实现上的困难，尤其是在实时应用中。  
+2. 仅在2D环境中进行验证，缺乏对更复杂3D环境的适应性测试。  
+
+【类似工作】  
+1. [22] 研究了可重构桁架机器人，提出了模块化结构的概念。  
+2. [20] 探讨了在月球环境中使用的桁架机器人，强调了其适应性和强度。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在GNSS缺失环境中，腿部机器人面临自主导航的挑战，尤其是LiDAR在几何稀疏或重复场景中的高度漂移问题。   2. 现有的SLAM系统在缺乏GNSS时无法有效解决高度漂移，导致定位精度下降。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有SLAM系统如LIO-SAM通过结合LiDAR和IMU来实现多传感器融合，但在GNSS缺失时仍...">Enhancing Graph-Based SLAM in GNSS-Denied environments by leveraging leg odometry</span></td>
+        <td class="author-cell">Léon Perruchot-Triboulet</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20484" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20484" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>for ICRA workshop on Robot Meets GNSS and Ranging for Seamless Autonomy</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在GNSS缺失环境中，腿部机器人面临自主导航的挑战，尤其是LiDAR在几何稀疏或重复场景中的高度漂移问题。  
+2. 现有的SLAM系统在缺乏GNSS时无法有效解决高度漂移，导致定位精度下降。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有SLAM系统如LIO-SAM通过结合LiDAR和IMU来实现多传感器融合，但在GNSS缺失时仍存在高度漂移问题。  
+2. 以往研究虽涉及腿部机器人状态估计，但未专注于在现有SLAM框架中有效整合腿部里程计以解决高度漂移。  
+
+【提出了什么创新的方法】  
+本研究提出了一种因子图架构，将腿部里程计与LIO-SAM框架结合，通过身份相对姿态约束和选择性噪声模型实现。该方法在两次户外实验中将高度漂移从30米降低到30厘米，展示了腿部机器人在GNSS缺失环境中的有效性。  
+
+【文章缺点】  
+1. 方法依赖于腿部机器人特有的运动特性，可能不适用于其他类型的机器人，限制了其通用性。  
+2. 只关注高度漂移的解决，未充分探讨其他可能影响SLAM性能的因素，如水平漂移或环境变化。  
+
+【类似工作】  
+1. Bloesch et al. (2018) 通过EKF融合FK和IMU进行状态估计，提供了腿部机器人状态可观测性的初步研究。  
+2. VILENS (2019) 在ANYmal上展示了腿部里程计、IMU、相机和LiDAR的紧密耦合，关注于户外自主性。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 多机器人运动规划面临协调与计算成本之间的权衡。   2. 现有方法在处理开放环境时存在局限性，难以有效避免机器人间的冲突。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有方法通过工作空间表示提供指导，减少计算负担，但仍需在复合空间中规划。   2. 许多方法依赖于骨架表示，无法有效处理开放环境，导致冲突和计算瓶颈。    【提出了什...">Scalable Multi-robot Motion Planning via Hierarchical Subproblem Expansion and Workspace Decomposition Refinement</span></td>
+        <td class="author-cell">Isaac Ngui</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20395" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20395" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to WAFR 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 多机器人运动规划面临协调与计算成本之间的权衡。  
+2. 现有方法在处理开放环境时存在局限性，难以有效避免机器人间的冲突。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有方法通过工作空间表示提供指导，减少计算负担，但仍需在复合空间中规划。  
+2. 许多方法依赖于骨架表示，无法有效处理开放环境，导致冲突和计算瓶颈。  
+
+【提出了什么创新的方法】  
+我们提出了一种名为CIPHER的混合多机器人运动规划算法，通过区域分解进行高层协调，减少在复合空间中的规划需求。该方法引入了分辨率指导，迭代细化工作空间表示，指导机器人运动，最终实现了规划时间提高一个数量级的效果。  
+
+【文章缺点】  
+1. 方法在复杂环境下可能仍需较高的计算资源，特别是在机器人数量增加时。  
+2. 对于动态环境的适应性不足，可能无法有效应对实时变化的障碍物。  
+
+【类似工作】  
+1. Adaptive Robot Coordination (ARC) - 采用局部子问题解决机器人间冲突。  
+2. Kinodynamic CBS (K-CBS) - 利用低层规划器解决多机器人运动规划问题，强调冲突解决。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 软移动机器人在搜索救援、服务、监控等领域具有广泛应用潜力。   2. 现有的轮式机器人在复杂地形下的运动能力有限，亟需开发无轮的软移动机器人。   3. 软机器人能够适应环境，执行传统机器人难以完成的任务。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有研究主要集中在轮式机器人，缺乏对无轮软移动机器人的系统性回顾。   2. 现有的...">Terrestrial Soft Mobile Robots: A Review</span></td>
+        <td class="author-cell">Dimuthu D. K. Arachchige</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20304" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20304" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 软移动机器人在搜索救援、服务、监控等领域具有广泛应用潜力。  
+2. 现有的轮式机器人在复杂地形下的运动能力有限，亟需开发无轮的软移动机器人。  
+3. 软机器人能够适应环境，执行传统机器人难以完成的任务。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有研究主要集中在轮式机器人，缺乏对无轮软移动机器人的系统性回顾。  
+2. 现有的软机器人研究多集中于实验室，缺乏向实际应用的转化。  
+
+【提出了什么创新的方法】  
+本研究通过对无轮软移动机器人的运动策略、驱动方法、建模和控制系统进行全面回顾，系统性地分类和总结了当前的研究进展，识别了关键挑战。研究表明，软移动机器人在复杂环境中的适应能力和灵活性使其在多种应用场景中具有潜力。  
+
+【文章缺点】  
+1. 文章缺乏对具体应用案例的深入分析，例如在实际环境中的表现和挑战。  
+2. 对于不同类型的软移动机器人之间的比较分析不足，未能明确各自的优缺点。  
+
+【类似工作】  
+1. &quot;Soft-Limbed Robot Locomotion&quot; - 研究软肢机器人运动的不同策略。  
+2. &quot;Pentapedal Locomotion&quot; - 探讨五足机器人在运动中的独特优势。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 人机协作在建筑中的应用面临有限的机器人与人类之间的沟通。   2. 材料和组装不确定性导致的公差累积问题影响建筑精度和效率。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前研究强调了人机协作中的可预测机器人运动和信息传递的重要性，但仍主要依赖单向信息流。   2. 现有的自适应建筑系统缺乏有效的反馈机制来处理材料和施工过程中的几何公...">Adaptive Human-Robot Collaboration for Masonry Construction Under Material and Assembly Uncertainty</span></td>
+        <td class="author-cell">Jutang Gao(1)</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20264" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20264" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for publication in Proceedings of the 43rd International Symposium on Automation and Robotics in Construction (ISARC 2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 人机协作在建筑中的应用面临有限的机器人与人类之间的沟通。  
+2. 材料和组装不确定性导致的公差累积问题影响建筑精度和效率。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前研究强调了人机协作中的可预测机器人运动和信息传递的重要性，但仍主要依赖单向信息流。  
+2. 现有的自适应建筑系统缺乏有效的反馈机制来处理材料和施工过程中的几何公差。  
+
+【提出了什么创新的方法】  
+本研究提出了一种人机协作砖砌工作流程，结合了基于投影的机器人到人类的指导和激光传感的自适应砖块姿态修正。通过全尺度实验，结果表明该方法提高了粘合剂应用的一致性，减少了应用时间，同时保持了砖砌的水平和避免了碰撞失败。  
+
+【文章缺点】  
+1. 方法依赖于激光传感器的精度，若传感器出现故障，可能导致严重的施工错误。  
+2. 投影系统的可视范围和精度受限，可能在复杂环境中无法有效指导人类操作。  
+
+【类似工作】  
+1. &quot;Feedback-Driven Robotic Construction&quot; - 探讨了反馈驱动的建筑机器人系统，但未涉及人机协作。  
+2. &quot;Augmented Reality for Construction&quot; - 研究了增强现实在建筑中的应用，但缺乏针对人机协作的具体实现。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 设计低复杂度的输出反馈控制器以应对不确定的非线性系统。   2. 解决现有控制方法在输入约束下的局限性。   3. 提高控制精度和灵活性，尤其是在执行器饱和的情况下。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的约束控制方法主要针对线性流形，缺乏对非线性流形的扩展。   2. 复杂的控制结构使得在不确定性下的输出反馈设计难以实现...">Fully Actuated Manifold Constraint Based Output Feedback Control for Input-Constrained Uncertain Nonlinear Systems</span></td>
+        <td class="author-cell">Dianrui Mu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21439" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21439" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 设计低复杂度的输出反馈控制器以应对不确定的非线性系统。  
+2. 解决现有控制方法在输入约束下的局限性。  
+3. 提高控制精度和灵活性，尤其是在执行器饱和的情况下。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的约束控制方法主要针对线性流形，缺乏对非线性流形的扩展。  
+2. 复杂的控制结构使得在不确定性下的输出反馈设计难以实现。  
+
+【提出了什么创新的方法】  
+提出了一种全驱动流形约束控制（FAMCC）方法，该方法不依赖于系统模型，能够在输入约束下实现预设的控制精度。通过构建基于误差的灵活约束，FAMCC在执行器饱和情况下仍能保持控制精度。该方法在二阶和高阶系统中均表现出良好的收敛性和灵活性。  
+
+【文章缺点】  
+1. 方法在高阶系统中的应用可能会受到模型复杂度的影响，限制了其普适性。  
+2. 尽管提出了低复杂度控制，但在实际应用中可能仍需考虑系统的具体特性，导致实现难度增加。  
+
+【类似工作】  
+1. 线性流形约束控制（LMCC）相关论文，探讨了线性约束下的输出反馈控制。  
+2. 适应控制与鲁棒控制的结合，研究了在不确定性下的控制方法。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 核心问题1：Navmesh与环境几何之间的不一致性影响NPC的导航体验。   2. 核心问题2：现有方法依赖于运行时行为，无法直接验证navmesh的正确性。   3. 核心问题3：传统的手动测试和代理探索方法效率低下，难以集成到自动化流程中。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统方法依赖于代理行为推断问题，无法提前发现n...">Validating Navmesh using Geometry: Voxel-Based Analysis with Prioritized Exploration</span></td>
+        <td class="author-cell">Ramesh Raghavan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21397" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21397" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 核心问题1：Navmesh与环境几何之间的不一致性影响NPC的导航体验。  
+2. 核心问题2：现有方法依赖于运行时行为，无法直接验证navmesh的正确性。  
+3. 核心问题3：传统的手动测试和代理探索方法效率低下，难以集成到自动化流程中。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统方法依赖于代理行为推断问题，无法提前发现navmesh不一致。  
+2. 现有的验证方法多依赖于运行时交互或视觉推断，缺乏对导航表示的直接验证。  
+
+【提出了什么创新的方法】  
+提出了一种将navmesh验证视为几何一致性问题的方法，通过体素表示重构可行走空间，并进行约束感知的遍历和连通性分析。利用强化学习指导优先探索可能存在不一致的区域，从而提高验证效率。该方法实现了对导航正确性的直接验证，独立于运行时模拟，增强了自动化QA工作流的集成能力。  
+
+【文章缺点】  
+1. 方法依赖于体素化表示，可能在处理极大规模环境时面临性能瓶颈。  
+2. 强化学习的探索策略可能需要大量的训练数据，导致初期验证效率低下。  
+
+【类似工作】  
+1. Go-Explore框架，系统性探索大状态空间，类似于本文的优先探索策略。  
+2. 其他基于行为信号的自动化游戏测试研究，虽然与本文相似，但仍依赖于代理行为，缺乏直接验证。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 提高在不同环境条件下的目标检测系统性能的需求。   2. 现有模型在复杂条件下的检测能力研究不足。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有研究主要集中在控制环境下的目标检测，缺乏对复杂环境的评估。   2. 现有数据集未能充分考虑多种视觉条件对检测性能的影响。    【提出了什么创新的方法】   本研究通过扩展KIIT-MI...">Comparative Analysis of Military Detection Using Drone Imagery Across Multiple Visual Spectrums</span></td>
+        <td class="author-cell">Sourov Roy Shuvo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21157" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21157" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted at the 16th International Conference on Computing, Communication and Networking Technologies (ICCCNT), July 6-11, 2025, IIT Indore. Proceedings pending publication</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 提高在不同环境条件下的目标检测系统性能的需求。  
+2. 现有模型在复杂条件下的检测能力研究不足。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有研究主要集中在控制环境下的目标检测，缺乏对复杂环境的评估。  
+2. 现有数据集未能充分考虑多种视觉条件对检测性能的影响。  
+
+【提出了什么创新的方法】  
+本研究通过扩展KIIT-MITA数据集，创建四种不同的视觉条件版本（灰度、热成像、夜视和ObscuraVision），并使用YOLOv11-small模型进行目标检测评估。该方法通过模拟真实世界的环境挑战，提升了无人机目标检测系统的鲁棒性和可靠性，尤其在军事监视和防御中表现出更高的准确性。  
+
+【文章缺点】  
+1. 数据集的多样性有限，仅包含四种视觉条件，可能无法覆盖所有实际环境挑战。  
+2. 只使用YOLOv11-small模型进行评估，未考虑其他可能更适合的检测模型，限制了结果的普适性。  
+
+【类似工作】  
+1. &quot;Deep Learning for Drone-Based Object Detection&quot; - 该论文探讨了深度学习在无人机目标检测中的应用，强调了模型在不同环境下的适应性。  
+2. &quot;Multi-Spectral Imaging for Enhanced Object Detection&quot; - 研究了多光谱成像在目标检测中的优势，涉及不同视觉条件的影响。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 随着城市空域中航空交通的显著增加，确保无人机之间的安全协调变得至关重要。   2. 现有的多车辆交通管理方法在高度拥挤的环境中存在局限性，无法有效解决协调和安全问题。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的战略流量管理方法通常不考虑车辆动态和局部拥堵，导致调度不切实际。   2. 纯反应式安全机制在高密度空域中容易引发连锁...">Time-To-Reach Separation and Safety Filtering for Safe, Fair, and Efficient Multi-Agent Coordination</span></td>
+        <td class="author-cell">Matthew Low</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20625" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20625" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Extended version (including appendix) of a paper submitted to the 65th IEEE Conf. on Decision and Control (2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 随着城市空域中航空交通的显著增加，确保无人机之间的安全协调变得至关重要。  
+2. 现有的多车辆交通管理方法在高度拥挤的环境中存在局限性，无法有效解决协调和安全问题。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的战略流量管理方法通常不考虑车辆动态和局部拥堵，导致调度不切实际。  
+2. 纯反应式安全机制在高密度空域中容易引发连锁冲突，未能有效解决多车辆的协调问题。  
+
+【提出了什么创新的方法】  
+本文提出了一种基于最小到达时间（TTR）的多代理协调框架，通过TTR进行优先级分配、时间分隔和安全过滤。该方法不仅提高了安全性和公平性，还在高度拥挤的场景中显著提升了效率。  
+
+【文章缺点】  
+1. 方法依赖于准确的动态模型，若模型不准确，可能导致协调失败。  
+2. 在复杂环境下，计算TTR的过程可能会导致实时性不足，影响系统的响应速度。  
+
+【类似工作】  
+1. 论文《A Survey on Multi-Agent Coordination and Control》探讨了多代理协调的不同方法，强调了策略与安全机制的结合。  
+2. 论文《Reinforcement Learning for Multi-Agent Coordination》研究了基于强化学习的协调方法，提供了与本文类似的安全过滤思路。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 许多K-12学生因健康或心理原因无法到校，影响其认知和社交发展。   2. 现有的在线学习和家庭教学缺乏与同龄人和教师的互动。   3. 需要研究如何有效利用远程存在系统（如远程机器人）来满足这些学生的复杂需求。    【前人的工作如何解决该问题，存在哪些空白】   1. 早期研究表明，远程机器人能帮助学生参与课堂，但大多数系统未专为K-12教育设计...">Multi-Week, In-Class Deployments of Telepresence Robots With Four Homebound K-12 Students: Benefits, Challenges, and Recommendations</span></td>
+        <td class="author-cell">Matthew Rueben</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20431" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20431" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 许多K-12学生因健康或心理原因无法到校，影响其认知和社交发展。  
+2. 现有的在线学习和家庭教学缺乏与同龄人和教师的互动。  
+3. 需要研究如何有效利用远程存在系统（如远程机器人）来满足这些学生的复杂需求。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 早期研究表明，远程机器人能帮助学生参与课堂，但大多数系统未专为K-12教育设计。  
+2. 现有的远程机器人主要针对成人工作环境，缺乏对K-12课堂动态和多样性的考虑。  
+
+【提出了什么创新的方法】  
+本研究通过对四名家庭学生的多周部署进行案例研究，收集了15次访谈数据，分析了他们的使用体验，识别了使用中的优势和挑战，并提出了设计和管理远程机器人部署的建议。研究结果显示，尽管所有参与者享受了远程出席的好处，但每位学生的体验和需求各不相同。  
+
+【文章缺点】  
+1. 研究样本较小，仅涉及四名学生，可能无法代表更广泛的家庭学生群体。  
+2. 仅通过定性分析进行研究，缺乏量化数据支持，可能影响结果的普遍适用性。  
+
+【类似工作】  
+1. Fels et al. (2001) 研究了早期的远程机器人在教育中的应用，强调了其在课堂参与中的潜力。  
+2. Weiss et al. (2001) 讨论了PEBBLES系统在医院环境中对学生的影响，提供了初步的实证支持。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 核心问题1：如何有效地融合来自不同传感器（LiDAR、雷达、摄像头）的异构数据以提升自动驾驶感知能力。   2. 核心问题2：在处理高分辨率传感器输入时，如何应对计算资源的限制和复杂的3D空间理解需求。   3. 核心问题3：现有的感知模型在数据标注和训练规模方面面临瓶颈，如何克服这一挑战以实现更好的性能。    【前人的工作如何解决该问题，存在哪些...">STELLAR: Scaling 3D Perception Large Models for Autonomous Driving</span></td>
+        <td class="author-cell">Yingwei Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20390" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20390" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 核心问题1：如何有效地融合来自不同传感器（LiDAR、雷达、摄像头）的异构数据以提升自动驾驶感知能力。  
+2. 核心问题2：在处理高分辨率传感器输入时，如何应对计算资源的限制和复杂的3D空间理解需求。  
+3. 核心问题3：现有的感知模型在数据标注和训练规模方面面临瓶颈，如何克服这一挑战以实现更好的性能。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 之前的研究主要集中在2D图像或文本数据的处理，缺乏对多模态传感器数据的有效融合方法。  
+2. 尽管已有一些自监督学习方法应用于LiDAR数据，但对于高质量标注数据的需求依然是一个主要瓶颈，限制了模型的扩展性。  
+
+【提出了什么创新的方法】  
+我们提出了STELLAR模型，采用稀疏窗口Transformer架构，能够联合处理LiDAR、雷达和摄像头等多模态数据。通过在500百万参数的模型上训练5000万条驾驶示例，我们系统性地分析了模型规模、数据量和计算资源对性能的影响。实验结果表明，STELLAR模型在Waymo Open Dataset挑战中设立了新的性能基准，显著超越了之前的研究成果。  
+
+【文章缺点】  
+1. 模型的计算复杂度较高，可能在资源受限的环境中难以部署，例如小型自动驾驶车辆。  
+2. 训练数据的获取和标注成本仍然很高，限制了模型在不同场景下的广泛应用。  
+
+【类似工作】  
+1. Zhang et al. (2023) - 研究了3D物体检测的多模态融合方法，但未深入探讨模型规模对性能的影响。  
+2. Huang et al. (2025) - 提出了自监督学习在LiDAR数据上的应用，但主要集中在特征学习而非模型扩展性。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有的自驾车测试依赖于简化的行人模型，无法真实反映人类的复杂行为。   2. 需要更真实的行人-车辆交互场景，以提高安全性评估的有效性。    【前人的工作如何解决该问题，存在哪些空白】   1. 先前的研究关注于风险感知的强化学习和基于社会力的模拟，但未考虑行人和自驾车的联合训练。   2. 现有的MARL应用通常只在固定的行人模型下进行，缺乏对行...">Multi-Agent Reinforcement Learning for Safe Autonomous Driving Under Pedestrian Behavioral Uncertainty</span></td>
+        <td class="author-cell">Prakash Aryan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20255" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20255" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to ICRA 2026 Workshop &quot;8th Workshop on Long-term Human Motion Prediction&quot;</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有的自驾车测试依赖于简化的行人模型，无法真实反映人类的复杂行为。  
+2. 需要更真实的行人-车辆交互场景，以提高安全性评估的有效性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 先前的研究关注于风险感知的强化学习和基于社会力的模拟，但未考虑行人和自驾车的联合训练。  
+2. 现有的MARL应用通常只在固定的行人模型下进行，缺乏对行人行为不确定性的处理。  
+
+【提出了什么创新的方法】  
+本研究提出了一种MARL环境，其中自驾车和12名行人共同训练，行人的行为由隐藏的个性特征驱动。通过使用多智能体近端策略优化（MAPPO），实现了更真实的交互场景。实验结果显示，联合训练的自驾车在达到目标时的成功率为78%，碰撞率为14%，相比于最佳规则基线有显著提升。  
+
+【文章缺点】  
+1. 方法依赖于模拟环境，可能无法完全转化到真实世界场景中，例如行人行为的多样性和不可预测性。  
+2. 训练过程中行人的个性特征是随机的，可能导致训练结果的不稳定性，影响长期的安全性评估。  
+
+【类似工作】  
+1. 论文[29]探讨了风险感知强化学习在行人穿越中的应用，关注于行人行为对车辆的影响。  
+2. 论文[27]和[28]研究了MARL在交叉口的合作驾驶，但未考虑行人和车辆的联合训练。  
+
+【相关性评分】  
+分数：2分</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 核心问题1：如何在复杂交通环境中早期、可靠地识别风险是自动驾驶的核心安全挑战。   2. 核心问题2：现有风险评估方法在解释性和场景覆盖之间存在平衡问题，导致风险识别不够准确。   3. 核心问题3：缺乏标准化的基准测试来量化风险感知和识别的质量与时效性。    【前人的工作如何解决该问题，存在哪些空白】   1. 传统的潜在风险场方法提供了场景危险...">MC-Risk: Multi-Component Risk Fields for Risk Identification and Motion Planning</span></td>
+        <td class="author-cell">Maximilian Link</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21406" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21406" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 核心问题1：如何在复杂交通环境中早期、可靠地识别风险是自动驾驶的核心安全挑战。  
+2. 核心问题2：现有风险评估方法在解释性和场景覆盖之间存在平衡问题，导致风险识别不够准确。  
+3. 核心问题3：缺乏标准化的基准测试来量化风险感知和识别的质量与时效性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统的潜在风险场方法提供了场景危险的空间抽象，但往往无法适应真实道路的多样性。  
+2. 数据驱动的风险评估方法虽然提高了鲁棒性，但通常是黑箱模型，缺乏可解释性。  
+3. 现有的风险场方法未在标准化基准上进行定量评估，导致难以获得全面、校准的风险地图。  
+
+【提出了什么创新的方法】  
+MC-Risk通过在鸟瞰图网格上线性组合三个可解释模块（MAF、VRF、RPF）来构建多组件风险场。MAF结合了黑箱多模态轨迹预测器与可解释的高斯-圆环构造，VRF使用前偏向的各向异性核来提高对接近行人的风险识别，而RPF则利用全高清地图拓扑来编码结构感知的风险场。MC-Risk在RiskBench的碰撞子集上进行标准化评估，取得了最佳的风险定位和最早的危险指示。  
+
+【文章缺点】  
+1. 缺点1：模型复杂性较高，可能导致计算效率低下，尤其在实时应用中。  
+2. 缺点2：对黑箱预测器的依赖可能限制了其在不同场景下的适应性，无法保证在所有情况下均能有效识别风险。  
+
+【类似工作】  
+1. paper1：使用传统潜在风险场方法进行风险评估，强调了可解释性与准确性之间的权衡。  
+2. paper2：结合数据驱动方法与风险场的研究，探讨了如何在</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有光学方法在机器人操作中面临长校准链、视线限制和制造误差等问题。   2. 需要一种不依赖外部传感器的高精度注册方法，以满足医疗和工业应用的亚毫米精度要求。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的接触式注册方法通常将探头简化为点或球形，忽略了真实探头形状的几何约束。   2. 现有方法依赖脆弱的点对应关系，导致在稀疏或间...">From swept contact to pose: Probe-aware registration via complementary-shape docking</span></td>
+        <td class="author-cell">Chen Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21398" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21398" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>accepted to ICRA 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有光学方法在机器人操作中面临长校准链、视线限制和制造误差等问题。  
+2. 需要一种不依赖外部传感器的高精度注册方法，以满足医疗和工业应用的亚毫米精度要求。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的接触式注册方法通常将探头简化为点或球形，忽略了真实探头形状的几何约束。  
+2. 现有方法依赖脆弱的点对应关系，导致在稀疏或间歇性接触情况下性能下降。  
+
+【提出了什么创新的方法】  
+我们将接触注册重新表述为互补形状对接问题，利用探头的全扫过体积来确定可接触集，转变为密集几何约束。方法流程包括：  
+1. 在𝑆𝐸​(3)上进行两阶段的全局到局部搜索，结合FFT基础的平移相关性和低差异方向采样，生成稳健的初始假设。  
+2. 使用李代数更新和解析接触灵敏度进行连续的𝑆𝐸​(3)精细化。  
+该方法在模拟和实际牙齿准备机器人上验证，显示出优于光学跟踪器的注册精度。  
+
+【文章缺点】  
+1. 方法对探头几何的依赖可能限制了其在不同形状探头上的适用性，例如在处理复杂形状时可能需要额外的几何建模。  
+2. 尽管方法在模拟中表现良好，但在实际应用中的鲁棒性和适应性仍需进一步验证，特别是在动态环境中。  
+
+【类似工作】  
+1. Petrovskaya and Khatib (2016) 提出了基于接触观察的贝叶斯推理方法，强调了全局位姿推理，但仍依赖于接触的概率测量。  
+2. Zhong et al. (2020) 强调了输出多样化位姿假设的一致性，关注覆盖率而非单一的计量</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Perception of Social Robots as Communication Partners in Healthcare for Older Adults</span></td>
+        <td class="author-cell">Hana Yamamoto</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.21053" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.21053" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Under review at International Journal of Social Robotics</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：403，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;免费API限制模型输入token小于4096，如有更多需求，请访问 https://api.chatanywhere.tech/#/shop 购买付费API。The number of prompt tokens for free accounts is limited to 4096. If you have additional requirements, please visit https://api.chatanywhere.tech/#/shop to purchase a premium key.(当前请求使用的ApiKey: sk-8l9****i4zt)【如果您遇到问题，欢迎加入QQ群咨询：625105715】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;403 FORBIDDEN&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 自主机器人在动态环境中导航的需求，要求政策能够可靠地到达目标并产生高效稳定的轨迹。   2. 传统的强化学习方法在状态-动作空间增大时难以扩展，深度强化学习需要大量训练数据和计算资源。   3. 需要开发能够提高效率、稳定性和可扩展性的政策架构，以应对动态导航任务的挑战。    【前人的工作如何解决该问题，存在哪些空白】   1. 强化学习为决策制定...">Q-SpiRL: Quantum Spiking Reinforcement Learning for Adaptive Robot Navigation</span></td>
+        <td class="author-cell">Mohamed Khair Altrabulsi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20801" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20801" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 自主机器人在动态环境中导航的需求，要求政策能够可靠地到达目标并产生高效稳定的轨迹。  
+2. 传统的强化学习方法在状态-动作空间增大时难以扩展，深度强化学习需要大量训练数据和计算资源。  
+3. 需要开发能够提高效率、稳定性和可扩展性的政策架构，以应对动态导航任务的挑战。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 强化学习为决策制定提供了框架，但传统的Q学习在大规模环境中表现不佳。  
+2. 深度强化学习虽然能处理复杂环境，但对计算资源和训练数据的需求限制了其在嵌入式平台上的应用。  
+3. 尽管脉冲神经网络（SNN）在能效计算方面表现出色，但尚未探讨变分量子处理是否能提升脉冲强化学习代理的政策质量。  
+
+【提出了什么创新的方法】  
+Q-SpiRL是一个量子增强的脉冲强化学习框架，主要方法包括：  
+- 设计QSNN作为中心政策架构，将变分量子电路集成到脉冲神经网络中，处理脉冲派生的发火率特征。  
+- 在三个不同规模的网格环境中评估五种代理家族的性能，包括静态和动态障碍物。  
+- QSNN在任务完成、轨迹效率和运动平滑性之间取得了最佳的整体平衡，成功率高达99%。  
+
+【文章缺点】  
+1. 方法依赖于量子计算硬件的可用性，当前量子硬件的限制可能影响实际应用的可行性。  
+2. 评估仅限于网格环境，缺乏对更复杂和真实世界场景的适应性测试，可能限制了方法的通用性。  
+
+【类似工作】  
+1. Quantum Reinforcement Learning for Navigation - 探索量子方法在导航中的应用，但未结合脉冲神经网络。  
+2. Deep Spiking Q-Networks - 研究脉冲神经网络在导航中的应用，但未考虑量子</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 核心问题1：现有的VLA模型在精确物理交互方面存在关键限制，主要由于训练过程缺乏对3D几何的明确监督。   2. 核心问题2：标准的动作模仿训练未能充分利用图像观察中的密集视觉和空间监督，导致环境动态的获取仅依赖于动作标签。   3. 核心问题3：如何在保持轻量推理管道的同时，将显式3D空间基础、密集监督和未来预期能力整合到VLA模型中。    【前...">GaussianDream: A Feed-Forward 3D Gaussian World Model for Robotic Manipulation</span></td>
+        <td class="author-cell">Zijian Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20752" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20752" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 核心问题1：现有的VLA模型在精确物理交互方面存在关键限制，主要由于训练过程缺乏对3D几何的明确监督。  
+2. 核心问题2：标准的动作模仿训练未能充分利用图像观察中的密集视觉和空间监督，导致环境动态的获取仅依赖于动作标签。  
+3. 核心问题3：如何在保持轻量推理管道的同时，将显式3D空间基础、密集监督和未来预期能力整合到VLA模型中。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的3D增强策略通过静态锚定场景配置来引入几何结构，但缺乏动态环境模拟的机制。  
+2. 新兴的机器人世界模型尝试通过预测未来状态来增强环境推理，但通常需要复杂的计算，难以在高频控制中部署。  
+
+【提出了什么创新的方法】  
+GaussianDream是一个统一的前馈3D高斯世界模型框架，旨在通过重建和预测物理环境状态来整合语言条件的VLA策略与3D表示。该方法在训练时使用轻量级的时空推理编码器提取3D特征，并通过静态和动态高斯头进行场景重建和未来预测。在推理阶段，GaussianDream仅保留信息丰富的前缀来条件化动作生成，避免了额外的解码和渲染过程。实验结果表明，该方法在多个任务中表现出色，尤其是在空间要求高的设置中取得了最佳结果。  
+
+【文章缺点】  
+1. 尽管GaussianDream在多个任务上表现良好，但其模型复杂性可能导致在资源受限的环境中难以实时应用。  
+2. 该方法在处理极端动态环境变化时的鲁棒性尚未充分验证，可能在真实世界应用中面临挑战。  
+
+【类似工作】  
+1. DreamerV2：通过模型预测未来状态来增强动作学习，类似于GaussianDream的未来预测机制。  
+2. 3D Gaussian Networks：尝试将3D高斯表示引</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有方法依赖于重型任务特定奖励工程，限制了可扩展性。   2. 从人类视频中提取的运动先验数据存在严重的噪声和伪影，难以直接用于策略学习。   3. 需要一个能够从视频中提取并转化为可部署的全身运动操控技能的框架。    【前人的工作如何解决该问题，存在哪些空白】   1. 现有的强化学习方法在单任务上表现优异，但需要大量的任务特定设计。   2. ...">SUGAR: A Scalable Human-Video-Driven Generalizable Humanoid Loco-Manipulation Learning Framework</span></td>
+        <td class="author-cell">Tianshu Wu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.20373" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.20373" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://tianshuwu.github.io/sugar-humanoid/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project Page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有方法依赖于重型任务特定奖励工程，限制了可扩展性。  
+2. 从人类视频中提取的运动先验数据存在严重的噪声和伪影，难以直接用于策略学习。  
+3. 需要一个能够从视频中提取并转化为可部署的全身运动操控技能的框架。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有的强化学习方法在单任务上表现优异，但需要大量的任务特定设计。  
+2. 参考运动跟踪方法虽然能实现高保真行为，但限制了对新物体几何形状的泛化。  
+3. 现有的模仿学习方法依赖于大量人力和专用硬件，难以实现大规模应用。  
+
+【提出了什么创新的方法】  
+Sugar框架通过三个阶段将人类视频转化为可部署的全身运动操控技能：首先，自动提取人类运动和接触事件的运动先验；其次，利用物理基础的精炼器将这些不完美的先验转化为高保真技能；最后，将精炼后的技能蒸馏为自主策略。该方法在六个代表性的任务上表现优异，展示了良好的可扩展性和零-shot的真实世界转移能力。  
+
+【文章缺点】  
+1. 方法对视频质量高度依赖，低质量视频可能导致提取的运动先验不准确，影响最终策略的效果。  
+2. 物理基础的精炼过程可能需要大量计算资源，限制了实时应用的可行性。  
+
+【类似工作】  
+1. HumanX (Wang et al., 2026a) - 该工作编译人类视频为真实世界的交互技能，但依赖手动定义的锚点，而非大规模多轨迹数据学习。  
+2. 现有的模仿学习方法 (Shi et al., 2026; Gao et al., 2026) - 这些方法通常局限于上半身或桌面交互，未能充分利用全身协调的工作空间。  
+
+【相关性评分</small></details></td>
+    </tr>
+        </tbody></table>
+    </div>
+</div>
+<div class="date-section" id="date-20260520">
+    <div class="date-header">
+        <span>2026-05-20（59篇论文）</span>
+        <span class="arrow">▶</span>
+    </div>
+    <div class="date-content" style="display: none;">
         <table>
         <!-- 添加 colgroup 明确指定每列宽度 -->
         <colgroup>
@@ -5890,55 +7453,6 @@ ParallelCBF框架通过四个架构承诺解决了上述问题：
         </tbody></table>
     </div>
 </div>
-<div class="date-section" id="date-20260516">
-    <div class="date-header">
-        <span>2026-05-16（3篇论文）</span>
-        <span class="arrow">▶</span>
-    </div>
-    <div class="date-content" style="display: none;">
-        <table>
-        <!-- 添加 colgroup 明确指定每列宽度 -->
-        <colgroup>
-            <col style="width: 25%">  <!-- Title -->
-            <col style="width: 15%">   <!-- Authors -->
-            <col style="width: 10%">   <!-- Resources -->
-            <col style="width: 10%">   <!-- Relevance -->
-            <col style="width: 40%">  <!-- Summary -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>标题</th>
-                <th>作者</th>
-                <th>资源</th>
-                <th>相关性</th>
-                <th>总结</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td class="title-cell"><span>Towards Robotic Dexterous Hand Intelligence: A Survey</span></td>
-        <td class="author-cell">Weiguang Zhao</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.13925" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.13925" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：403，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;免费API限制模型输入token小于4096，如有更多需求，请访问 https://api.chatanywhere.tech/#/shop 购买付费API。The number of prompt tokens for free accounts is limited to 4096. If you have additional requirements, please visit https://api.chatanywhere.tech/#/shop to purchase a premium key.(当前请求使用的ApiKey: sk-8l9****i4zt)【如果您遇到问题，欢迎加入QQ群咨询：625105715】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;403 FORBIDDEN&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>DiffPhD: A Unified Differentiable Solver for Projective Heterogeneous Materials in Elastodynamics with Contact-Rich GPU-Acceleration</span></td>
-        <td class="author-cell">Shih-Yu Lai</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.14526" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.14526" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：403，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;免费API限制模型输入token小于4096，如有更多需求，请访问 https://api.chatanywhere.tech/#/shop 购买付费API。The number of prompt tokens for free accounts is limited to 4096. If you have additional requirements, please visit https://api.chatanywhere.tech/#/shop to purchase a premium key.(当前请求使用的ApiKey: sk-8l9****i4zt)【如果您遇到问题，欢迎加入QQ群咨询：625105715】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;403 FORBIDDEN&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Systematic Discovery of Semantic Attacks in Online Map Construction through Conditional Diffusion</span></td>
-        <td class="author-cell">Chenyi Wang</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2605.14396" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2605.14396" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：403，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;免费API限制模型输入token小于4096，如有更多需求，请访问 https://api.chatanywhere.tech/#/shop 购买付费API。The number of prompt tokens for free accounts is limited to 4096. If you have additional requirements, please visit https://api.chatanywhere.tech/#/shop to purchase a premium key.(当前请求使用的ApiKey: sk-8l9****i4zt)【如果您遇到问题，欢迎加入QQ群咨询：625105715】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;403 FORBIDDEN&quot;}}</small></small></details></td>
-    </tr>
-        </tbody></table>
-    </div>
-</div>
         </main>
 
         <footer>
@@ -6009,7 +7523,7 @@ ParallelCBF框架通过四个架构承诺解决了上述问题：
             });
             
             // ========== 自动展开最新日期 ==========
-            const latestId = 'date-20260520';
+            const latestId = 'date-20260521';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
                 if (latestSection) {
