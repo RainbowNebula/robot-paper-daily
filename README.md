@@ -1,16 +1,23 @@
-# arXiv Robot 领域论文汇总（共254篇）
+# arXiv Robot 领域论文汇总（共253篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-06-27（1篇论文）](#date-20260627)
 - [2026-06-26（56篇论文）](#date-20260626)
 - [2026-06-25（67篇论文）](#date-20260625)
 - [2026-06-24（38篇论文）](#date-20260624)
 - [2026-06-23（91篇论文）](#date-20260623)
-- [2026-06-22（2篇论文）](#date-20260622)
 
-## <a id='date-20260626'></a>2026-06-26（56篇论文）
+## <a id='date-20260627'></a>2026-06-27（1篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline) | Ilia Larchenko | <details><summary>detail</summary>Solution of the LeHome Challenge at ICRA 2026</details> | [PDF](https://arxiv.org/pdf/2606.27163) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260626'></a>2026-06-26（56篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -70,6 +77,8 @@
 | Learning to Fold: prizewinning solution at LeHome Challenge 2026 (1st place online, 2nd offline) | Ilia Larchenko | <details><summary>detail</summary>Solution of the LeHome Challenge at ICRA 2026</details> | [PDF](https://arxiv.org/pdf/2606.27163) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Tactile-WAM: Touch-Aware World Action Model with Tactile Asymmetric Attention | Siyu Wu | <details><summary>detail</summary>Submitted to RSS2026 WorkShop Tactile for FM</details> | [PDF](https://arxiv.org/pdf/2606.26663) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：现有的World Action Models（WAMs）在接触丰富的操作中，无法有效预测物理完整的未来状态。  <br>2. 核心问题2：触觉信息在视觉主导的模型中被稀疏和局部化处理，导致“触觉污染”问题，影响视频和动作预测。  <br>3. 核心问题3：缺乏有效的机制来识别何时触觉信息对动作生成是相关的。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的触觉WAMs尝试将触觉动态与视觉未来结合，但未能有效处理触觉污染和触觉意识不完整的问题。  <br>2. 之前的研究未能充分利用触觉信息来指导动作生成，导致在接触丰富的任务中表现不佳。  <br><br>【提出了什么创新的方法】  <br>我们提出了Tactile-WAM，一种触觉感知的WAM，采用触觉不对称注意机制（TAAM）。TAAM通过VideoClean掩码保护视觉预测，同时利用触觉变化的预测来调节动作注意力。该方法在ManiFeel上整体成功率提高了38.9%，在接触丰富任务上提高了86%。  <br><br>【文章缺点】  <br>1. 缺点1：方法对触觉信息的依赖性较强，可能在缺乏触觉数据的环境中表现不佳。比如，在某些低接触的操作中，触觉信息可能不足以指导决策。  <br>2. 缺点2：TAAM的实现复杂性较高，可能导致计算开销增加，影响实时应用的可行性。比如，在高频率的操作任务中，实时处理触觉和视觉信息可能会造成延迟。  <br><br>【类似工作】  <br>1. Paper1: "Visuo-tactile World Models" - 该研究探讨了视觉和触觉信息的结合，但未解决触觉污染问题。  <br>2. Paper2: "Tactile Dynamics in Manipulation" - 研究了触觉动态对操作的影响，但缺乏有效的注意机制来引导动作生成。  <br><br>【相关性评分】</details> |
 | RoboTales: ROBOTic Anthropomorphic LEarning Systems | Andrew Chen | <details><summary>detail</summary>HRI Companion '26: Companion Proceedings of the 21st ACM/IEEE International Conference on Human-Robot Interaction, Student Design Challenge</details> | [PDF](https://arxiv.org/pdf/2606.26213) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：现有社交辅助机器人（SARs）缺乏有效的情感和叙事表达能力。  <br>2. 核心问题2：传统的机器人讲故事依赖于屏幕或僵硬的手势库，限制了互动性和参与度。  <br>3. 核心问题3：缺乏适用于儿童学习环境的低成本、可自主操作的机器人讲故事系统。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有SARs主要通过语言和手势交流，但无法有效传达情感和叙事结构。  <br>2. 传统的讲故事机器人依赖于屏幕或固定的手势，缺乏灵活性和互动性。  <br>3. 现有研究未能结合低成本的物理化身与自主叙事生成，限制了在教育环境中的应用。  <br><br>【提出了什么创新的方法】  <br>RoboTales提出了一种低成本的机器人讲故事系统，通过使用袜子木偶实现叙事的动画表现。该系统能够自主控制木偶的动作、手势和口型，与叙述同步，创造出富有表现力的叙事体验。初步研究表明，木偶讲故事的效果优于单纯的手势模式，提升了参与度和记忆回忆能力。  <br><br>【文章缺点】  <br>1. 缺点1：系统依赖于简单的木偶表演，可能限制了叙事的复杂性和深度，例如无法处理多角色或复杂情节的故事。  <br>2. 缺点2：缺乏对不同年龄段儿童的适应性评估，可能导致在特定年龄段的有效性不足，例如对较小儿童的吸引力可能较低。  <br><br>【类似工作】  <br>1. paper1：Aminimanesh et al. (2019)探讨了叙事驱动角色对儿童的影响，强调了情感表达的重要性。  <br>2. paper2：Mastrothanasis et al. (2025)研究了木偶在教育中的应用，表明木偶可以增强注意力和情感参与。  <br><br>【相关性评分】</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260625'></a>2026-06-25（67篇论文）</summary>
@@ -288,15 +297,5 @@
 | DeformX: A Versatile Co-Simulation Framework for Deformable Linear Objects | Yi Yang | <details><summary>detail</summary>IROS 2026. Website:this https URL</details> | [PDF](https://arxiv.org/pdf/2606.22116) | [code1](https://deformx.github.io/) | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 核心问题1：现有视觉仿真方法缺乏对可变形线性物体（DLOs）的物理真实性能的准确模拟。  <br>2. 核心问题2：大多数模拟系统难以同时满足视觉真实感、物理准确性和与机器人学习框架的兼容性。  <br>3. 核心问题3：传统的物理基础模拟往往简化了机械行为，导致仿真与现实之间存在显著差距。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 以往工作通过简化几何原语或刚性链模型进行DLO仿真，但缺乏足够的物理真实性。  <br>2. 现有的Cosserat杆解决方案通常与高保真度的仿真器和机器人中间件脱节，限制了其应用。  <br><br>【提出了什么创新的方法】  <br>我们提出了DeformX，一个联合Cosserat杆物理引擎与NVIDIA Isaac Sim的共仿真框架，以实现既物理真实又视觉逼真的DLO仿真。该框架支持自由形状网格的接触，采用网格蒙皮技术进行高保真可视化。测试结果表明，通过DeformX生成的数据在真实图像上的线型分割性能显著提升，且在实际操控试验中实现了较小的目标命中误差，证明了其强大的仿真到现实转移能力。  <br><br>【文章缺点】  <br>1. 虽然系统提供了高保真的仿真，但可能对复杂环境中的真实交互处理能力仍有限，例如在极端条件下的DLO行为模拟准确性不足。  <br>2. 对于CAD资产的依赖意味着如果没有适当的输入模型，可能影响可视化效果的多样性，从而限制了应用领域的广泛性。  <br><br>【类似工作】  <br>1. HANDLOOM：通过程序生成的电缆图像用于视觉学习，但还存在物理变形不足的问题。  <br>2. IINOTATIONS：关注DLO动态建模的相关理论，但缺乏与高保真度视觉和机器人学习的</details> |
 | Dynamics, stability, and energy efficiency of an energy-recycling rimless wheel with spring-clutch legs | Tongchen Lin | <details><summary>detail</summary>. Equal contribution: Tongchen Lin and Yanqiu Zheng. Corresponding author: Mingyi Liu (this http URL@gtiit.this http URL)</details> | [PDF](https://arxiv.org/pdf/2606.22073) | [code1](http://mingyi.liu)<br>[code2](http://edu.cn) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | A Multimodal Tiltwing Framework for Bioinspired Aerial Robots | Krispin C. V. Broers |  | [PDF](https://arxiv.org/pdf/2606.22046) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260622'></a>2026-06-22（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Co-policy: Responsive Human-Robot Co-Creation for Musical Performances | Xuetao Li |  | [PDF](https://arxiv.org/pdf/2606.19914) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| The Token Is a Group Element: On Lie-Algebra Attention over Matrix Lie Groups | Przemyslaw Musialski | <details><summary>detail</summary>preprint</details> | [PDF](https://arxiv.org/pdf/2606.20547) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
