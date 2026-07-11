@@ -1,16 +1,26 @@
-# arXiv Robot 领域论文汇总（共228篇）
+# arXiv Robot 领域论文汇总（共230篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-07-11（4篇论文）](#date-20260711)
 - [2026-07-10（38篇论文）](#date-20260710)
 - [2026-07-09（44篇论文）](#date-20260709)
 - [2026-07-08（47篇论文）](#date-20260708)
 - [2026-07-07（97篇论文）](#date-20260707)
-- [2026-07-06（2篇论文）](#date-20260706)
 
-## <a id='date-20260710'></a>2026-07-10（38篇论文）
+## <a id='date-20260711'></a>2026-07-11（4篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| D-CLIPSE: Distributed Consensus-based Localization with Passive Listening on Shared State Exchange | Kyle Biron-Gricken | <details><summary>detail</summary>. Submitted to IEEE Robotics and Automation Letters</details> | [PDF](https://arxiv.org/pdf/2607.07995) | - | ★★☆☆☆ | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 多机器人定位的准确性和一致性对下游任务至关重要。  <br>2. 中心化方法在实际应用中受到硬件和通信限制的影响。  <br>3. 需要一种高效的分布式定位框架以实现一致的状态估计。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的中心化方法在理论上最优，但在实践中难以实施。  <br>2. 分布式方法通常依赖于多轮通信，导致效率低下和延迟。  <br><br>【提出了什么创新的方法】  <br>提出了一种基于共识的分布式过滤框架，仅通过一次对等通信交换共享相关状态和预集成的里程计信息。该方法允许非通信邻居通过被动监听共享状态更新，从而提高了信息共享的效率。实验结果表明，该方法在一致性和准确性上接近中心化性能，具有较好的实用性。  <br><br>【文章缺点】  <br>1. 方法依赖于邻居的状态共享，若邻居信息不完整，可能导致估计不准确。  <br>2. 被动监听的有效性在动态环境中可能受到限制，影响整体性能。  <br><br>【类似工作】  <br>1. [15] 研究了多机器人相对姿态估计，通过共享预集成的里程计信息。  <br>2. [8] 提出了一个通用的去中心化过滤框架，涉及用户定义的伪测量和状态共享。  <br><br>【相关性评分】  <br>分数：2分</details> |
+| Native Video-Action Pretraining for Generalizable Robot Control | Qihang Zhang |  | [PDF](https://arxiv.org/pdf/2607.08639) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| A New Human-Likeness and Comfort Index for Robot Movements Along Prescribed Paths | Rosanna Coccaro | <details><summary>detail</summary>accepted for IEEE Transactions on Cybernetics</details> | [PDF](https://arxiv.org/pdf/2607.08620) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+| In vivo feasibility study of humanoid robots in surgery | Zekai Liang |  | [PDF](https://arxiv.org/pdf/2607.07972) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+<details>
+<summary><a id='date-20260710'></a>2026-07-10（38篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -52,6 +62,8 @@
 | A New Human-Likeness and Comfort Index for Robot Movements Along Prescribed Paths | Rosanna Coccaro | <details><summary>detail</summary>accepted for IEEE Transactions on Cybernetics</details> | [PDF](https://arxiv.org/pdf/2607.08620) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | D-CLIPSE: Distributed Consensus-based Localization with Passive Listening on Shared State Exchange | Kyle Biron-Gricken | <details><summary>detail</summary>. Submitted to IEEE Robotics and Automation Letters</details> | [PDF](https://arxiv.org/pdf/2607.07995) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | In vivo feasibility study of humanoid robots in surgery | Zekai Liang |  | [PDF](https://arxiv.org/pdf/2607.07972) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260709'></a>2026-07-09（44篇论文）</summary>
@@ -262,15 +274,5 @@
 | WSA$_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control | Jiahao Jiang |  | [PDF](https://arxiv.org/pdf/2607.03941) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 当前的机器人基础模型（RFM）缺乏对物理动态和机器人行为对3D物理世界因果效应的推理能力。  <br>2. 现有模型在真实世界任务中的泛化能力受限，无法有效处理3D空间认知和环境变化。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有的视觉-语言-动作（VLA）模型和世界动作模型（WAM）在3D世界动态建模方面存在缺陷，缺乏对机器人行为与世界变化之间的相互约束的明确机制。  <br>2. 这些模型的训练依赖于大量的真实世界专家演示数据，获取此类数据成本高昂且劳动密集，限制了模型的泛化能力。  <br><br>【提出了什么创新的方法】  <br>WSA1提出了一种3D中心的世界-空间-动作建模范式，整合了预测3D世界建模、3D一致的2D视觉思维和3D逆动力学三个学习目标。通过引入世界-动作相互约束，WSA1克服了现有VLA和WAM范式的泛化限制。WSA1在仅使用6000小时的异构演示数据（其中1000小时为真实机器人数据）时，达到了93%的操作成功率，并在现实世界操作任务中实现了平均+20%的性能提升。  <br><br>【文章缺点】  <br>1. 方法依赖于复杂的模型架构，可能导致训练和推理过程中的计算开销过大，限制了其在资源受限环境中的应用。  <br>2. 尽管在模拟环境中表现良好，但在真实世界应用中的适应性和鲁棒性仍需进一步验证，可能面临环境变化带来的挑战。  <br><br>【类似工作】  <br>1. "Learning to Act by Predicting the Future" - 该论文探讨了基于预测的机器人控制方法，与WSA1的因果建模思路相似。  <br>2. "Vision-Language Navigation" - 该工作关注视觉和语言的结合在导航中的应用，与WSA1在多模态学习方面的目标相似。  <br><br>【相关性评分】</details> |
 | High-Fidelity One-Step Generative Visuomotor Policy via Recursive Correction, Frequency Consistency, and Contrastive Flow Matching | Yuran Chen |  | [PDF](https://arxiv.org/pdf/2607.03865) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有生成模型在推理时需多步采样，导致显著的延迟，不适合高频控制。  <br>2. 单步加速方法虽提高效率，却引入了近似误差，难以精确生成多模态动作。  <br>3. 多模态动作流的纠缠使得生成的动作不可靠，影响机器人的操作性能。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 现有加速策略如知识蒸馏和一致性方法试图减少采样步骤，但未能有效解决推理中的近似误差。  <br>2. 以均值流为基础的加速方法无法准确捕捉高维非线性动作流的空间结构。  <br><br>【提出了什么创新的方法】  <br>该论文提出了一种高保真单步生成视动策略框架，结合递归校正、频率一致性和对比流匹配三种机制。  <br>1. 递归一致动作流（RCAF）通过高阶递归校正来补偿空间截断误差。  <br>2. 双时间步频率一致性（DTFC）保证高频细节保留，减少频率失真。  <br>3. 对比流匹配（CFM）使用基于边际的目标分离混合流，降低多模态流纠缠和动作模糊。  <br>实验表明，该方法在真实和仿真平台上与主流十步生成策略相比表现竞争或更佳，同时仅需一次正向传递。  <br><br>【文章缺点】  <br>1. 方法依赖于合适的超参数调整，实际应用中可能需要大量调试才能达到最佳性能。  <br>2. 虽然解决了近似误差，但在某些复杂高维环境中依然可能面临频率失真问题，影响操作精度。  <br><br>【类似工作】  <br>1. Diffusion Policy：该方法也利用生成模型进行动作生成，但需要多步推理，延迟显著。  <br>2. Flow Matching：使用连续时间动态的策略，但面临相似的推理延迟问题和模态混淆。  <br><br>【相关性评分】  <br>分数：5</details> |
 | Metallic Ultrasound Waveguides as a Distributed Tactile Sensing Platform for Contact Localization, Force Estimation, and Material Class Discrimination | Alexandros Rosakis |  | [PDF](https://arxiv.org/pdf/2607.02827) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260706'></a>2026-07-06（2篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Neuro-Symbolic Safety Guidance for Vision-Language-Action Models via Constrained Flow Matching | William English |  | [PDF](https://arxiv.org/pdf/2607.01378) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Episodic-to-Semantic Consolidation Without Identity Drift | Xue Qin |  | [PDF](https://arxiv.org/pdf/2607.01988) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>
