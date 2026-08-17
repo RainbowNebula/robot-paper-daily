@@ -628,7 +628,7 @@
         <header>
             <h1>🤖 arXiv 机器人领域论文汇总</h1>
             <div class="intro">
-                <p>📊 共 <strong>98</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>📊 共 <strong>88</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
                 <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
             </div>
         </header>
@@ -636,17 +636,700 @@
         <!-- 日期导航 -->
         <nav class="nav">
             <strong>📅 日期导航：</strong>
-            <a href="#date-20260814">2026-08-14（33篇）</a> | <a href="#date-20260813">2026-08-13（26篇）</a> | <a href="#date-20260812">2026-08-12（39篇）</a>
+            <a href="#date-20260817">2026-08-17（29篇）</a> | <a href="#date-20260814">2026-08-14（33篇）</a> | <a href="#date-20260813">2026-08-13（26篇）</a>
         </nav>
 
         <!-- 论文内容区块 -->
         <main>
-            <div class="date-section" id="date-20260814">
+            <div class="date-section" id="date-20260817">
     <div class="date-header">
-        <span>2026-08-14（33篇论文）</span>
+        <span>2026-08-17（29篇论文）</span>
         <span class="arrow">▼</span>
     </div>
     <div class="date-content" style="display: block;">
+        <table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 15%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 40%">  <!-- Summary -->
+        </colgroup>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>作者</th>
+                <th>资源</th>
+                <th>相关性</th>
+                <th>总结</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 城市公共空间中异构机器人/车辆并存，人与环境交互复杂，如何在跨层系统中保持稳定可验证的安全？   2. 安全不能只作为单模块静态约束；当表征在 symbolic/spatial/dynamic world model 间切换时，如何统一同一安全目标？   3. 如何把系统级 hazard analysis 与 runtime enforcement ...">Ensuring Safe Physical AI in Urban Mobility via Hazard-Informed Synthesized Envelopes</span></td>
+        <td class="author-cell">Alexei Odinokov</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14481" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14481" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://www.cret.net/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>The 2026 International Conference on Control, Robotics Engineering and Technology (CRET 2026), this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 城市公共空间中异构机器人/车辆并存，人与环境交互复杂，如何在跨层系统中保持稳定可验证的安全？  
+2. 安全不能只作为单模块静态约束；当表征在 symbolic/spatial/dynamic world model 间切换时，如何统一同一安全目标？  
+3. 如何把系统级 hazard analysis 与 runtime enforcement 串成闭环，形成能落地到在线控制/决策的“安全工作区”？  
+4. 城市分区与任务差异导致的不同安全范式，能否通过统一的 hazard-informed safety envelope 自动适配？  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 现有安全通常在单层实现：如行为树/速度限界/能量限制、或在控制端做约束；但难以保证跨层表征一致性。  
+2. “safety envelope / safety envelope algorithms”常用于在线运行时约束，但多以工程经验或静态几何/动力学模型构造，缺少系统化的 hazard analysis-to-envelope 映射流程。  
+3. 不同城市用例采用不同安全范式（yield-to-all、冗余传感器、geofencing/V2X等），缺少统一表示与可迁移框架。  
+4. 对 vulnerable road user（symbolic）、trajectory planning 中的动态障碍（spatial/dynamic）与控制层的时空状态（control）之间的同一安全目标对齐不足。  
+
+【提出了什么创新的方法】  
+1. 提出“hazard-informed synthesized envelopes”：将 hazard analysis 的结果变换为跨层可用的 safety envelope，而不是把安全留在单模块或单时刻。  
+2. 跨层安全变换流程（symbolic → spatial → dynamic world models）：同一安全目标在不同抽象层使用不同表征时，仍保持一致的约束/可行域语义。  
+3. 将 hazard analysis 与 runtime enforcement 融合：envelope 作为系统可运行的安全工作区（range of operating conditions），并与 physical AI runtime harness 直接接口。  
+4. 面向异构城市场景的统一适配方式：通过</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在未知环境中同时完成“找最有价值区域”与“建信息地图”，且每次测量与移动都受预算约束。   2. 现有信息增益/奖励获取准则常只覆盖探索或利用之一，缺少原则化、可解释的统一权衡。   3. 将 active inference 的 Expected Free Energy (EFE) 用于**连续轨迹**、**硬路径预算**的 budgeted in...">Expected Free Energy-based Informative Path Planning for Robotic Mars Exploration</span></td>
+        <td class="author-cell">Ajith Anil Meera</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14466" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14466" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>accepted for IWAI 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在未知环境中同时完成“找最有价值区域”与“建信息地图”，且每次测量与移动都受预算约束。  
+2. 现有信息增益/奖励获取准则常只覆盖探索或利用之一，缺少原则化、可解释的统一权衡。  
+3. 将 active inference 的 Expected Free Energy (EFE) 用于**连续轨迹**、**硬路径预算**的 budgeted informative path planning，仍缺少可计算且工程可用的方法。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 信息论/方差约减（mutual information、variance reduction）偏探索，忽略“价值最高在哪里”。  
+2. Bayesian optimization（expected improvement、UCB）偏利用，难以保证对整张地图的有效刻画。  
+3. 工程上常用手动加权或启发式折中，但缺乏统一的理论准则与可调性机制。  
+4. Active inference 已用于离散MDP、语义导航或学习策略，但对“连续控制 + 硬预算约束 + IPP”的可计算规划仍较少系统研究。  
+5. 与之相关的 EFE/BO 更偏“下一点”近视选择（myopic），难直接处理移动成本与连续轨迹的规划耦合。  
+
+【提出了什么创新的方法】  
+1. **EFE-based 统一目标**：把探索(epistemic)与利用(pragmatic)合并到 Expected Free Energy，作为单一action-selection准则，而非人为加权。  
+2. **Gaussian-process 信念 + 连续轨迹规划**：在高斯过程 belief over the information field 下，规划**连续轨迹**，最小化在移动预算下的 expected free energy。  
+3. **Receding-horizon non-myopic**：用滚动时域规划（receding-horizon）实现非近视性，持续更新并向前推进轨迹选择。  
+4. **Hard travel budget 约束下的可计算实现**：强调在严格路径长度约束下进行规划，而不是软惩罚或事后截断。  
+5. **Budget-aware annealing schedule**：</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 极限驾驶下控制误差不可避免，离线/模块化轨迹规划在执行闭环中缺少“反馈”，导致实际性能达不到时优规划上限。   2. 规划层只能用静态安全margin保证不越界，等价于“可用跑道空间被永久保守封锁”，浪费真实操纵极限。   3. 需要一种在线、可闭环自适应的方法：让规划知道自身执行偏差，并据此动态更新可规划的约束区域，同时仍保持time-optima...">Control-Informed Constraint Adaptation in Minimum-Time Trajectory Planning for Autonomous Racing</span></td>
+        <td class="author-cell">Ann-Kathrin Schwehn</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14448" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14448" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at IEEE ITSC 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 极限驾驶下控制误差不可避免，离线/模块化轨迹规划在执行闭环中缺少“反馈”，导致实际性能达不到时优规划上限。  
+2. 规划层只能用静态安全margin保证不越界，等价于“可用跑道空间被永久保守封锁”，浪费真实操纵极限。  
+3. 需要一种在线、可闭环自适应的方法：让规划知道自身执行偏差，并据此动态更新可规划的约束区域，同时仍保持time-optimal。
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 全局/离线raceline优化：擅长生成时间最优几何/速度，但默认完美跟踪，对控制器真实跟踪能力与偏差盲。  
+2. 在线局部优化/MPC等：能在线规划时间最优动作，但主要基于模型与当前状态优化，缺乏“执行误差—规划约束”的闭环自适应机制。  
+3. 现有安全策略：通过固定空间margin保证越界安全，但无法随运行状态“动态放开”，导致持续保守，难以系统性挖掘跑道极限。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. 运行时监测execution deviation：在闭环中记录系统跟踪偏差，识别“系统性偏差”（不仅是随机噪声）。  
+2. control-informed constraint adaptation：将观测到的偏差反馈到规划层，动态调整“可规划空间/plannable area”的空间约束（边界/可行域）。  
+3. iterative free-space expansion：在MPC规划中迭代更新约束，逐步扩大可用自由空间，同时保持安全边界。  
+4. time-optimal MPC with adaptive constraints：在保持MPC时间最优目标的同时，把自适应约束作为关键输入，补偿累积执行误差。  
+
+最后简要介绍实现了什么效果（1-3句有意义的话）：  
+他们在高保真闭环仿真中验证，该方法在不增加计算负担的情况下降低圈速（1.8 s），运行中</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在robotic skin/HRIs里同时获得pressure与proximity的稳定、可调测量，但现有textile capacitive传感器多停留在材料或器件层面，缺乏对“yarn架构→电容跨导特性”的定量规律。   2. 织物层数/扭绞(1/2/4层twisted-yarn)会改变有效电极重叠面积与纤维间距，从而决定压力与临近探测，但这种结...">Effect of Twisted-Yarn Architecture on Pressure and Proximity Sensing Characteristics of Textile Capacitive Sensors for Robotic Skin</span></td>
+        <td class="author-cell">Ishtia Zahir</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14406" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14406" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Submitted to IEEE Transactions on Instrumentation and Measurement</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在robotic skin/HRIs里同时获得pressure与proximity的稳定、可调测量，但现有textile capacitive传感器多停留在材料或器件层面，缺乏对“yarn架构→电容跨导特性”的定量规律。  
+2. 织物层数/扭绞(1/2/4层twisted-yarn)会改变有效电极重叠面积与纤维间距，从而决定压力与临近探测，但这种结构-测量关系未被系统刻画。  
+3. 缺少一种可复用的、只通过几何（不改材料/不加工艺）的调参框架，用于在同一纤维电容机制下做性能定制。  
+4. robotic e-skin需要multimodal dual-mode与可落地集成（阵列空间接触映射、与机器人实时闭环联动），而结构差异如何影响端到端延迟/稳定性缺少验证。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 采用sandwich、in-plane（如interdigitated）或yarn-based结构的textile capacitive传感器，证明了flexible触觉与一定的电容响应能力，但对yarn层级几何参数的可迁移定量规律不足。  
+2. 通过调控电极配置/介电层实现高灵敏纤维电容压力传感，但多集中在单一结构设计，没有系统比较不同twisted-layer数对proximity能力的影响。  
+3. 研究了helical/auxetic yarn在电容/应变类任务中的几何敏感性，但多为strain或纤维受力机理，尚不足以覆盖“离接触(fringe field)的proximity探测范围”与其与pressure灵敏度的权衡。  
+4. 有些工作展示了压力-接近双模态网络或混合传感，但常见于特定器件或表面，缺少由“纤维局部电极接触结”出发的结构化解释与可调参设计。  
+5. 对织物</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有VLA主要在静态任务评测泛化，缺少对reaction-critical动态交互（含anticipation）与真实延迟的统一评估。   2. VLA常依赖当前观测做反应，因推理延迟导致“感知-执行”脱节，动态环境中会显著损伤成功率。   3. 让模型具备未来预测能力通常带来额外计算开销，而“加速低延迟”又往往忽略未来感知决策，两者难以同时兼顾。 ...">Reflex: Enabling Fast and Predictive Vision-Language-Action Models for Reaction-Critical Manipulation</span></td>
+        <td class="author-cell">Yuxuan Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14379" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14379" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>pages</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 现有VLA主要在静态任务评测泛化，缺少对reaction-critical动态交互（含anticipation）与真实延迟的统一评估。  
+2. VLA常依赖当前观测做反应，因推理延迟导致“感知-执行”脱节，动态环境中会显著损伤成功率。  
+3. 让模型具备未来预测能力通常带来额外计算开销，而“加速低延迟”又往往忽略未来感知决策，两者难以同时兼顾。  
+4. 缺乏一个可复现实用部署条件的benchmark框架，无法系统研究延迟同步/异步与控制闭环的耦合影响。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 动态操作bench已有探索（如object motion/latency、时空推理任务集合），但多是评测平台，缺少对latency建模与控制执行解耦的统一框架。  
+2. 未来状态/异步推理类方法提升响应性，但通常只强调预测或只强调效率，缺少“预测+低延迟”联合设计的系统验证。  
+3. 效率工作（压缩/架构/系统加速）主要优化吞吐或单次推理速度，较少直接分析其与anticipatory decision making的协同约束。  
+
+【提出了什么创新的方法】  
+1. 先提出ReflexBench：6个reaction-critical动态操作任务；评测框架显式decouple simulator stepping与robot control，并支持可配置latency（同步/异步）。  
+2. 基于ReflexBench提出ReflexVLA（快且可预测）：  
+   - latent future prediction：在视觉表征中引入对近未来视觉观测的隐空间预测，用于驱动策略推理未来状态；  
+   - multi-frame temporal fusion：使用多帧历史观测，增强时间上下文与轨迹外推能力；  
+   - inference latency optimization：通过batched visual encoding与CUDA Graph replay减少部署端感知-动作延迟。  
+3. 效果：在动态操作上稳定提升表现，同时在标准静</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 长时域goal-directed驾驶需要同时学会多种“竞争行为”（到达目标、沿路、避障、遵守规则），但固定目标权重无法给出学习顺序。   2. 纯RL在真实/复杂城市中难以稳定训练，尤其面对稀疏回报、多目标冲突与长程误差累积。   3. 视觉输入易受光照/遮挡/天气影响，而LiDAR要么计算重（原始点云），要么信息损失（BEV栅格化）。   4. 希...">CORAL: Curriculum-Optimized Reward Adaptation for LiDAR-Based Goal-Directed Urban Driving</span></td>
+        <td class="author-cell">Anisa Saleem</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14332" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14332" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 长时域goal-directed驾驶需要同时学会多种“竞争行为”（到达目标、沿路、避障、遵守规则），但固定目标权重无法给出学习顺序。  
+2. 纯RL在真实/复杂城市中难以稳定训练，尤其面对稀疏回报、多目标冲突与长程误差累积。  
+3. 视觉输入易受光照/遮挡/天气影响，而LiDAR要么计算重（原始点云），要么信息损失（BEV栅格化）。  
+4. 希望在无需expert demonstrations的情况下，实现跨城市的鲁棒泛化，同时保持连续控制的安全与平滑。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. IL通过专家轨迹学习控制，但在新路型/稀有路口/分布偏移时缺乏覆盖，难以做goal-conditioned的泛化。  
+2. 现有RL驾驶多用固定奖励或固定权重的多目标优化，缺少“随任务难度动态重排学习重点”的机制，导致多行为同时竞争时学习不稳。  
+3. 视觉主导方法依赖RGB感知与其鲁棒性；而LiDAR常见做法要么引入复杂编码器/点云网络，要么用BEV栅格导致信息折损。  
+4. LiDAR端到端RL虽可行，但状态是否足够“紧凑且表征完整”，以及如何在长时域里稳定优化，仍缺少系统的训练策略设计。  
+
+【提出了什么创新的方法】  
+1. **5-stage curriculum**：随训练阶段逐步延长路线长度，并逐步收紧约束（例如安全/规则/轨迹相关指标），让策略从“短程基础驾驶”到“长程全约束任务”逐步适应。  
+2. **stage-aware reward adaptation**：在每个curriculum阶段动态调整奖励各分量权重，把注意力从“任务进度(mission progress)”逐步迁移到“沿路线(route following) / 安全 / 平滑 / 交通规则遵从”。  
+3. **compact LiDAR route-aware state**：</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 只用 success rate 或粗粒度规则打分，无法揭示具身模型在 rollout 过程中“如何进步/何时退化”。   2. 失败样本内部差异巨大：有的早期崩盘，有的几乎完成后才失败，需要细分 failure-side progress。   3. 成功样本质量差异显著：有的顺滑高效，有的靠低效修正/停滞/不稳定恢复，需 success-condi...">PRM-as-a-Judge 1.5: A Toolkit for Robot Process Assessment</span></td>
+        <td class="author-cell">Yuyang Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14284" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14284" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://prm-as-a-judge.github.io" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 只用 success rate 或粗粒度规则打分，无法揭示具身模型在 rollout 过程中“如何进步/何时退化”。  
+2. 失败样本内部差异巨大：有的早期崩盘，有的几乎完成后才失败，需要细分 failure-side progress。  
+3. 成功样本质量差异显著：有的顺滑高效，有的靠低效修正/停滞/不稳定恢复，需 success-conditioned execution quality。  
+4. 具身模型常出现 drawdown（进度回落）与后续 recovery，需量化“能否从不稳定状态恢复”。  
+5. PRM 作为评估器必须可靠：需要专门的区间级测试评估 PRM 是否能反映“进度上升/下降”。  
+6. 评估流程要可复现：提供可视化、度量实现、工具套件，降低不同研究之间对齐成本。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 基准主流用二值 success rate，虽简单但无法区分“早失败 vs 晚失败”与“近成功”。  
+2. rule-based/manual scores 能比二值更细，但仍将复杂轨迹压缩成少数标签，难以稳定刻画进度曲线与回落恢复。  
+3. PRM-as-a-Judge 1.0 提供 progress-curve 思路，但 diagnosis 粒度与条件化能力不足，难以分别解释 near-success failure、drawdown recovery 与 success 条件下的质量差异。  
+4. 评估 PRM 本身的可靠性缺少更严格的“区间级一致性/可辨别性”测试平台，导致 progress curve 的可信度难以量化。  
+5. 评价工具链分散、缺乏端到端复现套件，导致跨任务/跨论文的过程评估不够透明与可比。  
+
+【提出了什么创新的方法】  
+1. 核心方法流程：rollout videos → 用 PRM 在每帧/时间戳估计 completion→ 得到 Process curve → 在 curve 上计算一组过程诊断指标 → 输出</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 大规模 LiDAR BA 计算量随点数/帧数快速爆炸，现有多为串行或弱并行，难以在城市级数据上实用。   2. GPU 迁移难：显存受限导致数据/预处理难以一次性加载，且数据流与内存管理决定整体加速上限。   3. 现有预处理（如 top-down voxelization）并行度不足，成为 BA pipeline 的主要瓶颈。   4. BA 优化...">Accelerating Large-scale Bundle Adjustment for LiDAR Mapping via Parallel Computing</span></td>
+        <td class="author-cell">Yixi Cai</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14266" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14266" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted by IEEE International Conference on Automation Science and Engineering (CASE), 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 大规模 LiDAR BA 计算量随点数/帧数快速爆炸，现有多为串行或弱并行，难以在城市级数据上实用。  
+2. GPU 迁移难：显存受限导致数据/预处理难以一次性加载，且数据流与内存管理决定整体加速上限。  
+3. 现有预处理（如 top-down voxelization）并行度不足，成为 BA pipeline 的主要瓶颈。  
+4. BA 优化阶段需要反复迭代计算 residual/Jacobian/Hessian，传统求解器难以并行且复杂度高。  
+5. 需要一个端到端（single-GPU）全并行框架，在保持精度的同时实现可观的时间复杂度下降与工程可复用性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. BALM/Eigen-factor 系列通过点-面距离、闭式消元与 cluster 化，降低 BA 中平面参数处理与导数计算的开销，但并未从“全 pipeline 并行”角度系统优化。  
+2. BALM3 用 majorization-minimization 解耦以降低优化复杂度，并提示并行潜力，但缺少真正将整个 BA（含数据加载、特征提取、导数/Hessian构建、求解）落到高效 GPU 并行实现。  
+3. 一些 GPU 工作只加速局部模块（如匹配/TSDF/重建），核心 BA 或大部分非局部计算仍在 CPU 串行或低并行，难支撑 billion-scale 点。  
+4. 现有点云体素化多使用 top-down 架构，虽然能做特征，但并行度与算子组织不足，导致特征提取仍成为墙钟时间瓶颈。  
+5. 许多方法没有解决“显存约束 + 异步加载 + 保持精度一致性”的工程耦合问题。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. Adaptive, asynchronous data loading：面向显存受限 GPU 的大规模点云，采用自适应异</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】 1. 机器人操纵large &amp; massive flexible payload时，运动会激发结构横向振动，导致精度下降并可能损伤载荷/扰动机器人。   2. 工程场景中（如tokamak/辐照环境）难以布置可用的振动/应变/位移传感器，因此需要无需在线振动测量的控制策略。   3. 需要同时满足“完成期望运动”与“抑制振动/耗散能量”，且要可扩展到不同工况与...">Vibration Suppression in Collaborative Flexible Payload Manipulation Using Passive Force Control</span></td>
+        <td class="author-cell">Alaa Abderrahim</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14244" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14244" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Published in the proceedings of the 2026 European Control Conference (ECC)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】
+1. 机器人操纵large &amp; massive flexible payload时，运动会激发结构横向振动，导致精度下降并可能损伤载荷/扰动机器人。  
+2. 工程场景中（如tokamak/辐照环境）难以布置可用的振动/应变/位移传感器，因此需要无需在线振动测量的控制策略。  
+3. 需要同时满足“完成期望运动”与“抑制振动/耗散能量”，且要可扩展到不同工况与异构机器人（力大/精密但动力学不同）。  
+4. 传统leader–follower + admittance多用于刚体，很少覆盖flexible payload且缺乏对协同系统稳定性的系统证明与实验验证。  
+5. 在空间约束（small clearance）下，振动抑制更关键：控制算法必须对柔性动力学更鲁棒。  
+
+【前人的工作如何解决该问题，存在哪些空白】
+1. 在线振动反馈/自适应：用deflection/strain/shear等传感器估计振动并调参，但在高辐照等场景传感器难以部署，且工程可落地性不足。  
+2. 观测器/状态估计：基于模型估计振动模态再闭环控制，但仍依赖可测信号/建模准确性，且实验验证稀缺。  
+3. 无振动反馈方法（input shaping/PD等）：通过预滤波或误差调节降低激励，但对“重载+协同+异构机器人”的leader–follower柔性操纵适配不足。  
+4. 刚体leader–follower与admittance/impedance整合：成熟但主要面向刚体动力学；对flexible振动耗散机制与闭环稳定性缺少面向协同柔性负载的专门设计。  
+5. 多数柔性协同操纵研究偏仿真：即便给出控制律，真实系统中耦合延迟、摩擦、非理想接触等会显著影响性能与稳定性。  
+
+【提出了什么创新的方法</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 多USV cooperative perception需要多视角互补观测并在共享参考系中对齐，但真实海上数据获取成本极高且难以覆盖多场景。   2. 现有海事数据多为单平台/ego-centric或仅2D标注，缺少同步多USV、多模态观测与一致标注的统一工作流。   3. 海上环境的关键变化（岛屿/港口遮挡、尺度差异、波浪导致姿态扰动）需要可控仿真来...">MMUSV-Sim: A Perception-Oriented Simulation and Data-Generation Platform for Multi-USV Cooperative Perception</span></td>
+        <td class="author-cell">Ziao Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14207" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14207" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 多USV cooperative perception需要多视角互补观测并在共享参考系中对齐，但真实海上数据获取成本极高且难以覆盖多场景。  
+2. 现有海事数据多为单平台/ego-centric或仅2D标注，缺少同步多USV、多模态观测与一致标注的统一工作流。  
+3. 海上环境的关键变化（岛屿/港口遮挡、尺度差异、波浪导致姿态扰动）需要可控仿真来系统评估其对协同感知的影响。  
+4. 现有海事仿真多偏导航/动力学或单一数据类型，缺少“感知导向”的多USV多模态采集、共享世界状态与可导出数据集。  
+5. 需要可复现、可批量生成、带精确跨模态几何一致性的多USV数据，用于训练与benchmark cooperative BEV检测等任务。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. CARLA/OPV2V等道路/空域仿真提供多智能体与可控协同评测，但对maritime特性（岛屿/港口遮挡、波浪姿态变化）表征不足。  
+2. Gazebo/UUV Simulator、Stonefish、MARUS、ASVSim等能做海上机器人仿真与传感器建模，但更偏单体/控制，缺少面向cooperative perception的统一数据生成管线与标注导出。  
+3. S2S-Sim提供协同船舶检测的LiDAR数据与benchmark，但主要围绕LiDAR且不提供RGB/深度/语义/雷达等更丰富模态，数据对齐与跨模态标注支持不足。  
+4. MaSTr1325/KOLOMVERSE/SeePerSea/USVTrack等海事数据集提供图像或多模态，但多为单平台或缺乏“多USV同步、共享世界状态、跨agent一致标注”的系统支持。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. Pixel-goal给的是“图像中的目标像素”，缺少metric depth与可通行性，导致3D落点与连续无碰撞规划难以同时成立。   2. 现有pixel-goal方法多停留在image-space目标条件，缺少与局部3D occupancy推理的强耦合。   3. 训练local 3D occupancy/可见性监督成本高：如何从monocula...">OccPlanner: Goal-Aware Occupancy-Conditioned Diffusion Planner for Pixel-Goal Navigation</span></td>
+        <td class="author-cell">Binling Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14160" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14160" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Technical report. and 2 tables</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. Pixel-goal给的是“图像中的目标像素”，缺少metric depth与可通行性，导致3D落点与连续无碰撞规划难以同时成立。  
+2. 现有pixel-goal方法多停留在image-space目标条件，缺少与局部3D occupancy推理的强耦合。  
+3. 训练local 3D occupancy/可见性监督成本高：如何从monocular视频规模化生成占据信号仍是关键。  
+4. 在closed-loop下需要稳健的时序上下文理解与局部几何约束，以避免误落点和局部碰撞。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Pixel-goal navigation（PixNav/SSM-PixNav）主要在像素/图像空间做条件学习，规划可执行性依赖隐式几何，缺少显式局部occupancy约束。  
+2. Goal2Pixel类方法把可导航像素back-project到3D waypoints，但仍偏“离散落点/稀疏航点”，对连续无碰撞轨迹的局部3D几何与未知区域建模不足。  
+3. diffusion-based planning（NavDP/LoGoPlanner等）能生成连续轨迹，但多数以metric目标或隐式几何为前提，和“局部occupancy表征”之间的交互不够直接、也不够可监督。  
+4. 单目重建/occupancy方向（π3、Occ3D、Occupancy Anticipation等）能做结构推断或可见性体，但难以无缝转化为“导航训练所需的局部、时序一致、可通行相关”的occupancy监督数据。  
+
+【提出了什么创新的方法】  
+1. 核心流程（OccPlanner）：以pixel goal为输入，先在egocentric metric space中完成目标grounding；随后用“两阶段goal-conditioning”机制把（a）temporal visual context与（b）learned local 3D occupancy特征按顺序注入到diffusion trajectory generation中。  
+2. Occupancy作为规划条件而非后处理：diffusion生成的</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 面向动态对抗的UAV pursuit-evasion，需要在亚秒级做决策且满足强耦合动力学约束（高机动、快速反应）。   2. 现有PE方法在高维6-DOF敏捷机动下要么不具扩展性（differential game），要么依赖准确对手预测（MPC）。   3. 现有DRL多停留在waypoint/速度层级，无法直接释放完整飞行包线（peak agi...">AgilePE: Autonomous UAV Pursuit-Evasion via Self-Play Reinforcement Learning</span></td>
+        <td class="author-cell">Wenhao Tang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14135" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14135" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Under review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 面向动态对抗的UAV pursuit-evasion，需要在亚秒级做决策且满足强耦合动力学约束（高机动、快速反应）。  
+2. 现有PE方法在高维6-DOF敏捷机动下要么不具扩展性（differential game），要么依赖准确对手预测（MPC）。  
+3. 现有DRL多停留在waypoint/速度层级，无法直接释放完整飞行包线（peak agility受限）。  
+4. 竞争式自博弈训练不稳定（oscillation/catastrophic forgetting），导致策略覆盖不足、战术多样性难以维持。  
+5. 仿真学到的策略难以在真实UAV上稳定工作（sim-to-real gap：aerodynamics/latency/noise等）。  
+6. 目标是实现：低层CTBR end-to-end敏捷控制 + 稳定对抗训练 + 零样本sim-to-real迁移。
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Differential-game/HJI：可给出最优性思路，但对6-DOF规模易维度灾难，且对真实复杂交互不易扩展。  
+2. MPC：通过receding horizon降低策略复杂度，但对对手未来轨迹/动力学预测敏感，预测误差会放大失败。  
+3. 传统DRL PE：绕开显式对手模型，能学到对抗策略，但多输出高层指令（velocity/waypoint），难以达到真实敏捷控制。  
+4. 自博弈SP：能自动生成对手curriculum，但naive SP易策略循环、单边坍塌，导致训练不稳与战术多样性不足。  
+5. FSP/PFSP：通过policy pool和win-rate加权缓解不稳，但与“低层CTBR直接控制”与“物理零样本迁移”的统一设计仍不充分。  
+6. DR+SysID用于sim-to-real：能降低现实差距，但“对抗训练得到的策略”是否对延迟/噪声/动力学失</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】 1. 在低空、狭窄遮挡等partial observability环境中，如何用视觉端到端产生实时且可行（collision-free + dynamic feasible）的飞行轨迹？ 2. 如何在不使用昂贵在线优化/多阶段模块的情况下，仍保留约束满足能力与高质量轨迹生成？ 3. 如何让学习型策略从“有完全状态与障碍几何”的privileged expert...">PILOT: Privileged Imitation Learning for End-to-End Motion Planning of Autonomous UAVs under Partial Observability</span></td>
+        <td class="author-cell">Qingrui Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14082" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14082" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】
+1. 在低空、狭窄遮挡等partial observability环境中，如何用视觉端到端产生实时且可行（collision-free + dynamic feasible）的飞行轨迹？
+2. 如何在不使用昂贵在线优化/多阶段模块的情况下，仍保留约束满足能力与高质量轨迹生成？
+3. 如何让学习型策略从“有完全状态与障碍几何”的privileged expert吸收规划能力，同时避免两阶段privileged学习带来的训练不稳定与样本低效？
+4. 仅依赖瞬时FOV的视觉输入不足时，如何用轻量的时序感知重建任务相关上下文，提升空间理解而不维护持久map？
+5. 如何保证轨迹平滑性与连续性，并更直接地对UAV动态约束进行监督，而不是逐步动作回归导致的误差累积与不鲁棒？
+6. 如何实现跨平台（四旋翼/固定翼）与sim2real零样本部署，验证端到端方法的可迁移性？
+
+【前人的工作如何解决该问题，存在哪些空白】1. 模块化视觉-规划（perception/localization/planning）可解释但存在级联误差与延迟累积；端到端更优却常缺乏约束一致性。  
+2. 优化/采样/OCP等方法约束友好但计算昂贵、非凸场景下尤其难以实时上机。  
+3. 学习式IL/RL可提升实时性，但RL在高维视觉上样本/收敛难；vanilla IL受限于专家质量且难以安全约束外推。  
+4. Privileged learning通过 teacher(含privileged信息)监督 student，但常见两阶段：先RL学teacher、再模仿student，训练不确定、样本效率低、计算成本高。  
+5. 部分观测下通常用单帧或显式建图；单帧导致安全性不足，显式map又带来计算/维护开销。  
+6. 动作级（直接控制/离散motion primitive）模仿易造成不平滑与动态不一致，尤其跨域/长</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   面向真实世界常见flat objects（书/板/薄片/织物等），提升机器人在“不可直接抓取位姿+外形/材质强变化”的情况下的跨物体/跨类别泛化能力，并缺少统一的仿真基准来系统评测。  1. 如何在flat objects上实现策略级generalization（不同物体需要不同操作策略）而不是单一pipeline？（≤40词）   2. 如何从点云等感知...">FlatLab: A Unified Methodology Framework and Simulation-Based Benchmark for Robotic Manipulation of Flat Objects</span></td>
+        <td class="author-cell">Xingyu Zhu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14049" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14049" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This paper is accepted to ICML 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+面向真实世界常见flat objects（书/板/薄片/织物等），提升机器人在“不可直接抓取位姿+外形/材质强变化”的情况下的跨物体/跨类别泛化能力，并缺少统一的仿真基准来系统评测。
+
+1. 如何在flat objects上实现策略级generalization（不同物体需要不同操作策略）而不是单一pipeline？（≤40词）  
+2. 如何从点云等感知中预测“合适的pre-manipulation/操作策略”，而不过拟合到特定几何？（≤40词）  
+3. 如何把长时域的操作分解为可复用的action primitives，并动态拼接形成稳定轨迹？（≤40词）  
+4. 如何提供同时覆盖rigid与deformable flat objects的统一仿真benchmark与评测协议？（≤40词）
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 通过设计特殊末端执行器（dexterous/flexible grippers）或利用摩擦来抓取flat objects，但泛化仍受限于材质、形状与接触不确定性。  
+2. 采用预处理策略（推到桌边、借助竖直面倾斜、双臂抬升）来制造可抓取位姿，但通常是“围绕单一策略设计/单闭集评测”，难以覆盖多样尺度、厚度、可变形性。  
+3. 现有仿真平台（如FluidLab/GarmentLab/LabUtopia）覆盖某类操作或任务类型，但缺少一个专门、统一、系统覆盖rigid+deformable flat manipulation的benchmark，导致对策略选择与执行的可比评测不足。
+
+【提出了什么创新的方法】  
+1. **Decouple：策略生成器 + 动作执行模块（unified methodology）**  
+   - Strategy generator：输入object point clouds，学习**strategy-centric, object-invariant**表示；通过**simulated data transformation**与**contrastive learning**增强跨物体不变性；输出适当的manipulation strategy条件。  
+   - Execution module：在策略条件下</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 端到端 VLA 虽精确但难以快速适配新任务；后调成本高且易遗忘。   2. 纯模块化工具调用依赖固定 tool 集与离散动作，难覆盖复杂细粒度动作空间。   3. 需要在不牺牲原有动作生成能力的前提下，让模型“on-the-fly”接入外部工具并形成 agent 行为闭环。   4. 同时降低工具数据依赖，避免昂贵的人类标注/轨迹收集。    【核心...">Evolve Vision-Language-Action Model into an Agent with On-the-fly Tool-use</span></td>
+        <td class="author-cell">Yi Ding</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14047" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14047" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern (CVPR) Findings</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 端到端 VLA 虽精确但难以快速适配新任务；后调成本高且易遗忘。  
+2. 纯模块化工具调用依赖固定 tool 集与离散动作，难覆盖复杂细粒度动作空间。  
+3. 需要在不牺牲原有动作生成能力的前提下，让模型“on-the-fly”接入外部工具并形成 agent 行为闭环。  
+4. 同时降低工具数据依赖，避免昂贵的人类标注/轨迹收集。  
+
+【核心问题】  
+1. 如何将端到端 VLA 的连续动作能力，解耦出可插拔的 tool-use 推理能力？  
+2. 如何把 tool-use 引入 VLA 的动作生成框架，降低动作解空间复杂度并提升泛化？  
+3. 如何在长任务链中训练稳定的工具选择/调用/推理过程（long-trajectory reasoning）？  
+4. 如何在不大规模手工采集新数据下生成可训练的 tool-use 轨迹与行动标注？  
+5. 如何避免在加入新 tool-use 数据时发生 catastrophic forgetting，并保持原动作保真？  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. RoboTool/RoboScript/RoboCodeX：将能力拆成工具模块并训练 API 调用，但 tool 集与动作函数固定，面对复杂/新动作输出受限。  
+2. OpenVLA/ECoT/ππ：端到端学连续动作并在训练任务上精确，但遇到新场景/任务需昂贵 post-training，且新数据会造成能力冲突与遗忘。  
+3. 现有模块化与端到端之间缺少一个“tool 注入”机制：既能利用端到端动作保真，又能快速扩展工具推理与任务适配。  
+4. 工具使用数据通常难以低成本获得；缺少把工具推理“批量合成进现有数据”的系统化方案。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. **ART（Agentic Robot with Tool-use）工具注入框架**：把连续动作策略改</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在包含 time delay、jitter、packet loss 的网络下，spacecraft teleoperation/人机在环控制如何维持稳定与可预测性能？   2. 如何在地面建立可重复、可控且 cost-effective 的 hardware-in-the-loop 实验平台，复现真实通信恶劣条件？   3. 在随机且 time-va...">Demonstration of Space Robot Teleoperation over a Lossy and Delayed Network using ATMOS</span></td>
+        <td class="author-cell">Inkyu Jang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14031" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14031" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>(c) 2026 the authors. This work has been accepted to IFAC for publication under a Creative Commons License CC-BY-NC-ND. . Inkyu Jang and Gregorio Marchesini contributed equally to this work</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在包含 time delay、jitter、packet loss 的网络下，spacecraft teleoperation/人机在环控制如何维持稳定与可预测性能？  
+2. 如何在地面建立可重复、可控且 cost-effective 的 hardware-in-the-loop 实验平台，复现真实通信恶劣条件？  
+3. 在随机且 time-varying 往返延迟下，控制器如何兼顾 state estimation/prediction 与 trajectory tracking？  
+4. 如何验证“长距离跨洲（如 7450km）闭环”在通信不确定性下仍能完成关键任务（docking maneuver）？  
+
+【前人的工作如何解决该问题，存在哪些空白】1. 现有 delay-tolerant control/CLF 等方法多在仿真或理想网络假设下验证，缺少可重复的真实 HIL 闭环实验。  
+2. 通信中断与时延鲁棒控制的研究较多，但“人类远程操作 + 真实双向 latency profiles + 实体平台任务级验证”仍不足。  
+3. 许多平台无法在同一实验链路中同时注入/表征随机、随时间变化的网络延迟，并评估 docking 这类安全关键闭环。  
+
+【提出了什么创新的方法】  
+1. 使用 ATMOS 作为 planar free-flying spacecraft-analog 的 hardware-in-the-loop testbed，直接在真实网络条件下做闭环验证。  
+2. 提出 delay-aware 的 CLF-based controller：在控制输入计算与执行之间，引入基于历史延迟观测的 state prediction，用以抵消时延影响。  
+3. 采用“state prediction + trajectory tracking control”的组合策略，并通过在“CLF 下降方向”上选择控制动作，来保证稳定性与跟踪性能。  
+4. 在 transcontinental 场景（Seoul→Stockholm 控制输入，Stockholm→Seoul 反馈状态）下进行长距离 docking 闭环演示，显式承受双向 latency profiles。  
+
+实现效果：完成跨洲远程闭环 docking 演示，表明在随机 time-varying 往返延迟下仍可维持稳定并实现轨迹跟踪</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何在Dexterous manipulation中缓解“数据昂贵/难以规模化”的瓶颈，并利用更丰富的人类演示数据完成策略学习？   2. 不同机器人手的形态差异导致动作空间不一致，如何实现跨embodiment可复用的统一动作表示与训练接口？   3. 共享视觉编码可能把“任务相关几何”与“embodiment外观身份”耦合在一起，如何学习可迁移的...">AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning</span></td>
+        <td class="author-cell">Zhiyue Zhao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14028" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14028" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 如何在Dexterous manipulation中缓解“数据昂贵/难以规模化”的瓶颈，并利用更丰富的人类演示数据完成策略学习？  
+2. 不同机器人手的形态差异导致动作空间不一致，如何实现跨embodiment可复用的统一动作表示与训练接口？  
+3. 共享视觉编码可能把“任务相关几何”与“embodiment外观身份”耦合在一起，如何学习可迁移的embodiment-invariant表征？  
+4. 如何在同时解决“动作对齐”和“表征去偏”的前提下，实现zero-shot human-to-robot迁移与少样本适配？  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. teleoperation/机器人数据规模化：能训练操作能力，但现实中采集成本高、数据瓶颈显著，难以覆盖多embodiment与多任务。  
+2. sim-to-real、retargeting、alignment fine-tuning：常需要额外建模/校准/迭代，且对跨形态泛化仍不稳定，迁移链路长。  
+3. 人类视频/运动作为监督：能提供丰富先验，但通常难以直接与异构机器人动作对齐，导致学到的是“视觉技巧”或“轨迹外观”，不保证可控。  
+4. 仅做动作对齐或仅做表征对齐：动作空间对齐≠视觉表征不泄露embodiment身份；反之亦然，容易出现捷径学习，限制zero-shot。  
+5. 去偏/域对抗学习思路在视觉迁移上常见，但在dexterous操作中与“规范化关节/端执行器动作空间”联动不足，导致对齐不充分。  
+
+【提出了什么创新的方法】  
+1. **OmniShare 数据集**：构建大规模human manipulation演示（含高质量kinematic监督与触觉测量），用多模态同步传感提供监督信号，并尽量减少对昂贵robot teleoperation的依赖。  
+2. **JAAS（Joint-Aligned Action Space）**：提出统一canonical动作空间</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 异步chunk执行导致request-to-handoff gap：语义正确但边界跳变、运动趋势断裂。   2. 延迟下的动作生成会产生physical-state drift，最终hand-off时动作不相容。   3. 需要同时保证behavior有效性（指令+进度一致）与handoff有效性（接管状态兼容）。   4. 现有VLA方法把“语义/...">BICPO-VLA: Behavior-Identified Continuation Preference Optimization for Smooth Asynchronous Vision-Language-Action Control</span></td>
+        <td class="author-cell">Ming Shang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13924" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13924" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 异步chunk执行导致request-to-handoff gap：语义正确但边界跳变、运动趋势断裂。  
+2. 延迟下的动作生成会产生physical-state drift，最终hand-off时动作不相容。  
+3. 需要同时保证behavior有效性（指令+进度一致）与handoff有效性（接管状态兼容）。  
+4. 现有VLA方法把“语义/轨迹/连续性修复”混在同一预测中，无法分工应对不同约束。  
+5. 希望在不引入在线候选搜索的前提下，平滑chunk过渡并可跨策略迁移优化目标。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Memory-based / asynchronous policies提升了执行效率或时序处理，但往往缺少对“行为-实现”解耦的显式建模。  
+2. Efficient generative models关注动作生成质量，通常难以在handoff时做“状态条件下的候选选择与适配”。  
+3. 仅对最终动作加smoothness或时序约束，可能减少抖动但破坏task progress，造成“连续性-语义”直接冲突。  
+4. 现有工作通常不区分：behavior identity应由指令+任务进度决定，而realization与handoff adaptation应在接管状态上被选择/修正。  
+
+【提出了什么创新的方法】  
+1. 提出fibered formulation：把异步的behavior-to-action realization拆成“行为族（behavior identity）”与“具体实现（trajectory realization）”，将延迟chunk视为handoff-conditioned selection而非单点轨迹预测。  
+2. Instruction-aware causal history encoder：用指令+任务进度的查询来识别命令相关的behavior条件，并为该behavior提供action prior。  
+3. Sequential Haar subspace generation：用Haar变换将每个动作chunk分解为pairwise scaffold与residual系数，并通过exact reconstruction保证表达力；从而降低在原动作空间做迭代refinement的需求，减少新chunk可用前的“继续运动区间”。  
+4. BICPO（</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在真实控制约束下（signal-dependent noise + 能量成本），机器人如何同时实现快速、精确与稳定？   2. 将控制拆成多个子模块是否真的比单体架构更好，且在公平容量条件下是否成立？   3. 子模块之间的通信（并行/自由共享/受限通信）如何改变控制策略与权衡（precision vs stability vs actuation ...">Communication in modular robotic motor control: Bilateral controllers under realistic constraints</span></td>
+        <td class="author-cell">Jingwen Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13904" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13904" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在真实控制约束下（signal-dependent noise + 能量成本），机器人如何同时实现快速、精确与稳定？  
+2. 将控制拆成多个子模块是否真的比单体架构更好，且在公平容量条件下是否成立？  
+3. 子模块之间的通信（并行/自由共享/受限通信）如何改变控制策略与权衡（precision vs stability vs actuation cost）？  
+4. 受限通信（delayed channel）还能否带来收益，通信延迟会如何重塑策略？  
+5. 是否能从人体双半球（bilateral hemispheres, corpus callosum）得到可落地的模块化控制设计原则？  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统与深度控制多在理想/低噪声假设下评估，缺少对“signal-dependent noise + 能量-可控性耦合”的系统性检验。  
+2. Modular/multi-expert/RL 分解框架关注性能，但往往未明确对比“capacity-matched monolithic”或未分析通信机制如何改变控制贡献分配。  
+3. 生物启发的双半球/受限通信用语更多是理论或神经科学现象复述，缺乏在可微物理仿真里端到端验证“delayed communication”的工程有效性。  
+4. 现有模块通信常默认即时或无显式延迟约束；在“通信延迟存在”的情况下，性能与能量权衡的可解释机制仍不清楚。  
+
+【提出了什么创新的方法】  
+1. 提出一个生物启发的 bilateral modular recurrent controller：两个 GRU-based modules 对应左右半球控制分工。  
+2. 引入 learnable, delayed inter-hemispheric channel：模块间通信不是无约束共享，而是通过受限、可学习且带时延的通道耦合。  
+3. 使用 differentiable two-arm musculoskeletal simulator，端到端训练模块与通信策略，直接在到达（reaching）与保持（holding）任务上优化。  
+4. 通过与 capacity-matched monolithic 以及“有</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 仅靠world model的candidate/event scalar score，无法指出“具体哪个task predicate（及其参数）未满足”。   2. 缺少一种把“失败原因→选择可用纠错机制(route)→执行后验收/重试”的闭环、可记录的接口。   3. 在predicate-based manipulation中，视觉/特征接近并不...">Ontology-Grounded World Models for Failure Diagnosis and Closed-Loop Repair in Physical AI Systems</span></td>
+        <td class="author-cell">Kailin Wang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13901" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13901" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 仅靠world model的candidate/event scalar score，无法指出“具体哪个task predicate（及其参数）未满足”。  
+2. 缺少一种把“失败原因→选择可用纠错机制(route)→执行后验收/重试”的闭环、可记录的接口。  
+3. 在predicate-based manipulation中，视觉/特征接近并不等价于任务成功，缺少显式任务约束表征与验证门控。  
+4. 希望在不替换底层world model/控制器的前提下，对失败诊断与修复进行系统级（system-level）对齐与可解释记录。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. World model/feature prediction（如 EV-WM）提供候选未来的评分与窗口选择，但其event向量不保留“未满足的predicate与typed arguments”，也缺少post-correction的验证-重试契约。  
+2. SayCan/affordance grounding 等将任务约束用于选择或行动生成，但该类系统主要回答“怎么做动作”，而不是“为什么失败、失败具体是哪个predicate、并据此组织纠错与验收”。  
+3. Neuro-symbolic/neuro-symbolic interfaces一般强调把神经表征与符号推理结合，但现有方法常是通用推理或可微逻辑；这里仍缺少“task-local ontology + deterministic diagnosis + route dispatch + native predicate verification”的工程化闭环接口。  
+4. Failure recovery/verification类工作多关注在线监控与重规划，但缺少与world-model候选生成之间共享同一套typed task facts的诊断记录结构。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. Ontology grounded interface：在EV-WM之上增加 Onto-EV-WM 层（不替换底层world model），用task-local TBox定义实体类型、predicate签名、约束。  
+2. Grounding到ABoxes：运行时把“预测输出或simulator-observed状态”分别映射到 source-specific ABoxes（包含required/observed facts的结构化表示）。  
+3. Deterministic diagnosis：用规则基于“缺</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. Object-Goal Navigation需要把目标相关的对象关系转化为高效推理，但现有object-graph方法对目标重要性缺乏“计算层面的”显式控制。   2. 现有图模型多为permutation-invariant，难以根据目标驱动控制信息传播顺序，从而限制长程依赖的建模。   3. 仅用feature/attention层的target...">Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation</span></td>
+        <td class="author-cell">Leyuan Sun</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13723" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13723" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted by IEEE Robotics and Automation Letters (IEEE RA-L), will transfer to 2027 IEEE International Conference on Robotics &amp; Automation (ICRA)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. Object-Goal Navigation需要把目标相关的对象关系转化为高效推理，但现有object-graph方法对目标重要性缺乏“计算层面的”显式控制。  
+2. 现有图模型多为permutation-invariant，难以根据目标驱动控制信息传播顺序，从而限制长程依赖的建模。  
+3. 仅用feature/attention层的target relevance不足以指导global推理；需要把“目标相关性”直接注入到graph reasoning的传播机制。  
+4. 在episodic长时程场景中，既要保持对象级时序一致性，也要能选择性聚合历史信息做远距时间推理。  
+5. 目标相关的对象关系（edge weights）如何在无先验数据下构建，并与传播顺序机制统一起来，是关键难点。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 用object-centric graphs + GNN/GAT学习对象关系，提升了ObjectNav的泛化与效率，但图计算仍常是unordered/permutation-invariant，无法显式控制传播先后。  
+2. 用attention或目标条件的特征融合把target awareness放进模型，但主要发生在表征层，未能改变“信息如何沿图传播”的顺序机制。  
+3. 一些方法加入时间建模或graph memory，但对象之间的空间关系与目标相关的计算顺序没有被系统地统一到同一可控框架。  
+4. Graph-Mamba提供了SSM/selective scanning的长程建模思想，但其node prioritization通常基于通用启发式，缺少针对ObjectNav的目标驱动重设计。  
+5. edge权重与node排序缺乏统一的、任务对齐的先验来源；现有方法多依赖数据学习，难以保证在未见环境中的结构一致性。  
+
+【提出了什么创新的方法】  
+1. 核心方法流程（先重点方法流程）  
+- 目标条件的object graph构建：以对象检测/跟踪得到object nodes，并为每个目标object构建空间关系图。  
+- LLM-derived commonsense priors：用LLM对“</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何在runtime执行复杂、非Markovian的时序指令（LTL）而不依赖把规格塞进policy训练里，从而避免data/泛化扩展瓶颈。   2. 如何把LTL的长horizon、轨迹级语义（未来若干步才能判定真值）落到现代manipulation policy的短动作chunk + 闭环replan机制上。   3. 如何在推理时同时满足“长程...">hint$^2$: Hierarchical World Models for Inference-Time Temporal Logic Guidance</span></td>
+        <td class="author-cell">Moritz Zoellner</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13678" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13678" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://anonymous-hint2.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Videos available on our project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 如何在runtime执行复杂、非Markovian的时序指令（LTL）而不依赖把规格塞进policy训练里，从而避免data/泛化扩展瓶颈。  
+2. 如何把LTL的长horizon、轨迹级语义（未来若干步才能判定真值）落到现代manipulation policy的短动作chunk + 闭环replan机制上。  
+3. 如何在推理时同时满足“长程任务进度”与“几何/局部安全约束”，且不要求训练时事先知道安全偏好。  
+4. 如何避免现有TL-guided diffusion需做长horizon轨迹微分/鲁棒性评估时出现的compounding world-model rollout error问题。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 语言条件policy：直接把指令编码进policy，能学到部分时序，但对长horizon非Markov结构扩展差，且难以处理runtime时变安全偏好。  
+2. inference-time guidance（如对goal/keypoints steering）：不改动policy，通过重采样/梯度引导更容易部署；但它们的guidance目标通常是短程、局部或单一目标，难覆盖LTL的长程时序判定。  
+3. TL-guided diffusion（用可微robustness做整段轨迹优化）：需要对full task轨迹进行长horizon world-model rollout或预测，复杂域中误差累积导致指导失效。  
+4. horizon mismatch未被根本解决：短horizon动作chunk replan导致LTL robustness在“短窗口内”退化，很多需要远未来才能满足的性质只能变成近似的safety filtering，表达能力被压扁。  
+5. 缺少“多抽象层世界模型”来同时服务长程进度与局部几何安全：现有方法要么只做长程但不准，要么只做局部但难以决定LTL是否真正满足。  
+
+【提出了什么创新的方法】  
+1. 关键思想：在推理时，用分层（hierarchical）世界模型把“长horizon的</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在线重定位通信智能体以维持/提升通信网络性能，但直接优化吞吐或全局目标难以实时控制。   2. 以代数连通度(algebraic connectivity)为代理目标时，梯度依赖Fiedler eigenvector，分布式估计在通信受限下难以收敛且误差会破坏控制律。   3. 需要一种能在有限通信轮次下分布式实现的谱图控制方法，避免估计误差累积导致...">Adjacency-Based Spectral Proxy Control of Mobile Communication Agents</span></td>
+        <td class="author-cell">Mariana del Castillo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13616" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13616" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 在线重定位通信智能体以维持/提升通信网络性能，但直接优化吞吐或全局目标难以实时控制。  
+2. 以代数连通度(algebraic connectivity)为代理目标时，梯度依赖Fiedler eigenvector，分布式估计在通信受限下难以收敛且误差会破坏控制律。  
+3. 需要一种能在有限通信轮次下分布式实现的谱图控制方法，避免估计误差累积导致退化（甚至断连）。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 传统Fiedler-gradient控制：利用局部交互可分解为分布式更新，但仍依赖对Fiedler向量/嵌入的全局谱信息估计。  
+2. 分布式估计（consensus/power iteration等）可用于谱量估计，但其精度与通信轮次强相关；动态场景中“没收敛=控制律错”，可能导致性能灾难性退化。  
+3. 空白：缺少“保留局部交互结构、替换更易分布式估计的谱嵌入”的系统化设计思路。  
+
+【提出了什么创新的方法】  
+1. 先做结构分析：证明Fiedler-gradient控制律可以分解为两部分——(i) 由通信模型决定的局部交互规则；(ii) 由图的谱嵌入决定的全局嵌入分量。  
+2. 再替换嵌入：用更易估计的图嵌入来替代Fiedler embedding。具体提出A-Fiedler：将Fiedler embedding替换为加权邻接矩阵A的dominant eigenvector所对应的节点嵌入。  
+3. 分布式可实现性：dominant eigenvector的估计在局部通信约束下更天然、收敛更有保障，从而避免Fiedler向量估计不充分导致的误差累积。  
+
+实现效果（1-3句）：在通信约束不强时，A-Fiedler</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 多智能体航迹规划中，如何量化“对方在最坏意图下的碰撞风险”，同时允许我方在近距离推进任务目标？   2. 现有distance/velocity相关CBF度量在3D长时域与强机动对抗下要么保守、要么因TTC不可用而难以落地？   3. 如何把“时间维度”的提前量（anticipatory）直接嵌入CBF约束，并能实时计算、可组合到QP控制？   4....">A Temporal Barrier Framework for Collision Avoidance in Multi-Agent Autonomous Aerial Vehicles</span></td>
+        <td class="author-cell">Benedikt Barthel Sorensen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.14239" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.14239" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 多智能体航迹规划中，如何量化“对方在最坏意图下的碰撞风险”，同时允许我方在近距离推进任务目标？  
+2. 现有distance/velocity相关CBF度量在3D长时域与强机动对抗下要么保守、要么因TTC不可用而难以落地？  
+3. 如何把“时间维度”的提前量（anticipatory）直接嵌入CBF约束，并能实时计算、可组合到QP控制？  
+4. 在允许速度/加速度调制的3D空域，如何给出比距离型CBF更好的安全-进度权衡？  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. CBF通过forward-invariance对“距离阈值”做约束，但距离几何在复杂相对运动下容易保守，且对“危险的时间紧迫性”表达不足。  
+2. VO/VO-CBF把安全域定义到velocity space上，降低了部分保守性，但本质仍是几何可行性，缺少“在最坏意图下的时间预算”指标。  
+3. future-focused CBF与Collision-Cone-CBF引入更长预测/相对朝向，但仍主要围绕距离/几何关系，难以统一刻画对抗情形的风险时间。  
+4. 对抗/博弈式方法能建模坏意图，但在工程上常受限于短时域、简化动力学或2D平面，并且（文中指出）常用恒速外推导致指标不可靠。  
+5. TTC/time-to-collision直观且可降低距离保守性，但经典TTC依赖恒速假设；在3D机动下可能趋于不可用/不可计算（常被认为会变成无穷）。  
+6. 缺口：需要一个“在3D动力学与速度/加速度约束下仍可保证有限”的对抗时间风险度量，并能无缝进入CBF-QP实时控制。  
+
+【提出了什么创新的方法】  
+1. 提出 adversarial time-to-collision (aT</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 开放词汇语义导航需要长期、可复用的object memory，但现有3D scene graph多为“单一融合特征/单一标签承诺”，导致minority yet task-relevant证据被丢弃。   2. 不同任务读出接口（fixed-vocab投影 vs free-form检索）对同一存储表示的最优需求不同，但现有方法通常用同一种表征/承诺方...">OpenBelief-Nav: Evidence-Preserving Object Memory for Open-Vocabulary Language-Guided Navigation</span></td>
+        <td class="author-cell">Dinh Tuan Nguyen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13923" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13923" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 开放词汇语义导航需要长期、可复用的object memory，但现有3D scene graph多为“单一融合特征/单一标签承诺”，导致minority yet task-relevant证据被丢弃。  
+2. 不同任务读出接口（fixed-vocab投影 vs free-form检索）对同一存储表示的最优需求不同，但现有方法通常用同一种表征/承诺方式服务所有下游。  
+3. 执行期top-1绑定仍是“假设”，若到达验证失败，理想做法应在不破坏持久图的前提下，重绑定同一指令到剩余候选并纠错。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. ConceptFusion/VLMaps/ConceptGraphs等把多视角检测融合成对象级embedding或单running-average，但下游通常只有一个“承诺状态/聚合描述”，无法保留同一对象的多种语言假设。  
+2. 一些基于scene graph的开放词汇系统（如ConceptGraphs等）在构建阶段会持续更新对象语义表征，任务时间接口仍多依赖aggregate descriptor或consensus object state，缺少“证据级可重读出”。  
+3. FSR-VLN等通过检索/层级推理改善语言到视觉的匹配，但本质上仍是面向一次性查询的retrieval流程，没有把“观测级短语 + 可靠性 + provenance”做成可复用的readout接口。  
+4. DualMap/动态或目标重选工作强调在线重选或动态地图，但对“到达验证失败后，仅做query-specific的候选重绑定、且不修改持久图”的狭义目标关注不足。  
+5. 少数方法可能有置信度/候选，但没有把“保持不承诺语义、延迟承诺（delayed semantic commitment）”系统化为证据保留对象记忆与多读出共享机制。  
+
+【提出了什么创新的方法】  
+1. Evidence-preserving object memory：为每个对象节点保留 observation-level 的语言短语（phrase evidence</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 模拟驱动的Analog IC layout refining高度迭代且昂贵，主要瓶颈是专家在“仿真反馈”上反复调参。   2. 传统BO对layout级调参采样需求大（数百~数千次），但真实后仿真预算只有十次量级，导致不可行。   3. LLM能提升稀疏评估效率，但缺少对几何/约束变化的可信状态感知与能在预算内稳定更新布局优化参数的机制。   4. ...">Simulation-Aware In-Context Policy Improvement for LLM-Aided Analog Layout Refinement</span></td>
+        <td class="author-cell">Bingyang Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13767" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13767" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. To appear in the Proceedings of the 2026 International Conference on LLM-Aided Design (ICLAD 2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 模拟驱动的Analog IC layout refining高度迭代且昂贵，主要瓶颈是专家在“仿真反馈”上反复调参。  
+2. 传统BO对layout级调参采样需求大（数百~数千次），但真实后仿真预算只有十次量级，导致不可行。  
+3. LLM能提升稀疏评估效率，但缺少对几何/约束变化的可信状态感知与能在预算内稳定更新布局优化参数的机制。  
+4. 需要一种simulation-aware、可扩展且无需训练、仅靠上下文与记忆就能进行参数改进的框架。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 端到端布局生成器（ALIGN/MAGICAL等）加速首版，但通常依赖静态启发式与固定权重/约束，无法针对特定spec进行仿真后微调。  
+2. BO在模拟驱动调参上有效，但layout级每次评估（抽取+后仿真）成本高，采样量不足以达到BO的有效探索。  
+3. LLM用于analog layout的尝试多依赖自然语言描述输入，几何状态与约束变化易产生歧义，难以进行精确的state-conditioned refinement。  
+4. 基于LLM agent的“全流程生成+回传指标选最优”缺少显式layout state与累积的设计经验，难以把有限反馈用于“参数更新”。  
+
+【提出了什么创新的方法】  
+1. **Simulation-aware ICPI act–observe–reflect**：把布局优化视为测试时的“策略在上下文中改进”，冻结LLM权重，通过prompt+检索记忆+结构化状态实现策略更新。  
+2. **显式、紧凑的layout state表征**：用紧凑结构化中间表示包含连通性、器件位置、暴露的优化参数集合、parasite汇总与后仿真结果，替代纯文本描述。  
+3. **多智能体（multi-agent）对“参数族”做逐轮更新**：</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 真实部署前需要发现 rare, severe, heterogeneous failures，但目标系统评测预算受限且昂贵。   2. 代理系统（sim/低保真/相关策略）能便宜扫场景，但proxy failures不一定可转移到target系统。   3. 现有proxy+target方法多偏向“平均指标估计”，难以直接服务于“失败发现/多样失败模...">Coverage Aware Active Evaluation for Failure Discovery with Paired Systems</span></td>
+        <td class="author-cell">Anjali Parashar</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13719" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13719" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>9 main pages followed by Appendix, total</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 真实部署前需要发现 rare, severe, heterogeneous failures，但目标系统评测预算受限且昂贵。  
+2. 代理系统（sim/低保真/相关策略）能便宜扫场景，但proxy failures不一定可转移到target系统。  
+3. 现有proxy+target方法多偏向“平均指标估计”，难以直接服务于“失败发现/多样失败模式覆盖”。  
+4. 需要一种能在小目标评测预算下，利用paired proxy信息提升 target-system failure 预测准确性的主动采样策略。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Simulation/低成本测试能高效搜索，但sim-to-real/system-to-system gap导致失败不可迁移，影响failure估计可靠性。  
+2. 目标系统的direct active testing能发现关键场景，但往往没充分利用大量廉价proxy评测信息。  
+3. proxy+target的既有联合学习/估计方法多面向Monte Carlo下的aggregate metrics，难直接优化“failure discovery”这种场景级、模式级目标。  
+4. 少数把多样性引入采样的方法，通常缺少对“proxy偏差”的显式校正，导致预测与真实失败不一致。  
+5. 很多方法不针对“local scenario-specific metric”进行校正与获取，难以保证高严重度失败的被动漏检问题。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. **Local proxy-corrected failure predictor**：学习一个针对局部场景的目标风险预测器，用少量 paired target结果对proxy failure信号做 residual/correction（类 control-variate）。  
+2. **Adaptive scenario selection**：在场景空间中用该预测器估计“目标系统失败可能性”，作为获取候选的首要依据，而非直接使用proxy失败。  
+3. **Support-aware mutual-information acquisition**：在likelihood之外加入“支持度/可获得性”与 mutual-information风格目标，既偏好真实且有证据支撑的区域，也鼓励在未覆盖/欠探索区域扩展覆盖，提升失败模式多样性。  
+4. **预算约束</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. STL robustness 是对整段执行轨迹的历史函数，直接当 reward 用于 RL 会破坏 Markov 性，导致训练不稳定/效率低。   2. 对长时域、任意嵌套 temporal operators 的“完整 STL”，用 state augmentation 需要跟踪全部历史，状态爆炸不可行。   3. 许多系统缺少可用高保真模型，难以...">Reward Machines for Signal Temporal Logic</span></td>
+        <td class="author-cell">Alper Kamil Bozkurt</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13625" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13625" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. STL robustness 是对整段执行轨迹的历史函数，直接当 reward 用于 RL 会破坏 Markov 性，导致训练不稳定/效率低。  
+2. 对长时域、任意嵌套 temporal operators 的“完整 STL”，用 state augmentation 需要跟踪全部历史，状态爆炸不可行。  
+3. 许多系统缺少可用高保真模型，难以用优化/MPC 做 STL 合成，亟需可扩展的 model-free 集成方式。  
+4. 希望把形式化规格（STL）转成可与 off-the-shelf RL 兼容的 reward 结构，同时尽量保留 robustness 的定量性。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 用 robustness score 作为 RL reward，但由于 robustness 对轨迹历史依赖，违反 RL 的 Markov 假设，导致 learning 不稳定。  
+2. 通过 augment state with visited history 恢复 Markov 性；但对长 horizon/复杂嵌套 STL，所需历史长度导致维度维持不可控的状态爆炸。  
+3. 通过限制 STL 片段/更小逻辑子集来避免爆炸；但牺牲了“full STL”的表达能力。  
+4. 使用自动机/逻辑编译来做 RL 奖励多集中在 LTL/无实时时约束的形式，或仅做 timed automaton 的 reward shaping；缺少从“STL（含 metric timing）”直接导出、并能与标准 RL 设置自然兼容的 reward machine 方案。  
+
+【提出了什么创新的方法】  
+先重点方法流程：  
+1. 将随机控制系统建模为 SMDP，并采用 event-based STL semantics。  
+2. 把给定 STL 规格编译成一类一时钟的 alternating timed automaton（OCATA/one-clock alternating timed automaton）。  
+3. 从 OCATA 的 acceptance condition 构造 STL reward machines（STL-RMs），使 reward 由“当前 automaton location + clock valuation”决定。  
+4. 在 RL 中维护“automaton locations + clock valuations”作为显式记忆，从而让 reward 变为 Markovian �</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 自然语言并不能保证唯一目标：机器人可能因“用户意图不明”或“当前视角缺失物理证据”导致grounding歧义。   2. 现有交互式消歧主要依赖问用户，但若关键判别线索被遮挡/不可读/未进入视野，单靠提问无法补齐证据。   3. 机器人需要在“主动换视角获取物理信息”和“向用户澄清意图”之间做联合决策。   4. 需要一个统一框架：累计视觉证据后，决...">Active Perception for Embodied Disambiguation</span></td>
+        <td class="author-cell">Yiwei Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.13605" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.13605" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 自然语言并不能保证唯一目标：机器人可能因“用户意图不明”或“当前视角缺失物理证据”导致grounding歧义。  
+2. 现有交互式消歧主要依赖问用户，但若关键判别线索被遮挡/不可读/未进入视野，单靠提问无法补齐证据。  
+3. 机器人需要在“主动换视角获取物理信息”和“向用户澄清意图”之间做联合决策。  
+4. 需要一个统一框架：累计视觉证据后，决定继续观察、请求澄清还是直接选择目标。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. 交互式消歧（IIRelated Work A）把问题建成“候选集合→生成问题→用户回答→迭代缩小候选”，研究了ask什么/何时ask/如何解释回答。  
+2. 但这些方法默认额外信息主要来自用户；若判别属性在当前视角缺失（occlusion、text不可读、目标未进入观察区），提问无法“凭空造出”物理证据。  
+3. 也有“什么时候向用户交互”的不确定性校准，但缺乏把“主动视察/换视角”作为信息获取主干，并与后续澄清问题的语义依据形成闭环的机制。  
+4. 因此空白是：缺少对“observation incompleteness vs semantic/intent ambiguity”的显式区分，并缺少将二者耦合进同一VLM决策流程的系统。  
+
+【提出了什么创新的方法】  
+1. 信息源视角的形式化区分：将消歧所需缺失信息分成两类——Observation incompleteness（需要换视角补证据）与 Semantic/intent ambiguity（需要用户偏好/意图澄清）。  
+2. Active Observation as the backbone：当VLM推断物理证据不足时，机器人先执行视角动作（eye-in-hand camera换视点）获取新的RGB-D，再把新证据回灌给同</small></details></td>
+    </tr>
+        </tbody></table>
+    </div>
+</div>
+<div class="date-section" id="date-20260814">
+    <div class="date-header">
+        <span>2026-08-14（33篇论文）</span>
+        <span class="arrow">▶</span>
+    </div>
+    <div class="date-content" style="display: none;">
         <table>
         <!-- 添加 colgroup 明确指定每列宽度 -->
         <colgroup>
@@ -2056,933 +2739,6 @@ end-to-end driving agents 即使高分平均表现，仍会在稀有高后果场
         </tbody></table>
     </div>
 </div>
-<div class="date-section" id="date-20260812">
-    <div class="date-header">
-        <span>2026-08-12（39篇论文）</span>
-        <span class="arrow">▶</span>
-    </div>
-    <div class="date-content" style="display: none;">
-        <table>
-        <!-- 添加 colgroup 明确指定每列宽度 -->
-        <colgroup>
-            <col style="width: 25%">  <!-- Title -->
-            <col style="width: 15%">   <!-- Authors -->
-            <col style="width: 10%">   <!-- Resources -->
-            <col style="width: 10%">   <!-- Relevance -->
-            <col style="width: 40%">  <!-- Summary -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>标题</th>
-                <th>作者</th>
-                <th>资源</th>
-                <th>相关性</th>
-                <th>总结</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 采取闭环控制的外科机器人策略需要亚毫米精度、接触推理和长时域双手协同，但dVRK action-labeled演示稀缺。   2. 如何在“固定action标注预算”下，利用大量action-free内窥镜video提升闭环任务成功，而不仅是开环预测指标？   3. 现有手术world model多用于评估或合成数据，未将学到的动力学有效映射为可执行...">Surgical WAM: A World-Action Model for Data-Efficient Surgical Robot Learning</span></td>
-        <td class="author-cell">Wenrui Bao</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.11204" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.11204" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 采取闭环控制的外科机器人策略需要亚毫米精度、接触推理和长时域双手协同，但dVRK action-labeled演示稀缺。  
-2. 如何在“固定action标注预算”下，利用大量action-free内窥镜video提升闭环任务成功，而不仅是开环预测指标？  
-3. 现有手术world model多用于评估或合成数据，未将学到的动力学有效映射为可执行控制策略。  
-4. 关键机制是：视频预训练应当给行动头提供可迁移的surgical dynamics prior，从而减少对昂贵同步运动学标注的依赖。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Surgical manipulation学习（IL/DRL等）直接依赖state-action或image-action，无法使用缺少同步kine/动作标注的video。  
-2. 视频条件控制与早期video-planning流水线常将“预测”和“控制”解耦，缺少共享表征，接触结果对小误差敏感。  
-3. WAM范式能统一未来预测与动作生成，但其在手术场景仍少见，且多缺少对“闭环成功提升来自action-free video pretraining”的严格量化。  
-4. 手术领域的生成/世界模型（如预测视频、用于评分、或作为多阶段合成数据管线）通常不直接闭环驱动机器人，也未做在相同行动预算下的对照。  
-
-【提出了什么创新的方法】  
-1. 核心方法流程：  
-   - 用action-free endoscopic video预训练“共享表征”的Surgical World-Action Model（建立surgical visual dynamics prior）。  
-   - 再在固定的action-labeled演示预算上对同一架构进行fine-tune，让“action head”学会可执行动作与预测动力学对齐。  
-   - 部署时采用receding-horizon闭环：输入当前内窥镜观测+本体状态，联合生成未来video序列与可执行action chunk；执行chunk的短前缀后立刻观测新状态并重规划。</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】 1. 面向planetary exploration，环境交互未知且可能导致危险的kinodynamic运动计划。   2. 学习到的dynamics模型不确定性会放大风险，传统risk-neutral规划不足以保证安全。   3. 需要在不牺牲动态可行性与最优性的前提下，将risk量化并用于主动规划与控制。   4. 需兼顾感知/模型不确定性引起的分布尾部风...">Risk-Aware Kinodynamic Motion Planning Under Uncertainty For Safe Navigation on Planetary Environments</span></td>
-        <td class="author-cell">Sachin Sunil Kelkar</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.11175" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.11175" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】
-1. 面向planetary exploration，环境交互未知且可能导致危险的kinodynamic运动计划。  
-2. 学习到的dynamics模型不确定性会放大风险，传统risk-neutral规划不足以保证安全。  
-3. 需要在不牺牲动态可行性与最优性的前提下，将risk量化并用于主动规划与控制。  
-4. 需兼顾感知/模型不确定性引起的分布尾部风险（tail risk），而非仅均值风险。
-
-【前人的工作如何解决该问题，存在哪些空白】
-1. 通过不确定性建模生成risk-aware geometric trajectories，但往往缺少对kinodynamic与控制代价的联合优化。  
-2. 将不确定性与terrain features绑定来做risk惩罚，但对学习模型不确定性的直接利用不足。  
-3. 用CVaR约束控制器，但规划阶段仍可能依赖risk-neutral的中间轨迹，导致端到端不够一致。  
-4. 常见做法未把“学到的不确定动力学”如何进入risk度量、并在规划-优化链路中闭环体现。
-
-【提出了什么创新的方法】
-1. 用conformal prediction量化learning-based dynamics model的不确定性（为风险计算提供可用的扰动/情景集合）。  
-2. 将AO-RRT改造成“闭环风险计算”的两阶段框架：AO-RRT在采样扩展时就把tail risk（CVaR）写进edge cost。  
-3. 用SCP把非线性运动规划重写为局部凸问题，优化CVaR目标与control cost，并在AO-RRT homotopy/初始解上迭代，保证nonlinear dynamics被跟踪。  
-
-最后效果：在仿真与硬件实验中，相比其他轨迹策略实现了显著的风险降低（摘要给出约97%）。同时得到动态可行且成本近最优的安全轨迹。
-
-【文章缺点】
-1. 计算与工程成本偏高：AO-RRT边代价需在扰动网格/场景上做滚动rollout并估计CVaR，随后SCP又迭代求解</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 潜空间被正则到“理想分布”后，为何规划成功率仍与潜空间表征质量指标脱节？   2. 现有 latent quality 指标（如 straightness、probing、empowerment）为何不能直接预测 planning success？   3. 如何构建一个“规划相关”的诊断 metric，显式覆盖 encoder/predictor/...">VIScore: Diagnosing Planning-Relevant Quality in Latent World Models</span></td>
-        <td class="author-cell">Haiyu Wu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.11174" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.11174" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 潜空间被正则到“理想分布”后，为何规划成功率仍与潜空间表征质量指标脱节？  
-2. 现有 latent quality 指标（如 straightness、probing、empowerment）为何不能直接预测 planning success？  
-3. 如何构建一个“规划相关”的诊断 metric，显式覆盖 encoder/predictor/planner 三个环节？  
-4. 能否区分并量化规划失败的不同成因：不可达想象动力学、能力不足、以及对预测误差的可利用 hallucination？  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 通过 latent regularization（如 SIGReg）稳定训练并避免 collapse，但缺少与“规划成功率”的可对齐机制解释。  
-2. JEPA/latent world model 往往分析 encoder latent 性质（geometry、物理信息、capacity），但未把 predictor rollout 误差与 planner 的搜索/利用行为纳入统一诊断。  
-3. 指标多聚焦“编码表征本身”（encoded latent only），难以区分“不可达”与“错误被搜索利用”的不同失败模式。  
-4. 虽有 empowerment/能力类度量，但没有明确映射到任务所需的 success tolerance（达到阈值后是否饱和仍不清晰）。  
-
-【提出了什么创新的方法】  
-1. 先做受控实验：用同目标 isotropic Gaussian 正则对比 SIGReg vs VISReg，隔离“SSL 中有效的分量灵活性”与“分布匹配精度/实现质量”对 OOD planning 的影响。  
-2. 提出规划相关诊断轴：  
-   - **Veracity**：open-loop rollout error 是否落在任务自己的 success tolerance 内（可达性/可用性）。  
-   - **Influence**：把 empowerment 改写为“action-conditioned capacity 的充分条件”，并在达到任务需求后饱和（避免把过量能力当作额外增益）。  
-   - **Sobriety**：检查 planner 是否在搜索中“过度发现改进”，从而暗示其在利用 predictor 的错误/幻觉（halluc</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 机器人子系统高度耦合导致“in-field”难以扩展；任务变化或新技术到来时会迅速失效。   2. 现场添加/移除新 payload（软件/硬件/算力）往往需要开发者介入或重启，响应慢且不开放。   3. 现有 modular 方案通常只在“预先定义的模块空间”内重组，无法支持此前未知模块。   4. 对资源受限的机器人，新增 compute 资源如...">Deployment Is Not Destiny: Robot Recomposition in the Field with Unseen Software, Hardware, and Compute Payloads</span></td>
-        <td class="author-cell">Steven Swanbeck</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.11063" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.11063" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 机器人子系统高度耦合导致“in-field”难以扩展；任务变化或新技术到来时会迅速失效。  
-2. 现场添加/移除新 payload（软件/硬件/算力）往往需要开发者介入或重启，响应慢且不开放。  
-3. 现有 modular 方案通常只在“预先定义的模块空间”内重组，无法支持此前未知模块。  
-4. 对资源受限的机器人，新增 compute 资源如果不能共享给 peers，就无法获得实质收益。  
-5. 如何在多层栈（调度/信息流/执行）中自动完成 recomposition，并把能力映射到 goal-directed task plans。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Middleware（如 ROS 等）解决组件通信标准化，但对“新增组件后的自动调度、协同与无需重启集成”支持不足。  
-2. 传统软件重配置多停留在参数级或需要开发/重启；而系统级 partial update 在该场景下仍难以落地。  
-3. dynamic allocation/分布式 offload多基于事先已知的任务/资源；对“运行时发现的新能力”到“可执行任务计划”的自动组合缺口明显。  
-4. 模块化机器人/硬件模块化多依赖固定模块集或预设语义/skill catalog，无法无开发者地接纳“未知模块”。  
-5. 少量共享资源工作可容错，但往往要求组件事先已知，且 fault-tolerant 行为仍需手工设计而非自动生成。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. composable abstractions：把 payload 统一抽象成可组合的模块“原子组件”，不预设其具体功能域（perception/actuation/interaction/compute 等）。  
-2. runtime discovery &amp; management：系统在运行中自动检测 payload 的加入/移除，并维护其可用性、接口与约束。  
-3. cross-stack recomposition：在调度、信息流与执行层面，把由组件提供的能力自动编排成 goal-directed</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何在海上这一强干扰、强约束环境中，系统且可复现地采集多模态数据，支撑perception/state-estimation评测？   2. 如何在船体布局受限、雾霾/海杂波难复现、长时任务难采集的情况下，设计可部署的数据采集平台？   3. 如何通过标准化硬件与统一数据格式，降低跨机构/跨航次对比与复用的成本，加速研究进展？   4. 如何在数据采...">Seeing above the waves: A modular sensing framework for data acquisition at sea</span></td>
-        <td class="author-cell">Jonathan E. Schmidt</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10997" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10997" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted and accepted to the IFAC WC 2026 as an invited session paper for track 7.2 Transportation and Vehicle Systems - Marine Systems</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 如何在海上这一强干扰、强约束环境中，系统且可复现地采集多模态数据，支撑perception/state-estimation评测？  
-2. 如何在船体布局受限、雾霾/海杂波难复现、长时任务难采集的情况下，设计可部署的数据采集平台？  
-3. 如何通过标准化硬件与统一数据格式，降低跨机构/跨航次对比与复用的成本，加速研究进展？  
-4. 如何在数据采集层面，支持hardware-in-the-loop与可验证的评测流程，而非仅收集“散乱数据”？  
-5. 如何把工程实践（robust maritime sensing）与研究方法（standardized, verifiable datasets）对齐，形成可持续基础设施？
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 海事/水面自主领域常因数据不可公开、碎片化而进展受限；现有数据集难以复现特定传感条件与评测设置。  
-2. 一些工作会给出传感器选型或单系统采集，但缺少“模块化+可迁移+统一数据格式”的平台化蓝图。  
-3. 对于长时任务的记录结构、故障处理与可追溯存储，往往没有形成可复用的通用框架。  
-4. 多模态记录虽存在，但往往难以在不同船只、不同海域进行跨域可比评测与协作共享。
-
-【提出了什么创新的方法】  
-1. **模块化sensor platform blueprint**：以“flexibility / reproducibility / long-term operability”为目标，将传感器集成拆为可替换模块，适配船体布局约束。  
-2. **标准化数据采集与存储流程**：提出统一的数据采集框架与数据格式，便于跨船、跨区域的对比与协作共享。  
-3. **结构化multimodal recordings**：在采集阶段就组织好多模态时间同步/记录结构，从而支持对perception与state-estimation pipeline的可复现评测。  
-4.</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在construction ceilings上进行layouting需要millimetre级定位精度，但现有aerial触碰任务通常只能做到centimetre级。   2. 达到毫米精度的关键瓶颈在于：飞行器在disturbances下的姿态/位移误差会被直接放大到末端。   3. 传统方案依赖accurate动力学模型或复杂whole-body...">Aerial Layouting: Design and Control of a Compliant and Actuated End-Effector for Precise In-flight Marking on Ceilings</span></td>
-        <td class="author-cell">Christian Lanegger</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10987" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10987" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>C. Lanegger and M. Ruggia contributed equally. Accepted to Robotics: Science and Systems (RSS) 2022</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在construction ceilings上进行layouting需要millimetre级定位精度，但现有aerial触碰任务通常只能做到centimetre级。  
-2. 达到毫米精度的关键瓶颈在于：飞行器在disturbances下的姿态/位移误差会被直接放大到末端。  
-3. 传统方案依赖accurate动力学模型或复杂whole-body/模型预测控制，难以泛化到不确定/复杂平台。  
-4. 需要一种不依赖精确模型、不过度复杂控制、同时具备compliance与多接触稳定性的布局末端执行器。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 研究推动了aerial manipulation的可行性（inspection/push-based），但多聚焦在接触力或稳定性，末端精度多为centimetres。  
-2. 使用delta-parallel manipulators可显著提升精度到millimetre范围，但带来耦合动力学与控制复杂度；且对姿态误差容忍度低。  
-3. 上接触/推-滑类工作显示能抑制pitch/roll振荡，但其精度仍不足以满足layouting的几何标定需求。  
-4. 现有方法要么需要较准确系统模型、要么需要复杂控制调参；对实际不确定性/装配误差鲁棒性不足。  
-
-【提出了什么创新的方法】  
-1. **提出“compliant and actuated end-effector”设计**：基于稳定性优化的Gough-Stewart mechanism，将末端做成“smart”接触工具。  
-2. **稳定性来自结构与接触几何**：利用多接触点在接触面上提供约束，像人手写字那样通过接触建立稳定工作域。  
-3. **compliance抑制disturbances并约束运动**：柔顺结构吸收扰动、允许末端压向天花，从而把有效运动约束到近似平面，提高姿态敏感性鲁棒性。  
-4. **增加末端平移actuation做误差校正**：通过对</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有 WAM 主要预测 future RGB latents，却缺少对 manipulation 所需的 3D geometry 与 object semantics 的显式对齐信号   2. 若要加入 geometry/semantics，通常需要额外传感器或新的预训练 priors，这会带来训练/推理成本与部署延迟   3. 希望在不增加传感器、...">Flex-$π$: A Multi-Stream World-Action Model with Compute Flexibility</span></td>
-        <td class="author-cell">Ge Yan</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10860" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10860" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://flex-pi.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 现有 WAM 主要预测 future RGB latents，却缺少对 manipulation 所需的 3D geometry 与 object semantics 的显式对齐信号  
-2. 若要加入 geometry/semantics，通常需要额外传感器或新的预训练 priors，这会带来训练/推理成本与部署延迟  
-3. 希望在不增加传感器、不做重预训练、不过度增加推理延迟的前提下，增强 WAM 的 demonstration-efficiency 与 out-of-distribution generalization  
-4. 进一步希望训练得到的一个 checkpoint 能在部署时按需裁剪输入输出 streams，从而实现可计算资源的灵活权衡（speed–performance frontier）
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. WAM 通过 joint prediction actions + future observations 学到更强表示与时空先验，但监督目标几乎只限 RGB latents，几何/语义对齐弱  
-2. 依赖视频生成 backbone 的强先验能提升泛化与效率，但这些先验主要服务于外观重建，不直接等价于物体级语义与可操作 3D 结构  
-3. 若引入额外视觉模态或语义几何监督，往往需要新增编码器/传感器或引入特定训练目标，导致成本与部署复杂度
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 复用同一个 frozen video-generation VAE，把 RGB 与 3D pointmaps 编入同一共享 latent space（“free lunch”：VAE 对 pointmaps 也能近乎无损重建，不额外 pointmap-specific 训练）  
-2. 从 RGB 直接派生 object-centric 语义：用 Depth Anything 3 得到 pointmaps，DINOv3 提供 object-level DINO features（无需新传感器）  
-3. 将每种视觉模态映射为 token stream，并在 Mixture-of-Transformers backbone 中与 action 共同去噪/预测 future streams（actions-conditioned joint denoising）  
-4. 训练阶段对视觉输入 streams 做 per-stream dropout，并使用 cross-modality forcing：即使某些模态未被观测</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 长时手动示教导致operator fatigue，进而降低demonstration质量与一致性，限制数据规模与可扩展性。   2. 现有工业hand-guiding多为被动/无主动辅助，operator需承担几乎全部动力与方向控制工作，易疲劳。   3. 基于wrist-mounted FT的主动辅助成本高，难以在新任务/新场景大规模复用与部署。 ...">Enabling Scalable Kinesthetic Teaching via Observer-based Hand-guiding with Active Support</span></td>
-        <td class="author-cell">Anna Tuma</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10847" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10847" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 长时手动示教导致operator fatigue，进而降低demonstration质量与一致性，限制数据规模与可扩展性。  
-2. 现有工业hand-guiding多为被动/无主动辅助，operator需承担几乎全部动力与方向控制工作，易疲劳。  
-3. 基于wrist-mounted FT的主动辅助成本高，难以在新任务/新场景大规模复用与部署。  
-4. 纯passivity-based compliant control在human主动控制交互中往往过保守，增加人工作量且限制可演示动作范围。  
-5. 无需额外力传感器的observer-based外力估计，能否在hand-guiding的闭环“主动支持”场景可靠工作是关键难点。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Gravity compensation / 低频稳定的compliance：能保证安全与稳定，但主要补偿重力，缺少对human“意图动作”的主动支持，operator仍需付出大量努力。  
-2. 被动顺从/Passivity-based compliant control：在理论上对被动环境稳定，但hand-guiding里human是主动控制者，假设不满足导致保守性，动作范围与机动性受限。  
-3. FT传感器+意图推断/自适应/学习控制：能降低operator effort，但硬件成本高（wrist FT），扩展到大量机器人平台昂贵。  
-4. sensorless手引导：用模型与估计做碰撞检测/基本引导，或仅处理 friction/被动约束问题；与“主动支持 operator-intended motions”的闭环控制目标不同。  
-5. 外力/外部力矩observer研究：解决碰撞检测与估计，但很少被系统性地用于hand-guiding主动支持（尤其需要保证交互频带内的稳定与低噪声）。  
-6. observer估计误差问题：如模型不准、未建模弹性/动态、噪声传播、接近奇异位形精度下降、重力补偿误差等，在“主动支持”闭环里会被放大。  
-
-【</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. VLA models 需要在10–20Hz做实时控制，但重复计算视觉token的KV在相邻帧中高度冗余   2. 现有 VLA-Cache 主要依赖 observation-space 的视觉相似度与注意力启发式，无法度量模型自身 uncertainty   3. 当“看似不变的视觉”却触发关键行为差异时，错误KV复用会在自回归解码中累积并伤害长时域...">Neural Introspection Gating for Adaptive KV-Cache Reuse in Vision-Language-Action Models</span></td>
-        <td class="author-cell">Zhijie Wu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10824" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10824" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://zjw4321.github.io/neural-introspection-gating-page/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted in IROS 2026. Project Page:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. VLA models 需要在10–20Hz做实时控制，但重复计算视觉token的KV在相邻帧中高度冗余  
-2. 现有 VLA-Cache 主要依赖 observation-space 的视觉相似度与注意力启发式，无法度量模型自身 uncertainty  
-3. 当“看似不变的视觉”却触发关键行为差异时，错误KV复用会在自回归解码中累积并伤害长时域表现  
-4. 需要一种训练-free、低开销的机制，用模型内部的“可得置信信号”来动态决定缓存是否可用  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. VLA-Cache：用像素级/patch级余弦相似度识别静态区域，并用熵自适应调度控制各层KV复用比例  
-2. 空白1：reuse决策只看输入/注意力等表征，缺少“模型对动作决策是否可靠”的显式度量  
-3. 空白2：无法覆盖“视觉小变化导致行为关键差异”的反例场景，导致缓存误差在自回归轨迹中累积  
-4. 空白3：缺少对长horizon误差放大的在线纠错触发条件（何时必须回退到full recompute）  
-
-【提出了什么创新的方法】  
-1. 方法流程（重点）：  
-- 在每个自回归 action decoding step，计算 logits 的 top-1 与 top-2 的 margin（logit margin / confidence proxy）  
-- 维护一个 cache 复用策略：当 logit margin &lt; 阈值时判定“模型不确定/可能行为敏感”，直接 invalid cache 并触发 full recompute  
-- 当 margin 足够大时继续使用视觉相似度驱动的缓存（结合原有 VLA-Cache 的 per-layer reuse 机制）  
-2. 机制要点：  
-- 使用 decoding 过程“零额外成本”的内部置信信号（logit margin）来校正 observation-heuristics 的盲区  
-- 通过“必要时回退”的门控策略抑制缓存误差</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 0-shot open-vocabulary ObjectNav需要在未见环境中定位任意语言目标，但现有方法延迟高且确认不稳。   2. 多阶段视觉推理（探索 vs 目标确认）语义不统一、重复编码，导致推理开销随时间/步数显著放大。   3. 高检测置信度不可自解释：可能来自真目标、相似干扰物，或短时误检，缺乏可靠证据分离机制。   4. 缺乏对“未...">AECNav: Active Evidence Consolidation for Efficient Zero-Shot Open-Vocabulary Object Navigation</span></td>
-        <td class="author-cell">Guanlin Liu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10817" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10817" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 0-shot open-vocabulary ObjectNav需要在未见环境中定位任意语言目标，但现有方法延迟高且确认不稳。  
-2. 多阶段视觉推理（探索 vs 目标确认）语义不统一、重复编码，导致推理开销随时间/步数显著放大。  
-3. 高检测置信度不可自解释：可能来自真目标、相似干扰物，或短时误检，缺乏可靠证据分离机制。  
-4. 缺乏对“未检测到”的显式建模；对期望缺失缺少负证据更新，削弱了长期决策可靠性。  
-5. 探索策略通常只看语义或几何，缺少“信息增益/遍历成本”的联合建模，导致弱语义下低效探索与振荡。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 多模型/多编码链路：用不同视觉模块完成frontier和confirmation（如CLIP/BLIP-2 vs GroundingDINO/MobileSAM），可工作但重复计算、语义割裂，推理延迟高。  
-2. 单阈值或一次性候选确认：早期用score阈值，后续用scene-graph/VLM/重看等提升，但仍偏“判定”，难以在多视角下可靠累积证据，且对相似干扰的抑制不足。  
-3. 时序融合但证据更新弱：如ApexNav将多帧信息做平均/保守融合，导致多次一致观察无法持续增强置信度，并且观测贡献更多取决于可见面积而非“informativeness”。  
-4. 探索仅做语义相关或几何启发：容易在语义弱/歧义时选择低收益前沿，缺少对“可达前沿能带来多少可判别证据”的量化。  
-
-【提出了什么创新的方法】  
-- 核心方法流程（3个组件）  
-1) Evidence-Gated Perception：共享语义编码框架，证据驱动的on-demand instance segmentation；只有当</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有 safety-constrained MPC 的runtime hazard monitors 多依赖几何量（clearance/TTC/减速度），但它们忽略了 MPC 优化器的“额外信息通道”。   2. 希望从 MPC 的对偶输出（KKT multipliers）得到一种互补的风险度量：度量“逃逸难度/维持安全所需边际努力”，而非仅看接近程...">Dual Stress: Runtime Safety Monitoring for Safety-Constrained MPC Navigation</span></td>
-        <td class="author-cell">Jamil Chahine</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10791" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10791" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>submitted to the 13th International Conference on Automation, Robotics and Applications (ICARA 2027)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 现有 safety-constrained MPC 的runtime hazard monitors 多依赖几何量（clearance/TTC/减速度），但它们忽略了 MPC 优化器的“额外信息通道”。  
-2. 希望从 MPC 的对偶输出（KKT multipliers）得到一种互补的风险度量：度量“逃逸难度/维持安全所需边际努力”，而非仅看接近程度。  
-3. 需要回答：dual stress 在漏报碰撞、报警可用性（及时可制动）以及对模型误差/执行失配的鲁棒性方面，能否优于（或补充）几何检测器。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. CBF–MPC 等显式约束 MPC 已能计算规划与控制，但监控模块通常只读取 primal output（轨迹/控制），未系统利用 KKT multipliers 的敏感度信息。  
-2. 几何检测器（基于预测间隙、TTC、可用制动裕度等）在设计时主要通过阈值调参匹配 false-alarm budget，但缺少“与同一优化器内在约束紧张度直接耦合”的信号。  
-3. 评估多停留在几何指标的预测准确性，较少做“报警触发后可执行制动”的因果反事实（braking feasibility）验证。  
-4. 对模型-执行失配（slip/lag/torque saturation 等）下，监控信号的可泛化性与失效边界，缺少严格、对齐条件下的系统比较。  
-
-【提出了什么创新的方法】  
-1. 定义 dual stress：从 safety-constrained MPC 每步求解得到的 KKT multipliers 读取每个障碍约束的“边际控制努力”，并做 horizon-weighted sum 作为 SλS_{\lambda} 风险信号。  
-2. 核心思想：multiplier 表示“要多付出多少控制代价才能维持对该障碍的安全”，因此更贴近“escape difficulty”，能区分“静止距离近/快速逼近</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何让world-action model 不仅预测短视频未来，还能预测“任务进展阶段”的语义未来，从而更稳地完成长程操作序列？   2. 如何在多任务通用策略中，把language instruction 与当前多模态状态对齐，推断下一阶段的正确子目标/latent？   3. 如何避免仅用固定长度action chunk导致的阶段跳变、错误子目标...">JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation</span></td>
-        <td class="author-cell">Xiao Liu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10780" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10780" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 如何让world-action model 不仅预测短视频未来，还能预测“任务进展阶段”的语义未来，从而更稳地完成长程操作序列？  
-2. 如何在多任务通用策略中，把language instruction 与当前多模态状态对齐，推断下一阶段的正确子目标/latent？  
-3. 如何避免仅用固定长度action chunk导致的阶段跳变、错误子目标维持与累积误差？  
-4. 如何在保持可学习性的同时，用冻结表征模块提升预测稳定性与泛化？  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 现有 WAM/视频预测类方法通常把未来建模为固定短时的视频/动作片段，适合局部执行但缺少“从当前阶段到下一阶段”的显式语义规划。  
-2. 多任务通用策略依赖现有表征或目标条件，但对“阶段推进”的建模通常隐式发生，难以对齐长程任务的子目标结构。  
-3. 用短期预测容易在长程滚动中累积偏差：预测对局部有效，但无法纠正“该进入哪个下一阶段”的语义层错误。  
-4. 缺少一种显式的、goal-conditioned 的“stage-level latent”预测机制来补足短期物理未来的不足。  
-
-【提出了什么创新的方法】  
-1. 设计双未来分解：短期 physical future（局部场景演化） + stage-level semantic future（任务从当前阶段到下一阶段的进展）。  
-2. 在 Motus-based WAM 基础上加入 Stage-JEPA：使用 frozen V-JEPA2 encoder 从当前观测提取 current-state representation。  
-3. Stage-JEPA 以 task instruction 为条件，预测“下一阶段”的 latent target（goal-conditioned JEPA predictor），将 stage progress 显式化为 embedding 空间中的目标。  
-4. 通过 stage-level latent 的预测来指导/约束下一步的行动选择（与原 WAM 的短期物理未来互补）。  
-简要效果：在 50 个 RoboTwin 2.0 任务上，整体成功率达到 90.25%，并且在</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】 1. 语言指称目标在2D外观条件下易漂移，导致 open-vocabulary target grounding 在遮挡/杂乱/外观干扰下脆弱   2. 即使目标在视觉上被定位，移动底座姿态与臂工作空间不匹配会在长时域任务中造成可操作性失败   3. 需要一种“可刷新”的3D语义几何接口，把 language-visual-3D 对齐直接服务于下游可行动作生成...">Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting</span></td>
-        <td class="author-cell">Huosen Ou</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10756" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10756" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted to ACM Multimedia 2026 (MM &#39;26)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】
-1. 语言指称目标在2D外观条件下易漂移，导致 open-vocabulary target grounding 在遮挡/杂乱/外观干扰下脆弱  
-2. 即使目标在视觉上被定位，移动底座姿态与臂工作空间不匹配会在长时域任务中造成可操作性失败  
-3. 需要一种“可刷新”的3D语义几何接口，把 language-visual-3D 对齐直接服务于下游可行动作生成  
-4. 现有3D表示多用于纯感知或全局建模，难以在局部、few-shot、移动操控的循环里高效复用  
-5. 端到端 VLA 若缺少显式3D语义，难以在视角变化与高度偏移时保持稳定 grasp/approach 行为  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 2D/端到端 VLA 通过语言条件与视觉特征进行目标选择，但对部分遮挡、外观相似干扰（如 photo distractor）不鲁棒，grounding 容易错误到达  
-2. 3D grounding/3D representations 提供跨视角稳定性，但常见做法要么依赖更大范围/持续优化，要么不能作为统一接口复用到 base prep、障碍推理与动作条件  
-3. 扩散/预训练 VLA 强依赖视觉线索，缺少显式 3D 目标相对位姿与可达性约束时，在长时域、底座未就绪、目标高度变化下仍易失败  
-4. 多模态融合方法多在早期或全局注入语义，可能破坏 pretrained visuomotor priors；如何“仅在不伤先验的位置注入3D语义”仍缺少稳健机制  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. Active multi-view 采集：从移动操作工作区中选择少量腕相机视角（文中四张），构建 local task-driven Semantic-3DGS  
-2. Semantic-3DGS 作为 shared interface：同一 local 3D</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何在强接触、强形变的服装场景中实现稳定的单件T-shirt可控抓取与连续操作？   2. 如何解决服装高维状态与局部接触难观测导致的“物理失败分布”过宽问题？   3. 如何在完全自主、无teleoperation约束下完成pick-load-align-smooth的端到端闭环控制？   4. 如何用更少的数据覆盖部署中出现的失效模式，并能迭代修...">TCAM for Autonomous Deformable Manipulation: The RMC2 Champion System for WBCD 2026 Track 4</span></td>
-        <td class="author-cell">Guangrui Shen</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10718" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10718" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 如何在强接触、强形变的服装场景中实现稳定的单件T-shirt可控抓取与连续操作？  
-2. 如何解决服装高维状态与局部接触难观测导致的“物理失败分布”过宽问题？  
-3. 如何在完全自主、无teleoperation约束下完成pick-load-align-smooth的端到端闭环控制？  
-4. 如何用更少的数据覆盖部署中出现的失效模式，并能迭代修正策略？  
-5. 如何把VLA端到端动作生成能力与因果诊断、数据回收联动成可部署系统？  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. VLA/VLM-A生成在视觉到动作上通用性强，但对“接触局部可观测性差 + 形变敏感性高”的问题缺少专门机制。  
-2. 很多方法依赖大规模数据与通用表征；但服装操控成功依赖窄的物理交互分布，部署失效往往需要定向重采集与因果定位。  
-3. 一些工作使用记忆、纠错或长时序建模提升鲁棒性，但对“如何定位导致失败的具体物理因素，并映射到数据选择/微调”仍不足。  
-4. 机器人学习与模仿学习能学到操作技能，但在强形变任务中，单纯增加数据并不保证覆盖关键接触状态与失败分支。  
-
-【提出了什么创新的方法】  
-1. 共设计“物理交互复杂度”而非只训练策略：用定制gripper（单层分离结构/几何/表面辅助手段）缩小成功与失败的接触结果空间。  
-2. 采用wrist-centric四相机多尺度观测：上方fisheye给任务级上下文，近距离RGB直接观测gripper–cloth接触关键区域，提高对局部接触状态的可观测性。  
-3. 混合数据源：portable UMI-style demonstrations + 真实平台采集数据，提供广泛操作先验并补</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在接触式工业检测中，如何让欠驱动多旋翼在持续接触时保持稳定的交互。   2. 欠驱动飞行器的姿态-力产生之间强耦合下，如何实现鲁棒的力调节与扰动抑制。   3. 相比传统PID/误差约束方法，如何降低对模型精度、传感噪声与执行器饱和的敏感性。   4. 如何将SMC的鲁棒性与admittance的力调节机制有效融合，形成可落地的控制框架。    【前...">Robust Sliding Mode and Admittance Control of Underactuated Aerial Manipulators for Contact-Based Inspection</span></td>
-        <td class="author-cell">Tareq Aziz Alqutami</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10656" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10656" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>submitted to 2026 IEEE Industrial Electronics and Applications Conference (IEACon)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在接触式工业检测中，如何让欠驱动多旋翼在持续接触时保持稳定的交互。  
-2. 欠驱动飞行器的姿态-力产生之间强耦合下，如何实现鲁棒的力调节与扰动抑制。  
-3. 相比传统PID/误差约束方法，如何降低对模型精度、传感噪声与执行器饱和的敏感性。  
-4. 如何将SMC的鲁棒性与admittance的力调节机制有效融合，形成可落地的控制框架。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 全致动UAV通过转子倾斜/主动倾斜实现解耦，但机械复杂度高、效率与控制负担受限。  
-2. 欠驱动+轻量机械臂方法更实用，但引入车辆-机械臂动力学耦合，使接触力调节显著更难。  
-3. PID/Admittance/Impedance在交互任务可用，但对扰动与模型不确定性鲁棒性不足。  
-4. Backstepping等方法可行但递归设计复杂、对模型准确性依赖较强，实时落地难度高。  
-5. PPC提供误差边界，但可能带来奇异性、对噪声/饱和/突扰敏感，难以保证持续接触稳定。  
-6. SMC及其变体主要用于自由飞行轨迹跟踪（或全致动空中机械臂），缺少对“持续接触任务”的系统性探索与闭环鲁棒力调节验证。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 采用 integral-augmented Sliding Mode Control (SMC) 做轨迹/运动稳定化，提升对有界扰动与不确定性的鲁棒性。  
-2. 在接触力调节层，引入 admittance control law：将接触动力学映射为期望的交互响应，从而实现力跟踪而非仅姿态/位置跟踪。  
-3. 构建</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 机器人在真实环境中会遇到 unmodeled disturbances，state estimator 退化但系统缺乏“自检/内省”能力，导致潜在灾难性碰撞。   2. 现有 uncertainty/health 指标常依赖理想假设（如 Gaussian 协方差）或强绑定训练分布，容易 overconfident 或失效。   3. 希望一种无需读取...">When Your State Estimator Has Lost The Plot: Detecting Estimator Failures Via Spectral Analysis</span></td>
-        <td class="author-cell">Christian Lanegger</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10623" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10623" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 机器人在真实环境中会遇到 unmodeled disturbances，state estimator 退化但系统缺乏“自检/内省”能力，导致潜在灾难性碰撞。  
-2. 现有 uncertainty/health 指标常依赖理想假设（如 Gaussian 协方差）或强绑定训练分布，容易 overconfident 或失效。  
-3. 希望一种无需读取内部状态、能适配多传感模态与多融合算法的 introspective 机制来检测 estimator degeneracy。  
-4. 对于 IMU-sensor fusion，需要能在运行时快速判别“估计正不正常”，而不仅是简单的 dropout 检测。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Measurement rejection / down-weighting：多依赖特定传感模态或已知噪声统计（如 Mahalanobis、χ²、M-estimators），对 unknown/unmodeled failures 不够可靠。  
-2. Robust optimization/重加权：虽然能抗离群，但通常仍建立在高斯/可建模残差假设上，遇到非高斯、传感别名或分布外噪声时仍可能失效。  
-3. Redundancy/fallback：需要多估计器或架构冗余，且 cross-estimator consensus 方法需要多个“相对可靠”的估计器，规模化与可用性受限。  
-4. Health monitoring：现有 introspective 方法要么 robot-specific，要么在高动态条件下难以区分故障与正常机动。  
-
-【提出了什么创新的方法】  
-- 核心方法流程（Spectral introspection）：  
-  1. 将 state estimator 视作 black box，假设可获得 velocity estimate 输出，并且存在 IMU 与至少一种传感的融合。  
-  2. 收集在 healthy 与各类 failure/degeneracy 下的时序数据（vision/lidar/radar + IMU）。  
-  3. 对 velocity estimate 的时间序列做 spectral analysis（关注 higher-frequency bands 的能量/功率变化）。  
-  4. 发现一致规律：许多 estimator failures 会在速度估计</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 明确 embodied intelligence 在“认知（预测/决策）-物理（动力学/可行动作）”耦合极限下的边界在哪里，而不是只在安全冗余或中等难度上评测。   2. 在极限竞速（near-saturated dynamics、强约束安全）中，缺少一种机制同时建模并迭代“可预测性极限”和“可控制性极限”。   3. 需要能在闭环中持续修正 wor...">Toward the Cognitive--Physical Limits of Embodied Intelligence through a World-Model-Centric Autonomous Racing Agent</span></td>
-        <td class="author-cell">Zitong Shan(1)</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10618" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10618" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 明确 embodied intelligence 在“认知（预测/决策）-物理（动力学/可行动作）”耦合极限下的边界在哪里，而不是只在安全冗余或中等难度上评测。  
-2. 在极限竞速（near-saturated dynamics、强约束安全）中，缺少一种机制同时建模并迭代“可预测性极限”和“可控制性极限”。  
-3. 需要能在闭环中持续修正 world model 与 policy，使其能从失败中恢复并提升极限利用率。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 现有自动驾驶/竞速方法多偏向 end-to-end policy 或规划控制，通常只强调性能提升，未显式表征“交互预测失败边界/可行运动边界”。  
-2. 许多系统在仿真/实车中采用较保守安全 margin 或中等难度，导致“极限条件下能力衰减机制”难以被系统性研究。  
-3. 竞速虽强调高速度与安全，但缺少“世界模型中心（world-model-centric）+ 以极限成功/失败数据驱动的闭环 refinement”范式来联合优化极限利用与鲁棒性。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. **从 near-limit 成功与失败轨迹学习 predictive world models**：建模 interaction evolution、ego dynamics 与 feasible-motion boundaries（可行运动边界）。  
-2. **world-state construction（状态构建）**：将观测与历史整合成对未来推演所需的 world state 表示。  
-3. **future-aware reasoning（面向未来推理）**：用 world model 进行对未来交互演化与可行域的预测，约束决策空间。  
-4. **near-limit control（极限附近控制）**：将“feasible-motion boundaries”与安全约束耦合，用于选择更激进但仍可行的控制策略。  
-5. **closed-loop continual refinement（闭环持续迭代）**：在真实/仿真执行中</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 如何把“what(语义意图)”与“how(运动动力学)”在同一个可复用skill里对齐，从而让迁移先验足够强？   2. 如何在不依赖筛选/人工清洗数据的情况下，提升跨场景视觉扰动（dynamic distractors, background change）的鲁棒性？   3. 如何在真实机器人部署约束下，兼顾泛化与效率：既能学到统一表征，又能落到...">BooST: Bridging Semantics and Motions for Efficient Skill Transfer</span></td>
-        <td class="author-cell">Jusuk Lee</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10600" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10600" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://boost-robots.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 如何把“what(语义意图)”与“how(运动动力学)”在同一个可复用skill里对齐，从而让迁移先验足够强？  
-2. 如何在不依赖筛选/人工清洗数据的情况下，提升跨场景视觉扰动（dynamic distractors, background change）的鲁棒性？  
-3. 如何在真实机器人部署约束下，兼顾泛化与效率：既能学到统一表征，又能落到轻量policy上？  
-4. 如何实现few-shot与跨embodiment的skill transfer，减少下游in-domain adaptation所需数据量？  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Low-level skill：主要抽象动作/轨迹动力学，缺少语义落地（semantic grounding），导致对任务推断弱、下游数据需求大，且对动作空间/控制范式变化敏感。  
-2. High-level skill：主要从视觉/语言表征语义意图，缺少与可执行动作的联合建模，容易被视觉干扰项误导，难以稳定提取有效运动先验。  
-3. 一些latent action / VLA预训练：往往只基于视觉差异定义离散空间，在dynamic distractors下会把task-irrelevant motion也编码进来，反而伤害policy训练效率与鲁棒性。  
-4. 大多数方法在“泛化-鲁棒-效率”三者上通常只覆盖其一或两项，导致需要更多in-domain data补偿。  
-
-【提出了什么创新的方法】  
-1. 关键流程：两阶段框架BooST，先学习“统一skill codebook”，再蒸馏到轻量policy做下游高效适配。  
-2. 统一表征：用跨模态VQ-VAE共享离散codebook，把visuo-linguistic语义（来自CLIP特征+cross-attention）与action pathway的运动动力学联合量化/对齐。  
-3. 语义-动作桥接机制：通过显式action pathway与动作重建/关联目标，把语义意图约束到可执行的运动模式上，从</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在强扰动、目标非静止的情况下，实现multirotor drone-to-drone docking的**物理可行**轨迹生成是关键难点。   2. 需要在存在**噪声测量与目标运动不确定**时，仍能规划满足**kinodynamic与几何接近约束**的短时可行解。   3. 需要把**非线性动力学**与**移动目标 docking 约束**放到统一...">Nonlinear Model Predictive Control via Sequential Convex Programming for Drone-to-Drone Docking</span></td>
-        <td class="author-cell">Neeraj Balachandar</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10542" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10542" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM) 2026</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在强扰动、目标非静止的情况下，实现multirotor drone-to-drone docking的**物理可行**轨迹生成是关键难点。  
-2. 需要在存在**噪声测量与目标运动不确定**时，仍能规划满足**kinodynamic与几何接近约束**的短时可行解。  
-3. 需要把**非线性动力学**与**移动目标 docking 约束**放到统一框架中在线求解，而非依赖简化/启发式约束处理。  
-4. 需要能应对**安全约束**（如碰撞规避）同时保持在线计算效率，支持receding-horizon replanning。  
-5. 相比常见的稳定/跟踪控制（LQR/PID），需要优化方法显式处理“截获+受限接近”的耦合约束。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 线性LQR/简单MPC：多用于稳定/跟踪，或对目标假设较理想；难以系统处理aerial docking的非线性与非凸接近约束。  
-2. 传统航天/编队 docking MPC：成功但迁移到multirotor时，气动相互作用、欠驱动与扰动建模差异大，难以直接落地。  
-3. 基于视觉/伺服的跟踪与相对定位：提升跟踪精度，但仍缺少能把噪声、扰动和kinodynamic约束**统一到可行优化**中的规划框架。  
-4. 现有SCP：多用于通用轨迹规划或waypoint；对“moving target + constrained terminal docking几何条件 + 安全约束”的统一建模不足。  
-5. 现有多旋翼 docking/操作：通常假设目标更可控（stationary或well-characterized），对目标不确定与统一约束处理不足。  
-
-【提出了什么创新的方法】  
-1. 将drone-to-drone docking建模为**finite-horizon constrained optimal control**，在NMPC中使用**reduced-order nonlinear multirotor model**</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在机载MOT中，敏捷UAV的视角抖动（camera ego-motion）导致目标在相邻帧大幅位移，造成身份关联失败与ID switch。   2. 现有UAV MOT多基于离线数据集，缺少对真实机载场景中“剧烈、非平滑”相机运动耦合的系统鲁棒性验证。   3. 现有方法多依赖显式camera motion compensation（需额外估计模块）...">JitTrack: Onboard Multi-Object Tracking Against Viewpoint Jitter for Agile UAVs</span></td>
-        <td class="author-cell">Yachun Shan</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10485" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10485" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Submitted to IEEE Robotics and Automation Letters</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在机载MOT中，敏捷UAV的视角抖动（camera ego-motion）导致目标在相邻帧大幅位移，造成身份关联失败与ID switch。  
-2. 现有UAV MOT多基于离线数据集，缺少对真实机载场景中“剧烈、非平滑”相机运动耦合的系统鲁棒性验证。  
-3. 现有方法多依赖显式camera motion compensation（需额外估计模块），复杂且在快速/不规则机动下可能不可靠。  
-4. query-based transformer tracker的query传播依赖时序一致性；当视角抖动破坏空间对齐时，传播query会误导关联。  
-5. 除了感知精度，还需要跟踪-规划-控制闭环，保证机载持续目标跟随的可行性与安全性（collision-free）。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. UAVDT/VisDrone等提升了小目标、密集目标、外观变化的评测，但离线轨迹相对平滑，未充分覆盖敏捷UAV的视角抖动耦合效应。  
-2.  transformer MOT（TrackFormer/MOTR/MOTR类）通过传播track queries减少显式数据关联，但在大位移/突然外观变化下，query空间失配会导致关联退化。  
-3. camera motion compensation（CMC，如BoT-SORT/UCMCTrack）通过显式估计全局运动缓解耦合，但引入独立运动估计流程，计算/误差累积、且对不规则快速机动鲁棒性不足。  
-4. query增强与denoising（DN-DETR等）多为检测收敛与标注噪声设计，缺少“面向机动相机运动导致的目标错位”的监督仿真与联合训练。  
-5. 既有UAV跟踪多数停留在“能跟住”而非“可闭环跟随”；缺少感知-规划-控制的端到端工程化闭环评估。  
-
-【提出了什么创新的方法】</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有 VLA 中 action tokenizer 主要为重建而设计，低 L1/L2 的数值误差不等价于语言上“verb”语义可区分性。   2. 离散化 action tokenization 可能在 action interface 处破坏 verb-grounding，使得下游语言条件策略难以恢复对“怎么做”的区分。   3. 需要直接验证：动...">Lost in Reconstruction: Aligning Action Representations with Language in Vision-Language-Action Models</span></td>
-        <td class="author-cell">Li Wenjie</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10484" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10484" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 现有 VLA 中 action tokenizer 主要为重建而设计，低 L1/L2 的数值误差不等价于语言上“verb”语义可区分性。  
-2. 离散化 action tokenization 可能在 action interface 处破坏 verb-grounding，使得下游语言条件策略难以恢复对“怎么做”的区分。  
-3. 需要直接验证：动作模态相比仅视觉结果，是否提供额外的 verb grounding 信号，且这些信号能否在 token 表示中被保留。  
-4. 缺乏一种让 action 表示显式对齐语言抽象（尤其 verbs）的 tokenizer 训练目标。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 视觉-语言-动作模型通常沿用预训练 VLM 的 autoregressive 接口，将动作离散化后用重建/预测损失训练；空白是 tokenizer 与语言抽象之间缺少显式对齐约束。  
-2. 离散 action tokenizer（如 Bin/VQ-VAE/FAST）多以连续轨迹重建或压缩目标为主；空白是“语言上哪些差别重要”未被写入 tokenizer 的优化。  
-3. 下游政策通过语言条件学习“隐式推断”丢失的语义结构；空白是信息瓶颈已发生在 token 接口，导致恢复不完全。  
-4. 以视觉为主的语言 grounding（对象/位置/状态）研究较多；空白是对“动作方式/动力学”在 verb grounding 中的作用与保留机制研究不足。  
-
-【提出了什么创新的方法】  
-1. 提出一个 Semantically ALigned action Tokenizer：SALΤ，在 VQ-VAE 风格离散化的基础上增加“instruction recover”辅助目标。  
-2. 训练流程：  
-   - 连续动作轨迹 → VQ-VAE tokenizer 得到 quantized action latents（离散 token）。  
-   - 将这些 latents 输入到一个 frozen pretrained vision-language model。  
-   - 让该 VLM 生成/恢复与 episode 对应的自然语言指令（episode instruction）。  
-   - 总目标</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   长程服务机器人需要一种可持续（persistent）且可验证（verifiable）的world model：在未见环境中自主构建，并在跨会话持续修订“稳定结构/可变物体”的状态；避免occlusion、视角不足与检测误差导致的错误删除或身份碎片。    1. 【核心问题1】如何在未知环境中自主构建并持续维护“稳定结构基线”(baseline)的3D表示？...">PBD-AG: Persistent Baseline-Delta Active Graphs with Uncertainty-Aware Inspection for Long-Horizon Service Robots</span></td>
-        <td class="author-cell">Shuo Bao</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10449" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10449" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-长程服务机器人需要一种可持续（persistent）且可验证（verifiable）的world model：在未见环境中自主构建，并在跨会话持续修订“稳定结构/可变物体”的状态；避免occlusion、视角不足与检测误差导致的错误删除或身份碎片。  
-
-1. 【核心问题1】如何在未知环境中自主构建并持续维护“稳定结构基线”(baseline)的3D表示？（≤40词）  
-2. 【核心问题2】如何把随时间变化的对象事件表示为可修订的“增量”(delta)，而非每次重建全局语义图？（≤40词）  
-3. 【核心问题3】如何在重复miss、遮挡、视角变化与检测失败之间区分“真实移除”与“不可观测”来避免错误删除？（≤40词）  
-4. 【核心问题4】如何保持对象身份（identity）与存在性（existence）的一致性，并避免 moved object被复制成多个ID？（≤40词）  
-5. 【核心问题5】如何选择主动观测视角，在覆盖率、旅行代价、碰撞风险与冗余观测之间做权衡，同时提升事件回忆（event recall）？（≤40词）  
-6. 【核心问题6】如何对表示能力、时间记忆与主动采集分别做可控评估，以证明方法确实来自“persistent + active”的贡献？（≤40词）  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 在线mapping/动态记忆：能更新状态，但易把miss当作不存在，或无法可靠地区分occlusion/视角失败与真实变化，导致错误删除与身份碎片。  
-2. 静态scene表示/静态语义图：适合单次重建，不能刻画跨会话的对象变化；若重建全局语义，效率低且identity会被破坏。  
-3. 纯open-vocabulary/整体vision-language预测：提供灵活语义，但缺少可验证的3D几何证据，难以约束“可观测性—负证据”逻辑。</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在hip-only（欠驱）单足跳跃中，如何利用原本用于姿态控制的pitch反作用力去“回收/补偿”damping造成的能量损失？   2. 在pitch unlocked、hip只有一个执行器的情况下，如何同时实现稳态（apex height、fore-aft speed）可编程、可稳定的hopping？   3. 如何刻画物理参数与控制参数之间的耦...">Hip Energized Monopedal Hopping</span></td>
-        <td class="author-cell">Shane Rozen-Levy</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10387" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10387" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在hip-only（欠驱）单足跳跃中，如何利用原本用于姿态控制的pitch反作用力去“回收/补偿”damping造成的能量损失？  
-2. 在pitch unlocked、hip只有一个执行器的情况下，如何同时实现稳态（apex height、fore-aft speed）可编程、可稳定的hopping？  
-3. 如何刻画物理参数与控制参数之间的耦合关系，并给出对固定点与稳定性的解析理解，而非仅仿真经验？  
-4. 为什么需要不对称stepping（touchdown angle非对称），它在动力学上究竟如何改变能量在自由度之间的分配？  
-5. 能否将“解析稳定性证明”与硬件实验对应起来，验证在真实Jerboa上不会大幅失效？
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. tail-energized（如Jerboa使用tail向shank/SLIP能量注入）证明欠驱也能跳，但通常缺少“解析的能量分配—稳定性”闭式刻画。  
-2. hip energized SLIP 的早期研究多为数值或简化控制目标（如固定角动量或VPP/virtual pivot的数值实现），缺少对稳定性/不对称步态必要性的形式化证明，且缺少硬件验证。  
-3. hybrid averaging主要用于更低自由度或依赖更强可积/相位结构假设；对“full 2 DoF SLIP + attitude + 真实可实现的控制结构”，缺少可直接迁移的严格分析工具链。  
-4. VPP相关工作强调“看起来像VPP”的GRF交汇，但解析上未能清晰解释：hip扭矩究竟通过哪些能量比例通道来抵消阻尼、并导出步态参数如何被设计到目标速度/高度。
-
-【提出了什么创新的方法】  
-**（先流程/方法，再效果）**  
-
-1. **控制架构：pitch稳定器 + discrete stepping能量重分配**  
-   - 连续时间：对pitch子系统用 PD + feedforward</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 单视输入条件下，如何让双臂灵巧手在现实中完成“大物体协同抓取”，而不是只做顺序任务。   2. 在缺少完整3D模型（大物体易遮挡、单视不可重建）的情况下，如何生成可执行的双手关节级抓取构型。   3. 合成抓取时如何确保“可达性/可执行性”（避免不可能的支撑方式、覆盖可操作空间）。   4. 如何在执行中利用在线反馈（力/接触偏差）进行自适应修正，提...">Real-World Cooperative Bimanual Dexterous Grasp of Large Objects from Single-View Observations</span></td>
-        <td class="author-cell">Ziming Li</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10383" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10383" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 单视输入条件下，如何让双臂灵巧手在现实中完成“大物体协同抓取”，而不是只做顺序任务。  
-2. 在缺少完整3D模型（大物体易遮挡、单视不可重建）的情况下，如何生成可执行的双手关节级抓取构型。  
-3. 合成抓取时如何确保“可达性/可执行性”（避免不可能的支撑方式、覆盖可操作空间）。  
-4. 如何在执行中利用在线反馈（力/接触偏差）进行自适应修正，提升接触稳定性与成功率。  
-5. 如何构建足够真实的训练数据（含关节状态、视觉与力信号），支撑现实可用的学习式抓取生成。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Sim2sim/仿真bimanual：BimanGrasp-DDPM用diffusion生成稳定抓取，但主要依赖仿真与理想化条件，缺少现实可执行验证。空白：单视点云下的“现实可达+物理可行+稳定执行”闭环不足。  
-2. 需要完整几何模型：现有生成式抓取常用mesh/完整3D作为条件。空白：对大物体单视观测的遮挡与不完备重建不鲁棒。  
-3. 抓取姿态生成≠执行稳定：很多方法只负责合成抓取配置，缺少reachability规划与执行时的接触偏差补偿。空白：抓取接触错位后无法在线修正，现实成功率易崩。  
-4. 数据获取依赖仿真或受限形状：RL/特定形状泛化有限，teleop数据尽管更真实但难扩展。空白：缺少能覆盖大物体几何多样性的多模态双手数据与训练闭环。  
-
-【提出了什么创新的方法】  
-1. 数据与监督：通过teleoperation采集real-world bimanual grasping数据，包含视觉观测、分割点云对应的关节级状态（</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   在直接车辆远程操控中，通信延迟与未知扰动/非线性（如风阻、侧倾、轮胎-路面效应）会破坏连续控制与稳定性；同时高模型计算量（如MPC/NMPC）难以在边缘端实时运行，亟需“延迟下可稳定 + 可在线补偿不确定性”的统一框架。    1. 延迟条件下如何保证车辆单向teleoperation的闭环稳定性，而不依赖高精度模型？（≤40词）   2. 如何在不对操作...">A Neural Network Based Teleoperation for Remote Controlled Vehicles</span></td>
-        <td class="author-cell">Ning Ding</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10367" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10367" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-在直接车辆远程操控中，通信延迟与未知扰动/非线性（如风阻、侧倾、轮胎-路面效应）会破坏连续控制与稳定性；同时高模型计算量（如MPC/NMPC）难以在边缘端实时运行，亟需“延迟下可稳定 + 可在线补偿不确定性”的统一框架。  
-
-1. 延迟条件下如何保证车辆单向teleoperation的闭环稳定性，而不依赖高精度模型？（≤40词）  
-2. 如何在不对操作者施加力反馈的单向架构下，设计适配车辆动力学的Wave Variable信号通道？（≤40词）  
-3. 如何补偿未建模动力学/扰动（纵向与横向分别）以提升鲁棒跟踪，而不引入过高计算？（≤40词）  
-4. 如何避免MPC/NMPC对模型与实时性的双重依赖，做到端侧资源受限下的快速在线适应？（≤40词）  
-5. 如何在真实网络延迟（4G、随机延迟）与物理路况不确定性下验证可行性与安全性？（≤40词）  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. MPC/NMPC用于预测补偿延迟与动态，但在teleoperation里对模型精度高度敏感；延迟期间突发未建模扰动会使预测失效，且NMPC计算开销大。  
-2. Wave Variable（WV）在双向力反馈机器人上较成熟，能在任意延迟下提供被动稳定；但车端teleoperation通常是单向的，不需要力/扭矩反射，WV结构难以直接迁移。  
-3. WV-神经网络方案多面向双向操控与机械臂，缺少针对车辆纵/横向解耦动力学与信号架构的专门自适应设计。  
-4. 虽然存在理论WV稳定性，但对“如何把模型自由的被动稳定与低维在线NN补偿有效耦合、并在真实</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 现有 WAMs 多在成功示范上学“未来后果”，导致失败动作在测试时仍可被“成功偏置”的未来表征配对。   2. 失败数据无法直接当作监督：把失败动作当 imitation target 会污染控制学习。   3. 需要一种因果的训练接口：让模型在给定已执行动作的条件下学习未来与任务进展的后果分布。   4. 还需让进展/价值预测对“动作质量”敏感，并...">FACT: Failure-Aware Causal Training for World-Action Models</span></td>
-        <td class="author-cell">Quanquan Peng</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10232" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10232" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 现有 WAMs 多在成功示范上学“未来后果”，导致失败动作在测试时仍可被“成功偏置”的未来表征配对。  
-2. 失败数据无法直接当作监督：把失败动作当 imitation target 会污染控制学习。  
-3. 需要一种因果的训练接口：让模型在给定已执行动作的条件下学习未来与任务进展的后果分布。  
-4. 还需让进展/价值预测对“动作质量”敏感，并可在推理时用于候选动作评分，而非只靠成功幻觉。  
-
-【前人的工作如何解决该问题，存在哪些空白】1. 未来视频/latent 做条件的 action generation：能用未来辅助控制，但未来目标往往来自 expert，因此对坏动作后果建模不足。2. 视频先行+inverse dynamics：强 world prior，但依赖额外网络与对未来视频去噪/生成质量，且训练仍偏成功样本。3. 许多方法把失败轨迹要么丢弃、要么不以“动作因果后果”的方式用上，从而难以消除 success-biased future hallucination。4. 缺少“action-then-future”的训练分解，使得失败 rollouts 只能用于整体成功率提升，而不能稳定监督因果后果与价值。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 采用 causal 的 WAM 接口：模型先根据观测与指令提出/采样 executed action（action-conditioned interface 的关键）。  
-2. 条件化预测未来：在给定该动作的条件下，预测 future video + task-progress value。  
-3. Teacher-forced action-conditioned mask：对成功轨迹保留 action imitation loss；对失败 rollouts，对 action imitation loss 进行 mask，但保留对“失败后果（未来视频）”与“较低进展（progress）”的监督。  
-4. 失败后果作为“valid future targets”：把坏动作从“错误模仿目标”变为“动作条件下的后果监督”，从而避免把失败学习成“正确动作”。  
-5. 推理阶段可选</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在高密度狭小空间中，humanoid 需要同时满足环境避碰、自身避碰与多接触动力学可行性。   2. 狭小空间里配置空间退化为窄的非凸流形，轻微姿态偏差就会造成环境碰撞并导致失稳。   3. 长时域规划必需，短视/小范围优化容易进入“无法继续”的死胡同（kinematic/dynamic dead-ends）。   4. 传统 spline/粒子抽象...">Whole-Body Planning for Humanoids Navigating Confined Spaces via Self-Collision Avoidance References</span></td>
-        <td class="author-cell">Carlos Gonzalez</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10220" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10220" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在高密度狭小空间中，humanoid 需要同时满足环境避碰、自身避碰与多接触动力学可行性。  
-2. 狭小空间里配置空间退化为窄的非凸流形，轻微姿态偏差就会造成环境碰撞并导致失稳。  
-3. 长时域规划必需，短视/小范围优化容易进入“无法继续”的死胡同（kinematic/dynamic dead-ends）。  
-4. 传统 spline/粒子抽象的轨迹生成在狭小空间对碰撞建模不足，易陷入局部最优或难收敛。  
-5. 受限环境缺少高质量演示数据，使 imitation/data-driven 方法难以直接生成严格可达（reachability）且满足力矩/动力学约束的轨迹。  
-6. 希望用规划生成“可跟踪的高质量参考”，再训练 residual RL policy 做在线鲁棒执行。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. TO/多接触规划：通过 reduced-order model 或全身TO减少计算，但容易忽略链段/自身碰撞细节，或在狭窄非凸约束下难以做硬约束收敛。  
-2. 碰撞处理：soft penalty barrier 往往允许残余穿透；hard inequality 依赖梯度与初值，狭窄窄通道中缺少高质量 seed 会导致局部极小。  
-3. 粒子/凸松弛：有“particle-based convex relaxations”思路，但从粒子/简化到“刚体几何+自身碰撞+可达体积”的提升不充分，导致狭小空间难以可靠穿越。  
-4. Imitation：依赖预生成或捕捉到的高保真数据；狭小空间的可达关节姿态与力矩约束导致数据获取困难，retargeting 难以严格满足物理可行性。  
-5. 端到端RL：虽能在线适应，但仅靠奖励探索面对强碰撞约束时会极度样本低</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   在拥挤人群中“贴近目标”与“避碰安全”天然冲突，密集场景和陌生/不确定的人群行为会让隐式的 proximity-safety 权衡难以调参、难以泛化，导致要么碰撞风险上升，要么目标丢失。    1. 如何在 dense pedestrian crowds 中显式、可调地平衡 proximity 与 safety，而不是让权衡被 reward 权重隐式决定？...">Navigating the Proximity-Safety Balance: Constraint Decomposition for Human Following in Pedestrian Crowds</span></td>
-        <td class="author-cell">Shiting Gong</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10056" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10056" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://nav-ps-balance.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026); Project Website:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-在拥挤人群中“贴近目标”与“避碰安全”天然冲突，密集场景和陌生/不确定的人群行为会让隐式的 proximity-safety 权衡难以调参、难以泛化，导致要么碰撞风险上升，要么目标丢失。  
-
-1. 如何在 dense pedestrian crowds 中显式、可调地平衡 proximity 与 safety，而不是让权衡被 reward 权重隐式决定？（≤40词）  
-2. 如何把“跟随距离/人安全/障碍安全”这类语义明确的要求从单一 dense reward 解耦出来，并保证可控落实？（≤40词）  
-3. 面对人类运动预测不确定性，如何将 uncertainty 直接用于 cost/策略选择，避免在 OOD 行为下过度激进？（≤40词）  
-4. 如何构建适合 human-social interaction 的 policy（Transformer+spatial reasoning）同时支持多约束 CRL 训练与实时执行？（≤40词）  
-5. 如何在更接近真实的场景（加入 static obstacles、密度变化、ODD 行为）以及真实机器人部署上验证该权衡机制有效？（≤40词）  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 通过 weighted sum 的 single dense reward 把 proximity 与安全目标混在一起，权衡在训练中隐式形成；代价是 trade-off 不可解释、难独立调节且难以验证是否符合设计意图。  
-2. 现有学习/优化式 human following 多在 in-distribution 或受限人类运动假设下评估，对 dense crowd 的 OOD 行为与安全/丢目标的系统性失败缺少针对性分析。  
-3. 约束 RL（如 CPO、Lagrangian）虽能引入 safety 约束，但在该任务上通常仍未把不同语义目标拆成独立、可用阈值直接控制的 cost 组件。  
-4. 对人类 motion uncertainty 的建模在导航/跟随中常用于安全层或观测层，但未必能与多 cost constraint 的具体阈值机制</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在安全关键软件评估中，如何在“operational data fidelity 不足/粒度过粗”时仍给出可靠的可靠性（reliability）主张？   2. 当历史 failure 事件缺少关键细节（如 FP/FN 类型），保守推断如何避免过于乐观（dangerously optimistic）的结论？   3. 如何形式化并量化“assesso...">The Impact of Operational-Data Fidelity when Assessing Safety-Critical Autonomous-Vehicle Software</span></td>
-        <td class="author-cell">Kizito Salako</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10025" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10025" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在安全关键软件评估中，如何在“operational data fidelity 不足/粒度过粗”时仍给出可靠的可靠性（reliability）主张？  
-2. 当历史 failure 事件缺少关键细节（如 FP/FN 类型），保守推断如何避免过于乐观（dangerously optimistic）的结论？  
-3. 如何形式化并量化“assessor uncertainty about failure data details”对 conservative Bayesian inference 结果的影响？  
-4. 在数据细节缺失时，何时影响很小（claims仍可信），何时影响显著（可能误信不可靠软件）？  
-5. 如何给出在不同数据粒度条件下，failure probability 的 conservative posterior confidence bounds？  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. CBI（conservative Bayesian inference）已用于安全/可靠性评估，但更多假设数据与所用统计模型的匹配清晰，或将模型误设（如独立性假设错误）作为主要不确定来源。  
-2. 既有 AV 可靠性评估/证据框架（如分阶段部署结合 confidence horizon）强调早期保守性，但通常未专门刻画“日志缺少失败模式类型”等数据细节层面的不完备性如何传导到后验下界。  
-3. 针对 binary classifier/ROC 等方法，多聚焦分类性能与阈值选择，但在“安全论证所需的 conservative reliability bounds”与“数据细节缺失的显式保守化机制”之间仍缺一套统一、可检验的统计流程。  
-4. 现有工作对“低保真数据如何保守使用”的直觉通常不足以解释：为什么即便 assessor 试图保守，仍可能出现系统性乐观偏差（optimism）。  
-
-【提出了什么创新的方法】  
-1. 形式化 operational data 细节缺失：把历史 success/failure 记录中缺失的关键 failure attributes（如 failure mode）视为不确定量，并显式建模“assessor uncertainty”。  
-2. 扩展 CBI：在 conservative Bayesian inference 中加入对“缺失细节导致</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. Vision-based pose estimation 在运行时可能出现“undetected faults”，导致 pose error 失去可信度。   2. 安全关键（avionics）需要 probabilistic integrity guarantees：在故障未被检测时仍能给出 pose error 上界（Protection Lev...">Protection Levels for Vision-Based Pose Estimation</span></td>
-        <td class="author-cell">Olivia Beyer Bruvik</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10023" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10023" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted for publication at the 2026 AIAA DATC/IEEE 45th Digital Avionics Systems Conference (DASC). O. Beyer Bruvik and R. Valentin contributed equally</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. Vision-based pose estimation 在运行时可能出现“undetected faults”，导致 pose error 失去可信度。  
-2. 安全关键（avionics）需要 probabilistic integrity guarantees：在故障未被检测时仍能给出 pose error 上界（Protection Level, PL）。  
-3. 现有 VBPE 工作多提供 fault detection，但缺少可用于完整完整性论证的、可计算的 PL。  
-4. 需要将 RAIM 的 PL 思路迁移到 VBPE 的非线性 Perspective-n-Point (PnP) 六自由度位姿估计框架。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 先前工作把 RAIM 风格的 fault detection 用在了 runway-based VBPE：利用冗余/一致性检查来触发故障告警。  
-2. 但该类工作缺少对“未检测故障”情形下 pose error 的概率上界（PL），因此无法完成完整 runtime integrity argument。  
-3. 现有 VBPE 的 PL 构造没有系统覆盖 full 6-DOF 位姿（position + orientation）的完整框架，或没有给出可分析、可复现实用的 PL 计算方法。  
-4. 缺少对 PL 对关键因素（runway distance、keypoint count、pixel-level uncertainty 等）的定量影响分析，难以指导系统设计。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 将 VBPE 的关键点预测不确定性（pixel-level uncertainty）与 PnP 求解误差联系起来，形成“pose error 随观测偏差的界/模型”。  
-2. 依据 RAIM 的思想引入 protection level：在指定 integrity risk 下，构造即使存在未检测故障时仍成立的 probabilistic upper bound。  
-3. 把该 PL 构造适配到 non-linear Perspective-n-Point 问题，并扩展到完整 6-DOF pose（直接覆盖位置与姿态）。  
-4. 推导/分析 PL 的关键性质，给出 measurement redundancy、噪声大小、runway distance 与 keypoint 数量对 PL 的影响规律。  
-最后简要介绍实现</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】 1. 人在动态环境中的“目标导向活动”需要被机器人长期追踪，而不仅是当前状态或4D轨迹。   2. 现有4D scene graph能记“何物/何处/何时”，但缺少活动层级结构把人类使用物体的行为组织起来。   3. 现有activity/event表示往往只在视频片段/时间边界上定义，且缺少与持续3D场景实体的稳健对应。   4. 若事件边界、参与对象或跨事...">GESTO: Human-Centric Spatio-Temporal Memory for Reasoning in Dynamic Scenes</span></td>
-        <td class="author-cell">Ermanno Bartoli</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10886" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10886" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】
-1. 人在动态环境中的“目标导向活动”需要被机器人长期追踪，而不仅是当前状态或4D轨迹。  
-2. 现有4D scene graph能记“何物/何处/何时”，但缺少活动层级结构把人类使用物体的行为组织起来。  
-3. 现有activity/event表示往往只在视频片段/时间边界上定义，且缺少与持续3D场景实体的稳健对应。  
-4. 若事件边界、参与对象或跨事件object association依赖外部标注，系统难以真正自动化落地。  
-5. 需要一种可查询的spatio-temporal memory，使得从“物体”可追溯到“它参与了哪些活动”，并支持回溯推理。  
-
-【前人的工作如何解决该问题，存在哪些空白】
-1. 4D scene graphs/dynamic SGs：解决了时空记忆“what/where/when”，但通常是object-centric，缺少activity结构与目标语义。  
-2. Event-Grounding Graphs：引入event与空间实体的grounding，但event为flat集合，缺少从atomic interaction到goal-directed event的层级组合。  
-3. 视频层级活动建模：有天然hierarchical activity结构，但hierarchy定义在frames/clips，未与persistent metric 3D场景建立可操作的对齐。  
-4. 基于egocentric的activity-grounding：能把对象/工具定位到相机视角，但不适配多主体、共享3D场景中的机器人推理与回溯。  
-5. 事件推断流水线若使用外部activity intervals/participating objects/object correspondences：会限制“全自动”记忆构建能力与泛化。  
-
-【提出了什么创新的方法】
-1. Persistent 4D scene graph + 两级activity hierarchy耦合：将“原子human–object interactions（timestamped）”与“goal-driven events”建立结构化父子关系，并都ground到持久场景实体。  
-2. 从RGB-D observation stream自动提取：在不依赖外部事件边界、参与对象、跨事件对应的条件下</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在disturbance下仍需保持安全(state/actuator limits)与性能，但不同闭环目标通常无法共享同一种理论保证。   2. underactuated系统安全输出依赖少数控制通道，bounded input会导致不同安全不等式“争夺同一输入”，甚至无可行解。   3. 传统H∞只给ℒ2增益的积分保证，可能仍发生transient...">Robust Safety Filtering for Input-Constrained Underactuated Linear Systems</span></td>
-        <td class="author-cell">Muhamad Rausyan Fikri</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10872" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10872" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在disturbance下仍需保持安全(state/actuator limits)与性能，但不同闭环目标通常无法共享同一种理论保证。  
-2. underactuated系统安全输出依赖少数控制通道，bounded input会导致不同安全不等式“争夺同一输入”，甚至无可行解。  
-3. 传统H∞只给ℒ2增益的积分保证，可能仍发生transient违规（短时越界/超限），对强化安全性不够。  
-4. robust CBF/HOCBF若使用固定全局uncertainty set会过度保守，实际扰动小/估计准时可明显放宽安全约束。  
-5. 现有observer-based CBF方法多分别处理鲁棒性或性能，但缺少与H∞baseline + 输入偏离的finite-horizon性能权衡协同建模。  
-6. 需要一个能同时处理：H∞baseline扰动补偿、多个HOCBF约束共享同一bounded actuator、以及scalar-input的精确可行域判定框架。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. H∞ / zero-sum differential game：给出 disturbance-to-output 的 ℒ2 gain 边界，但无法排除 state/actuator 的transient约束违规。  
-2. CBF / HOCBF：通过在线QP约束保证前向不变性，但对扰动不确定性与underactuated共享输入导致的“不可兼容约束”处理不够系统。  
-3. robust CBF / input-to-state safety：用不确定集合与高相对度HOCBF扩展到更鲁棒的安全条件，但常使用固定全局 worst-case set 导致显著保守。  
-4. disturbance-observer-based CBF：用扰动观测估计与残差误差界减少保守性，但尚未与“从H∞baseline生成输入 + 再做安全过滤 + 明确考虑偏离量的finite-horizon性能代价”联合。  
-5. 对共享bounded actuator下，多安全输出约束同时成立的“可行性解释/可计算 margin（尤其scalar-input）”仍缺少精确的</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   为了解决分层纺织堆叠场景中“顶层布料”像素级分割不准导致抓取/展开等操作不可靠的问题，并在边界微弱、层间外观高度相似、噪声形变存在时仍能保持精确与可用性。    【前人的工作如何解决该问题，存在哪些空白】   1. 语义分割（如 UNet 类）提供了通用像素分类能力，但对“相似层 + 微弱/不规则边界”的顶层分割难以鲁棒。   2. 边缘/轮廓驱动方法（如...">Precise Top-Layer Fabric Segmentation for Fabric Destacking with Edge- and Shape-Aware Deep Networks</span></td>
-        <td class="author-cell">Wenbo Dong</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10648" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10648" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/bhattner143/top-layer-fab-seg" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Published in IEEE ICMA 2025. Author&#39;s accepted manuscript. Code:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-为了解决分层纺织堆叠场景中“顶层布料”像素级分割不准导致抓取/展开等操作不可靠的问题，并在边界微弱、层间外观高度相似、噪声形变存在时仍能保持精确与可用性。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 语义分割（如 UNet 类）提供了通用像素分类能力，但对“相似层 + 微弱/不规则边界”的顶层分割难以鲁棒。  
-2. 边缘/轮廓驱动方法（如 GSCNN 类）能提升边界感知，但在层间外观高度相似、边界易混淆的情况下仍会偏向错误分界。  
-3. 纯像素级监督往往忽略“整体布料形状约束”，导致预测在全局几何上合理性不足、局部边缘修正难以维持一致性。  
-4. 现有方法对“CAD 引导的先验形状”如何在训练阶段有效注入、并让 backbone 形成稳定的顶层区分能力，仍缺少专门的训练结构。  
-
-【提出了什么创新的方法】  
-1. 核心方法流程：基于 encoder-decoder 的 backbone，在训练阶段增加两条专门监督分支：  
-2. Edge-aware branch：对边界区域施加额外监督，让 backbone 更关注顶层布料的轮廓/边缘细节，缓解模糊或细微分界导致的漏分割/错分割。  
-3. Shape-aware branch：提取对“预测区域整体形状”敏感的特征，并与来自 CAD 模型的参考二值形状进行对齐，实现形状层面的正则约束，避免局部正确但全局形状漂移。  
-4. 训练阶段只用这些分支共同监督 backbone，推理阶段仅保留 backbone（权重已经被边缘与形状监督“蒸馏/增强”），以满足实际部署的简洁性。  
-5. 简要效果：在真实�</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 上肢可穿戴触觉装置难以同时满足“不妨碍动作/不疲劳/直觉感知”三要素。   2. 许多装置无法根据用户自然姿态自适应，导致触觉不直观或干扰运动。   3. 需要一种轻量、低干扰的方式在佩戴者执行动作时进行关节角度引导。    【前人的工作如何解决该问题，存在哪些空白】   1. 已有可穿戴触觉设备用于康复与teleoperation，重点在设备实现与...">Elbow Angle Guidance System Based on Surface Haptic Sensations Elicited by Lightweight Wearable Fabric Actuator</span></td>
-        <td class="author-cell">Kenta Yokoe</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10404" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10404" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This is the accepted version of the paper published in Proc. 2024 IEEE International Conference on Advanced Intelligent Mechatronics (AIM), 1447-1454 (2024)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 上肢可穿戴触觉装置难以同时满足“不妨碍动作/不疲劳/直觉感知”三要素。  
-2. 许多装置无法根据用户自然姿态自适应，导致触觉不直观或干扰运动。  
-3. 需要一种轻量、低干扰的方式在佩戴者执行动作时进行关节角度引导。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 已有可穿戴触觉设备用于康复与teleoperation，重点在设备实现与基础触觉输出。  
-2. 上肢（尤其肘部）方向的装置通常仍会影响活动，或难以保证“直觉”触觉。  
-3. 既有方法多用固定输出策略，缺少对“用户自然姿态—触觉强度—关节误差”的在线闭环适配。  
-
-【提出了什么创新的方法】  
-1. 使用轻量fabric actuator（融合McKibben-type人工肌肉 + 纺织材料），实现对皮肤表面的surface haptic sensation输出，降低对佩戴者动作的干扰。  
-2. 采用基于“target - current elbow angle”的差值控制：实时测量肘角，依据误差改变surface haptic sensation的强度来引导伸肘/屈肘。  
-3. 将触觉强度做成在线调节（real time），以匹配自然手臂运动与姿态变化，从而提升直觉性。  
-
-最终效果：在人类参与实验中验证了肘角引导的精度，且触觉在不妨碍用户运动的前提下能实现实时角度纠偏。  
-
-【文章缺点】  
-1. 需要光学motion capture作为肘角测量，真实可穿戴/低成本场景下的落地性较弱；例如缺少MCAP依赖时闭环精度可能显著下降。  
-2. 采用“改变触觉强度”作为主要控制手段，映射到用户主观“直觉”的过程缺乏显式个体化标定；例如不同皮肤</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. ICSI过程中频繁的FOV/亮度/换物镜调整会中断工作流，显著增加procedure time。   2. 视野扩展（view-expansive）虽然避免换镜，但带来信息过载，且FOV大小仍需操作者手动设定。   3. 需要一种能在实时条件下自动决定合适FOV的intention inference方法，减少操作者注意力分散。    【前人的工作如...">Automatic Field-of-View Adjustment for a View-Expansive Microscope via LSTM-Based Gaze and Pipette Motion Interpretation</span></td>
-        <td class="author-cell">Kenta Yokoe</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10401" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10401" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://doi.org/10.1109/ACCESS.2025.3624246" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This is the accepted version of an article published in IEEE Access 13, 182915-182923 (2025). DOI: Open Access under CC BY 4.0</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. ICSI过程中频繁的FOV/亮度/换物镜调整会中断工作流，显著增加procedure time。  
-2. 视野扩展（view-expansive）虽然避免换镜，但带来信息过载，且FOV大小仍需操作者手动设定。  
-3. 需要一种能在实时条件下自动决定合适FOV的intention inference方法，减少操作者注意力分散。  
-
-【前人的工作如何解决该问题，存在哪些空白】1. 人工微操作流程通过手动换物镜与调亮度完成不同FOV需求，但会造成视线丢失与操作中断。  
-2. view-expansive microscope（多视角/大FOV+高分辨）能减少物理镜头切换，却未解决“操作者仍需决定FOV尺寸”的交互负担。  
-3. gaze-based intention recognition常用于人机协作意图估计，但在ICSI这类连续高速微操里，对FOV调节这种具体控制量的端到端预测仍不足。  
-4. 现有自动化ICSI支持系统多聚焦操作步骤/机器人协助，较少针对“实时FOV大小选择”这一关键感知调度环节给出可靠学习策略。  
-
-【提出了什么创新的方法】  
-1. 系统层面：使用view-expansive microscope（galvanometer mirrors+high-speed vision）同时获得large-FOV与high-resolution，消除objective lens switching与亮度反复调整需求。  
-2. 任务层面：提出自动FOV adjustment，把“应该使用多大FOV”的选择转化为一个可预测的时序决策问题。  
-3. 模型层面：用LSTM建模时序依赖，输入包括pipette的position/velocity（实时状态）以及operator的gaze position（意图线索）。  
-4. 数据层面：用专家ICSI过程数据进行训练，使模型学习从微操状态与注视行为到目标FOV的映射。  
-5. 输出控制：实时预测合适FOV size，从而让操作者保持连续注视与连续操作，不必手动调整FOV。  
-
-实现</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. VLA（Vision-Language-Action）在真实机器人操控中有安全风险，但其对抗鲁棒性几乎未被系统研究。   2. 现有攻击多依赖像素级扰动或白盒信息，导致可见伪影/可部署性差。   3. 需要一种在视觉上“自然”且能在物理世界落地的攻击方式，同时支持白盒与黑盒威胁模型。   4. 进一步验证攻击是否能稳定诱导模型执行攻击者指定的目标动作...">Hidden in Plain Sight: Diffusion-Based Unrestricted Robotic Attacks on Vision-Language-Action Models</span></td>
-        <td class="author-cell">Jiahui Han</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10393" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10393" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. VLA（Vision-Language-Action）在真实机器人操控中有安全风险，但其对抗鲁棒性几乎未被系统研究。  
-2. 现有攻击多依赖像素级扰动或白盒信息，导致可见伪影/可部署性差。  
-3. 需要一种在视觉上“自然”且能在物理世界落地的攻击方式，同时支持白盒与黑盒威胁模型。  
-4. 进一步验证攻击是否能稳定诱导模型执行攻击者指定的目标动作。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. 以像素空间扰动为主：能欺骗模型，但通常产生明显伪影，现实相机观测下不够自然、难复现。  
-2. 白盒攻击多：依赖梯度/模型内部信息，现实威胁下不具备通用性；黑盒能力弱或效果不稳。  
-3. 对“视觉自然性 + 机器人可执行性”的联合约束不足：缺少从生成模型潜空间进行可控优化的路线。  
-4. 对VLA的“动作级”攻击评估不够细：缺乏在仿真与真实物理环境中系统验证的完整证据链。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 使用 pretrained diffusion model 的 latent trajectory 作为优化空间，避免直接在像素空间施加不自然扰动。  
-2. 生成对视觉外观友好的 adversarial patch（显著更“自然”），同时将优化目标与 VLA 的动作输出耦合。  
-3. 支持白盒与黑盒：  
-   - 白盒：可直接利用模型内部梯度/反向信号来引导动作目标。  
-   - 黑盒：仅利用受害模型的 predicted actions 作为反馈信号进行迭代优化。  
-4. 在latent优化中显式“steer”机器人到 attacker-specified target actions，强调攻击的可用性而非仅提升分类/任务失败率。  
-最后简要介绍实现了什么效果：  
-- 在仿真与真实物理世界中，DURA 能</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 自动驾驶RL受限于样本效率：真实交互昂贵且安全验证风险高，需要更少真实数据实现可靠策略。   2. Latent world model虽提升数据效率，但在策略学习时仍会因预测误差产生model bias，影响长期安全评估。   3. 现有latent模型方法多倾向on-policy想象rollout，难以充分利用real-world off-pol...">Dreamer-SAC: Off-Policy Learning in Latent World Models for Sample-Efficient Autonomous Driving</span></td>
-        <td class="author-cell">Jiazhuo Li</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10386" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10386" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 自动驾驶RL受限于样本效率：真实交互昂贵且安全验证风险高，需要更少真实数据实现可靠策略。  
-2. Latent world model虽提升数据效率，但在策略学习时仍会因预测误差产生model bias，影响长期安全评估。  
-3. 现有latent模型方法多倾向on-policy想象rollout，难以充分利用real-world off-policy数据。  
-4. 需要在“更多想象训练信号”和“更大累计模型偏差”之间找到最优平衡点（rollout horizon权衡）。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Dreamer系列：用RSSM在latent空间做想象rollout并进行actor-critic更新，提升样本效率，但主要是on-policy风格，难以直接充分结合real off-policy经验。  
-2. MBPO等：用短horizon真实+想象数据训练SAC，缓解样型本不足；但多在state空间/显式动力学，面对高维视觉场景的latent建模适配仍不足。  
-3. 自动驾驶的latent改进（semantic masked、representation alignment）：更多提升世界模型表征质量，仍把核心策略优化范式停留在“在imagined里更新”，对model bias的控制机制不够系统。  
-4. TD目标设计：常用1-step TD易忽视rollout里更长奖励信息；但如何在latent imagined经验中用n-step更好做value learning，同时控制bias，缺少明确系统探索。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 训练Recurrent State-Space Model (RSSM)：从部分观测构建latent belief state，并学习latent dynamics、reward、continue等，用于生成想象轨迹。  
-2. 构建Dreamer-SAC离线/离策略框架：把SAC的critic/actor优化移到latent空间，同时允许从real replay buffer与model-generated replay共同采样。  
-3. 混合数据源的训练策略：  
-   - real transitions：使用常规一阶TD（one-step）target更新价值，减少真实数据上的偏差传播。  
-   - latent rollouts：</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 在复杂城市拓扑中，风-建筑相互作用导致的流场风险使AAM难以获得安全、可用的飞行规划。   2. 真实工程需要接近实时的风场/风险评估，传统CFD难以部署。   3. 需要一种“风知晓(flow-informed)”的规划代价，使规划能显式躲避高危险流特征。   4. 需要在真实可测环境中验证：学习到的流场代理模型能否提升飞行稳定性与减少偏移。   ...">Wind-Informed Rapid Flight-Planning in Complex Urban Topologies via Machine Learning and Experimental Validation</span></td>
-        <td class="author-cell">Peter I. Renn</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10309" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10309" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 在复杂城市拓扑中，风-建筑相互作用导致的流场风险使AAM难以获得安全、可用的飞行规划。  
-2. 真实工程需要接近实时的风场/风险评估，传统CFD难以部署。  
-3. 需要一种“风知晓(flow-informed)”的规划代价，使规划能显式躲避高危险流特征。  
-4. 需要在真实可测环境中验证：学习到的流场代理模型能否提升飞行稳定性与减少偏移。  
-5. 需要把三维流场预测与路径搜索耦合，形成端到端可执行的trajectory生成方案。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. CFD/数值仿真可给高保真流场与风险指标，但计算昂贵，难满足在线规划实时性。  
-2. 基于CFD的风险惩罚规划（如速度/TKE阈值或方向不一致惩罚）能提升安全性，但通常依赖显式仿真数据。  
-3. 数据驱动风场代理模型已有，但在城市复杂拓扑上的“可用性”验证不足，尤其缺少在实验平台上的闭环/飞行验证。  
-4. 少量风场学习工作在简化2D或仅用数值数据进行规划，导致对真实三维、真实动力学与稳定性提升的证据不足。  
-5. 现有学习/规划多停留在“能预测”或“能仿真规划”，而非证明“在带风的真实实验中显著更稳、更少偏移”。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. 用U-Net流场代理模型：输入建筑几何的signed distance field + 入射风速度（FiLM条件），预测三维时间平均速度场与TKE。  
-2. 从代理流场构造“volumetric flight challenge scalar field”：融合速度梯度强度、TKE与障碍物近邻惩罚，形成可用于规划的代价体。  
-3. 用代价最小化路径搜索（Dijkstra pathfinder）在允许</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. ICSI微操作高度依赖视觉且深度感知困难，导致新手难以稳定完成。   2. 传统流程需要在“移液针运动”和“注入器吸入/排出”之间频繁切换，增加操作负担与学习成本。   3. 关键状态（aspiration / discharge / oocyte-pipette contact）对人不可感知或仅靠细微视觉线索，难以被可靠判读。   4. 既有触觉系...">Immersive Micromanipulation Integrating Pipette and Injector Operations with McKibben-Based Haptic Sensations for Workload Reduction</span></td>
-        <td class="author-cell">Kenta Yokoe</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.10033" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.10033" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://doi.org/10.1109/ACCESS.2026.3717843" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This is the accepted version of an article published in IEEE Access 14, 116393-116404 (2026). DOI: Open Access under CC BY 4.0</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. ICSI微操作高度依赖视觉且深度感知困难，导致新手难以稳定完成。  
-2. 传统流程需要在“移液针运动”和“注入器吸入/排出”之间频繁切换，增加操作负担与学习成本。  
-3. 关键状态（aspiration / discharge / oocyte-pipette contact）对人不可感知或仅靠细微视觉线索，难以被可靠判读。  
-4. 既有触觉系统多聚焦穿刺力（pipette puncture force），缺少对注入器状态的反馈，信息不完整。  
-5. 希望用单手统一交互 + augmented haptics降低认知负荷，提高速度与可用性，支持更少经验的操作者。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Immersive micromanipulation + VR/HMD：改善了3D定位速度/精度，但注入器操作通常仍是独立界面，HMD需摘戴，仍存在工程与交互割裂。  
-2. Haptic in micromanipulation：提供局部力/触觉（如穿刺力）能提升成功率，但对“吸入/排出/注入器工作状态”的反馈建模不足，难以覆盖ICSI-like关键阶段。  
-3. Augmented haptics概念：证明把不可感知状态映射为触觉能降低学习难度，但在“吸入-排出-接触”这一套端到端状态链上仍缺少统一操作范式。  
-4. 认知理论（vision-haptics资源分离）：为“触觉减负”提供依据，但在本任务的端到端交互闭环验证（速度+主观工作负载）仍较少。  
-
-【提出了什么创新的方法】  
-先重点方法流程：  
-1. **统一操作接口**：将pipette 3D运动控制与aspiration/discharge操作整合到**单个手跟踪交互界面**，消除界面切换与HMD摘戴需求。  
-2. **McKibben fabric actuator触觉映射**：用基</small></details></td>
-    </tr>
-        </tbody></table>
-    </div>
-</div>
         </main>
 
         <footer>
@@ -3053,7 +2809,7 @@ end-to-end driving agents 即使高分平均表现，仍会在稀有高后果场
             });
             
             // ========== 自动展开最新日期 ==========
-            const latestId = 'date-20260814';
+            const latestId = 'date-20260817';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
                 if (latestSection) {
