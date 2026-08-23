@@ -266,6 +266,7 @@ def call_llm_for_summary(title: str, abstract: str, introduction: str,relate_wor
         # 提取总结内容
         summary = data["choices"][0]["message"]["content"].strip()
         # 提取1-5分评分（默认0分表示提取失败）
+        print(summary)
         score_match = LLM_SCORE_PATTERN.search(summary)
         score = int(score_match.group(1)) if score_match and 1 <= int(score_match.group(1)) <= 5 else 0
         
