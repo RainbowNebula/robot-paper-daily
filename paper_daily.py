@@ -54,7 +54,7 @@ import os
 LLM_API_KEY = os.getenv("LLM_API_KEY")  # 从环境变量读取密钥
 LLM_API_HOST = "api.chatanywhere.org" # https://github.com/chatanywhere/GPT_API_free
 LLM_API_ENDPOINT = "/v1/chat/completions"
-LLM_MODEL = "gpt-5.4-mini"
+LLM_MODEL = "gpt-5.6-luna"
 LLM_PROMPT = os.getenv("LLM_PROMPT")
 
 # 爬取配置
