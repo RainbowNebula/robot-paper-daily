@@ -1,16 +1,23 @@
-# arXiv Robot 领域论文汇总（共234篇）
+# arXiv Robot 领域论文汇总（共208篇）
 
 > 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠
 > 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）
 
 ## 日期导航
+- [2026-09-05（1篇论文）](#date-20260905)
 - [2026-09-04（43篇论文）](#date-20260904)
 - [2026-09-03（36篇论文）](#date-20260903)
 - [2026-09-02（43篇论文）](#date-20260902)
 - [2026-09-01（85篇论文）](#date-20260901)
-- [2026-08-31（27篇论文）](#date-20260831)
 
-## <a id='date-20260904'></a>2026-09-04（43篇论文）
+## <a id='date-20260905'></a>2026-09-05（1篇论文）
+
+| Title | Author | Comment | PDF | Code | Relevance | Summary |
+|----------|----|---|---|---|---|----------|
+| Formation Matrix and Energy-based Control of Multi-Agent Systems | Martín Crespo |  | [PDF](https://arxiv.org/pdf/2609.04158) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 多机器人编队控制需要同时实现期望距离保持、运动过程中的碰撞避免与闭环稳定性，但传统几何控制、势场方法和虚拟耦合方法通常缺乏统一的能量建模与控制设计框架。  <br>2. 现有角度或bearing-based方法主要描述相对方向，难以同时编码编队几何、相对速度与能量交换关系。  <br>3. 需要将机器人交互拓扑、虚拟弹簧阻尼耦合、port-Hamiltonian系统和稳定性分析统一起来，并支持leader-following与position-based两类编队任务。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. Artificial potential field通过虚拟势能实现距离调节和碰撞规避，但容易产生局部极小值，且通常缺乏系统化的能量流、耗散与互联结构分析。  <br>2. Virtual spring-damper coupling能够以物理直觉实现编队保持和振荡抑制，但多数方法没有将耦合拓扑、能量交换和控制器设计统一到严格的port-Hamiltonian框架中。  <br>3. Bearing-based formation control利用角度约束描述编队形状，但通常只关注方向关系，不能直接同时表达边距离和相对速度。  <br>4. 既有pHS和passivity-based formation control能够提供稳定性工具，但系统动力学与交互几何往往相互解耦，难以自然导出与编队结构相关的Casimir invariants。  <br>5. 现有方法对point-mass、rigid-body mobile robots、CbI controller之间的统一表达不足，且缺乏由互联几何直接诱导的static feedback解释。  <br><br>【提出了什么创新的方法】  <br>1. 将多机器人表示为图结构：机器人对应节点，机器人对之间的相对位移对应有向边，并通过incidence matrix统一组织所有边的几何关系。  <br>2. 提出Formation Matrix，将每条边的方向余弦、正弦以及边长等几何信息组织起来，同时描述agent间的相对位移和相对速度。相比单纯bearing</details> |
+
+<details>
+<summary><a id='date-20260904'></a>2026-09-04（43篇论文）</summary>
 
 | Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|
@@ -57,6 +64,8 @@
 | SV-WAM: An Efficient Surround-View World-Action Model for End-to-End Autonomous Driving | Jinyang Wang |  | [PDF](https://arxiv.org/pdf/2609.03602) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 现有驾驶World Model通常在推理阶段生成未来视频，计算开销高，难以满足自动驾驶实时部署需求。  <br>2. 为降低推理成本，许多方法仅使用前视摄像头，导致车辆在变道、汇入、转弯等场景中缺乏完整空间观测。  <br>3. 需要一种同时利用六路环视视觉信息、保留未来预测训练收益，并能够高效执行动作规划的模型。  <br>4. 规划结果还应具备更强的可行驶区域边界感知能力，避免车辆轨迹或车身角点接近、越过不可行驶区域。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. Driving World Models通过预测未来视频或场景动态学习环境演化，并利用预测结果辅助规划，但推理阶段的视频生成通常带来较高延迟。  <br>2. 部分工作采用单前视摄像头或压缩后的视觉表示提升效率，但牺牲了侧后方空间覆盖，在变道、汇入和转弯时存在明显观测盲区。  <br>3. 传统端到端规划方法直接从多视角观测预测轨迹或动作，推理效率较高，但缺少未来场景预测提供的dense supervision，动作建模能力和泛化性可能受限。  <br>4. 现有规划损失通常侧重轨迹回归、碰撞或道路规则约束，对车辆实际footprint与可行驶区域边界之间的几何关系建模不足。  <br>5. 关键空白在于：如何将future-video prediction作为训练监督而非部署输出，并在统一模型中实现多视角感知、动作规划与高效action-only inference。  <br><br>【提出了什么创新的方法】  <br>SV-WAM将六路surround-view输入、future-video prediction和action planning统一到一个共享的generative world-action model中。其核心流程如下：  <br><br>1. 模型输入六个摄像头的环视观测，并将历史观测、动作token和未来视频token组织到统一的生成建模框架中。  <br>2. 训练阶段同时进行action与future-video denoising</details> |
 | RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning | Howard Qian |  | [PDF](https://arxiv.org/pdf/2609.03199) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 机器人示范数据采集成本高，难以覆盖长尾任务、物体、环境与操作行为。  <br>2. 互联网视频规模巨大且持续增长，但现有方法难以从非结构化视频中筛选出与目标操作行为真正相关的示范。  <br>3. 视觉或语义相似性不等价于操作行为相似，检索需要关注手部运动、时序结构及其与场景的相对关系。  <br>4. 面向灵巧操作的人形机器人和拟人化机械手，需要从大规模人类操作视频中高效获得可用于策略学习的示范。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. 大规模机器人数据集、VLA模型和遥操作系统通过汇聚多任务机器人示范提升泛化能力，但仍依赖昂贵的数据采集，任务与场景覆盖有限。  <br>2. MimicGen、GRAIL等方法通过示范生成、轨迹重定向或数据扩增扩大数据规模，但通常需要额外配置、仿真或任务先验，难以持续吸收开放世界视频。  <br>3. HO-Cap、EgoVerse、VideoDex、EgoMimic、K-VIL、YODO、SPOT和CHORD从结构化人类视频中提取动作、接触或具身信息，但数据集规模、任务多样性和场景覆盖受限。  <br>4. HowTo100M、Action100M等互联网视频包含丰富的人类活动，但主要面向视频理解或语义检索，缺少针对机器人操作行为的高效筛选机制。  <br>5. 现有机器人数据检索方法主要匹配state-action、motion segment或视觉相似片段，通常局限于固定机器人数据集，难以扩展到互联网人类视频。  <br>6. 基于语言的检索能够找到语义相关视频，但无法可靠区分“看起来相似”而手部操作不同的行为。  <br>7. FlowRetrieval、STRAP和HAND引入光流、时序对齐或相对手部轨迹，但多使用2D图像空间表示，容易受相机视角、遮挡</details> |
 | Equilibria for Networks of Linear Translational Springs | Luke Oeding |  | [PDF](https://arxiv.org/pdf/2609.03143) | - | - | <details><summary>总结</summary>【论文的motivation是什么】  <br>1. 传统 elimination theory 随着 spring network 规模扩大产生高次数多项式，计算全部 equilibrium positions 变得困难。  <br>2. Elimination 需要除法，可能遗漏导致除零的 singular equilibria。  <br>3. Newton’s method 一次通常只能找到一个解，且对初值敏感，难以系统地恢复全部 equilibria。  <br>4. 需要利用 polynomial system 的物理结构与稀疏性，提高大规模 spring network 全解计算效率。  <br><br>【前人的工作如何解决该问题，存在哪些空白】  <br>1. Pigoski and Duffy、Zhang et al. 使用 inverse force analysis 和 algebraic elimination，将网络平衡问题化为单变量高次多项式，能够高精度求解并给出解数上界，但多项式次数随网络规模快速增长，且消元中的除法会遗漏 singular solutions。  <br>2. Su and McCarthy 使用 homotopy continuation 求解包含 translational 与 torsional springs 的 compliant mechanism，但主要面向较小规模、特定结构的系统，未系统分析纯 translational spring networks 的全解问题。  <br>3. Newton’s method 实现简单且局部二次收敛，但一次只能搜索一个解，初值域和吸引域难以确定，无法可靠判断是否已经找到全部 equilibria。  <br>4. 通用 homotopy continuation 可以追踪全部解，但标准 total-degree start system 的 Bézout bound 通常远大于真实解数，导致大量无效路径和高昂初始化成本。  <br>5. 既有方法缺少针对 spring network 参数结构的 parameter homotopy、polyhedral homotopy 与 monodromy 的组合策略，尤其缺少从小网络高效扩展到大网络的方案。  <br><br>【提出了什么创新的方法】  <br>1. 将 spring network equilibrium 建模为 polynomial system。对每条 spring 引入实际长度变量，使用几何约束和 Hooke’s law force-balance constraints 描述节点位置、弹簧长度以及节点净力为零的条件。  <br>2. 通过固定两个 base points 消除整体 translation 与 rotation symmetry，使刚性网络的 equilibrium positions 转化为有限个 polynomial roots。  <br>3. 提出 inverse-length formulation</details> |
+
+</details>
 
 <details>
 <summary><a id='date-20260903'></a>2026-09-03（36篇论文）</summary>
@@ -243,40 +252,5 @@
 | PathBridger: Subgoal Bridges for Offline Goal-Conditioned Reinforcement Learning | Soohyun Choi | <details><summary>detail</summary>. Code:this https URL</details> | [PDF](https://arxiv.org/pdf/2608.29061) | [code1](https://github.com/SChoish/PathBridger) | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Understanding Temporal Semantic Stability in Open-Vocabulary UAV Perception through Metric 3D Fusion | Saurbh Singh Jamwal |  | [PDF](https://arxiv.org/pdf/2608.28665) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 | Goal Staying Makes Sum-of-Costs Anonymous Multi-Agent Path Finding NP-Hard | Hang Ma |  | [PDF](https://arxiv.org/pdf/2608.28658) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-
-</details>
-
-<details>
-<summary><a id='date-20260831'></a>2026-08-31（27篇论文）</summary>
-
-| Title | Author | Comment | PDF | Code | Relevance | Summary |
-|----------|----|---|---|---|---|----------|
-| Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning | Nan Wang | <details><summary>detail</summary>. Project page:this https URL</details> | [PDF](https://arxiv.org/pdf/2608.28578) | [code1](https://tetheria.github.io/aero-hand-open/) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| ChainSplat: A Physics-Inspired Screw-Theoretic Model for Learning Deformable Linear Object Dynamics from Multi-View RGB Videos | Seungyeon Kim |  | [PDF](https://arxiv.org/pdf/2608.28570) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Linear Temporal Logic Translation via Human-Inspired Self-Constrained Reasoning for Robot Task Specification | Haofei Hou |  | [PDF](https://arxiv.org/pdf/2608.28435) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Cooperative Risk-Aware Exploration in Heterogeneous Multi-Robot Systems Using Algorithmic Altruism | Brooks A. Butler |  | [PDF](https://arxiv.org/pdf/2608.28409) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| PanelShield: Verifiable Closed-Loop Safe Planning for Robotic Industrial Panel Operation | Guipeng Xin |  | [PDF](https://arxiv.org/pdf/2608.28305) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| MaCoPlanner: LLM-Assisted Manual-Compiled Task Planning with Proactive Safety Verification for Robotic Industrial Panel Operation | Guipeng Xin |  | [PDF](https://arxiv.org/pdf/2608.28300) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| STEGNav: Spatio-Temporal Event Graph Reasoning for Multimodal Lifelong Object Navigation | Yang Chen |  | [PDF](https://arxiv.org/pdf/2608.28279) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Spatial-Semantic Reasoning using Large Language Models for Efficient UAV Search Operations | Marin Maletic | <details><summary>detail</summary>preprint, Published in: 2025 European Conference on Mobile Robots (ECMR), DOI</details> | [PDF](https://arxiv.org/pdf/2608.28270) | [code1](https://doi.org/10.1109/ECMR65884.2025.11163229) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| CoCoBench: A Cooperative Coordination Benchmark for Embodied Multi-Agent Task Planning | Yang Chen |  | [PDF](https://arxiv.org/pdf/2608.28266) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Training-free Suction Grasp Detection for Deformed Aseptic Cartons Using Vision-Language Models and Geometric Surface Scoring | Marin Maletic | <details><summary>detail</summary>ICCAS 2026 preprint</details> | [PDF](https://arxiv.org/pdf/2608.28246) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Probabilistic Multi-Robot Gas Source Localization with Uncalibrated Sensors: A Distributed Estimation Approach | Wanting Jin | <details><summary>detail</summary>accepted by The 18th International Symposium on Distributed Autonomous Robotic Systems (DARS)</details> | [PDF](https://arxiv.org/pdf/2608.28214) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| PAMoR: Parameterized Affective Motion Generation in Real Time for Humanoid Robots | Yan Pan | <details><summary>detail</summary>Under Review of IEEE Robotics and Automation Letters</details> | [PDF](https://arxiv.org/pdf/2608.28213) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Picking Bins Empty: A Hierarchical Hybrid Approach with Online Self-Learning of Grasp Points for Reliable Industrial Bin-Picking | Florian Töper | <details><summary>detail</summary>Accepted at IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2026.</details> | [PDF](https://arxiv.org/pdf/2608.28175) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL | Simone Tolomei | <details><summary>detail</summary>project website:this https URLAccepted in IEEE Robotics and Automation Letter (RA-L)</details> | [PDF](https://arxiv.org/pdf/2608.28140) | [code1](https://tolomeis.github.io/contact-guided-exp) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| DeicticVLA: Unifying Instruction Modes Based on Language and Deictic Gestures in a Single VLA | Kango Yanagida |  | [PDF](https://arxiv.org/pdf/2608.28108) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Stay Seated: Learning Omnidirectional Humanoid Locomotion on a Passive Mobile Chair with Casters | Kango Yanagida |  | [PDF](https://arxiv.org/pdf/2608.28090) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation | Puru Ojha |  | [PDF](https://arxiv.org/pdf/2608.28075) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| CAVE-NAV: VLM-Based Autonomous 3D Navigation in Underwater Cave Environments | Zhenqi Wu |  | [PDF](https://arxiv.org/pdf/2608.27793) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Coordinated Motion Planning for Multi-Arm Systems via Iterative LQ Games | Junyoung Kim |  | [PDF](https://arxiv.org/pdf/2608.27726) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| One year in a forest: Analyzing the challenges of autonomous navigation in subarctic environments | Matěj Boxan |  | [PDF](https://arxiv.org/pdf/2608.27628) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| PHR-VLA: Planning Horizon Reasoning for Vision-Language-Action Models | Davood Soleymanzadeh |  | [PDF](https://arxiv.org/pdf/2608.27609) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models | Senqiao Yang | <details><summary>detail</summary>All models and training pipelines are publicly available atthis https URL</details> | [PDF](https://arxiv.org/pdf/2608.27550) | [code1](https://starvla.github.io/VLAct) | - | <details><summary>总结</summary>大模型总结失败</details> |
-| Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics | Fengjun Zhong |  | [PDF](https://arxiv.org/pdf/2608.27497) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI | Sihan Jia |  | [PDF](https://arxiv.org/pdf/2608.28518) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction | Yafei Zhang |  | [PDF](https://arxiv.org/pdf/2608.28491) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| LUCID: An Agentic AI Framework on Digital-Twin in the Loop for QoS-Guaranteeing Robotic Control | Hyeonsu Lyu |  | [PDF](https://arxiv.org/pdf/2608.28437) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
-| CARDINAL Predicts Cardiovascular Risk From Non-contrast Cardiac CT | Roy Gabriel |  | [PDF](https://arxiv.org/pdf/2608.27690) | - | - | <details><summary>总结</summary>大模型总结失败</details> |
 
 </details>

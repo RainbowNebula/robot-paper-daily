@@ -628,7 +628,7 @@
         <header>
             <h1>🤖 arXiv 机器人领域论文汇总</h1>
             <div class="intro">
-                <p>📊 共 <strong>234</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>📊 共 <strong>208</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
                 <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
             </div>
         </header>
@@ -636,17 +636,66 @@
         <!-- 日期导航 -->
         <nav class="nav">
             <strong>📅 日期导航：</strong>
-            <a href="#date-20260904">2026-09-04（43篇）</a> | <a href="#date-20260903">2026-09-03（36篇）</a> | <a href="#date-20260902">2026-09-02（43篇）</a> | <a href="#date-20260901">2026-09-01（85篇）</a> | <a href="#date-20260831">2026-08-31（27篇）</a>
+            <a href="#date-20260905">2026-09-05（1篇）</a> | <a href="#date-20260904">2026-09-04（43篇）</a> | <a href="#date-20260903">2026-09-03（36篇）</a> | <a href="#date-20260902">2026-09-02（43篇）</a> | <a href="#date-20260901">2026-09-01（85篇）</a>
         </nav>
 
         <!-- 论文内容区块 -->
         <main>
-            <div class="date-section" id="date-20260904">
+            <div class="date-section" id="date-20260905">
     <div class="date-header">
-        <span>2026-09-04（43篇论文）</span>
+        <span>2026-09-05（1篇论文）</span>
         <span class="arrow">▼</span>
     </div>
     <div class="date-content" style="display: block;">
+        <table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 15%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 40%">  <!-- Summary -->
+        </colgroup>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>作者</th>
+                <th>资源</th>
+                <th>相关性</th>
+                <th>总结</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 多机器人编队控制需要同时实现期望距离保持、运动过程中的碰撞避免与闭环稳定性，但传统几何控制、势场方法和虚拟耦合方法通常缺乏统一的能量建模与控制设计框架。   2. 现有角度或bearing-based方法主要描述相对方向，难以同时编码编队几何、相对速度与能量交换关系。   3. 需要将机器人交互拓扑、虚拟弹簧阻尼耦合、port-Hamiltonian...">Formation Matrix and Energy-based Control of Multi-Agent Systems</span></td>
+        <td class="author-cell">Martín Crespo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.04158" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.04158" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
+1. 多机器人编队控制需要同时实现期望距离保持、运动过程中的碰撞避免与闭环稳定性，但传统几何控制、势场方法和虚拟耦合方法通常缺乏统一的能量建模与控制设计框架。  
+2. 现有角度或bearing-based方法主要描述相对方向，难以同时编码编队几何、相对速度与能量交换关系。  
+3. 需要将机器人交互拓扑、虚拟弹簧阻尼耦合、port-Hamiltonian系统和稳定性分析统一起来，并支持leader-following与position-based两类编队任务。  
+
+【前人的工作如何解决该问题，存在哪些空白】  
+1. Artificial potential field通过虚拟势能实现距离调节和碰撞规避，但容易产生局部极小值，且通常缺乏系统化的能量流、耗散与互联结构分析。  
+2. Virtual spring-damper coupling能够以物理直觉实现编队保持和振荡抑制，但多数方法没有将耦合拓扑、能量交换和控制器设计统一到严格的port-Hamiltonian框架中。  
+3. Bearing-based formation control利用角度约束描述编队形状，但通常只关注方向关系，不能直接同时表达边距离和相对速度。  
+4. 既有pHS和passivity-based formation control能够提供稳定性工具，但系统动力学与交互几何往往相互解耦，难以自然导出与编队结构相关的Casimir invariants。  
+5. 现有方法对point-mass、rigid-body mobile robots、CbI controller之间的统一表达不足，且缺乏由互联几何直接诱导的static feedback解释。  
+
+【提出了什么创新的方法】  
+1. 将多机器人表示为图结构：机器人对应节点，机器人对之间的相对位移对应有向边，并通过incidence matrix统一组织所有边的几何关系。  
+2. 提出Formation Matrix，将每条边的方向余弦、正弦以及边长等几何信息组织起来，同时描述agent间的相对位移和相对速度。相比单纯bearing</small></details></td>
+    </tr>
+        </tbody></table>
+    </div>
+</div>
+<div class="date-section" id="date-20260904">
+    <div class="date-header">
+        <span>2026-09-04（43篇论文）</span>
+        <span class="arrow">▶</span>
+    </div>
+    <div class="date-content" style="display: none;">
         <table>
         <!-- 添加 colgroup 明确指定每列宽度 -->
         <colgroup>
@@ -4047,223 +4096,6 @@ IMPACT（Interaction-aware Model training framework with Prior-guided Attention 
         </tbody></table>
     </div>
 </div>
-<div class="date-section" id="date-20260831">
-    <div class="date-header">
-        <span>2026-08-31（27篇论文）</span>
-        <span class="arrow">▶</span>
-    </div>
-    <div class="date-content" style="display: none;">
-        <table>
-        <!-- 添加 colgroup 明确指定每列宽度 -->
-        <colgroup>
-            <col style="width: 25%">  <!-- Title -->
-            <col style="width: 15%">   <!-- Authors -->
-            <col style="width: 10%">   <!-- Resources -->
-            <col style="width: 10%">   <!-- Relevance -->
-            <col style="width: 40%">  <!-- Summary -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>标题</th>
-                <th>作者</th>
-                <th>资源</th>
-                <th>相关性</th>
-                <th>总结</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td class="title-cell"><span>Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning</span></td>
-        <td class="author-cell">Nan Wang</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28578" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28578" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://tetheria.github.io/aero-hand-open/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Project page:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>ChainSplat: A Physics-Inspired Screw-Theoretic Model for Learning Deformable Linear Object Dynamics from Multi-View RGB Videos</span></td>
-        <td class="author-cell">Seungyeon Kim</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28570" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28570" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Linear Temporal Logic Translation via Human-Inspired Self-Constrained Reasoning for Robot Task Specification</span></td>
-        <td class="author-cell">Haofei Hou</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28435" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28435" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Cooperative Risk-Aware Exploration in Heterogeneous Multi-Robot Systems Using Algorithmic Altruism</span></td>
-        <td class="author-cell">Brooks A. Butler</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28409" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28409" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>PanelShield: Verifiable Closed-Loop Safe Planning for Robotic Industrial Panel Operation</span></td>
-        <td class="author-cell">Guipeng Xin</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28305" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28305" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>MaCoPlanner: LLM-Assisted Manual-Compiled Task Planning with Proactive Safety Verification for Robotic Industrial Panel Operation</span></td>
-        <td class="author-cell">Guipeng Xin</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28300" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28300" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>STEGNav: Spatio-Temporal Event Graph Reasoning for Multimodal Lifelong Object Navigation</span></td>
-        <td class="author-cell">Yang Chen</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28279" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28279" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Spatial-Semantic Reasoning using Large Language Models for Efficient UAV Search Operations</span></td>
-        <td class="author-cell">Marin Maletic</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28270" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28270" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://doi.org/10.1109/ECMR65884.2025.11163229" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>preprint, Published in: 2025 European Conference on Mobile Robots (ECMR), DOI</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>CoCoBench: A Cooperative Coordination Benchmark for Embodied Multi-Agent Task Planning</span></td>
-        <td class="author-cell">Yang Chen</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28266" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28266" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Training-free Suction Grasp Detection for Deformed Aseptic Cartons Using Vision-Language Models and Geometric Surface Scoring</span></td>
-        <td class="author-cell">Marin Maletic</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28246" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28246" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>ICCAS 2026 preprint</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Probabilistic Multi-Robot Gas Source Localization with Uncalibrated Sensors: A Distributed Estimation Approach</span></td>
-        <td class="author-cell">Wanting Jin</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28214" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28214" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>accepted by The 18th International Symposium on Distributed Autonomous Robotic Systems (DARS)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>PAMoR: Parameterized Affective Motion Generation in Real Time for Humanoid Robots</span></td>
-        <td class="author-cell">Yan Pan</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28213" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28213" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Under Review of IEEE Robotics and Automation Letters</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Picking Bins Empty: A Hierarchical Hybrid Approach with Online Self-Learning of Grasp Points for Reliable Industrial Bin-Picking</span></td>
-        <td class="author-cell">Florian Töper</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28175" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28175" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) 2026.</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL</span></td>
-        <td class="author-cell">Simone Tolomei</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28140" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28140" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://tolomeis.github.io/contact-guided-exp" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>project website:this https URLAccepted in IEEE Robotics and Automation Letter (RA-L)</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>DeicticVLA: Unifying Instruction Modes Based on Language and Deictic Gestures in a Single VLA</span></td>
-        <td class="author-cell">Kango Yanagida</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28108" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28108" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Stay Seated: Learning Omnidirectional Humanoid Locomotion on a Passive Mobile Chair with Casters</span></td>
-        <td class="author-cell">Kango Yanagida</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28090" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28090" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation</span></td>
-        <td class="author-cell">Puru Ojha</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28075" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28075" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>CAVE-NAV: VLM-Based Autonomous 3D Navigation in Underwater Cave Environments</span></td>
-        <td class="author-cell">Zhenqi Wu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27793" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27793" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Coordinated Motion Planning for Multi-Arm Systems via Iterative LQ Games</span></td>
-        <td class="author-cell">Junyoung Kim</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27726" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27726" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>One year in a forest: Analyzing the challenges of autonomous navigation in subarctic environments</span></td>
-        <td class="author-cell">Matěj Boxan</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27628" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27628" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>PHR-VLA: Planning Horizon Reasoning for Vision-Language-Action Models</span></td>
-        <td class="author-cell">Davood Soleymanzadeh</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27609" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27609" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models</span></td>
-        <td class="author-cell">Senqiao Yang</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27550" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27550" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://starvla.github.io/VLAct" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>All models and training pipelines are publicly available atthis https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>Beyond Relative Geometry: Metric-Aware Geometry Perception for Robotics</span></td>
-        <td class="author-cell">Fengjun Zhong</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27497" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27497" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>When Robots Mishear Us: Mapping the Safety Risks of Voice-Controlled Embodied AI</span></td>
-        <td class="author-cell">Sihan Jia</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28518" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28518" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction</span></td>
-        <td class="author-cell">Yafei Zhang</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28491" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28491" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ The read operation timed out</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>LUCID: An Agentic AI Framework on Digital-Twin in the Loop for QoS-Guaranteeing Robotic Control</span></td>
-        <td class="author-cell">Hyeonsu Lyu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.28437" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.28437" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：503，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;模型无返回结果，可能是内容违规、输入过长、输入格式有误或负载较高，请检查后再试。No response, please try again.【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;503 SERVICE_UNAVAILABLE&quot;}}</small></small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span>CARDINAL Predicts Cardiovascular Risk From Non-contrast Cardiac CT</span></td>
-        <td class="author-cell">Roy Gabriel</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2608.27690" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2608.27690" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ The read operation timed out</small></small></details></td>
-    </tr>
-        </tbody></table>
-    </div>
-</div>
         </main>
 
         <footer>
@@ -4334,7 +4166,7 @@ IMPACT（Interaction-aware Model training framework with Prior-guided Attention 
             });
             
             // ========== 自动展开最新日期 ==========
-            const latestId = 'date-20260904';
+            const latestId = 'date-20260905';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
                 if (latestSection) {
