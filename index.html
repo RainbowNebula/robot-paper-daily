@@ -628,7 +628,7 @@
         <header>
             <h1>🤖 arXiv 机器人领域论文汇总</h1>
             <div class="intro">
-                <p>📊 共 <strong>134</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>📊 共 <strong>187</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
                 <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
             </div>
         </header>
@@ -636,17 +636,512 @@
         <!-- 日期导航 -->
         <nav class="nav">
             <strong>📅 日期导航：</strong>
-            <a href="#date-20260909">2026-09-09（95篇）</a> | <a href="#date-20260907">2026-09-07（38篇）</a> | <a href="#date-20260905">2026-09-05（1篇）</a>
+            <a href="#date-20260910">2026-09-10（54篇）</a> | <a href="#date-20260909">2026-09-09（95篇）</a> | <a href="#date-20260907">2026-09-07（38篇）</a>
         </nav>
 
         <!-- 论文内容区块 -->
         <main>
-            <div class="date-section" id="date-20260909">
+            <div class="date-section" id="date-20260910">
     <div class="date-header">
-        <span>2026-09-09（95篇论文）</span>
+        <span>2026-09-10（54篇论文）</span>
         <span class="arrow">▼</span>
     </div>
     <div class="date-content" style="display: block;">
+        <table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 15%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 40%">  <!-- Summary -->
+        </colgroup>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>作者</th>
+                <th>资源</th>
+                <th>相关性</th>
+                <th>总结</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】 5分  【论文的motivation】 1. 如何将VLM已有的语义理解、空间推理与长程任务分解能力直接转化为机器人可执行的细粒度控制，而不依赖昂贵的VLA预训练。 2. 如何避免连续低层动作回归导致的embodiment-specific opaque mapping，使模型能够跨任务、跨环境和跨机器人泛化。 3. 如何在保留VLM直接物理决策能力的同时，为动作提供稳定、可解释且足够...">Show-Harness: Just a VLM Agent Can Play Robots</span></td>
+        <td class="author-cell">Yanzhe Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10522" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10522" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://showlab.github.io/Show-Harness" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project website:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】 5分
+
+【论文的motivation】
+1. 如何将VLM已有的语义理解、空间推理与长程任务分解能力直接转化为机器人可执行的细粒度控制，而不依赖昂贵的VLA预训练。
+2. 如何避免连续低层动作回归导致的embodiment-specific opaque mapping，使模型能够跨任务、跨环境和跨机器人泛化。
+3. 如何在保留VLM直接物理决策能力的同时，为动作提供稳定、可解释且足够精细的semantic interface。
+4. 如何以低成本收集跨embodiment的人类演示，并同时支持VLM agent与人类通过统一接口操作机器人。
+
+【解决了哪些前人工作中的空白】
+1. VLA模型通常将VLM知识压缩为embodiment-specific的连续动作映射，跨机器人和新环境适应成本高；Show-Harness通过统一语义动作空间降低了这种绑定。
+2. 层次化和programmatic系统通常由下游skill、controller或planner承担具体物理执行，VLM只输出高层意图；Show-Harness让VLM直接决定细粒度物理动作。
+3. 现有agentic robot系统缺少兼具语义可理解性、细粒度控制能力和确定性grounding的通用接口。
+4. 机器人示范采集通常依赖专用teleoperation硬件，难以跨embodiment复用；GUMI提供了GUI-based、软硬件低门槛的统一示范接口。
+5. 现有工作较少系统验证closed-source frontier VLM的zero-shot robot control，以及小规模VLM通过少量微调实现sim-to-real迁移的可行性。
+
+【提出了什么创新的方法】
+1. 提出Show-Harness，一个model-agnostic的Embodied Harness。系统将机器人控制重构为离散的semantic action units，例如沿不同方向移动一个小步或执行gripper动作。
+2. VLM根据多视角视觉观测、本体感知、任务上下文和历史反馈，在语义动作空间中逐步选择下一动作。每个动作单元对应一个细粒度物理决策，并在执行后返回反馈，形成闭环的perception</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】 5分  【论文的motivation】 1. 现有action-conditioned latent world models难以准确预测旋转、夹爪状态及细粒度末端执行器动作，导致full 7-DoF manipulation规划失败。 2. 单一外部视角缺乏gripper-centric几何信息，难以判断局部姿态、接触关系和定向抓取所需的空间变化。 3. 需要融合global wor...">DUET-DINO: Simultaneous Cross-View World Modeling for Latent Planning in Robot Manipulation</span></td>
+        <td class="author-cell">Nisarga Nilavadi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10506" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10506" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://utn-air.github.io/DUET-DINO" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Preprint, Project Page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】 5分
+
+【论文的motivation】
+1. 现有action-conditioned latent world models难以准确预测旋转、夹爪状态及细粒度末端执行器动作，导致full 7-DoF manipulation规划失败。
+2. 单一外部视角缺乏gripper-centric几何信息，难以判断局部姿态、接触关系和定向抓取所需的空间变化。
+3. 需要融合global workspace与wrist-view互补信息，在保持latent planning效率的同时提升复杂操作中的预测可靠性。
+
+【解决了哪些前人工作中的空白】
+1. 将latent world model从主要支持translation-dominated planning扩展到full 7-DoF end-effector planning。
+2. 弥补单一static external camera难以表达局部抓取几何、旋转变化和接触状态的不足。
+3. 探索side-view与wrist-view联合建模，而非简单使用独立的多视角预测器。
+4. 系统分析V-JEPA 2与DINOv3 latent representation对细粒度action-conditioned visual dynamics建模能力的影响。
+5. 构建了能够暴露7-DoF预测瓶颈的spatial reach、orientation-intensive angled reach和multi-goal grasp-and-lift任务。
+
+【提出了什么创新的方法】
+1. 使用side-view和wrist-view双视觉流分别编码当前观测，并通过cross-attention在latent space中进行双向条件建模。
+2. 两个view-specific predictor分别预测对应视角的未来latent，同时利用另一视角的互补信息：side-view提供全局场景与目标位置，wrist-view提供末端执行器附近的局部几何和姿态线索。
+3. 训练action-conditioned dual-view latent world model，使其根据完整的7-DoF末端动作序列预测未来双视角表示。
+4. 部署时采用CEM在full 7-DoF action space中搜索动作序列，并将预测的side-view与wrist-view latent rollout共同用于goal matching。
+5. 通过normalized dual-view goal cost聚合两个视角的规划误差，避免单一全局视角对局部姿态变化不敏感。
+6. 比较不同视觉表</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】 1分  【论文的motivation】   1. 海洋机器人仿真环境创建依赖人工建模、专业UE知识和大量时间，限制了大规模、高保真测试。   2. 现有海洋仿真器难以从真实海岸场景快速生成兼具地形、资产和水下空间的可用环境。   3. 需要一种仅基于单张俯视图像即可自动构建HoloOcean海岸仿真关卡的流程。  【解决了哪些前人工作中的空白】   1. 弥补了HoloOcean及其他...">Coastal Environment Generation with HoloOcean</span></td>
+        <td class="author-cell">Abigail Austin</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10484" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10484" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to OCEANS 2026 Monterey</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】 1分
+
+【论文的motivation】  
+1. 海洋机器人仿真环境创建依赖人工建模、专业UE知识和大量时间，限制了大规模、高保真测试。  
+2. 现有海洋仿真器难以从真实海岸场景快速生成兼具地形、资产和水下空间的可用环境。  
+3. 需要一种仅基于单张俯视图像即可自动构建HoloOcean海岸仿真关卡的流程。
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了HoloOcean及其他UE海洋仿真器缺乏自动化定制场景生成工具的空白。  
+2. 相比依赖真实3D扫描、GPS数据或人工UE编辑的方法，降低了环境构建的数据和专家知识门槛。  
+3. 将俯视图像、地形高度图估计和资产自动布置整合为完整的image-to-environment pipeline。  
+4. 针对海岸环境同时考虑陆地地形、语义区域和资产布置，而非仅提供预定义关卡或单独的bathymetry输入。
+
+【提出了什么创新的方法】  
+1. 以用户提供的单张海岸俯视图像作为输入，首先对图像进行语义分析，将场景划分为海岸、陆地、植被、道路、建筑等区域。  
+2. 基于图像语义信息生成地形高度图，并将其转换为UE 5中的地形环境，从而构建基础海岸地貌。  
+3. 建立自动化asset selection and placement系统，根据图像中的语义类别选择资产库中的对应模型，并按照区域信息自动放置到场景中。  
+4. 将terrain generation、semantic asset placement和UE level construction整合为HoloOcean兼容的完整生成管线。  
+5. 最终生成可直接加载到HoloOcean中的UE环境，并兼容其sonar实现与robotic agents。实验主要验证了自动生成流程、资产选择放置和环境构建的可行性，降低了定制海岸场景的制作成本。
+
+【文章缺点】  
+1. 从单张</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】 1分 【论文的motivation】 1. 研究如何利用multi-agent reinforcement learning在动态、复杂的野火环境中实现多UAV协同探索与火场边界跟踪。 2. 分析不同reward shaping与环境复杂度对策略收敛、探索效率和火灾监测行为的影响。 3. 缓解传统规则方法和MPC在动态火场中泛化能力不足、在线计算开销高以及依赖人工操控的问题。 【解决了...">Multi-Agent Reinforcement Learning for Autonomous UAV Exploration in Wildfire Response</span></td>
+        <td class="author-cell">Caden Chandra</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10433" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10433" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】 1分
+【论文的motivation】 1. 研究如何利用multi-agent reinforcement learning在动态、复杂的野火环境中实现多UAV协同探索与火场边界跟踪。
+2. 分析不同reward shaping与环境复杂度对策略收敛、探索效率和火灾监测行为的影响。
+3. 缓解传统规则方法和MPC在动态火场中泛化能力不足、在线计算开销高以及依赖人工操控的问题。
+【解决了哪些前人工作中的空白】1. 现有研究较少系统分析不同火灾结构和reward components对multi-agent UAV policy learning行为的影响。
+2. 针对持续蔓延火灾、跳跃式火灾和离散火源，提供了统一的多场景仿真评估框架。
+3. 通过reward ablation研究coverage、boundary tracking、energy和proximity等奖励因素对训练稳定性和行为形成的影响。
+【提出了什么创新的方法】文章构建了一个包含六类火灾场景的3D multi-agent UAV仿真环境，并使用multi-agent actor–critic框架进行训练。每个UAV根据自身位置、其他无人机位置、可见火源和火灾状态生成观测，动作由actor网络产生。
+
+方法采用TD3-style twin critics，并结合APE2生成多组带Gaussian noise的候选动作。候选动作首先依据即时奖励进行筛选，再通过多个critic估计长期价值，同时加入energy penalty与控制平滑正则，最终执行综合评分最高的动作。训练过程中使用replay buffer、Welford online reward normalization和curriculum learning，逐步降低安全距离以增加任务难度。
+
+奖励由fire proximity、exploration coverage、fire discovery、edge penalty、energy cost和movement bonus组成，并通过不同权重进行组合。实验结果表明，强调coverage efficiency和fire boundary tracking的奖励配置可以获得更稳定的学习曲线、更快的收敛速度以及更高的平均奖励；UAV能够学习火场边界巡逻和动态重新定位行为。
+【文章缺点】1. 方法高度依赖人工设计的reward、fire visibility编码和候选动作启发式，策略学习到的“火场巡逻”可能</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】 4分  【论文的motivation】 1. VLA模型通常在时间坐标中生成动作，未显式建模动作轨迹中不同频率成分对应的运动尺度与非均匀能量分布。 2. Flow Matching训练目标可能被高能量频率主导，导致低能量但对精细控制重要的频率成分学习不足。 3. 现有方法缺乏贯穿动作生成流程的频率条件建模，难以系统利用动作轨迹的多尺度时序结构。  【解决了哪些前人工作中的空白】 1. ...">Frequency-Conditioned Flow Matching for Vision-Language-Action Models</span></td>
+        <td class="author-cell">Haochen Niu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10405" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10405" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】 4分
+
+【论文的motivation】
+1. VLA模型通常在时间坐标中生成动作，未显式建模动作轨迹中不同频率成分对应的运动尺度与非均匀能量分布。
+2. Flow Matching训练目标可能被高能量频率主导，导致低能量但对精细控制重要的频率成分学习不足。
+3. 现有方法缺乏贯穿动作生成流程的频率条件建模，难以系统利用动作轨迹的多尺度时序结构。
+
+【解决了哪些前人工作中的空白】
+1. 将动作频率从隐含的轨迹属性提升为显式条件变量，补充了VLA中基于频域动作建模的研究空白。
+2. 针对不同频率成分能量分布不均衡问题，改进了Flow Matching训练目标对频率的统一处理方式。
+3. 在不修改VLA backbone的情况下，将频域建模整合进现有action expert，降低了方法迁移成本。
+4. 通过频率相关的guidance约束，弥补了现有Flow Matching方法缺乏分频率传输尺度控制的问题。
+
+【提出了什么创新的方法】
+1. 将动作轨迹通过Discrete Cosine Transform（DCT）转换至频率坐标，并把不同频率成分作为显式生成条件。
+2. 构造spectrum-matched source distribution，使Flow Matching的源分布在频谱结构上更接近目标动作分布，减少不同频率之间的分布错配。
+3. 根据各频率成分的能量或学习难度，自适应平衡Flow Matching objective，避免高能量频率主导训练。
+4. 计算不同频率对应的reference transport scales，并约束per-frequency guidance residual，使生成过程中的引导强度与频率相关运动尺度匹配。
+5. 将频率条件贯穿源分布构造、训练目标和生成引导流程，同时保持VLA backbone不变，仅改造Flow Matching action expert。
+6. 在LIBERO、LIBERO-Plus、VLA-Arena以及六项真实机器人任务上进行验证，结果显示该方法能够稳定提升操作性能，其中LIB</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A traffic management system for large and heterogeneous vehicles in narrow industrial environments</span></td>
+        <td class="author-cell">Alessandro Bonetti</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10400" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10400" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Data-Driven Risk Fields for Safer End-to-End Autonomous Driving</span></td>
+        <td class="author-cell">Yuanxin Tian</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10377" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10377" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Odometer-Agnostic Drift Correction Using OpenStreetMap Lane Geometry</span></td>
+        <td class="author-cell">Joaquin Caballero</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10336" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10336" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for publication in IEEE Robotics and Automation Letters (RA-L), 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Deformable Object Manipulation under Partial Observability via Real-Time Full-Shape Estimation</span></td>
+        <td class="author-cell">Kosar Behnia</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10308" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10308" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Learning Terrain-Adaptive Humanoid Locomotion on Granular Terrain</span></td>
+        <td class="author-cell">Junnosuke Kamohara</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10286" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10286" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>SwingBot: Learning Whole-Body Brachiation for Humanoid Robots</span></td>
+        <td class="author-cell">Yujie Xiong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10283" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10283" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>CORL2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>FolDeX: A Physical-World Benchmark for Long-Horizon Robotic Manipulation of Deformable Objects</span></td>
+        <td class="author-cell">Chenhuan Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10243" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10243" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CougarTail &amp; CUB: A General-Purpose Mast and Central Utility Board for Cylindrical Underwater Enclosures</span></td>
+        <td class="author-cell">Ben Washburn</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10230" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10230" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Adaptive Shared Control with Online Bounded-Rational Human Behavior Estimation</span></td>
+        <td class="author-cell">Henry Ascencio Trejo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10215" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10215" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Multi-Robot Scanner for Automated Full-Body Dermoscopic Imaging</span></td>
+        <td class="author-cell">Valerio Franchi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10169" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10169" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Future-Aware Flow Planning for Safe UAV Target Following</span></td>
+        <td class="author-cell">Boning Feng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10166" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10166" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Assembling Two Parts in One Hand</span></td>
+        <td class="author-cell">Liuao Pei</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10137" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10137" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://ltbgbird.github.io/in-hand-assembly-page/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>To appear on Conference on Robot Learning (CoRL) 2026. Project website:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Automatic Reproducible Camera Intrinsic Calibration</span></td>
+        <td class="author-cell">Xiangcheng Hu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10082" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10082" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Grounding Generated Video Plans in Simulation Towards Versatile Dexterous Controllers</span></td>
+        <td class="author-cell">Tianyue Wu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10050" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10050" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://boyuan-an.github.io/GALATEA/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project website:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>What Symmetry Buys a Learned Motion Planner</span></td>
+        <td class="author-cell">Andrea Emir Sevincel</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10033" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10033" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>AXON: A ROS 2 RMW with Shared-Memory/QUIC Transport and QKD/ML-KEM Key Establishment</span></td>
+        <td class="author-cell">Sergio Sánchez de la Fuente</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10024" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10024" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>RoboDrop: Curating VLA Post-Training Data via Local Gradient Compatibility</span></td>
+        <td class="author-cell">Runze Xu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10021" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10021" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>HaWMPO: Hallucination-Aware World Model-based Policy Optimization for Generalist Robot Policy</span></td>
+        <td class="author-cell">Zengjue Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09941" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09941" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>ViBe: Visual Behavior Adaptation for Perceptive Humanoid Whole-Body Control</span></td>
+        <td class="author-cell">Lokesh Krishna</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09918" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09918" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://lok-i.github.io/vibe-control/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>GTA-2: A Multi-VLM Framework for Synthesizing Robot Manipulation Skills via Grounded Task Axes</span></td>
+        <td class="author-cell">M. Yunus Seker</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09808" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09808" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>HiRAD: A Flexible Large-Scale AGV Routing System</span></td>
+        <td class="author-cell">Yunjie Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09752" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09752" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>PccDiffuser: Multi-solution Motion Planning for Continuum Robots</span></td>
+        <td class="author-cell">Ke Qiu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09745" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09745" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>video</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CT-SAFR: Safe and Interpretable Chain-of-Thought Reasoning for Autonomous Robots: A Multi-Layered Verification Framework for Trustworthy AI-Driven Robotic Decision Making</span></td>
+        <td class="author-cell">Cagri Temel</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09692" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09692" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted version. Published in 2026 IEEE Conference on Artificial Intelligence (CAI), pp. 598-603</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A Risk-Sensitive and Uncertainty-Aware Decision-Making and Control Framework for Safe and Robust Autonomous Driving</span></td>
+        <td class="author-cell">Zhuoren Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09650" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09650" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>JEPA Policy: Diffusion-Free Imitation Learning via Paired Action and Future Representation Prediction</span></td>
+        <td class="author-cell">Jie Xu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09630" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09630" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://jiejie567.github.io/JEPA-Policy/" target="_blank" rel="noopener">🔗 Code1</a><br><a class="resource-tag code" href="https://github.com/jiejie567/JEPA-Policy" target="_blank" rel="noopener">🔗 Code2</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Code:this https URL. Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>MuJoCable: Reduced-Order Surface-Routed Cable Transmission for Tendon-Driven Robots</span></td>
+        <td class="author-cell">Yi Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09612" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09612" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Compact Visuotactile World Models for Lifting: Prediction, Reward Alignment, and Force Constraints</span></td>
+        <td class="author-cell">Qinzhen Ma(Rice University)</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09597" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09597" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Code and tabulated results included as ancillary material</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Actuator Dynamics Curricula for Narrow-Viability Tasks in Legged Robot Learning</span></td>
+        <td class="author-cell">Kousheek Chakraborty</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09492" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09492" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at 2026 Conference on Robot Learning (CoRL)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A Decade of Bayesian Optimization for Controller Tuning and Robot Learning: Tutorial, Review, and Future Prospects</span></td>
+        <td class="author-cell">David Stenger</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09403" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09403" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Currently under review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>AccelMPC: High-Rate, Low-Power FPGA-Accelerated Model Predictive Control for Tiny Drones</span></td>
+        <td class="author-cell">Andrea Grillo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09380" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09380" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>No Free Checker: A Survey of Verifiers for Robot Policies</span></td>
+        <td class="author-cell">Yang Wan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09250" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09250" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/ZJUSCL/Awesome-Robot-Verifier" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Survey., 187 references. Covers reward models, success and failure detection, temporal-logic and formal verification, world-model evaluation, and reward hacking. Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Learning to Fly: Stable Vision-Guided UAV Servoing with Compact Target-Centric Cues and Reinforcement Learning</span></td>
+        <td class="author-cell">Saurbh Singh Jamwal</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09234" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09234" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Design and Attitude Control of an Underwater Quadruped Robot</span></td>
+        <td class="author-cell">Davide Molinaroli</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09217" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09217" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted to ISRR 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Geometry Conditioning in an Embodied SLM: Training Controls and Robustness Diagnostics in a 0.8B Hybrid Model</span></td>
+        <td class="author-cell">Hao Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09213" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09213" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Includes ancillary data and analysis code</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Identifying Habit, Physics, and Nuisance in Robot World Models</span></td>
+        <td class="author-cell">Jinting Hang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09210" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09210" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>PACE: Perceived-Latency-Aware Cascading Service Routing and Filler Control for QoE-Efficient Retrieval-Augmented Dialogue Serving</span></td>
+        <td class="author-cell">Lin Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10372" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10372" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Frame-Coded Legged Locomotion over Noisy Terrain</span></td>
+        <td class="author-cell">Lav R. Varshney</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10273" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10273" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>IMU-Centric Moving Horizon Estimation for Lateral Dynamics Estimation Across Vehicles and Grip Conditions</span></td>
+        <td class="author-cell">Seuffo Akouan ha Ngoune</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10202" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10202" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at the 29th IEEE International Conference on Intelligent Transportation Systems (ITSC 2026).</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Belief-State Engine: Augmenting LLMs for Principled Planning Under Partial Observability</span></td>
+        <td class="author-cell">Arnab Chattopadhayay</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10036" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10036" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Total number of pages: 19, total number of figures: 5</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Time-Frequency Geometric Cross-Attention for Chunked Vision-Language-Action Models</span></td>
+        <td class="author-cell">Shengye Dong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09925" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09925" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Decision Transformer for UAV-Mounted RIS-Assisted Dynamic D2D Communications</span></td>
+        <td class="author-cell">Yaxuan Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09885" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09885" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CLFTv2: Efficient Camera-LiDAR Fusion for Semantic Segmentation via Hierarchical Feature Pyramids</span></td>
+        <td class="author-cell">Toomas Tahves</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09881" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09881" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>RealSimLoop: Online Real-to-Sim Adaptation via Differentiable Reduced-Order Simulation with Vision Feedback</span></td>
+        <td class="author-cell">Zhihao Cen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09828" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09828" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>InstantMimic: A High Performance System for Learning Physics-based Skills in Seconds</span></td>
+        <td class="author-cell">Ikjun Choi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09821" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09821" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://scripter36.github.io/projects/instantmimic/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to SIGGRAPH Asia 2026 Conference Papers. . Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Why Learning Rediscovers the Closed-Form Diagonal Regularizer</span></td>
+        <td class="author-cell">Jeahn Han</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09656" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09656" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>main paper: appendix</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Unthrottling the Tanh Jacobian in SAC: A Negative Result on Bang-Bang Control and MetaDrive</span></td>
+        <td class="author-cell">Faiq Shamass</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09478" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09478" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/fshamass/Tanh-Bypass" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Technical report. Negative result. Code:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Fast Constraint Extraction for Corrective Control under STL Specifications via Logical Dependency Tracking</span></td>
+        <td class="author-cell">Antoine Besset</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09439" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09439" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for publication at 65th IEEE Conference on Decision and Control (CDC 26)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Decision-Focused Active Learning for Scale-Aware Critical-Materials Recovery</span></td>
+        <td class="author-cell">Niranjan Srinivas</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09413" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09413" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Networked Admissibility-Preserving Control for Directed Safe Coordination</span></td>
+        <td class="author-cell">Abhinav Sinha</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.09384" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.09384" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+        </tbody></table>
+    </div>
+</div>
+<div class="date-section" id="date-20260909">
+    <div class="date-header">
+        <span>2026-09-09（95篇论文）</span>
+        <span class="arrow">▶</span>
+    </div>
+    <div class="date-content" style="display: none;">
         <table>
         <!-- 添加 colgroup 明确指定每列宽度 -->
         <colgroup>
@@ -4074,55 +4569,6 @@ SocioGesture采用online–offline解耦的系统流程：机器人端首先通�
         </tbody></table>
     </div>
 </div>
-<div class="date-section" id="date-20260905">
-    <div class="date-header">
-        <span>2026-09-05（1篇论文）</span>
-        <span class="arrow">▶</span>
-    </div>
-    <div class="date-content" style="display: none;">
-        <table>
-        <!-- 添加 colgroup 明确指定每列宽度 -->
-        <colgroup>
-            <col style="width: 25%">  <!-- Title -->
-            <col style="width: 15%">   <!-- Authors -->
-            <col style="width: 10%">   <!-- Resources -->
-            <col style="width: 10%">   <!-- Relevance -->
-            <col style="width: 40%">  <!-- Summary -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>标题</th>
-                <th>作者</th>
-                <th>资源</th>
-                <th>相关性</th>
-                <th>总结</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【论文的motivation是什么】   1. 多机器人编队控制需要同时实现期望距离保持、运动过程中的碰撞避免与闭环稳定性，但传统几何控制、势场方法和虚拟耦合方法通常缺乏统一的能量建模与控制设计框架。   2. 现有角度或bearing-based方法主要描述相对方向，难以同时编码编队几何、相对速度与能量交换关系。   3. 需要将机器人交互拓扑、虚拟弹簧阻尼耦合、port-Hamiltonian...">Formation Matrix and Energy-based Control of Multi-Agent Systems</span></td>
-        <td class="author-cell">Martín Crespo</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.04158" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.04158" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【论文的motivation是什么】  
-1. 多机器人编队控制需要同时实现期望距离保持、运动过程中的碰撞避免与闭环稳定性，但传统几何控制、势场方法和虚拟耦合方法通常缺乏统一的能量建模与控制设计框架。  
-2. 现有角度或bearing-based方法主要描述相对方向，难以同时编码编队几何、相对速度与能量交换关系。  
-3. 需要将机器人交互拓扑、虚拟弹簧阻尼耦合、port-Hamiltonian系统和稳定性分析统一起来，并支持leader-following与position-based两类编队任务。  
-
-【前人的工作如何解决该问题，存在哪些空白】  
-1. Artificial potential field通过虚拟势能实现距离调节和碰撞规避，但容易产生局部极小值，且通常缺乏系统化的能量流、耗散与互联结构分析。  
-2. Virtual spring-damper coupling能够以物理直觉实现编队保持和振荡抑制，但多数方法没有将耦合拓扑、能量交换和控制器设计统一到严格的port-Hamiltonian框架中。  
-3. Bearing-based formation control利用角度约束描述编队形状，但通常只关注方向关系，不能直接同时表达边距离和相对速度。  
-4. 既有pHS和passivity-based formation control能够提供稳定性工具，但系统动力学与交互几何往往相互解耦，难以自然导出与编队结构相关的Casimir invariants。  
-5. 现有方法对point-mass、rigid-body mobile robots、CbI controller之间的统一表达不足，且缺乏由互联几何直接诱导的static feedback解释。  
-
-【提出了什么创新的方法】  
-1. 将多机器人表示为图结构：机器人对应节点，机器人对之间的相对位移对应有向边，并通过incidence matrix统一组织所有边的几何关系。  
-2. 提出Formation Matrix，将每条边的方向余弦、正弦以及边长等几何信息组织起来，同时描述agent间的相对位移和相对速度。相比单纯bearing</small></details></td>
-    </tr>
-        </tbody></table>
-    </div>
-</div>
         </main>
 
         <footer>
@@ -4193,7 +4639,7 @@ SocioGesture采用online–offline解耦的系统流程：机器人端首先通�
             });
             
             // ========== 自动展开最新日期 ==========
-            const latestId = 'date-20260909';
+            const latestId = 'date-20260910';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
                 if (latestSection) {
