@@ -628,7 +628,7 @@
         <header>
             <h1>🤖 arXiv 机器人领域论文汇总</h1>
             <div class="intro">
-                <p>📊 共 <strong>292</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
+                <p>📊 共 <strong>379</strong> 篇｜仅显示最近 5 天数据｜⭐ 相关性评分 1-5 分</p>
                 <p>🔗 点击日期可展开/折叠｜📚 Zotero 按钮需安装 <a href="https://www.zotero.org/download/connectors" target="_blank">Connector 插件</a></p>
             </div>
         </header>
@@ -636,17 +636,1381 @@
         <!-- 日期导航 -->
         <nav class="nav">
             <strong>📅 日期导航：</strong>
-            <a href="#date-20260916">2026-09-16（130篇）</a> | <a href="#date-20260915">2026-09-15（98篇）</a> | <a href="#date-20260914">2026-09-14（56篇）</a> | <a href="#date-20260912">2026-09-12（8篇）</a>
+            <a href="#date-20260917">2026-09-17（95篇）</a> | <a href="#date-20260916">2026-09-16（130篇）</a> | <a href="#date-20260915">2026-09-15（98篇）</a> | <a href="#date-20260914">2026-09-14（56篇）</a>
         </nav>
 
         <!-- 论文内容区块 -->
         <main>
-            <div class="date-section" id="date-20260916">
+            <div class="date-section" id="date-20260917">
     <div class="date-header">
-        <span>2026-09-16（130篇论文）</span>
+        <span>2026-09-17（95篇论文）</span>
         <span class="arrow">▼</span>
     </div>
     <div class="date-content" style="display: block;">
+        <table>
+        <!-- 添加 colgroup 明确指定每列宽度 -->
+        <colgroup>
+            <col style="width: 25%">  <!-- Title -->
+            <col style="width: 15%">   <!-- Authors -->
+            <col style="width: 10%">   <!-- Resources -->
+            <col style="width: 10%">   <!-- Relevance -->
+            <col style="width: 40%">  <!-- Summary -->
+        </colgroup>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>作者</th>
+                <th>资源</th>
+                <th>相关性</th>
+                <th>总结</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】 1. VLA模型推理延迟限制机器人闭环控制频率，导致环境响应迟缓、动作连续性下降。 2. 工业操作任务具有重复执行、固定工作站和相似轨迹等特征，但现有推理加速方法未充分利用跨任务执行的相似性。 3. VLA推理包含compute-bound的多模态上下文编码和memory-bound的动作去噪，单阶段优化难以获得显著端到端加速。 4. 现有扩...">rMuscle: Robotic Muscle Memory for Efficient Vision-Language-Action Model Inference</span></td>
+        <td class="author-cell">Kaijun Zhou</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19104" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19104" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】
+1. VLA模型推理延迟限制机器人闭环控制频率，导致环境响应迟缓、动作连续性下降。
+2. 工业操作任务具有重复执行、固定工作站和相似轨迹等特征，但现有推理加速方法未充分利用跨任务执行的相似性。
+3. VLA推理包含compute-bound的多模态上下文编码和memory-bound的动作去噪，单阶段优化难以获得显著端到端加速。
+4. 现有扩散模型缓存与去噪步跳过方法依赖较长去噪序列，不适用于VLA中仅有少量去噪步骤的场景。
+
+【解决了哪些前人工作中的空白】
+1. 现有VLA推理优化主要利用相邻帧或单次推理内部的冗余，缺少对重复任务执行之间长期相似性的系统利用。
+2. 现有方法通常只优化视觉上下文编码或动作去噪其中一个阶段，未针对两阶段不同硬件瓶颈设计统一的端到端方案。
+3. 传统扩散模型的整步缓存或去噪步跳过会丢失VLA少量去噪步骤中的关键动作 refinement，缺少更细粒度的神经元级复用机制。
+4. 现有缓存方案通常忽略机器人推理与物理执行交替产生的时间窗口，以及缓存显存容量和动态访问问题。
+
+【提出了什么创新的方法】
+1. rMuscle首先分析重复工业任务中的VLA内部状态相似性，发现相似执行不仅具有相近的视觉输入和动作轨迹，还具有相似的FFN输入、输出及神经元激活模式。
+2. 针对compute-bound的VLM prefill阶段，设计Context Cache。方法缓存历史执行中延迟关键MLP层的输出，并比较当前FFN输入与缓存输入，仅对偏差显著的部分重新计算，再将新计算结果与缓存结果合并重建完整层输出。
+3. 针对memory-bound的动作去噪阶段，设计Action Cache。方法利用相似历史执行的神经元激活</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】 1. 如何将VLM对任务语义的高层理解与 humanoid whole-body RL controller 所需的结构化、精确目标有效衔接。 2. 如何在缺少完整参考轨迹的情况下，仅通过稀疏目标指导机器人完成长时序 loco-manipulation。 3. 如何避免端到端VLA对大规模、昂贵且机器人本体相关的动作数据依赖。 4. 如何使低...">KINO: A Keyframe Interface for VLM Planning and Whole-Body Control in Humanoid Loco-Manipulation</span></td>
+        <td class="author-cell">Sitong Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18869" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18869" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】
+1. 如何将VLM对任务语义的高层理解与 humanoid whole-body RL controller 所需的结构化、精确目标有效衔接。
+2. 如何在缺少完整参考轨迹的情况下，仅通过稀疏目标指导机器人完成长时序 loco-manipulation。
+3. 如何避免端到端VLA对大规模、昂贵且机器人本体相关的动作数据依赖。
+4. 如何使低层控制器在VLM提供稀疏且不规则的关键帧目标时，仍能生成稳定、动态可行的全身动作。
+
+【解决了哪些前人工作中的空白】
+1. 现有human motion imitation与motion tracking方法通常要求推理阶段提供完整运动轨迹，难以由VLM根据任务语义在线生成和组合。
+2. 现有VLM/VLA方法多数面向机械臂操作或直接输出动作，尚未有效解决高维、高频、涉及平衡与接触转换的humanoid whole-body control接口问题。
+3. 既有keyframe控制方法依赖人工指定推理时关键帧，缺少由视觉语言模型根据任务和场景自动选择关键帧的机制。
+4. 现有低层RL策略通常针对密集或连续参考轨迹训练，难以可靠跟踪VLM提供的稀疏keyframe目标。
+
+【提出了什么创新的方法】
+1. 提出KINO分层框架，将VLM task planning、keyframe retargeting与keyframe-conditioned whole-body RL policy连接起来。
+2. 预先构建motion keyframe library，每个keyframe包含机器人全身目标姿态，并在需要时包含物体目标姿态，作为VLM与低层控制器之间的统一中间表示。
+3. 给定语言指令、场景观测和执行反馈，VLM从keyframe library中选择下一个任务相关关键帧，而非直接预测关节动作或完整运动轨迹。
+4. 根据当前物体位置、姿态和尺寸对选定keyframe进行scene-aware retargeting，将参考关键帧调整为当前场景中的可执行目标。
+5. 训练keyframe-conditioned whole-body RL policy</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 如何让人形机器人根据机载环境感知，在杂乱场景中统一选择并协调跨越、侧身通过和钻越等全身运动？   2. 如何避免依赖任务特定的强化学习目标、人工技能库和障碍物专用策略，实现可扩展的行为学习？   3. 场景对齐的人类演示数据规模扩大后，是否能够持续提升未知场景中的闭环运动生成与执行性能？   4. 如何将感知、短时域运动规划和高频全...">PASSAGE: Scaling Scene-Aligned Motion Learning for Perceptive Humanoid Traversal in Cluttered Environments</span></td>
+        <td class="author-cell">Yuxuan Ma</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18732" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18732" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 如何让人形机器人根据机载环境感知，在杂乱场景中统一选择并协调跨越、侧身通过和钻越等全身运动？  
+2. 如何避免依赖任务特定的强化学习目标、人工技能库和障碍物专用策略，实现可扩展的行为学习？  
+3. 场景对齐的人类演示数据规模扩大后，是否能够持续提升未知场景中的闭环运动生成与执行性能？  
+4. 如何将感知、短时域运动规划和高频全身跟踪整合为无需预建地图和外部计算的实时系统？  
+
+【解决了哪些前人工作中的空白】  
+1. 现有RL方法通常依赖场景专用专家、手工设计的运动目标或昂贵的specialist训练，难以扩展到统一的全身行为。  
+2. 现有whole-body motion tracking方法能够执行多样参考动作，但通常不负责根据环境几何自主选择未来运动。  
+3. 既有scene-aligned human motion数据规模较小，尚未系统研究演示数据规模与闭环感知穿越性能之间的关系。  
+4. 现有方法往往依赖预定义skill、motion library、runtime motion graph或planner–tracker联合训练，PASSAGE尝试用单一planner–tracker pair完成无技能标注的行为组合。  
+5. 缺少从scene-aligned数据采集、感知条件运动生成到全机器人实时部署的完整闭环验证。  
+
+【提出了什么创新的方法】  
+1. 通过VR接口与inertial motion capture采集scene-aligned human demonstrations，并结合程序化场景生成、运动retargeting和MuJoCo运动学碰撞验证，构建覆盖100小时、1500个杂乱场景的数据集。  
+2. 构建perception-conditioned planner–tracker框架。Planner以motion history、local destination和robot-centric multi-layer elevation map为输入，通过conditional flow matching生成短时域whole-body motion references。  
+3. 使用perceptive whole-body tracker在50 Hz下执行规划参考，并通过几何反馈适应环境观测和跟踪误差。Tracker</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 杂乱场景中目标可达性存在多种可能解释，单一遮挡图或移除策略难以处理结构不确定性。   2. VLM输出通常未校准，关系置信度无法可靠组合为抓取与移除决策概率。   3. 独立预测的遮挡关系可能形成循环或整体不一致的图结构。   4. Top-K假设截断缺乏对被丢弃假设影响的量化保证，难以安全停止或合理延迟决策。    【解决了哪些前...">Calibrated Probabilistic Obstruction Reasoning with Vision-Language Models for Grasping in Clutter</span></td>
+        <td class="author-cell">Thanh-Tuan Tran</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18718" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18718" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to ICRA</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 杂乱场景中目标可达性存在多种可能解释，单一遮挡图或移除策略难以处理结构不确定性。  
+2. VLM输出通常未校准，关系置信度无法可靠组合为抓取与移除决策概率。  
+3. 独立预测的遮挡关系可能形成循环或整体不一致的图结构。  
+4. Top-K假设截断缺乏对被丢弃假设影响的量化保证，难以安全停止或合理延迟决策。  
+
+【解决了哪些前人工作中的空白】  
+1. 将VLM、深度和amodal mask证据融合为经过校准的遮挡关系概率，而非仅使用离散关系预测。  
+2. 从单一遮挡图或固定M-best候选扩展到满足可移除顺序的有效遮挡图后验分布。  
+3. 通过图后验边缘化同时估计目标可达性与阻挡物移除概率，避免过早承诺单一解释。  
+4. 为Top-K图截断引入total-variation误差界和决策稳定性判据，量化被忽略假设对最终动作的影响。  
+5. 将不确定性用于adaptive stopping和principled deferral，使机器人能够在证据不足时延迟动作。  
+
+【提出了什么创新的方法】  
+1. 输入RGB-D观测、VLM预测、深度线索和amodal mask，分别得到目标与物体之间的候选遮挡关系证据。  
+2. 使用scene-conditioned calibration重新缩放VLM置信度，并通过reliability-gated fusion根据不同来源的可靠性融合语义、几何和形状信息。  
+3. 将每条有向遮挡关系转换为概率，并仅保留能够诱导有效移除顺序的obstruction graphs，构造图结构后验分布。  
+4. 对所有有效图进行后验边缘化，计算目标可访问概率以及每个阻挡物应被移除的概率，从而选择抓取、移除或延迟。  
+5. 为Top-K图近似推</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 通用机器人策略虽具备可迁移先验，但在插入、对齐、放置等任务上通常存在推理延迟高、计算开销大和任务适应不足的问题。   2. 将generalist压缩为specialist后，如何利用有限的真实交互进一步提升策略性能仍缺乏高效学习反馈。   3. 终端成功或失败信号过于稀疏，无法指出执行过程中哪些中间决策导致了失败。   4. 单纯...">FIERCE: From Generalist Robot Policies to Fast Specialists via Progress-Failure Feedback</span></td>
+        <td class="author-cell">Runjia Tan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18651" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18651" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 通用机器人策略虽具备可迁移先验，但在插入、对齐、放置等任务上通常存在推理延迟高、计算开销大和任务适应不足的问题。  
+2. 将generalist压缩为specialist后，如何利用有限的真实交互进一步提升策略性能仍缺乏高效学习反馈。  
+3. 终端成功或失败信号过于稀疏，无法指出执行过程中哪些中间决策导致了失败。  
+4. 单纯的progress反馈可能与最终成功不一致，局部看似进展的动作可能增加后续卡死或失败风险。  
+5. 需要同时评估已发生轨迹的进展程度和候选动作导致未来失败的风险，以提高有限真实数据下的RL效率。  
+
+【解决了哪些前人工作中的空白】  
+1. 现有generalist-to-specialist方法通常依赖持续的generalist动作查询、人工纠正或更强的教师策略，FIERCE支持specialist利用自身rollout独立改进。  
+2. 传统progress reward主要评价已观察到的执行过程，缺少对候选动作及其未来后果的action-conditioned failure建模。  
+3. 终端奖励、progress反馈和failure预测通常被分开使用，缺少统一的、可适应目标任务的反馈接口。  
+4. 现有方法往往依赖密集人工奖励、目标任务模拟器或额外sim-to-real阶段，FIERCE试图在真实交互中直接完成反馈适配和策略优化。  
+5. failure detection通常用于监控、报警或恢复控制，较少直接作为策略学习中的风险惩罚信号。  
+
+【提出了什么创新的方法】  
+FIERCE首先利用generalist策略或示范轨迹初始化一个紧凑的specialist policy，之后不再持续调用generalist，而是通过specialist自身在目标任务中的rollout收集真实交互数据。
+
+其核心是一个统一的task-adaptive progress–failure evaluator。视觉与语言观测经过共享representation encoder后分为两条路径：第一条为observed-progress head，用于估计当前</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】 1. 真实机器人示范数据采集依赖硬件、人工监督与频繁重置，成本高、效率低，难以支持大规模通用操作策略学习。 2. 现有硬件无关的数据来源通常存在行为单一、动作标签缺失或需要人工筛选等问题，难以同时保证规模、质量与多样性。 3. 传统机器人数据采集中的游戏化主要依附真实机器人，仅增加表层奖励，无法真正解决硬件依赖和大规模众包问题。 4. 需要一...">From Gameplay to Policy: Towards Scalable Robot Data Collection via Gamified Robot-Free Interaction</span></td>
+        <td class="author-cell">Zheng Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18650" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18650" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】
+1. 真实机器人示范数据采集依赖硬件、人工监督与频繁重置，成本高、效率低，难以支持大规模通用操作策略学习。
+2. 现有硬件无关的数据来源通常存在行为单一、动作标签缺失或需要人工筛选等问题，难以同时保证规模、质量与多样性。
+3. 传统机器人数据采集中的游戏化主要依附真实机器人，仅增加表层奖励，无法真正解决硬件依赖和大规模众包问题。
+4. 需要一种能够激励人类持续参与、自动产生结构化标注，并将人类操作经验迁移至不同机器人形态的采集范式。
+
+【解决了哪些前人工作中的空白】
+1. 弥补了机器人操作数据采集依赖特定硬件、难以进行大规模众包的空白。
+2. 弥补了纯仿真数据行为模式单一、难以体现自然人类操作多样性的空白。
+3. 弥补了人类视频缺少动作标签、难以直接用于 imitation learning 的空白。
+4. 弥补了现有机器人数据采集游戏化仅停留在奖励叠加、未实现 robot-free interaction 的空白。
+5. 弥补了虚拟人类操作经验向真实机器人 few-shot policy transfer 中缺少 embodiment-invariant 中间表征的空白。
+
+【提出了什么创新的方法】
+1. 提出 Project Kitchen：构建基于 VR 的第一视角、游戏化厨房操作环境。用户在无真实机器人参与的情况下，通过目标、即时反馈和渐进式挑战完成多样化 manipulation 任务。
+2. 利用游戏中的任务目标与 subtask success predicates 自动判断阶段完成情况，为 gameplay trajectories 提供结构化的子目标和成功标注，减少人工筛选与动作标注成本。
+3. 从游戏轨迹中提取 embodiment-invariant affordance cues，重点包括物体接触点、操作关系和 sub-goal states，将人类操作经验转换为更容易跨机器人迁移的中间知识。
+4. 提出 Game2Policy：首先使用大规模 gameplay 数据预训练 affordance model，使</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 从文本或单张图像生成同时具备合理几何、外观、材料属性和接触行为的可变形机器人交互资产。   2. 解决静态视觉输入无法直接确定材料参数、接触属性和变形响应的问题。   3. 解决几何、物理模型、材料行为与机器人操作之间的耦合构建和一致性维护问题。   4. 利用仿真测试与机器人操作反馈验证并迭代资产，使其能够用于变形物体操作模拟和数...">DeformSmith: Physics Harness-Guided Hierarchical Generation of Deformable Assets for Robot Manipulation</span></td>
+        <td class="author-cell">Can Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18620" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18620" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://can-lee.github.io/deformsmith-web/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 从文本或单张图像生成同时具备合理几何、外观、材料属性和接触行为的可变形机器人交互资产。  
+2. 解决静态视觉输入无法直接确定材料参数、接触属性和变形响应的问题。  
+3. 解决几何、物理模型、材料行为与机器人操作之间的耦合构建和一致性维护问题。  
+4. 利用仿真测试与机器人操作反馈验证并迭代资产，使其能够用于变形物体操作模拟和数据生成。  
+
+【解决了哪些前人工作中的空白】  
+1. 相比依赖视频观测或真实交互的物理参数估计方法，支持仅从文本或单张图像自动构建可交互的可变形资产。  
+2. 弥补PhysGen3D、PhysGM等单图像生成方法缺少后续物理测试、参数修正和交互验证的不足。  
+3. 将几何生成、物理属性配置、材料行为建模和机器人操作准备统一到一个渐进式生成框架中。  
+4. 将机器人操作反馈纳入资产生成闭环，而非仅通过静态视觉质量或基础物理探针评价资产。  
+5. 为可变形物体操作提供可重放的交互数据，拓展了生成式资产构建对robot learning和simulation data generation的支持。  
+
+【提出了什么创新的方法】  
+1. DeformSmith以文本或单张图像为输入，采用hierarchical agentic construction逐步构建可变形资产。生成过程依次或分层处理几何结构、物理表示、材料行为、接触条件以及机器人交互准备状态。  
+2. 在各层级之间引入共享的physics-grounded harness，将资产构建、仿真评估、问题诊断和版本修订连接起来。每次生成或修改后，通过物理探针和交互测试检查变形、接触及操作行为，并根据结果指导后续更新。  
+3. 通过层级化流程管理物理依赖关系，先建立必要的几何和物理基础，再配置更高</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 固定视角容易受到遮挡，机器人需要主动改变观察视角以获取任务相关信息。   2. 现有VLA缺乏显式理解相机位姿、关联跨视角观测以及预测后续相机运动的能力。   3. 现有egocentric数据中的相机运动信号尚未被充分利用来学习active perception。   4. 现有研究多聚焦静态环境，缺乏面向动态、杂乱场景的mobi...">ActiveScale: Scaling Active Perception for Robots across Model, Data, and Hardware</span></td>
+        <td class="author-cell">Shuai Zhou</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18514" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18514" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="http://active-scale.github.io" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>this http URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 固定视角容易受到遮挡，机器人需要主动改变观察视角以获取任务相关信息。  
+2. 现有VLA缺乏显式理解相机位姿、关联跨视角观测以及预测后续相机运动的能力。  
+3. 现有egocentric数据中的相机运动信号尚未被充分利用来学习active perception。  
+4. 现有研究多聚焦静态环境，缺乏面向动态、杂乱场景的mobile manipulation active perception。  
+5. 目前缺少统一覆盖model、data和hardware的active perception研究基础设施。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了VLA缺乏历史视觉、相机位姿建模和跨视角场景理解能力的空白。  
+2. 弥补了现有方法未充分利用egocentric视频中自然存在的相机运动和人类视觉意图信号的空白。  
+3. 将active perception从静态操作环境扩展到结合移动底盘、独立相机和双臂操作的mobile manipulation。  
+4. 提供了覆盖模型、规模化人机数据和机器人采集平台的统一研究框架。  
+
+【提出了什么创新的方法】  
+1. **Pose-grounded temporal VLA**：将单帧图像输入扩展为包含历史观测的视频序列，使模型能够利用连续视觉信息建立跨视角关联。  
+2. **Camera token与位姿预测**：为每个前置相机帧引入可学习camera token，跟随对应视觉特征，并通过linear projector和辅助camera head预测相机平移、旋转及field of view。  
+3. **跨视角持久场景建模**：利用历史帧的视觉特征和相机位姿监督，使VLA学习相机运动与场景变化之间的关系，从而支持基于历史观测预测未来视角和操作行为。  
+4. **Human–robot mid-training**：在超过1000小时的egocentric human和robot数据上进行中期训练，使预训练VLA适应时序输入、相</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】 1. 现有抓取表示难以同时描述局部手部几何、物体几何与接触关系，导致生成结果的表达能力和物理一致性不足。 2. Contact map缺少参与接触的手部几何信息，dense geometric representation则包含大量冗余信息，难以支持高效生成。 3. 人手与机器人手在形态和表面建模上差异显著，缺乏统一的cross-embodi...">InterMASH: A Unified Geometric Representation for Grasp Synthesis</span></td>
+        <td class="author-cell">Xuanze Yang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18504" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18504" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://inter-mash.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project Page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】
+1. 现有抓取表示难以同时描述局部手部几何、物体几何与接触关系，导致生成结果的表达能力和物理一致性不足。
+2. Contact map缺少参与接触的手部几何信息，dense geometric representation则包含大量冗余信息，难以支持高效生成。
+3. 人手与机器人手在形态和表面建模上差异显著，缺乏统一的cross-embodiment表示，限制了human grasp data向robotic grasping的迁移。
+4. 现有方法通常将接触预测与手部几何生成分离，容易产生shape-contact不一致、穿透和物理不可行等问题。
+
+【解决了哪些前人工作中的空白】
+1. 弥补了contact map仅表达接触位置、无法描述局部手部几何的不足。
+2. 弥补了dense distance field和SDF等表示冗余度高、计算成本大、难以直接tokenize生成的不足。
+3. 弥补了不同hand morphology之间缺少共享索引空间和语义对应关系的问题。
+4. 弥补了手部几何与contact通常分阶段生成、缺少联合建模的问题。
+5. 探索了利用human grasp data提升robotic grasp success rate与diversity的统一表示和训练路径。
+
+【提出了什么创新的方法】
+1. 提出InterMASH统一交互表示：以object-centered sphere上的固定anchors作为共享索引，将不同embodiment的hand-object interaction映射到统一token space。
+2. 在每个anchor处使用低阶spherical harmonics编码局部hand surface、object surface和contact信息，相比BPS中的单一距离值具有更强的局部几何表达能力，同时保持紧凑性。
+3. 为解决固定anchor与手部语义区域不一致的问题，首先建立MANO reference patch ordering，再通过keypoint-distance signatures将robotic-hand templates对齐至MANO，从而获得跨embodiment的语义排序。
+4. 采用coarse-to-fine SH fitting schedule，逐步提高spherical harmonic degree，缓解hand与object SH系数联合优化</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 视觉信息难以可靠识别接触发生、交互强度与物体受力状态，导致视觉主导的VLA在contact-rich manipulation中感知不足。   2. 仅输出position command的策略难以快速响应接触动力学变化，缺乏足够的compliance与物理交互鲁棒性。   3. Force sensing缺少大规模预训练特征提取器...">TAO-Force: Unifying Force-Aware Perception and Fast-Slow Control for Contact-Rich Manipulation</span></td>
+        <td class="author-cell">Bohan Gan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18497" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18497" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 视觉信息难以可靠识别接触发生、交互强度与物体受力状态，导致视觉主导的VLA在contact-rich manipulation中感知不足。  
+2. 仅输出position command的策略难以快速响应接触动力学变化，缺乏足够的compliance与物理交互鲁棒性。  
+3. Force sensing缺少大规模预训练特征提取器，后训练中视觉表征可能压制force信息的有效利用。  
+4. 现有motion–force联合预测方法缺乏显式contact-state估计及非接触、接触阶段之间的稳定控制切换。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了视觉主导VLA缺乏显式物理交互感知的空白，将六维wrench作为策略决策的重要条件信息。  
+2. 缓解了force特征缺乏预训练先验、容易被视觉语言表征压制的问题。  
+3. 弥补了现有force-conditioned policy仅输入力反馈、但无法进行高频柔顺执行的不足。  
+4. 解决了联合预测motion与force target但缺乏contact phase建模和控制切换机制的问题。  
+5. 连接了低频VLA轨迹生成与高频admittance control，实现非接触运动与接触调节的统一执行。  
+
+【提出了什么创新的方法】  
+1. 提出TAO-Force，在冻结的pretrained VLA backbone上进行force-conditioned adaptation，保留视觉语言模型已有的语义先验。  
+2. 设计Force-conditioned Feature-wise Linear Modulation（F-FiLM）。首先编码历史六维wrench，再通过学习到的scale与bias对视觉语言表示进行feature-wise modulation，使force信息直接影响动作与接触力预测。  
+3. 引入contact-causal force supervision，在pre-contact anchor处mask未来接触阶段的force-chunk target，避免未来力信号泄漏到尚未发生接触的预测阶段。  
+4. 策略同时预测nominal action、desired-force chunk和contact probability，使模型能够联合生成运动目标、力目标</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 现有action tokenizer主要依赖MSE等pointwise reconstruction指标，无法衡量压缩后不同示范动作之间的相对物理关系是否被保留。   2. 动作压缩可能使不同场景下必要的细微调整被削弱、扭曲甚至反转，从而影响精确抓取、对齐和接触控制。   3. 即使policy正确预测离散token，decoder...">ActionPiece: Rethinking Action Tokenization for Autoregressive Vision-Language-Action Models</span></td>
+        <td class="author-cell">Shijie Lian</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18487" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18487" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://deepcybo-physai.github.io/ActionPiece/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project Page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
+
+【论文的motivation】  
+1. 现有action tokenizer主要依赖MSE等pointwise reconstruction指标，无法衡量压缩后不同示范动作之间的相对物理关系是否被保留。  
+2. 动作压缩可能使不同场景下必要的细微调整被削弱、扭曲甚至反转，从而影响精确抓取、对齐和接触控制。  
+3. 即使policy正确预测离散token，decoder仍可能执行关系失真的重构动作，因此需要在tokenization阶段显式保持动作间的物理相对关系。  
+
+【解决了哪些前人工作中的空白】  
+1. 补充了action tokenizer仅使用MSE、重构误差和success rate进行评估的不足，引入decoded action space中的物理关系保真度指标。  
+2. 现有coordinate discretization、frequency compression和VQ方法缺乏对动作局部近邻排序关系的显式约束，ActionPiece填补了这一空白。  
+3. 以往方法主要关注encoder representation或codebook quantization本身，未同时约束连续表征学习和离散codeword assignment中的物理关系。  
+4. 缺少能够跨不同token vocabulary、sequence length和decoder architecture进行统一比较的action tokenization指标。  
+
+【提出了什么创新的方法】  
+1. 定义physical rank consistency（PRC）：对每个action chunk寻找原始动作空间中的局部邻居，比较压缩前后translation、rotation和gripper联合物理距离的相对排序，从而衡量局部关系保真度。  
+2. 提出ActionPiece tokenizer，采用Transformer encoder-decoder与residual vector quantization，将连续action chunk压缩为可用于autoregressive VLA训练的离散token。  
+3. 引入physical rank preservation（PRP），利用原始action chunk的near–far关系，同时约束encoder feature distance与quantized feature distance，使离散表征保持动作邻域结构。  
+4. 引入quantization regularization（QR），进一步约束codeword assignment distributions之间的divergence遵循原始动作的物理距离排序，减少量化阶段的关系破坏。  
+5. 将PRP</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】 1. 现有基于生成视频的机器人策略主要恢复运动轨迹，缺少接触时机、方向与力大小，难以处理擦拭、削皮、按压等contact-rich manipulation。 2. 真实力标注示范数据采集成本高，仿真中的力监督又依赖精确建模，限制了force-aware policy的数据规模与泛化能力。 3. 接触力难以从视觉中直接观测，而同步生成的接触声...">Dreaming the Sound of Contact: Leveraging Video and Audio Generation for Zero-Shot Force-Aware Manipulation and Data Generation</span></td>
+        <td class="author-cell">Guanhua Ji</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19137" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19137" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
+
+【论文的motivation】
+1. 现有基于生成视频的机器人策略主要恢复运动轨迹，缺少接触时机、方向与力大小，难以处理擦拭、削皮、按压等contact-rich manipulation。
+2. 真实力标注示范数据采集成本高，仿真中的力监督又依赖精确建模，限制了force-aware policy的数据规模与泛化能力。
+3. 接触力难以从视觉中直接观测，而同步生成的接触声音可能提供与交互强度相关的时序线索。
+4. 需要一种无需force-labeled demonstrations或simulation的zero-shot force-aware manipulation与数据生成方法。
+
+【解决了哪些前人工作中的空白】
+1. 弥补了video-generated robot trajectory仅包含kinematics、不包含接触力控制信息的缺陷。
+2. 探索使用生成音频作为相对力变化的代理信号，避免依赖真实力传感示范或工程化仿真监督。
+3. 将multimodal generative model、3D轨迹恢复与闭环力控制结合，实现从自然语言提示到force-aware manipulation的自动化流程。
+4. 进一步将生成的force-aware demonstrations用于训练闭环Diffusion Policy，拓展了生成式数据在接触操作中的应用。
+
+【提出了什么创新的方法】
+1. 根据structured natural-language task prompt与初始图像生成同步视频和音频，分别作为运动与接触强度信息的来源。
+2. 在生成视频中分割gripper和交互物体，通过3D point tracking恢复物体运动、接触方向及end-effector trajectory。
+3. 从生成音频中提取relative loudness，将其归一化并映射为bounded、time-varying desired-force profile，作为相对力变化的启发式表示，而非真实声音或绝对力预测。
+4. 将视觉恢复的运动轨迹与音频塑造的期望力曲线结合，在Franka Panda上通过closed-loop force regulator执行，实现接触过程中的力跟踪。
+5. 使用该pipeline批量生成带力信息的示范数据，并训练task-specific Diffusion Policies，使策略适应不同物体位置与外</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】   1. 多阶段、长时程 manipulation 任务需要反复重置场景与恢复失败状态，导致 human demonstration 收集成本高、效率低。   2. 真实机器人示范数量有限，难以支持 vision-based imitation learning 和多种 observation/action space 的训练。   3. 现...">Learning to Stack: Cube-Stacking Imitation Learning from Virtual Reality Demonstrations</span></td>
+        <td class="author-cell">Gryffin Reizian</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19040" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19040" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted manuscript. Accepted for publication in the 2026 IEEE National Aerospace and Electronics Conference (NAECON)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
+
+【论文的motivation】  
+1. 多阶段、长时程 manipulation 任务需要反复重置场景与恢复失败状态，导致 human demonstration 收集成本高、效率低。  
+2. 真实机器人示范数量有限，难以支持 vision-based imitation learning 和多种 observation/action space 的训练。  
+3. 现有虚拟示范流程通常将 teleoperation、数据构建和传感器配置绑定，历史轨迹难以复用。  
+4. 小型机械臂缺少低成本、高效率且可扩展的 immersive teleoperation 数据采集方案。  
+
+【解决了哪些前人工作中的空白】  
+1. 建立了面向 compact robot manipulation 的 VR virtual demonstration collection pipeline，降低了 cube-stacking 示范采集成本。  
+2. 将 demonstration collection 与 dataset construction 解耦，使已有轨迹能够重新 replay、retarget 和 re-render。  
+3. 补充了从 SE(3) end-effector commands 到 joint-space actions 的完整转换与验证流程。  
+4. 探索了 human demonstrations 与 Isaac Mimic synthetic augmentation 结合用于 imitation learning 的数据扩展方式。  
+
+【提出了什么创新的方法】  
+首先，使用 HTC Vive Pro 2、Manus Quantum gloves 和 OpenXR 构建 VR teleoperation interface，操作员通过提供末端执行器 SE(3) 指令控制 Isaac Sim/Isaac Lab 中的 5-DoF 机械臂完成多阶段 cube stacking。  
+
+随后，将采集阶段的 teleoperation trajectory 独立保存，不直接绑定最终训练数据格式。系统对记录轨迹进行 replay validation，并通过 inverse kinematics 将 task-space commands 转换为 joint-space actions，从而检查轨迹可执行性和任务完成情况。  
+
+在数据构建阶段，系统根据新的 observation、state 和 sensor configurations 重新渲染历史轨迹，使同一批 human demonstrations 能够被复用于不同相机布局、传感器状态和 action space，而无需重新进行 human teleoperation。  
+
+在此基础上，利用 Isaac Mimic 对已验证示范进行 replay、trajectory stitching 或 synthetic augmentation，扩展训练数据。最终使用 LeRobot-style dual-camera observations 训练 ResNet18-LSTM behavior-cloning policy，并加入 vision domain randomization</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】   1. 固定基座机械臂的工作空间有限，需要通过身体姿态调整与行走扩大末端执行器可达范围。   2. 双足机器人需要在末端跟踪、下肢运动和动态平衡之间进行协调，传统分层控制通常依赖显式底座或足步指令。   3. 不同操控任务应共享统一的任务接口，使高层策略只需提供末端目标，而无需理解全身运动细节。   4. 部分可观测条件下，控制器需要从历史...">Learning Holistic Whole-Body Loco-Manipulation with a Bipedal Mobile Manipulator</span></td>
+        <td class="author-cell">Zhongyu Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18930" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18930" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
+
+【论文的motivation】  
+1. 固定基座机械臂的工作空间有限，需要通过身体姿态调整与行走扩大末端执行器可达范围。  
+2. 双足机器人需要在末端跟踪、下肢运动和动态平衡之间进行协调，传统分层控制通常依赖显式底座或足步指令。  
+3. 不同操控任务应共享统一的任务接口，使高层策略只需提供末端目标，而无需理解全身运动细节。  
+4. 部分可观测条件下，控制器需要从历史观测中推断动力学状态，以生成稳定且协调的全身动作。  
+
+【解决了哪些前人工作中的空白】  
+1. 现有loco-manipulation工作主要集中于四足机器人或完整人形机器人，对低成本双足单臂平台上的整体协调研究不足。  
+2. 许多方法需要分别输入末端、根部、躯干、底座速度或足步指令，尚未充分实现仅依赖单个6-DoF末端目标的自主全身协调。  
+3. 现有末端控制方法通常将上肢操作与下肢移动分离，难以统一处理手臂够取、姿态调整、迈步和双足平衡。  
+4. 针对双足全身控制中tracking、locomotion与balance之间竞争关系的奖励调节，以及部分观测下动力学上下文建模，仍缺乏系统方案。  
+
+【提出了什么创新的方法】  
+1. 将单个瞬时6-DoF end-effector target作为唯一任务级输入，直接输出双足底座与机械臂的联合动作。控制器自主判断目标是否需要单纯手臂运动、身体姿态调整或迈步，从而形成统一的end-effector-driven whole-body control接口。  
+2. 基于强化学习训练全身控制策略，将末端跟踪、下肢运动和动态平衡整合到同一策略中，避免显式输入base velocity、footstep或body-posture command。  
+3. 在RFM基础上引入phase-specific safety scores、lower-bounded reward gating</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】   1. 独立组合whole-body motion tracker与手部retargeter时，无法显式保持身体、手腕和指尖之间的跨运动链几何关系。   2. 单姿态形态校准无法区分整体尺度与末端局部偏移，导致跨形态motion retargeting存在系统性误差。   3. 大规模retargeted motion数据包含不可行姿态、物...">Gated Residual Body-Hand Coordination for Whole-Body Humanoid Teleoperation</span></td>
+        <td class="author-cell">Ruiming Wu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18763" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18763" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
+
+【论文的motivation】  
+1. 独立组合whole-body motion tracker与手部retargeter时，无法显式保持身体、手腕和指尖之间的跨运动链几何关系。  
+2. 单姿态形态校准无法区分整体尺度与末端局部偏移，导致跨形态motion retargeting存在系统性误差。  
+3. 大规模retargeted motion数据包含不可行姿态、物理伪影、时间不连续和冗余样本，限制whole-body tracker训练质量。  
+4. 将身体和手部模块改造成monolithic controller会扩大优化空间，并破坏现有模块的独立更新与复用能力。  
+5. 残差控制需要根据运动上下文决定修正的作用对象、幅度和时机，避免破坏原有tracker与retargeter能力。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了模块化body–hand command直接组合中缺少跨运动链几何协调的问题。  
+2. 弥补了single-pose morphology calibration无法分离body scaling与effector-local offset的不足。  
+3. 弥补了大规模whole-body motion corpus缺乏系统化几何、物理、时间和密度感知清洗的问题。  
+4. 弥补了现有residual humanoid control主要面向单一末端或任务目标，缺少面向human teleoperation的body–hand联合校正。  
+5. 弥补了依赖object state、contact state或task phase的协调方法在无任务特定观测teleoperation场景中的适用性不足。  
+
+【提出了什么创新的方法】  
+1. 首先通过multi-pose morphology calibration，在多个配对human–robot姿态上联合估计root-frame triaxial scales与effector-local offsets，从而缓解单姿态拟合中的scale–offset ambiguity。  
+2. 对retargeted motion进行staged curation，包括几何有效性检查、物理质量筛选、时间不连续修复、ground-contact alignment以及density-aware selection，构造适用于目标humanoid的训练参考。  
+3. 使用清洗后的robot-specific motion训练</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】   1. 如何让RL策略在几何复杂、碰撞密集的操作场景中利用真实传感器获得的三维几何信息。   2. 如何弥合端到端视觉控制与依赖静态、手工几何表示的结构化控制之间的表达能力和实时性矛盾。   3. 如何将active online 3D reconstruction高效融入大规模并行RL训练，而不显著牺牲训练吞吐量。   4. 如何提升机器...">WeaveRL: Weaving Reconstruction into Scene-Aware Fabrics for Perceptive Reinforcement Learning</span></td>
+        <td class="author-cell">Remo Steiner</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18685" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18685" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
+
+【论文的motivation】  
+1. 如何让RL策略在几何复杂、碰撞密集的操作场景中利用真实传感器获得的三维几何信息。  
+2. 如何弥合端到端视觉控制与依赖静态、手工几何表示的结构化控制之间的表达能力和实时性矛盾。  
+3. 如何将active online 3D reconstruction高效融入大规模并行RL训练，而不显著牺牲训练吞吐量。  
+4. 如何提升机器人操作策略面对测试时未知障碍和场景几何变化的泛化能力。  
+
+【解决了哪些前人工作中的空白】  
+1. 以往geometric fabrics主要依赖bounding spheres、cuboids等手工指定的primitive，难以表达复杂和非规则场景几何。  
+2. 既有结构化控制方法通常使用预先构建的静态环境地图，无法反映传感器在线观测到的场景变化。  
+3. 端到端visuomotor policy虽然具有较强表达能力，但将感知、几何推理和控制耦合在一起，难以显式保证碰撞规避。  
+4. 现有perceptive RL缺少能够在数千并行仿真环境中进行active 3D reconstruction并参与训练闭环的高吞吐系统。  
+5. 结构化几何控制与在线感知重建尚未形成统一的sim-to-real RL训练、蒸馏和部署流程。  
+
+【提出了什么创新的方法】  
+1. 构建GPU-accelerated、tensorized的surfel reconstruction pipeline，在数千个并行仿真环境中同步处理传感器观测。  
+2. 在active RL rollout过程中持续重建场景，将深度观测转换为surfels，并维护可供策略和碰撞规避模块使用的显式三维几何表示。  
+3. 将重建结果接入DextrAH和geometric fabrics框架，以sensor-derived surfel geometry替代预定义的primitive-based world model。  
+4. 通过scene-aware geometric fabric，根据在线重建的障碍物几何生成具有碰撞规避</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：3分  【论文的motivation】   1. 传统碰撞检测将所有接触视为二元约束，无法区分接触纸箱与玻璃、电子设备等高风险物体的不同后果。   2. 直接机器人-物体碰撞可能推动物体，并进一步触发物体之间的级联碰撞，使风险依赖场景动态演化。   3. 纯碰撞规避可能产生过长甚至不可行的路径，而显式移障又需要额外的操作规划与执行。   4. 需要结合物体语义风险与物理后果，在允许...">CaSCo: Cascade-Aware Soft-Collision Motion Planning</span></td>
+        <td class="author-cell">Shivaram Kumar</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18910" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18910" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：3分
+
+【论文的motivation】  
+1. 传统碰撞检测将所有接触视为二元约束，无法区分接触纸箱与玻璃、电子设备等高风险物体的不同后果。  
+2. 直接机器人-物体碰撞可能推动物体，并进一步触发物体之间的级联碰撞，使风险依赖场景动态演化。  
+3. 纯碰撞规避可能产生过长甚至不可行的路径，而显式移障又需要额外的操作规划与执行。  
+4. 需要结合物体语义风险与物理后果，在允许低风险接触的同时避免高代价级联碰撞。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了传统MCR及其加权变体只关注约束违反、缺乏物体位姿演化与级联碰撞建模的不足。  
+2. 弥补了可移动障碍物规划通常以目标重排或显式移障为核心、难以处理偶然接触和全局风险权衡的不足。  
+3. 弥补了语义风险感知规划主要对直接接触赋予代价、忽略接触引起的间接物体扰动和后续可行性变化的不足。  
+4. 将语义风险、物理仿真、级联碰撞以及pay-once object risk统一到采样式运动规划框架中。  
+
+【提出了什么创新的方法】  
+1. 使用VLM或LLM为场景中的物体分配语义风险值，将纸箱、玻璃、电子设备等物体的接触代价区分开。  
+2. 在机器人配置空间构建probabilistic roadmap，并对候选局部路径调用physics simulator，预测机器人直接碰撞以及物体间级联碰撞造成的位姿变化。  
+3. 将搜索状态扩展为机器人roadmap节点、当前物体排列以及已支付风险的物体集合，使后续路径能够基于变化后的场景继续规划。  
+4. 采用针对唯一被扰动物体的pay-once风险目标，避免同一物体被多次接</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：3分  【论文的motivation】 1. 现有TAMP渐近最优性理论难以直接扩展到多机器人场景，因为不同任务转换可能涉及不同机器人子集，形成不同维度的transition strata。 2. 多机器人任务转换通常位于低维约束集合上，普通全空间采样无法有效覆盖，可能导致包含全局最优解的transition被永久遗漏。 3. 显式构建多机器人复合configuration-spa...">Asymptotically Optimal Multi-Robot Task and Motion Planning</span></td>
+        <td class="author-cell">Thi Thuy Ngan Duong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18813" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18813" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：3分
+
+【论文的motivation】
+1. 现有TAMP渐近最优性理论难以直接扩展到多机器人场景，因为不同任务转换可能涉及不同机器人子集，形成不同维度的transition strata。
+2. 多机器人任务转换通常位于低维约束集合上，普通全空间采样无法有效覆盖，可能导致包含全局最优解的transition被永久遗漏。
+3. 显式构建多机器人复合configuration-space roadmap具有指数级开销，需要利用单机器人规划结构实现可扩展的联合运动搜索。
+4. 规划器需要在保证所有关键transition持续探索的同时，提高有限时间内找到和优化高质量协同方案的效率。
+
+【解决了哪些前人工作中的空白】
+1. 以往TAMP渐近最优性分析主要面向单机器人或一般多模态规划，未充分刻画多机器人transition因参与机器人子集不同而产生的分层几何结构。
+2. 既有MR-TAMP方法通常关注可行性、任务分解或有限时间效率，缺乏面向全局MR-TAMP代价的渐近最优性保证。
+3. 现有隐式tensor-product roadmap方法主要处理固定模式下的多机器人运动规划，未解决跨任务模式、跨orbit transition的持续覆盖问题。
+4. 缺少同时兼顾transition-strata覆盖、复合空间搜索效率和多模态任务引导的统一规划框架。
+
+【提出了什么创新的方法】
+1. 将MR-TAMP表示为由多个mode和orbit组成的orbital graph。固定任务模式下，节点对应可行configuration space中的path-connected component，边对应可行的modal transition。
+2. 识别并形式化transition stratum：根据参与transition的机器人子集，将transition set分解为具有不同 intrinsic dimensions 的流形片段，从而刻画多机器人模式切换的几何结构。
+3. 建立MR-TAMP全局渐近最优性的充分条件，包括对轨迹运动的渐近逼近、对最优解所需transition strata的非零概率覆盖，以及对应orbit sequence的持续探索。
+4. 设计conditional transition sampling，根据具体transition选择参与的机器人子集，并直接在相应transition</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：3分  【论文的motivation】 1. 水下散射、颜色失真和低对比度会破坏视觉语言特征，降低开放词汇目标检索的语义匹配质量。 2. 固定的水下图像增强策略并不总能提升检索性能，甚至可能劣于Raw图像表示。 3. 同一图像中的不同语言查询可能依赖不同视觉线索，因此增强策略应由查询动态决定。 4. 同一查询下的不同候选区域受水下退化影响不同，需要候选级而非图像级增强决策。 5. ...">QMSR: Query-Conditioned Mask-wise Expert Routing for Robust Open-Vocabulary Underwater Object Retrieval</span></td>
+        <td class="author-cell">Fuming Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18752" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18752" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>This paper has been submitted to ICRA2027</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：3分
+
+【论文的motivation】
+1. 水下散射、颜色失真和低对比度会破坏视觉语言特征，降低开放词汇目标检索的语义匹配质量。
+2. 固定的水下图像增强策略并不总能提升检索性能，甚至可能劣于Raw图像表示。
+3. 同一图像中的不同语言查询可能依赖不同视觉线索，因此增强策略应由查询动态决定。
+4. 同一查询下的不同候选区域受水下退化影响不同，需要候选级而非图像级增强决策。
+5. 选定增强专家后，完全替换Raw特征可能引入语义漂移，因此需要连续控制增强对Raw表示的偏离程度。
+6. 硬Top-1路由具有离散决策难以优化的问题，需要利用排序监督和软路由训练策略。
+
+【解决了哪些前人工作中的空白】
+1. 现有UIE方法主要优化视觉质量，缺少面向开放词汇检索排名目标的增强选择机制。
+2. 现有图像级或图像-查询级路由对所有候选区域共享增强决策，无法建模候选特定的增强收益。
+3. 现有任务感知增强通常针对检测等固定任务，无法适应部署时任意语言查询。
+4. 现有区域自适应恢复主要依据退化类型或视觉质量路由，未考虑查询相关的语义效用。
+5. 现有方法较少同时学习增强专家选择以及Raw特征与增强特征之间的融合强度。
+6. 缺少一种训练阶段可使用增强后信息提供排序监督、推理阶段仅依赖Raw候选特征的路由学习方案。
+
+【提出了什么创新的方法】
+1. 使用SAM生成候选mask，将每个候选区域作为独立的检索和路由单元。
+2. 对每个query–candidate pair提取Raw候选特征，并结合语言查询特征和candidate-set context输入路由器。
+3. 构建由多个预训练UIE模型组成的异构expert pool，不再假设某一种增强方式普遍有效。
+4.</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：3分  【论文的motivation】 1. 非固定、可在任意位置抓取并由双臂操控的DLO具有高度耦合动力学，传统模型难以准确预测其形变。 2. 双臂在位置、方向和幅度上的组合动作空间巨大，昂贵的预测模型限制了模型预测控制对候选动作的搜索能力。 3. 现有DLO动力学模型主要面向单臂自由绳或端点固定场景，无法覆盖双臂、任意抓取点和自由支撑条件。 4. DLO形状匹配需要同时具备短期...">ForwardDLO: Model-Based Bimanual Shape Matching of Unconstrained Deformable Linear Objects</span></td>
+        <td class="author-cell">Tim Missal</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18455" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18455" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to ICRA 2027.</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：3/5">★★★☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：3分
+
+【论文的motivation】
+1. 非固定、可在任意位置抓取并由双臂操控的DLO具有高度耦合动力学，传统模型难以准确预测其形变。
+2. 双臂在位置、方向和幅度上的组合动作空间巨大，昂贵的预测模型限制了模型预测控制对候选动作的搜索能力。
+3. 现有DLO动力学模型主要面向单臂自由绳或端点固定场景，无法覆盖双臂、任意抓取点和自由支撑条件。
+4. DLO形状匹配需要同时具备短期与长期预测精度，以及足够高的推理吞吐率。
+
+【解决了哪些前人工作中的空白】
+1. 首次系统评估学习型动力学模型在非固定DLO、双臂任意位置抓取和形状匹配场景中的表现。
+2. 弥合了“非固定任意抓取但单臂”和“端点固定但双臂”两类研究设定之间的空白。
+3. 提供了面向双臂DLO操作的大规模仿真与真实数据集，支持模型训练和统一评测。
+4. 缓解了高精度DLO预测模型计算开销过大、难以在有限时间内搜索大规模动作空间的问题。
+
+【提出了什么创新的方法】
+1. 将当前绳索状态表示为分段位置，并将双臂动作编码为抓取位置、运动方向和运动幅度等控制变量。
+2. 构建recurrent latent dynamics model，通过循环隐状态维护历史信息，以建模绳索在接触、摩擦和双臂操作下的时序动力学。
+3. 不使用显式的segment-to-segment interaction、图卷积或成对关系计算，而是利用共享参数的segment-wise decoder，分别预测每个绳段的位移。
+4. 每一步显式解码完整绳索形状，并将预测结果反馈作为下一时刻输入，使rollout在显式几何状态中进行；真实观测也可在任意时刻替换预测状态。
+5. 通过轻量化前向</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 现有 humanoid terrain locomotion 依赖高成本、高功耗、高处理开销的 depth camera 或 LiDAR，难以实现低成本部署。   2. 低分辨率 ToF 传感器具有稀疏、有限视野的特点，其是否包含足够的地形信息支持鲁棒 locomotion 尚未明确。   3. 直接对高维历史观测进行 tempor...">Loco-Loco-RL: Low-Cost Terrain Mapping for Humanoid Locomotion with Reinforcement Learning</span></td>
+        <td class="author-cell">Jordan Dowdy</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19041" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19041" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted manuscript. Accepted for publication in the 2026 IEEE National Aerospace and Electronics Conference (NAECON)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 现有 humanoid terrain locomotion 依赖高成本、高功耗、高处理开销的 depth camera 或 LiDAR，难以实现低成本部署。  
+2. 低分辨率 ToF 传感器具有稀疏、有限视野的特点，其是否包含足够的地形信息支持鲁棒 locomotion 尚未明确。  
+3. 直接对高维历史观测进行 temporal attention 会导致计算和内存开销增长，需要更紧凑的时序表示。  
+4. 需要设计能够联合建模 proprioception、动作、速度指令与稀疏 terrain observation 的 RL policy。  
+
+【解决了哪些前人工作中的空白】  
+1. 探索了仅使用低分辨率 ToF 传感器进行 humanoid 3D local terrain perception 和 terrain-aware locomotion 的可行性。  
+2. 弥补了稀疏 terrain observation 与 proprioceptive information 在统一 temporal policy 中高效融合的研究空白。  
+3. 避免将完整高维 observation history 直接输入 temporal attention，降低了时序建模的计算和表示开销。  
+4. 提供了低成本 exteroception 从 simulation 到真实 humanoid hardware 的 sim-to-real 验证。  
+
+【提出了什么创新的方法】  
+1. 使用仅包含 64×64 spatial points、有限 field of view 的低成本 ToF sensor 获取局部稀疏 3D terrain representation。  
+2. 将 proprioceptive measurements、previous actions、velocity commands 和 sparse height scan 分别映射为 learned observation tokens。  
+3. 在当前时间步通过 self-attention multi-head transformer 建模不同 observation terms 之间的关系，融合身体状态与地形信息。  
+4. 使用 MLP-based latent-space token compression 将当前时间步的 attended tokens 压缩为少量低维 latent tokens。  
+5. 将压缩后的 latent tokens 存入 rolling 15-timestep history，避免高维原始 token 随时间累积导致 attention 计算膨胀。  
+6. 使用第二个 cross-attention multi-head transformer 从 compact history 中提取 temporal locomotion features，并输入 RL actor policy。  
+7</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 虚拟环境能降低Human-Robot Teaming实验成本，但尚不清楚虚拟实验中的人类行为是否能够代表真实世界行为。   2. 现有Virtual HRI研究主要关注单人-单机器人交互，缺乏对多机器人团队协作中trust、situational awareness和workload差异的系统比较。   3. HRT要求人类在多个机...">Examining the Difference in Human Behavior Between Virtual and Real-World Human-Robot Teaming</span></td>
+        <td class="author-cell">Sean Dallas</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18900" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18900" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>IROS 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 虚拟环境能降低Human-Robot Teaming实验成本，但尚不清楚虚拟实验中的人类行为是否能够代表真实世界行为。  
+2. 现有Virtual HRI研究主要关注单人-单机器人交互，缺乏对多机器人团队协作中trust、situational awareness和workload差异的系统比较。  
+3. HRT要求人类在多个机器人之间分配注意力，并形成shared mental models，因此虚实模态差异可能比dyadic HRI更显著。  
+4. 需要验证虚拟HRT实验结果能否可靠迁移到真实机器人团队场景。  
+
+【解决了哪些前人工作中的空白】  
+1. 将Virtual World与Real World的比较从dyadic HRI扩展到multi-agent Human-Robot Teaming场景。  
+2. 不仅比较task performance和问卷指标，还结合think-aloud与访谈分析参与者的strategy、robot mental model和trust类型。  
+3. 在尽可能匹配虚拟与真实实验条件的前提下，系统考察interaction modality对HRT人因和行为的影响。  
+
+【提出了什么创新的方法】  
+1. 构建一个VW与RW高度对应的security-oriented HRT任务，使参与者在不同模态下完成相同的团队协作目标。  
+2. 采用between-subjects mixed-methods实验设计，将interaction modality作为自变量。  
+3. 通过questionnaires测量trust、situational awareness和workload，通过task performance metrics评估团队任务表现。  
+4. 使用think-aloud protocols记录参与者在任务过程中的实时判断和策略，并通过post-scenario interviews分析其robot mental models、trust类型及行为差异。  
+5. 通过定量和定性结果进行交叉验证，发现两种模态下总体任务表现可能相近，但workload存在显著差异，且参与者的strategy、robot mental model和trust形式并不一致。这表明虚拟HRT实验不能仅依据任务性能相似就推断其具有真实世界有效性。  
+
+【文章缺点】  
+1. 实验只采用单一security HRT任务和有限的机器人协作情</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 单一操作者需要同时控制群体平移、垂直运动、视角旋转和编队间距，传统双摇杆加旋钮接口可能限制五个连续自由度的并行调节。   2. FPV视角存在视野受限、遮挡、视点运动和焦点无人机切换等问题，需要与移动视角相适配的群体控制接口。   3. 现有body–machine interface主要面向单无人机或外部视角下的群体控制，尚未验证...">Body-Motion Control of a Simulated Aerial Swarm from a First-Person View</span></td>
+        <td class="author-cell">Yang Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18881" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18881" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Submitted to the 2027 IEEE/SICE International Symposium on System Integration (SII 2027)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 单一操作者需要同时控制群体平移、垂直运动、视角旋转和编队间距，传统双摇杆加旋钮接口可能限制五个连续自由度的并行调节。  
+2. FPV视角存在视野受限、遮挡、视点运动和焦点无人机切换等问题，需要与移动视角相适配的群体控制接口。  
+3. 现有body–machine interface主要面向单无人机或外部视角下的群体控制，尚未验证其在移动focal-agent FPV swarm teleoperation中的有效性。  
+
+【解决了哪些前人工作中的空白】  
+1. 将participant-specific upper-body calibration引入五自由度FPV aerial swarm teleoperation。  
+2. 验证头部、躯干和双手分布式控制是否能够改善移动focal-agent视角下的多维群体操控。  
+3. 通过within-subject实验比较upper-body interface与conventional transmitter在导航效率、指令行为、任务结果和用户体验上的差异。  
+
+【提出了什么创新的方法】  
+1. 构建统一的五维群体控制向量，包括平面平移、垂直运动、FPV yaw和agent spacing，并由相同的Olfati–Saber swarm controller执行。  
+2. 将前后及左右torso inclination映射为平面运动，将双手高度映射为垂直运动，将双手间距映射为agent spacing，将head yaw映射为FPV yaw rate。  
+3. 设计participant-specific 13-pose calibration，分别估计中立姿态和舒适运动范围，并对各个rate-controlled signal进行非对称归一化和deadzone处理。  
+4. 在保持仿真环境、群体控制器、focal-agent逻辑和FPV视角一致的条件下，与传统transmitter进行within-subject对比实验。  
+5. 在14名参与者、15-agent simulated swarm和三维障碍课程中评估完成时间、路径长度、路径直接性、command variation、并发控制、碰撞、断连、工作负荷和身体</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 现有VLN策略主要使用几何基础模型的终端表示，缺乏对不同表示深度中互补空间信息的有效利用。   2. 持续导航需要保留历史几何证据，但无限记忆带来高昂开销，简单按时间或recency保留无法反映导航相关性。   3. 几何表示如何与语言条件策略的不同推理阶段协同，以及历史几何状态如何影响后续几何推理，仍缺乏系统研究。    【解决了...">AdaGeoVLN: Selective Geometry Across Representation Depth and Navigation Time for Vision-Language Navigation</span></td>
+        <td class="author-cell">Quan-Dung Pham</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18789" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18789" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 现有VLN策略主要使用几何基础模型的终端表示，缺乏对不同表示深度中互补空间信息的有效利用。  
+2. 持续导航需要保留历史几何证据，但无限记忆带来高昂开销，简单按时间或recency保留无法反映导航相关性。  
+3. 几何表示如何与语言条件策略的不同推理阶段协同，以及历史几何状态如何影响后续几何推理，仍缺乏系统研究。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了VLN中仅重复注入GFM终端特征、缺少multi-depth geometry-policy coupling的不足。  
+2. 弥补了现有时序几何记忆主要依赖recency retention、缺少instruction-conditioned和navigation-aware选择机制的不足。  
+3. 将历史几何状态的选择与后续GFM几何推理过程结合，而不仅是作为策略侧的独立外部记忆。  
+
+【提出了什么创新的方法】  
+1. 使用VGGT作为Geometry Foundation Model，并提取其不同层级的中间表示。  
+2. 将early、intermediate和late GFM representations分别耦合到VLM navigation policy的连续推理阶段，使策略能够利用不同表示深度的空间信息，而非始终接收terminal feature。  
+3. 设计navigation-aware GFM memory，在每层有限预算下，根据instruction relevance、geometric confidence和transition novelty选择并保留历史VGGT global-attention KV states。  
+4. 被保留的历史KV状态会重新参与后续VGGT推理，为当前观测提供跨时间的几何上下文，随后再与语言视觉策略融合。  
+5. 通过matched repeated-terminal injection control，区分multi-depth representation diversity与单纯增加geometry-policy interaction次数的效果。  
+6. 在R2R-CE和RxR-CE上进行深度选择、时间记忆和内存规模消融，并展示sim-to-real humanoid deployment效果。实验表明multi-depth coupling优于重复使用terminal feature，navigation-aware retention能够在显著降低GFM-KV memory的同时</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】 1. 多机器人共同运动会对行人产生超越单机器人影响之和的非加性交互效应，但现有响应预测通常无法处理可变数量机器人的联合轨迹。 2. 机器人执行动作后获得的真实人机交互结果，尚未被系统地用于更新后续规划中的个体响应模型。 3. 现有工作通常将响应预测、多机器人规划和在线适应分开处理，缺乏预测—执行—观测—再规划的统一闭环机制。 4. 社会导航需...">TRACER: Adaptive Multi-Robot Social Navigation via Joint Human-Response Prediction and Interaction-Aware Replanning</span></td>
+        <td class="author-cell">Lan Hu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18776" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18776" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】
+1. 多机器人共同运动会对行人产生超越单机器人影响之和的非加性交互效应，但现有响应预测通常无法处理可变数量机器人的联合轨迹。
+2. 机器人执行动作后获得的真实人机交互结果，尚未被系统地用于更新后续规划中的个体响应模型。
+3. 现有工作通常将响应预测、多机器人规划和在线适应分开处理，缺乏预测—执行—观测—再规划的统一闭环机制。
+4. 社会导航需要在不确定的人类响应下，同时满足机器人可行性、概率安全、目标进度和交互负担约束。
+
+【解决了哪些前人工作中的空白】
+1. 将多机器人联合轨迹作为统一条件输入，支持可变数量和排列的机器人，并显式建模联合运动产生的非加性实体响应。
+2. 将执行轨迹前缀及同步观测到的实体响应转化为身份绑定的长期后验，而不是重置信念或混入未执行轨迹的反事实预测。
+3. 建立响应预测与后续候选轨迹评估之间的闭环，使历史交互证据能够影响概率安全判断和再规划。
+4. 在多机器人社会导航中统一结合联合响应建模、在线信念更新和滚动时域规划。
+
+【提出了什么创新的方法】
+1. 在每个receding-horizon窗口中，由外部candidate generator生成多个Candidate Joint Trajectories（CJTs）。每个CJT由所有活跃机器人的同步轨迹组成，并通过active-slot mask支持可变数量机器人和置换不变性。
+2. 对每个可能受影响的实体分别进行响应预测。模型输入包括实体局部历史、邻近实体信息、机器人相对几何与运动，以及当前CJT。
+3. 使用latent response modes表示实体潜在行为类型。响应分布由各模式条件分布与identity-bound belief的加权混合得到。
+4. 模型将各机器人单独影响与机器人联合行动产生的pairwise或non-additive interaction effect进行分离，用于比较不同多机器人联合轨迹。
+5. 首先筛除违反</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 固定 RGB、RGB-D 或 LiDAR 传感器受限于单一或有限视角，难以观测番茄簇内部严重遮挡的果实。   2. 集簇生长作物的果实分割、三维定位与姿态估计仍缺乏适应复杂植物几何结构的可靠方法。   3. 完整果实几何信息是机器人采摘轨迹规划、果实计数和产量估计的基础。    【解决了哪些前人工作中的空白】   1. 将主动感知与...">Active perception for robotic harvesting: 3D reconstruction and localisation of tomatoes hidden within clusters in a Mediterranean greenhouse</span></td>
+        <td class="author-cell">Fernando Cañadas-Aránega</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18738" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18738" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 固定 RGB、RGB-D 或 LiDAR 传感器受限于单一或有限视角，难以观测番茄簇内部严重遮挡的果实。  
+2. 集簇生长作物的果实分割、三维定位与姿态估计仍缺乏适应复杂植物几何结构的可靠方法。  
+3. 完整果实几何信息是机器人采摘轨迹规划、果实计数和产量估计的基础。  
+
+【解决了哪些前人工作中的空白】  
+1. 将主动感知与多视角点云重建引入集簇生长番茄的遮挡果实检测，突破固定传感器视角覆盖不足的问题。  
+2. 针对区域生长难以处理的不完整果实，引入仅作用于未分配点的 DBSCAN 进行补充恢复。  
+3. 在仿真环境中评估了不同遮挡程度下单个果实的三维位置、尺寸和姿态估计能力。  
+
+【提出了什么创新的方法】  
+1. 使用 AgriSEE/SEE++ 进行 measurement-guided Next Best View 规划：根据点云局部密度识别 frontier points，估计其表面法向，并沿法向生成候选视点。  
+2. 迭代采集多个局部点云，并通过 ICP 完成跨视角点云配准和集群三维模型融合；当全局点密度达到阈值后停止扫描。  
+3. 对融合点云使用 Statistical Outlier Removal 去除由叶片、茎秆和传感器噪声造成的离群点。  
+4. 采用基于空间邻域和法向夹角约束的 Region Growing，对连续平滑表面进行初步果实分割。  
+5. 将 Region Growing 未分配的点单独输入 DBSCAN，在无需预先知道果实数量的情况下恢复部分观测或严重遮挡的果实。  
+6. 基于分割结果估计每个番茄的三维质心、空间位置和生长方向，为后续采摘规划</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 现有VIO基准主要评估理想或名义条件下的轨迹精度，无法回答系统在地下环境中何时发生实际部署失败。   2. 传感器偏置、噪声、内外参漂移和动态遮挡会引发非线性性能崩溃，但现有研究缺乏可量化的失效阈值。   3. 不同VIO范式对惯性退化、几何误标定和动态干扰的敏感性缺乏统一、可比较的评估。   4. 地下环境具有低照度、低纹理和动态...">Benchmarking Visual-Inertial Odometry in Subterranean Environments Under Sensor Degradation, Miscalibration, and Dynamic Occlusion</span></td>
+        <td class="author-cell">Yueying Zhu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18628" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18628" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 现有VIO基准主要评估理想或名义条件下的轨迹精度，无法回答系统在地下环境中何时发生实际部署失败。  
+2. 传感器偏置、噪声、内外参漂移和动态遮挡会引发非线性性能崩溃，但现有研究缺乏可量化的失效阈值。  
+3. 不同VIO范式对惯性退化、几何误标定和动态干扰的敏感性缺乏统一、可比较的评估。  
+4. 地下环境具有低照度、低纹理和动态障碍等复合挑战，传统EuRoC等基准难以反映其可靠性问题。  
+
+【解决了哪些前人工作中的空白】  
+1. 建立了面向地下环境VIO失效分析的stress-test benchmark，而非仅报告正常条件下的平均轨迹误差。  
+2. 系统评估了IMU参数退化、相机内参漂移、相机-IMU外参误差及动态遮挡等部署相关扰动。  
+3. 引入coverage ratio、failure threshold和归一化RMSE，刻画早期终止与系统崩溃，而不是掩盖于整体平均误差中。  
+4. 对filtering-based、optimization-based和learning-based等不同VIO范式进行了统一的脆弱性比较。  
+5. 通过information matrix rank、Jacobian conditioning和Hessian definiteness等诊断，尝试将性能下降与可观测性、数值稳定性机制关联起来。  
+
+【提出了什么创新的方法】  
+1. 基于CERBERUS地下数据集构建failure-centric VIO benchmark，覆盖四类IMU参数、三类相机内参、两类相机-IMU外参以及dynamic occlusion等九种扰动。  
+2. 采用one-at-a-time perturbation protocol，逐一改变单个传感器或环境因素，分析不同VIO系统对具体退化因素的敏感性和崩溃边界。  
+3. 评估AirSLAM、Open</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】 1. 现有VLN方法难以将高层语义推理与低层空间执行建立可靠、可验证的接口。 2. 文本或latent CoT缺乏对当前视觉证据的显式定位，容易产生不可验证的空间推理与视觉幻觉。 3. 高层决策通常直接输出离散动作，缺少精确、连续且可执行的空间目标。 4. Waypoint方法依赖外部候选点质量，限制了导航策略的动作空间与执行上限。 5. 需...">GroundingVLN: Reasoning and Acting with Grounding for Vision-Language Navigation</span></td>
+        <td class="author-cell">Kailing Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18581" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18581" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】
+1. 现有VLN方法难以将高层语义推理与低层空间执行建立可靠、可验证的接口。
+2. 文本或latent CoT缺乏对当前视觉证据的显式定位，容易产生不可验证的空间推理与视觉幻觉。
+3. 高层决策通常直接输出离散动作，缺少精确、连续且可执行的空间目标。
+4. Waypoint方法依赖外部候选点质量，限制了导航策略的动作空间与执行上限。
+5. 需要一种能够跨视角追踪视觉实体，并利用空间目标指导低层执行的层级导航框架。
+
+【解决了哪些前人工作中的空白】
+1. 弥补了VLN中语义推理缺乏显式视觉区域绑定的问题。
+2. 弥补了高层语义决策与低层运动执行之间缺少几何接口的问题。
+3. 将单帧视觉grounding扩展到闭环导航中的跨时间、跨视角实体追踪。
+4. 缓解了直接动作预测依赖大规模轨迹数据、可解释性弱以及VLM运动映射学习成本高的问题。
+5. 通过execution-aware训练，将grounded reasoning、空间目标预测与最终导航成功率联系起来。
+
+【提出了什么创新的方法】
+1. 提出GroundingVLN，将VLM作为高层认知模块，将视觉grounding作为推理与执行共享接口。整体流程包括：任务分解、历史信息回忆、当前观测分析、进度估计以及未来目标规划。
+2. 在推理阶段，模型将任务相关地标、物体和视觉证据绑定到当前图像中的精确坐标，使中间推理不仅由文本表达，也具备可检查的空间依据。
+3. 在决策阶段，模型根据当前语义子任务预测progress-aligned pixel goal，将高层意图转化为图像平面中的空间目标，再由几何规划器生成轨迹和primitive actions。
+4. 构建GroundingCOTVLN-188K，通过自动数据引擎生成结构化grounded reasoning traces，并利用temporal alignment机制在视角变化过程中</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 现有研究通常将kinodynamic planning与dynamic obstacle avoidance分开处理，缺乏同时满足动力学约束和时空避障的通用规划方法。   2. 现有space-time planners主要面向holonomic或具备steering function的系统，难以处理一般动力学系统。   3. 现有...">DynoFluxBench: Benchmarking Kinodynamic Space-Time Planners in Dynamic Environments</span></td>
+        <td class="author-cell">Franz Queißner</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18549" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18549" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
+
+【论文的motivation】  
+1. 现有研究通常将kinodynamic planning与dynamic obstacle avoidance分开处理，缺乏同时满足动力学约束和时空避障的通用规划方法。  
+2. 现有space-time planners主要面向holonomic或具备steering function的系统，难以处理一般动力学系统。  
+3. 现有kinodynamic planners多假设静态环境，无法应对已知轨迹的动态障碍物和未知、无界的到达时间。  
+4. 缺乏覆盖多种动力学系统和动态场景的统一benchmark，难以公平比较kinodynamic space-time planners。  
+
+【解决了哪些前人工作中的空白】  
+1. 将kinodynamic planning与space-time planning统一到同一采样式规划框架中，支持一般动力学系统、动态障碍物以及未知且无界的arrival time。  
+2. 摆脱对steering function和精确两点边值问题求解的依赖，扩展了非完整、非线性动力学系统的适用范围。  
+3. 建立包含25个场景和4类动力学系统的DynoFluxBench，为相关规划算法提供统一评测平台。  
+4. 分析space-time扩展对不同kinodynamic planners完备性保证的影响，揭示无界时间下Db-RRT理论性质的限制。  
+
+【提出了什么创新的方法】  
+1. DynoFluxBench将已知动态障碍物建模为空间—时间中的约束，构建覆盖多种动力学系统和动态场景的benchmark，并支持未知到达时间的规划评测。  
+2. ST-Db-RRT将iDb-RRT的discontinuity-bounded motion primitive扩展到space-time：从树中选择状态，随机采样带时间的目标状态，利用动力学传播和trajectory optimization修复有界不连续连接，并检查动态碰撞。  
+3. ST-GBRRT将GBRRT的heuristic-guided bidirectional search扩展到动态环境，在无需steering function或BVP求解的情况下，通过动力学可行的前向传播维护搜索树。  
+4. KIST融合ST-Db-RRT</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】   1. 地月空间中地面跟踪资源受限、观测几何退化和动力学非线性显著，传统依赖地面支持的绝对导航难以满足长期自主运行需求。   2. 航天器间相对测量的绝对跟踪性能高度依赖观测几何，但现有轨迹设计方法难以在长时间范围内显式优化估计信息增益。   3. 需要一种适用于低推力、多传感器和多目标场景的轨迹规划方法，在导航信息获取与控制能耗之间进行权...">Information-Based Trajectory Planning for Spacecraft-to-Spacecraft Tracking and Navigation in Cislunar Space</span></td>
+        <td class="author-cell">Trevor N. Wolf</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19012" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19012" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to the Journal of Guidance, Control, and Dynamics (JGCD)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
+
+【论文的motivation】  
+1. 地月空间中地面跟踪资源受限、观测几何退化和动力学非线性显著，传统依赖地面支持的绝对导航难以满足长期自主运行需求。  
+2. 航天器间相对测量的绝对跟踪性能高度依赖观测几何，但现有轨迹设计方法难以在长时间范围内显式优化估计信息增益。  
+3. 需要一种适用于低推力、多传感器和多目标场景的轨迹规划方法，在导航信息获取与控制能耗之间进行权衡。  
+
+【解决了哪些前人工作中的空白】  
+1. 以往基于观测性几何指标的方法主要针对离散时刻或瞬时脉冲机动，未充分考虑长时间轨迹对估计器性能的累积影响。  
+2. 既有研究较少将低推力控制、非线性地月动力学与航天器间绝对跟踪性能统一纳入轨迹优化。  
+3. 传统Fisher information或局部观测性指标难以刻画非线性系统中的高阶、全局信息增益，本文引入mutual information进行替代。  
+
+【提出了什么创新的方法】  
+1. 将观测者与目标航天器的绝对状态组成augmented SSAT state，并基于系统动力学、传感器模型和状态协方差传播，定义观测轨迹上的mutual information作为预期跟踪性能指标。  
+2. 针对非线性动力学与测量模型，利用状态误差协方差的一阶和二阶Gaussian Taylor expansion近似mutual information，使其能够嵌入轨迹优化问题。  
+3. 构建同时考虑information gain与control effort的加权多目标最优控制问题，通过单一homotopy factor调节两者权衡。  
+4. 使用Successive Convexification将连续时间非线性最优控制问题转化为静态控制参数优化，并结合离散化、trust-region和generalized Sundman transformation处理数值求解问题。  
+5. 在CRTBP地月</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】   1. 水下GPS、雷达和视觉传感器失效或不可靠，多传感器SLAM系统成本高、结构复杂，难以满足轻量化部署需求。   2. 现有FLS跟踪方法受高程歧义、散斑噪声、声学阴影和非均匀分辨率影响，容易出现特征稀疏、匹配失败和跟踪丢失。   3. 局部避障和粗粒度导航主要需要局部一致性，不一定需要全局SLAM精度，但针对FLS-only loca...">SOL-SLAM: Inverse Compositional Gauss-Newton Direct Registration for Fast Sonar-Only Local SLAM</span></td>
+        <td class="author-cell">Kalvik Jakkala</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18893" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18893" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>preprint</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
+
+【论文的motivation】  
+1. 水下GPS、雷达和视觉传感器失效或不可靠，多传感器SLAM系统成本高、结构复杂，难以满足轻量化部署需求。  
+2. 现有FLS跟踪方法受高程歧义、散斑噪声、声学阴影和非均匀分辨率影响，容易出现特征稀疏、匹配失败和跟踪丢失。  
+3. 局部避障和粗粒度导航主要需要局部一致性，不一定需要全局SLAM精度，但针对FLS-only local SLAM的研究仍然不足。  
+
+【解决了哪些前人工作中的空白】  
+1. 弥补了FLS-only local SLAM缺乏实时、轻量化解决方案的空白。  
+2. 避免依赖DVL、IMU、相机、深度传感器和USBL等多模态传感器，实现仅基于FLS的局部运动估计与地图维护。  
+3. 弥补了稀疏特征方法在声呐噪声和低纹理环境下鲁棒性不足的问题，利用完整声呐强度图进行dense registration。  
+4. 在FLS场景中引入scan-to-local-map的Inverse Compositional Gauss-Newton优化，以降低直接法的计算开销。  
+
+【提出了什么创新的方法】  
+1. 输入连续FLS强度扫描，并将其表示为二维range-bearing acoustic intensity image。  
+2. 对当前声呐扫描与递归更新的局部声呐地图进行dense direct registration，将scan matching表述为强度交叉相关或强度残差最小化问题。  
+3. 通过局部地图平滑与统计噪声衰减，降低speckle noise对梯度和匹配目标的影响。  
+4. 采用Inverse Compositional Gauss-Newton优化，在局部地图固定时预计算空间梯度、Jacobian和近似Hessian，将计算负担从每次迭代转移到地图更新阶段。  
+5. 在SE(2)局部运动模型下迭</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】 1. 现有 catenary solver 缺乏收敛性证明和 worst-case runtime bound，难以满足 tethered UAV 控制、估计与仿真的严格实时约束。 2. 通用 root finder 依赖多组启发式初始化，导致求解时间方差较大，并可能在资源受限的 flight controller 上失效。 3. 需要在不改...">Real-Time Bounded Catenary Solver for UAV Tether Modeling</span></td>
+        <td class="author-cell">Max Beffert</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18482" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18482" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
+
+【论文的motivation】
+1. 现有 catenary solver 缺乏收敛性证明和 worst-case runtime bound，难以满足 tethered UAV 控制、估计与仿真的严格实时约束。
+2. 通用 root finder 依赖多组启发式初始化，导致求解时间方差较大，并可能在资源受限的 flight controller 上失效。
+3. 需要在不改变既有物理模型和实验验证的前提下，获得高效、稳定且可部署的 tether force 在线计算方法。
+
+【解决了哪些前人工作中的空白】
+1. 弥补了此前 analytical catenary model 缺少 root existence、uniqueness、convergence 和 worst-case runtime guarantee 的空白。
+2. 解决了 general-purpose solver 多次尝试初始化带来的计算开销和运行时间不确定性。
+3. 验证了高性能 catenary solver 在 resource-constrained embedded flight controller 上的可部署性。
+
+【提出了什么创新的方法】
+1. 将原有由三个耦合方程组成的 catenary boundary-value problem，重新表述为关于单个 well-conditioned unknown 的一维 transcendental equation。
+2. 对该方程推导 closed-form bracket，并证明其 root 的 existence、uniqueness、monotonicity 和 convexity，从而保证 numerical solver 收敛。
+3. 提出 two-regime initial guess，根据不同几何或物理状态近似真实 root，使初始误差控制在 3.4% 以内，并将平均迭代次数降低 68.0%。
+4. 基于 Newton-Raphson with bisection fallback 的 rtsafe，设计针对 catenary 方程结构的 specialized hybrid root-finding solver，移除不必要的通用检查，同时保留 bounded iteration count 和正确性。
+5. 保持原有 rotated-frame catenary model、drag estimation outer loop 及物理假设不变，仅替换内部 catenary solver，因此既有物理实验验证可以直接继承。
+6. 最终 full tether model 平均求解时间约 6.9 μs，worst-case 约 7.7 μs，相比前一方法加速约 40 �</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数： 2分  【论文的motivation】   1. 传统QP控制器在约束瞬时冲突时直接返回infeasible，导致机器人没有可执行控制量，影响安全性与连续控制。   2. 机器人控制通常需要在1 kHz下求解包含大量约束的QP，显式引入slack variables会显著增加计算与分解开销。   3. 传统ℓ2 relaxation会将违约分散到多个约束，难以准确定位冲突约束并维...">ElastiQP: An Always-Feasible QP Solver for Constrained Robot Control</span></td>
+        <td class="author-cell">Daniel Morton</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19080" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19080" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数： 2分
+
+【论文的motivation】  
+1. 传统QP控制器在约束瞬时冲突时直接返回infeasible，导致机器人没有可执行控制量，影响安全性与连续控制。  
+2. 机器人控制通常需要在1 kHz下求解包含大量约束的QP，显式引入slack variables会显著增加计算与分解开销。  
+3. 传统ℓ2 relaxation会将违约分散到多个约束，难以准确定位冲突约束并维持非冲突约束的严格满足。  
+4. 现有elastic QP solver在hard equality、warm-starting、求解速度和数值稳定性方面，难以同时满足实时机器人控制需求。  
+
+【解决了哪些前人工作中的空白】  
+1. 现有通用QP solver通常在不可行时终止，缺乏面向机器人控制的always-feasible机制。  
+2. 现有elastic QP方法依赖显式slack variables，约束数量增加时计算开销显著，难以满足高频控制。  
+3. ProxQP和DAQP的soft模式主要采用ℓ2约束移动，无法实现稀疏、按约束加权的违约分配。  
+4. qpax的elastic mode不支持hard equality constraints和warm-starting，在humanoid-scale问题与病态问题上性能不足。  
+5. FlexQP面向GPU批量求解和较宽松精度，无法充分满足高精度、warm-started、实时控制场景。  
+
+【提出了什么创新的方法】  
+1. 将每个inequality constraint引入带有独立权重的exact ℓ1 penalty，使约束冲突时优先违约低权重约束，并尽量保持其他约束严格满足。  
+2. 保持equality constraints为hard constraints，特别保护动力学一致性；对于需要软化的等式，可通过构造一对相反方向的elastic inequalities实现。  
+3. 基于dual active-set method推导slack variables的解析消除，将原本扩展的弹性QP转化为dual variables上的box constraints：  
+   \[
+   0\leq \</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数： 1分  【论文的motivation】 1. 现有electroadhesive devices主要采用平面层压、薄膜或印刷结构，难以直接适配曲面、管状及复杂三维接触界面。 2. 将平面electroadhesion pad弯折、粘贴或包覆到目标表面，会使器件几何受制造工艺限制，降低结构设计自由度。 3. 需要验证multi-material 3D printing能否将导电电极...">Toward 3D Printable Non-Planar Electroadhesive Structures for Active Anchoring</span></td>
+        <td class="author-cell">Mostafa A. Atalla</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18700" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18700" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for publication in the proceedings of the IEEE SENSORS 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数： 1分
+
+【论文的motivation】
+1. 现有electroadhesive devices主要采用平面层压、薄膜或印刷结构，难以直接适配曲面、管状及复杂三维接触界面。
+2. 将平面electroadhesion pad弯折、粘贴或包覆到目标表面，会使器件几何受制造工艺限制，降低结构设计自由度。
+3. 需要验证multi-material 3D printing能否将导电电极直接集成到非平面结构中，从而实现geometry-specific electroadhesion-active surfaces。
+
+【解决了哪些前人工作中的空白】
+1. 现有electroadhesion研究大多将器件视为独立的平面pad、film或layer，缺少导电电极与非平面结构一体化制造的验证。
+2. 以往曲面electroadhesion通常依赖平面器件的贴附、弯折或缠绕，未充分探索通过3D printing直接构造曲面电极图案。
+3. 缺少对3D打印非平面interdigitated electrodes能否产生可控electroadhesive force的实验性证明。
+
+【提出了什么创新的方法】
+1. 使用multi-material fused-filament 3D printing，将conductive PLA电极和dielectric PLA结构在同一打印件中直接制造，避免独立电极层的手工对准和装配。
+2. 基于interdigitated electrode设计，在平面pad和cylindrical pad中采用相同电极原理，以平面结构作为benchmark，验证曲面结构中的电压调制能力。
+3. 在打印结构接触面额外覆盖Kapton film作为绝缘介电层，避免导电电极与基底直接接触，并通过preload、voltage activation和deactivation三阶段测量normal-force变化。
+4. 实验表明平面和圆柱结构均具有voltage-controlled force modulation；在给定测试条件下，平面pad约产生0.11–0.13 N的力变化，圆柱pad在5 N预载荷、5 kV条件下约达到0.16 N，证明非平面</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数： 3分  【论文的motivation】 1. Multi-modal motion planning requires jointly reasoning over discrete mode transitions and continuous geometric motions, which purely symbolic or continuous planners can...">M$^3$P-R1: Reinforcement Learning for Large Language Model Guided Multi-Modal Motion Planning via MIP Code Generation</span></td>
+        <td class="author-cell">Xingpeng Sun</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18669" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18669" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数： 3分
+
+【论文的motivation】
+1. Multi-modal motion planning requires jointly reasoning over discrete mode transitions and continuous geometric motions, which purely symbolic or continuous planners cannot robustly handle.
+2. Existing TAMP/M3P methods often depend on domain-specific heuristics, differentiability, local optimality assumptions, or loosely coupled task–motion decomposition.
+3. Manually constructing tractable approximate MIP formulations for non-convex robotic planning is labor-intensive and difficult to generalize across modalities.
+4. Prompt-only LLM planners frequently generate unverifiable, inconsistent, or non-executable plans for long-horizon hybrid planning problems.
+5. A solver-grounded learning framework is needed to convert natural-language M3P specifications into executable and verifiable optimization programs.
+
+【解决了哪些前人工作中的空白】
+1. 将LLM-based planning从离散PDDL符号规划扩展到同时建模离散变量、连续变量、几何约束和跨模态耦合的approximate MIP planning。
+2. 缓解了LLM直接输出规划答案时难以验证、容易幻觉和约束不一致的问题，通过生成可执行Python/MIP code并由solver反馈验证。
+3. 将reinforcement fine-tuning与MIP solver-in-the-loop结合，使模型能够从feasibility和objective value中学习结构化规划建模。
+4. 针对非凸机器人任务中的discretization-based MIP formulation开展系统评测，而非仅处理已有的exact MIP/MILP模板。
+5. 提供覆盖single-modal与multi-modal任务组合的LLMM3P Bench，补充了LLM+optimization在机器人混合规划领域的评测空白。
+
+【提出了什么创新的方法】
+1. 将自然语言M3P任务输入LLM，由模型生成包含decision variables、constraints和objectives的可执行Python MIP程序，而不是直接生成离散动作序列或规划答案。
+2. 设计solver-grounded reinforcement fine-tuning框架。模型生成代码后交给MIP solver执行，根据程序可执行性、约束满足情况、solver feasibility status以及目标函数表现构造outcome-driven reward。
+3. 通过结构化分解学习将任务拆分为modality-level discretization primitives，并进一步合成不同模态之间的cross-modal coupling constraints</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数： 4分 【论文的motivation】  1. 大参数VLA在边缘设备上推理成本高、能耗大，难以满足长期自主运行需求。 2. 远程VLA虽然卸载了计算，但通信延迟与抖动会导致动作响应滞后、观测过时。 3. 现有加速方法通常只能减少单次VLA计算，无法在不依赖远程特征或在线验证的情况下持续替代VLA调用。 4. 需要一种轻量、状态条件化且基于真实执行历史的本地策略，在保持任务成功率的...">VLA-ULAP: Interleaving Cloud VLA Calls with Ultra-Lightweight Local Action Prediction at the Edge</span></td>
+        <td class="author-cell">Deyu Cao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18663" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18663" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Preprint</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数： 4分
+【论文的motivation】 
+1. 大参数VLA在边缘设备上推理成本高、能耗大，难以满足长期自主运行需求。
+2. 远程VLA虽然卸载了计算，但通信延迟与抖动会导致动作响应滞后、观测过时。
+3. 现有加速方法通常只能减少单次VLA计算，无法在不依赖远程特征或在线验证的情况下持续替代VLA调用。
+4. 需要一种轻量、状态条件化且基于真实执行历史的本地策略，在保持任务成功率的同时减少远程VLA请求。
+
+【解决了哪些前人工作中的空白】1. 现有quantization、token pruning等方法仍要求每次动作请求运行VLA，无法彻底消除边缘端或远程端的大模型调用。  
+2. Adaptive chunk execution主要延长已有动作块的执行时间，无法基于新观测主动生成后续动作。  
+3. Action extrapolation和retrieval方法在替代动作增多时容易累积误差，缺乏稳定的状态条件化预测机制。  
+4. 部分快速策略依赖VLA hidden states或online verification，仍保留远程通信和额外推理开销。  
+5. 缺少一种不修改冻结VLA、无需中间特征和在线校验、可直接部署在低功耗边缘设备上的混合推理框架。
+
+【提出了什么创新的方法】 
+1. 提出VLA-ULAP混合框架，将远程VLA调用与边缘端Ultra-Lightweight Local Action Predictor交替执行。在每个action chunk边界，scheduler选择完整VLA调用或一次本地预测，而不是简单延长已有open-loop动作。
+2. 设计自包含的ULAP模型，将当前camera views、proprioception与preceding executed action sequence进行融合，使模型能够利用外观、机器人状态和真实执行历史判断当前动作阶段。
+3. ULAP采用冻结的Theia-Tiny vision encoder、浅层multimodal fusion和一次性action chunk prediction，避免iterative denoising、VLA hidden states以及online verification。默认模型约7.4M</small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>VLM-MPPI: Grounding Natural Language in Behaviorally Diverse Trajectories for Aerial Navigation</span></td>
+        <td class="author-cell">Hanbing Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18451" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18451" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Hardware-Free Robotics Laboratories in Mixed Reality</span></td>
+        <td class="author-cell">Santiago Berrezueta-Guzman</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18434" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18434" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Pre-print submitted for review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>DetAug: Obstacle-Blind Trajectory Augmentation for Zero-shot Obstacle Avoidance</span></td>
+        <td class="author-cell">Reece O&#39;Mahoney</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18395" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18395" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>DistAL: Distance-based Advantage Learning for VLA Fine-Tuning</span></td>
+        <td class="author-cell">Reece O&#39;Mahoney</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18392" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18392" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Decoupling Vision, Language, and Action for Efficient Multi-Task Robot Policies</span></td>
+        <td class="author-cell">Xiatao Sun</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18374" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18374" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>RecMorph: Topology-Guided Spatial Recurrence for Generalized Morphology Control</span></td>
+        <td class="author-cell">Quanrui Rao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18359" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18359" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/quanruirao/RecMorph" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Code and experimental resources are available atthis https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>GraphPoint: Semantic Entity Graphs and Point Trajectories for Compositional Robot Manipulation</span></td>
+        <td class="author-cell">Kang Luo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18358" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18358" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>UAVs Meet Embodied Intelligence: Bridging Human Intents and Flying Dynamics Via Harnessing Physical-Digital AI Agents</span></td>
+        <td class="author-cell">Yonglin Tian</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18326" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18326" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>RAFAIL: Relationship-Aware Failure Detection for Robotic Manipulation</span></td>
+        <td class="author-cell">Loris Schneider</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18324" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18324" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Function-Preserving Data Generation for Zero-Shot Real-to-Sim-to-Real Manipulation</span></td>
+        <td class="author-cell">Tianyi Xiang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18293" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18293" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://fpsa-r2s2r.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>${M}^2$Tok: Multi-head Multi-codebook Discrete Action Tokenization for Vision-Language-Action Models</span></td>
+        <td class="author-cell">Chunpu Xu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18259" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18259" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>ECCV 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A3P5 NEMESIS Integrated Rover Design for Environmental Reconnaissance and Robotic Sampling with Reproducible Mobility Analysis and an External Data Machine Learning Calibration Benchmark</span></td>
+        <td class="author-cell">Shafi Bin Sultan</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18245" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18245" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Acting in Meters: Learning Metric Interactions for Precise Robotic Manipulation</span></td>
+        <td class="author-cell">Lijie Wang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18243" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18243" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>ForceDelta-VLA: Distilling Force-Conditioned ActionCorrections for Contact-Rich Manipulation</span></td>
+        <td class="author-cell">Ju Dong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18242" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18242" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>UMI-Bridge: Action-Anchored Latent Alignment across Human and Robot Manipulation Data</span></td>
+        <td class="author-cell">Haiyi Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18232" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18232" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CANTABILE: Learning Expressive Dynamics for Robotic Piano Performance</span></td>
+        <td class="author-cell">Woosik Kim</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18213" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18213" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Under review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Reinforcement Learning for Real-Time Vision-Language-Action Policies</span></td>
+        <td class="author-cell">Perry Dong</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18207" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18207" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>WholeBodyWAM: Learning Whole-Body World Action Models with Scalable Motion Priors</span></td>
+        <td class="author-cell">Bowei Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18197" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18197" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://zbzyjya.github.io/WholeBodyWAM/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project page:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>WAVE-Go: World-Model Navigation with Adaptive Execution for Wheel-Legged Robots</span></td>
+        <td class="author-cell">Mingyi Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18193" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18193" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>OmniRisk: Omnidirectional Trajectory-Risk Learning for Agile Quadrotor Dynamic Avoidance</span></td>
+        <td class="author-cell">Yifan He</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18191" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18191" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>TacBPM: A Tactile-conditioned Behavior Prior Model for Dexterous Reorientation</span></td>
+        <td class="author-cell">Jie Yin</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18174" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18174" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="http://jie.yin" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Corresponding to: Jie Yin (this http URL@sharpa.com)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Approximating High Dimensional Self-Motion Manifolds via Deep Generative Models</span></td>
+        <td class="author-cell">Haitao Gao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18169" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18169" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Characterizing Replay Retention Under Dynamics Shift in Model-Based Reinforcement Learning</span></td>
+        <td class="author-cell">Everest Yang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18167" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18167" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>LUMO: Designing Luminous Contact Morphology for Repeatable Whole-Finger Contact Observation</span></td>
+        <td class="author-cell">Dong Ho Kang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18165" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18165" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Energy-Regularized Imitation Learning for Force- and Work-Aware Robotic Manipulation</span></td>
+        <td class="author-cell">Toshiki Otani</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18164" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18164" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>ECCV 2026 Workshop on Force-Grounded, Cross-View Articulated Manipulation</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Fetch My Beer: Synthetic-to-real Hierarchical Policy for Smooth Pick-and-place</span></td>
+        <td class="author-cell">Yingyue Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18119" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18119" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Accepted by IEEE Robotics and Automation Letters (RA-L)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>OpenDexGrasp: Open-vocabulary Task-Oriented Dexterous Grasping</span></td>
+        <td class="author-cell">Jiyao Zhang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18117" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18117" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at CoRL2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A Comprehensive Review of Generative Physical Artificial Intelligence</span></td>
+        <td class="author-cell">Satyam Gaba</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18111" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18111" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Technical Report: One-Step Drifting Action Heads for GR00T N1.7</span></td>
+        <td class="author-cell">Xihe Shao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18108" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18108" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/RealManShao/lerobot/tree/feat/drif-ov" target="_blank" rel="noopener">🔗 Code1</a><br><a class="resource-tag code" href="https://huggingface.co/Xihe666/models" target="_blank" rel="noopener">🔗 Code2</a><br><details class="resource-comment"><summary>📝 备注</summary><small>For code and test result, seethis https URL. For trained checkpoint, seethis https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Beyond Pixel Similarity: Task-Aware Evaluation of GAN-Based Synthetic Sonar Data for Robotic Perception</span></td>
+        <td class="author-cell">Hannan Ejaz Keen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18100" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18100" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted at Sim2Real and Classical Control: From Rigorous Theory to Data-Driven Robotics - IROS Workshop 2026</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>ReRadar: Robust Radar Global Localization via Rotation-Equivariant Descriptor Learning</span></td>
+        <td class="author-cell">Duc Manh Nguyen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18092" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18092" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Under review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Not All Layers Need Tuning: Diagnosing and Directing Adaptation in Vision-Language-Action Models</span></td>
+        <td class="author-cell">Shahram Najam Syed</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18084" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18084" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Characterizing Refraction-Induced Ranging Bias in Underwater Collaborative Localization</span></td>
+        <td class="author-cell">Timothy Kogucki</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18073" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18073" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>to be published in OCEANS</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>An Efficient Algorithm for Minimum-Pressure Growth Planning of Vine Robots</span></td>
+        <td class="author-cell">Andres C. Torres</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18070" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18070" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CLASP: A Cluster-Level Autonomous Selective Picking Robot with a Soft Rolling-Band Gripper for Fresh-Market Blueberry Harvesting</span></td>
+        <td class="author-cell">Yixuan Xia</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18051" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18051" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Geometric Shortcuts for Complex Trunk Postures: Dual-Helicity Coupling Enables Low-Dimensional Control</span></td>
+        <td class="author-cell">Huishi Huang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18050" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18050" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Online Multimodal Workload Assessment in Contact-Rich Physical Human-Robot Interaction</span></td>
+        <td class="author-cell">Yanyi Chen</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18031" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18031" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Causal-History Test-Time Scaling for Failure Recovery in Autoregressive World-Action Models</span></td>
+        <td class="author-cell">Lin Li</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18016" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18016" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Feedback-Modulated Harmonic Policies for Quadruped Locomotion</span></td>
+        <td class="author-cell">Yixuan Jia</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17946" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17946" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Multi-Session Multimodal Underwater Mapping with Acoustic and Optical Imaging</span></td>
+        <td class="author-cell">Precious Philip-Ifabiyi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17929" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17929" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to Ocean Engineering special issue &quot;Multimodal 3D Perception for Underwater Engineering: Acoustics, Optics and Integrated Solutions&quot;</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Map2Route: Benchmarking Compositional Language-Grounded Route Planning over Semantic Maps</span></td>
+        <td class="author-cell">Muyi Bao</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17910" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17910" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Timely Activation of Safety Filters via One-Step Reachability Expansion</span></td>
+        <td class="author-cell">Javier Borquez</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17904" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17904" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>VCTP: Vehicle-Conditioned Terrain Planning for Off-Road Navigation</span></td>
+        <td class="author-cell">Akshay Naik</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17834" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17834" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Submitted to the 2027 IEEE International Conference on Robotics and Automation (ICRA)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Adaptive-MHE : A Sampling-Based Adaptive MPC for Legged Loco-Manipulation via Moving Horizon Estimation</span></td>
+        <td class="author-cell">Hossein Keshavarz</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17832" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17832" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Learning Multi-Humanoid Pickup and Transport via Decentralized Object-Centric Control</span></td>
+        <td class="author-cell">Bikram Pandit</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17824" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17824" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="http://decmht.github.io" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project website:this http URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>SPROUT: The Open-Source Soft Growing Robot for Search and Rescue</span></td>
+        <td class="author-cell">Antonio Alvarez Valdivia</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17781" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17781" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>HINT-Plan: Human Intention-Aware Robot Task Planning in Context-Rich Environments using Vision Language Models</span></td>
+        <td class="author-cell">Yuchen Liu</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17771" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17771" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>DRT&amp;R: Direct Radar Teach &amp; Repeat</span></td>
+        <td class="author-cell">Alexander Krawciw</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17766" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17766" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>paper under review</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>CALOS: Control-Affine Lyapunov On-manifold Safety Layer for Safe Deep Reinforcement Learning for Quadrotors</span></td>
+        <td class="author-cell">Fabrizio Cesareo</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17758" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17758" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>RAF-VLA: Representation Alignment with the Future for End-to-End Autonomous Driving</span></td>
+        <td class="author-cell">Dogun Kim</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17728" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17728" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Vision-Language Grounded Task-Context-Aware Imitation Learning for Robotic Disassembly</span></td>
+        <td class="author-cell">Jeon Ho Kang</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17714" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17714" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for publication in IEEE Robotics and Automation Letters (RA-L), 2026. 8 figures</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Flexible-body Modeling, Kinematic Identification, and Assembly Accuracy of Overconstrained Spatial Linkages</span></td>
+        <td class="author-cell">Daniel Huczala</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17627" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17627" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Predictive Varanus: Combining CSP Conformance Monitoring with Predictive LTL Runtime Verification</span></td>
+        <td class="author-cell">Angelo Ferrando</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17625" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17625" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Real-Time Service Robot Replanning via Simple Button Interaction for Improved Task Success and User Experience</span></td>
+        <td class="author-cell">Ryo Terashima</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17541" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17541" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>accepted as a conference paper for 2026 35th IEEE International Conference on Robot and Human Interactive Communication (RO-MAN 2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Human-Centric Grasp State Assessment: Toward Transferring Subjective Evaluation to Robots</span></td>
+        <td class="author-cell">Ryohei Kobayashi</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.17540" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.17540" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>accepted as a conference paper for IEEE International Conference on Development and Learning (ICDL2026)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>PointZero: 3D Point Track Completion for Learning Transferable 3D Dynamics</span></td>
+        <td class="author-cell">Bardienus P. Duisterhof</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19142" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19142" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://pointzero-wm.github.io/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>In-Context Robot Learning with VLM Agents</span></td>
+        <td class="author-cell">Dongzhou Cheng</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.19138" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.19138" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://github.com/cheng-haha/GPT-Policy" target="_blank" rel="noopener">🔗 Code1</a><br><a class="resource-tag code" href="https://cheng-haha.github.io/GPT-Policy" target="_blank" rel="noopener">🔗 Code2</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Project Page:this https URLGitHub Code:this https URL</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>Towards Interaction Regulation from Human Feedback via Free Energy Minimization</span></td>
+        <td class="author-cell">Maria Paula Diaz Monfort</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18853" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18853" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted for presentation to IEEE Conference on Decision and Control 2026, Honolulu (USA)</small></details></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+<tr>
+        <td class="title-cell"><span>A Convergence Framework for Deep $V$-Learning: Error Propagation and Sharp Action-Gap Bounds</span></td>
+        <td class="author-cell">Yury Kolomeytsev</td>
+        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.18782" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.18782" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
+        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
+        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>大模型总结失败<br><small style="color:#dc3545">⚠️ API 状态码异常：429，响应：{&quot;error&quot;:{&quot;message&quot;:&quot;当前24小时窗口的免费请求额度已用完；所有免费模型共享100次请求，请等待窗口结束后再试。如有更多需求，请访问 https://chatanywhere.tech/ 购买付费API。The shared limit of 100 free requests across all models has been reached for the current 24-hour window. Please wait for the window to reset or purchase a premium key at https://chatanywhere.tech/.(当前请求使用的ApiKey: sk-Qbj****mWDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】&quot;,&quot;type&quot;:&quot;chatanywhere_error&quot;,&quot;param&quot;:null,&quot;code&quot;:&quot;429 TOO_MANY_REQUESTS&quot;}}</small></small></details></td>
+    </tr>
+        </tbody></table>
+    </div>
+</div>
+<div class="date-section" id="date-20260916">
+    <div class="date-header">
+        <span>2026-09-16（130篇论文）</span>
+        <span class="arrow">▶</span>
+    </div>
+    <div class="date-content" style="display: none;">
         <table>
         <!-- 添加 colgroup 明确指定每列宽度 -->
         <colgroup>
@@ -6944,236 +8308,6 @@ DART将系统划分为机器人、Web应用和云基础设施三层：机器人�
         </tbody></table>
     </div>
 </div>
-<div class="date-section" id="date-20260912">
-    <div class="date-header">
-        <span>2026-09-12（8篇论文）</span>
-        <span class="arrow">▶</span>
-    </div>
-    <div class="date-content" style="display: none;">
-        <table>
-        <!-- 添加 colgroup 明确指定每列宽度 -->
-        <colgroup>
-            <col style="width: 25%">  <!-- Title -->
-            <col style="width: 15%">   <!-- Authors -->
-            <col style="width: 10%">   <!-- Resources -->
-            <col style="width: 10%">   <!-- Relevance -->
-            <col style="width: 40%">  <!-- Summary -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>标题</th>
-                <th>作者</th>
-                <th>资源</th>
-                <th>相关性</th>
-                <th>总结</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：5分  【论文的motivation】   1. 仅依赖当前视觉观测难以区分相似场景下不同的操作阶段与后续转移意图。   2. 视觉上合理的未来状态不一定对应物理可执行、连续一致的机器人动作。   3. 历史场景中成功的动作模式无法直接迁移到当前场景，需要结合当前几何、接触和机器人状态进行适配。   4. 现有VLA模型通常将未来预测、历史记忆与动作生成割裂建模，缺少连接意图状态演...">UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling</span></td>
-        <td class="author-cell">Wei Li</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.11875" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.11875" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://JiuTian-VL.github.io/UniMPA-page/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI). Project page:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：5/5">★★★★★</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：5分
-
-【论文的motivation】  
-1. 仅依赖当前视觉观测难以区分相似场景下不同的操作阶段与后续转移意图。  
-2. 视觉上合理的未来状态不一定对应物理可执行、连续一致的机器人动作。  
-3. 历史场景中成功的动作模式无法直接迁移到当前场景，需要结合当前几何、接触和机器人状态进行适配。  
-4. 现有VLA模型通常将未来预测、历史记忆与动作生成割裂建模，缺少连接意图状态演化和可执行动作的统一接口。  
-
-【解决了哪些前人工作中的空白】  
-1. 弥补了observation-conditioned policy难以表达任务阶段与状态转移意图的空白。  
-2. 弥补了pixel-level或latent-level future prediction与动作可执行性缺乏直接耦合的空白。  
-3. 弥补了传统observation-centric memory无法检索“视觉转移—动作演化”对应关系的空白。  
-4. 弥补了历史动作经验通常被直接迁移、缺乏面向当前场景适配机制的空白。  
-5. 弥补了VLM、world model与action expert之间缺少action-grounded transition interface的空白。  
-
-【提出了什么创新的方法】  
-1. UniMPA构建统一的anticipate–ground–refine流程：首先预测任务相关的未来状态转移，再利用历史视觉—动作经验验证其可执行性，最后基于检索到的动作原型生成并适配当前场景的动作。  
-2. Persistent-Selective Future Prediction同时使用persistent latent prediction与selective pixel prediction。persistent latent stream持续编码任务级进展和长期状态演化；transition-critical时刻由Trigger Gate激活pixel stream，重点监督接触、释放等局部交互变化，减少背景和静态纹理带来的冗余。  
-3. 预测得到的future-supervised transition tokens不直接依赖解码后的未来图像，而是直接输入Action Expert，使动作生成显式受到任务进展与交互变化的共同约束。  
-4. Visual-</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：4分  【论文的motivation】   1. 现有视觉模仿学习通常在干净背景中训练，难以处理非结构化障碍物、狭窄通道与复杂遮挡下的机器人操作。   2. 端到端视觉特征混合目标、障碍物和背景信息，导致策略难以明确区分需要接近的区域与需要避让的区域。   3. 目标外观、视角、光照和场景结构变化会造成显著分布偏移，使扩散策略在真实杂乱环境中的泛化能力下降。   4. 现有方法通常...">ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations</span></td>
-        <td class="author-cell">Jiawen Wang</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10918" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10918" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to the 10th Conference on Robot Learning (CoRL 2026), Austin, TX, USA.</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：4/5">★★★★☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：4分
-
-【论文的motivation】  
-1. 现有视觉模仿学习通常在干净背景中训练，难以处理非结构化障碍物、狭窄通道与复杂遮挡下的机器人操作。  
-2. 端到端视觉特征混合目标、障碍物和背景信息，导致策略难以明确区分需要接近的区域与需要避让的区域。  
-3. 目标外观、视角、光照和场景结构变化会造成显著分布偏移，使扩散策略在真实杂乱环境中的泛化能力下降。  
-4. 现有方法通常将避障接近与任务交互行为耦合，难以复用接近策略以支持不同目标和操作任务。  
-
-【解决了哪些前人工作中的空白】  
-1. 弥补了标准视觉模仿学习和Diffusion Policy缺乏显式obstacle-aware representation、难以在杂乱场景中进行安全接近的空白。  
-2. 弥补了通用RGB、RGB-D或point-cloud表示未明确编码target–obstacle空间关系的问题。  
-3. 弥补了现有障碍物感知方法偏重独立规划器、缺少闭环visuomotor imitation policy的问题。  
-4. 弥补了接近阶段与近距离交互阶段高度耦合、难以跨任务复用策略的问题。  
-
-【提出了什么创新的方法】  
-1. 从RGB-D观测中构建target–obstacle–background结构化表示，通过轻量级obstacle-aware visual encoder分别保留目标、障碍物和背景的语义角色，并突出目标与障碍物之间的空间关系。  
-2. 将操作策略分解为diffusion-based alignment和replay-based interaction两个阶段。前者根据结构化视觉表示生成面向目标的末端执行器接近轨迹，后者从任务相关的replay library中执行近距离交互行为。  
-3. 在目标附近构建target-centered bottleneck pose，并利用数据驱动的bottleneck rule选择适合穿越障碍物间狭窄区域的交互轨迹。  
-4. 通过仅替</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：2分  【论文的motivation】   1. 现有四足巡检系统通常以任务特定接口拼接导航、感知、语言模型和企业应用，缺乏统一、可复用且可追溯的 embodied-agent runtime。   2. 机器人位姿、环境观测、任务意图与执行状态缺乏共享上下文，导致多模态推理难以 grounded 到真实机器人状态。   3. 传统系统难以持续积累历史任务经验，无法有效支持跨任务的...">Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection</span></td>
-        <td class="author-cell">Yaoyuan Yan</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.11225" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.11225" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：2/5">★★☆☆☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：2分
-
-【论文的motivation】  
-1. 现有四足巡检系统通常以任务特定接口拼接导航、感知、语言模型和企业应用，缺乏统一、可复用且可追溯的 embodied-agent runtime。  
-2. 机器人位姿、环境观测、任务意图与执行状态缺乏共享上下文，导致多模态推理难以 grounded 到真实机器人状态。  
-3. 传统系统难以持续积累历史任务经验，无法有效支持跨任务的 memory reuse、长期适应和知识更新。  
-4. Prompt、tool policy、task graph 与技能更新缺少评估、版本控制和回滚机制，在线自适应可能引入安全风险。  
-5. 缺少连接机器人执行、人工交互、风险识别、结构化报告和物业工单处理的完整闭环。
-
-【解决了哪些前人工作中的空白】  
-1. 补充了机器人底层 autonomy stack 与上层 multimodal agent、operator interaction、enterprise workflow 之间缺少统一运行时的空白。  
-2. 将 physical state、mission context、agent reasoning 和 operational feedback 纳入共享上下文，缓解模块间状态割裂问题。  
-3. 引入 working、episodic、semantic memory 的分层组织，为重复巡检任务中的经验保存与检索提供系统框架。  
-4. 提出带有 offline evaluation、provenance、versioning 和 rollback 的安全门控 self-evolution 流程，避免无约束在线修改。  
-5. 展示了从四足机器人导航、视觉语言 hazard understanding 到报警和报告生成的端到端部署闭环。
-
-【提出了什么创新的方法】  
-1. 提出 HROS 分层 embodied-agent runtime，将 robot runtime、embodied autonomy skills、cognitive agent runtime、interaction and operations planes 组织在统一架构中。机器人底层负责传感器、定位、规划和运动，上层 agent 通过可复用 skills 调用导航、感知和任务执行能力。  
-2. 构建 shared context，将机器人位姿、传感器观测、任务目标、执行状态、历史事件和模型推理结果统一关联，使语言交互和视觉分析能够 grounding 到当前</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】   1. 低成本单目视觉能否在温室中重建番茄植株及果实的三维几何信息？   2. 如何利用多视角图像发现被叶片或果实遮挡、传统视觉传感器难以直接检测的番茄？   3. 如何为后续番茄定位、采摘规划和生长监测提供可用的三维场景基础？    【解决了哪些前人工作中的空白】   1. 弥补了温室番茄三维感知主要依赖RGB-D或LiDAR、成本较高的...">Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAPfor robotized harvesting</span></td>
-        <td class="author-cell">Fernando Cañadas-Aránega</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.11766" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.11766" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
-
-【论文的motivation】  
-1. 低成本单目视觉能否在温室中重建番茄植株及果实的三维几何信息？  
-2. 如何利用多视角图像发现被叶片或果实遮挡、传统视觉传感器难以直接检测的番茄？  
-3. 如何为后续番茄定位、采摘规划和生长监测提供可用的三维场景基础？  
-
-【解决了哪些前人工作中的空白】  
-1. 弥补了温室番茄三维感知主要依赖RGB-D或LiDAR、成本较高的问题。  
-2. 探索了HLoc与GLOMAP结合在真实温室番茄场景中的应用，而非仅在通用或工业环境中验证。  
-3. 尝试从多帧二维RGB图像中重建被遮挡番茄的空间位置与几何属性。  
-4. 对重建结果进行了果实尺寸、质心位置和朝向的人工测量验证。  
-
-【提出了什么创新的方法】  
-1. 使用Intel RealSense D435i采集图像，但仅保留RGB图像，构建低成本单目视觉输入。  
-2. 通过ROS 2 Humble录制真实温室中的番茄序列，并将图像统一为10 Hz输入。  
-3. 首先使用HLoc进行hierarchical localization：通过global image retrieval筛选候选视角，再利用SuperPoint/SuperGlue等局部特征完成图像匹配与相机位姿估计。  
-4. 将HLoc得到的匹配结果与GLOMAP结合，执行global Structure-from-Motion，通过rotation averaging、translation averaging、多视图三角化和global bundle adjustment估计相机轨迹及番茄稀疏三维结构。  
-5. 对重建出的番茄簇进行几何测量，并与人工ground truth进行比较。实验表明，该流程能够在真实温室中重建番茄簇，并定位部分被遮挡果实；但其对“隐藏番茄”的识别本质上主要依赖多视角几何重建</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】   1. Tail-sitter在全飞行包线内存在强非线性气动效应，传统控制依赖机体特定的高保真气动模型。   2. 高保真气动辨识成本高、部署复杂，限制了控制器的可迁移性与实际应用。   3. 现有低保真模型计算高效但精度不足，难以同时满足实时MPC预测与全包线跟踪需求。   4. 传统传感器补偿方法主要是反应式的，未能利用在线气动估计进行...">Aerodynamic Prior-Free Coordinated Trajectory Generation and Tracking Control for a Tail-Sitter UAV</span></td>
-        <td class="author-cell">Erchao Rong</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.11698" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.11698" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
-
-【论文的motivation】  
-1. Tail-sitter在全飞行包线内存在强非线性气动效应，传统控制依赖机体特定的高保真气动模型。  
-2. 高保真气动辨识成本高、部署复杂，限制了控制器的可迁移性与实际应用。  
-3. 现有低保真模型计算高效但精度不足，难以同时满足实时MPC预测与全包线跟踪需求。  
-4. 传统传感器补偿方法主要是反应式的，未能利用在线气动估计进行短时域预测。  
-5. 现有轨迹规划中的 differential flatness 映射依赖AoA数值求解或受限模型，难以实现通用、并行且无先验的规划。  
-
-【解决了哪些前人工作中的空白】  
-1. 填补了不依赖特定机体气动辨识、覆盖所测试全飞行包线的tail-sitter轨迹生成与跟踪一体化框架空白。  
-2. 缓解了高保真模型精度与实时计算效率之间的矛盾。  
-3. 将在线气动估计从反应式误差补偿扩展到MPC预测模型中。  
-4. 避免了基于气动模型的逐时刻AoA数值优化，实现了 coordinated flight 下的解析 differential-flatness 映射。  
-
-【提出了什么创新的方法】  
-1. 将trajectory planning与trajectory tracking进行阶段化建模：规划阶段采用适合长期可行性分析的ϕ-theory模型，跟踪阶段采用局部有效、低维且可在线更新的非线性模型。  
-2. 基于完整ϕ-theory aerodynamic model，推导 coordinated flight 下从flat outputs到body angular velocity与thrust acceleration的解析 differential-flatness mapping，避免逐点AoA优化。  
-3. 以单一flat-plate drag coefficient参数化规划模型，离线生成动态可行轨迹及其position、velocity和lateral-axis参考量。  
-4. 构建带有在线aerodynamic parameter estimation的nonlinear MPC，仅估计关键</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】 1. 现有海上空地通信主要通过优化无人机位置、高度和轨迹缓解双径衰落，尚未充分利用无人机姿态这一可控变量。 2. 海面反射与直射路径的相消干涉会造成深衰落，而天线相位中心的微小姿态位移可能显著改变两条路径的相位差。 3. 需要在不改变任务轨迹的情况下，通过姿态控制主动调节两径干涉并提升瞬时链路质量。  【解决了哪些前人工作中的空白】 1. 将...">3D Euler-Angle Orientation Control for Two-Ray Fading Mitigation in Maritime Air-to-Sea Communications</span></td>
-        <td class="author-cell">Mohammed Bajja</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.11476" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.11476" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><details class="resource-comment"><summary>📝 备注</summary><small>Accepted to the 2026 IEEE Global Communications Conference, GLOBECOM 2026</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
-
-【论文的motivation】
-1. 现有海上空地通信主要通过优化无人机位置、高度和轨迹缓解双径衰落，尚未充分利用无人机姿态这一可控变量。
-2. 海面反射与直射路径的相消干涉会造成深衰落，而天线相位中心的微小姿态位移可能显著改变两条路径的相位差。
-3. 需要在不改变任务轨迹的情况下，通过姿态控制主动调节两径干涉并提升瞬时链路质量。
-
-【解决了哪些前人工作中的空白】
-1. 将无人机姿态从随机扰动或通信不确定性因素转化为主动控制变量，用于确定性地调节海上空地双径干涉。
-2. 从仅优化位置、轨迹或高度扩展到三维滚转、俯仰和偏航联合优化。
-3. 建立了姿态相关的两径信道模型，并推导出构造性干涉条件下的闭式姿态候选解。
-4. 将通信目标与受约束姿态控制结合，在不修改位置参考轨迹的情况下增强通信性能。
-
-【提出了什么创新的方法】
-1. 建立姿态相关的海上空地双径模型。根据无人机质心位置、机体姿态和天线安装偏移，计算天线相位中心在世界坐标系中的位置，并分别建模直射路径与镜像反射路径。
-2. 将接收功率最大化转化为两径相位差满足构造性干涉的约束。在小角度和远场假设下，对姿态引起的路径长度变化进行一阶近似，使相位条件化为关于滚转、俯仰和偏航角的仿射约束。
-3. 基于几何相关的相位敏感度向量，求解满足不同干涉周期的最小范数三维欧拉角候选解，从而得到一组计算开销较低的姿态参考。
-4. 使用可微分 soft-minimum 规则，在多个构造性干涉候选解中平滑选择较小姿态</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数：1分  【论文的motivation】   1. 现有信息论、控制论与决策论彼此割裂，缺乏统一描述通信、控制和决策的数学框架。   2. Shannon信息论主要关注符号保真度，难以刻画信息对最终决策和行动效果的影响。   3. 语义信息理论能够压缩同义表达，但尚未系统形式化不同语义路径导向相同最优行动的等价性。   4. 现有pragmatic information研究缺少完整...">A Mathematical Theory of Pragmatic Information</span></td>
-        <td class="author-cell">Kai Niu</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10986" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10986" target="_blank" rel="noopener">🧠 AlphaXiv</a></td>
-        <td class="score-cell" style="text-align:center"><span class="stars" title="相关性评分：1/5">★☆☆☆☆</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数：1分
-
-【论文的motivation】  
-1. 现有信息论、控制论与决策论彼此割裂，缺乏统一描述通信、控制和决策的数学框架。  
-2. Shannon信息论主要关注符号保真度，难以刻画信息对最终决策和行动效果的影响。  
-3. 语义信息理论能够压缩同义表达，但尚未系统形式化不同语义路径导向相同最优行动的等价性。  
-4. 现有pragmatic information研究缺少完整的熵、互信息、容量、率失真及编码定理体系。  
-5. 任务导向通信与具身智能需要依据行动效用而非信号重构质量分配信息资源。  
-
-【解决了哪些前人工作中的空白】  
-1. 尝试补足从semantic information到pragmatic information的形式化缺口，引入基于最优行动等价的isoteleia mapping。  
-2. 将syntactic、semantic和pragmatic information组织为连续的quotient hierarchy，并声称经典信息论和语义信息论是其特例。  
-3. 将pragmatic entropy、mutual information、channel capacity和rate-distortion统一纳入信息论表达。  
-4. 将Value of Information、Cost of Information与率失真、信道容量及Lagrangian优化联系起来。  
-5. 提出面向任务效用的PCDE闭环框架，试图统一通信、控制和决策。  
-
-【提出了什么创新的方法】  
-1. 定义semantic space上的isoteleia mapping，将导向相同最优终端行动的语义类归并为同一pragmatic class；再与synonymous mapping组合形成reification mapping，从pragmatic intent连接到syntactic signal。  
-2. 构造由syntactic、semantic和pragmatic三层组成的层次化信息系统，并在PCDE架构中设置intent generation、编码、信道传输、解码、demapping和action execution等模块。  
-3. 在pragmatic quotient space上定义pragmatic entropy、上下行pragmatic mutual information、capacity与rate-distortion，给出与经典及语</small></details></td>
-    </tr>
-<tr>
-        <td class="title-cell"><span class="title-with-tooltip" title="【相关性】分数： 4分  【论文的motivation】   1. 传统运动规划将机器人配置空间视为欧氏空间，难以有效处理末端位姿等式约束形成的低维constraint manifold。   2. 基于analytic IK的流形参数化依赖可微IK，但主流IKFast等自动生成求解器通常不支持autodiff。   3. 轨迹优化迭代过程中可能产生不可达末端位姿，黑盒IK返回无解会导致梯度中断和...">Planning along Differentiable Charts of Constraint Manifolds with General-Purpose IK Solvers</span></td>
-        <td class="author-cell">Thomas Cohn</td>
-        <td class="resource-cell"><a class="resource-tag pdf" href="https://arxiv.org/pdf/2609.10905" target="_blank" rel="noopener">📄 PDF</a><br><a class="resource-tag alphaxiv" href="https://www.alphaxiv.org/zh/overview/2609.10905" target="_blank" rel="noopener">🧠 AlphaXiv</a><br><a class="resource-tag code" href="https://cohnt.github.io/inverse-function-theorem-parameterization/" target="_blank" rel="noopener">🔗 Code1</a><br><details class="resource-comment"><summary>📝 备注</summary><small>. Under review. Project website:this https URL</small></details></td>
-        <td class="score-cell" style="text-align:center"><span class="stars">-</span></td>
-        <td class="summary-cell"><details class="summary-details" title="点击查看详情"><summary>📋</summary><small>【相关性】分数： 4分
-
-【论文的motivation】  
-1. 传统运动规划将机器人配置空间视为欧氏空间，难以有效处理末端位姿等式约束形成的低维constraint manifold。  
-2. 基于analytic IK的流形参数化依赖可微IK，但主流IKFast等自动生成求解器通常不支持autodiff。  
-3. 轨迹优化迭代过程中可能产生不可达末端位姿，黑盒IK返回无解会导致梯度中断和优化失败。  
-4. 需要一种无需重写IK求解器、同时支持可微梯度与不可达区域优化的通用方法。  
-
-【解决了哪些前人工作中的空白】  
-1. 现有constraint-manifold参数化方法主要依赖手写且可微的analytic IK，难以扩展到自动生成的黑盒IK求解器。  
-2. 既有方法通常只在reachable workspace内定义IK梯度，无法处理优化过程中暂时出现的不可达目标。  
-3. 缺少将通用IK求解器、流形参数化、梯度轨迹优化和可行域约束统一起来的实用框架。  
-
-【提出了什么创新的方法】  
-1. 将普通forward kinematics扩展为augmented FK，使其同时输出analytic IK对应的self-motion parameters。  
-2. 利用augmented FK的Jacobian和inverse function theorem，从正向运动学Jacobian中恢复黑盒analytic IK映射的Jacobian，无需修改IKFast等自动生成代码。  
-3. 对不可达末端位姿构造least-squares domain extension，通过最小二乘解或高效近似定义连续的IK输出及其闭式Jacobian，使优化器在workspace外仍能获得有效梯度。  
-4. 针对IK可行域构造optimization-amenable reachability constraint，仅在可行域边界附近激活，避免对内部轨迹施加不必要约束。  
-5. 将上述梯度计算、域扩展和可达性约束整合到基于参数化流形的trajectory optimization中，并应用于数值规划、通用IK求解器以及RB-Y1硬件pick-and-place</small></details></td>
-    </tr>
-        </tbody></table>
-    </div>
-</div>
         </main>
 
         <footer>
@@ -7244,7 +8378,7 @@ DART将系统划分为机器人、Web应用和云基础设施三层：机器人�
             });
             
             // ========== 自动展开最新日期 ==========
-            const latestId = 'date-20260916';
+            const latestId = 'date-20260917';
             if (latestId) {
                 const latestSection = document.getElementById(latestId);
                 if (latestSection) {
