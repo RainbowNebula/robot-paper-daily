@@ -72,7 +72,10 @@ MD_SAVE_PATH = f"README.md"
 # 工具正则
 URL_PATTERN = re.compile(r'https?://\S+|www\.\S+')
 PDF_LINK_PATTERN = re.compile(r'pdf', re.IGNORECASE)  # 匹配含PDF的链接
-LLM_SCORE_PATTERN = re.compile(r'分数：(\d+)分')  # 提取LLM返回的1-5分评分
+# LLM_SCORE_PATTERN = re.compile(r'分数：(\d+)分')  # 提取LLM返回的1-5分评分
+LLM_SCORE_PATTERN = re.compile(
+    r'(?:相关性(?:评分)?|评分|分数)\s*[：:]\s*([1-5])\s*(?:分|/5)?'
+)
 PAGE_FIGURE_FRAGMENT_PATTERN = re.compile(
     r'\d+\s+(pages?|page)\s*,?\s*\d*\s*(figures?|figure)?\s*,?\s*\d*\s*(tables?|table)?',
     re.IGNORECASE  # 不区分大小写
