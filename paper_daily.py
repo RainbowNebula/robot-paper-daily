@@ -4,55 +4,47 @@ import json
 import time
 import signal
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 import logging
 import re
 import http.client
 import traceback
-
+import os
+import math
+from urllib.parse import urljoin
 
 # -------------------------- 全局变量与信号处理 --------------------------
-all_papers_global: Dict[str, List[Dict]] = {}  # 按日期组织的论文数据 {date: [papers]}
 
-def signal_handler(sig, frame):
-    """处理Ctrl+C信号，确保中断时保存数据"""
-    logging.info("\n检测到手动中断（Ctrl+C），正在保存当前数据...")
-    try:
-        if all_papers_global:
-            with open(JSON_SAVE_PATH, "w", encoding="utf-8") as f:
-                json.dump(all_papers_global, f, ensure_ascii=False, indent=4)
-            logging.info(f"已保存数据到 JSON 文件，包含 {len(all_papers_global)} 个日期的数据")
-            json_to_markdown(JSON_SAVE_PATH, MD_SAVE_PATH)
-        else:
-            logging.info("当前无爬取数据，无需保存")
-    except Exception as e:
-        logging.error(f"中断时保存数据失败：{str(e)}")
-    finally:
-        sys.exit(0)
-
-signal.signal(signal.SIGINT, signal_handler)
-
+all_papers_global: Dict[str, List[Dict]] = {}
+llm_quota_exhausted = False
 
 # -------------------------- 基础配置 --------------------------
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("arxiv_crawler.log"), logging.StreamHandler()]
+    handlers=[
+        logging.FileHandler("arxiv_crawler.log", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
 )
 
 ARXIV_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,"
+              "image/avif,image/webp,*/*;q=0.8",
     "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
-    "Connection": "keep-alive"
+    "Connection": "keep-alive",
 }
 
-# LLM配置
-# 新代码（从环境变量获取）
-import os
-LLM_API_KEY = os.getenv("LLM_API_KEY")  # 从环境变量读取密钥
-LLM_API_HOST = "api.chatanywhere.org" # https://github.com/chatanywhere/GPT_API_free
+# LLM 配置
+LLM_API_KEY = os.getenv("LLM_API_KEY")
+LLM_API_HOST = "api.chatanywhere.org"
 LLM_API_ENDPOINT = "/v1/chat/completions"
 LLM_MODEL = "gpt-5.6-luna"
 LLM_PROMPT = os.getenv("LLM_PROMPT")
@@ -60,580 +52,1451 @@ LLM_PROMPT = os.getenv("LLM_PROMPT")
 # 爬取配置
 REQUEST_INTERVAL = 1.2
 PAPERS_PER_PAGE = 100
-MAX_CRAWL_PAGES = 1  # 最大爬取页数，None表示无限制
-INITIAL_ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?show=100"  # cs.RO领域最新论文
+
+# None = 根据 arXiv 当天论文总数自动翻页。
+# 如果设置整数，例如 3，表示最多实际抓 3 页，而不是 page index <= 3。
+MAX_CRAWL_PAGES: Optional[int] = None
+
+INITIAL_ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?show=100"
 
 # 存储配置
 JSON_SAVE_PATH = "arxiv_cs_ro_papers_final.json"
-CURRENT_DATE = datetime.now().strftime("%Y-%m-%d")
-# MD_SAVE_PATH = f"{CURRENT_DATE}_papers.md"
-MD_SAVE_PATH = f"README.md"
+MD_SAVE_PATH = "README.md"
+RECENT_DISPLAY_DAYS = 5
 
-# 工具正则
-URL_PATTERN = re.compile(r'https?://\S+|www\.\S+')
-PDF_LINK_PATTERN = re.compile(r'pdf', re.IGNORECASE)  # 匹配含PDF的链接
-# LLM_SCORE_PATTERN = re.compile(r'分数：(\d+)分')  # 提取LLM返回的1-5分评分
+# -------------------------- 正则 --------------------------
+
+URL_PATTERN = re.compile(r"https?://\S+|www\.\S+")
+PDF_LINK_PATTERN = re.compile(r"pdf", re.IGNORECASE)
+
+# 支持：
+# 分数：5分
+# 分数： 5分
+# 分数: 5分
+# 【相关性】分数： 5分
+# 评分：5
+# 相关性评分：5/5
 LLM_SCORE_PATTERN = re.compile(
-    r'(?:相关性(?:评分)?|评分|分数)\s*[：:]\s*([1-5])\s*(?:分|/5)?'
+    r"(?:【?\s*相关性\s*】?\s*)?"
+    r"(?:相关性\s*)?(?:评分|分数)"
+    r"\s*[：:]\s*\**\s*([1-5])\s*\**\s*(?:分|/5)?",
+    re.IGNORECASE,
 )
+
+# 再放宽一层，只要出现“分数：5分”也可以抓到
+LLM_SCORE_FALLBACK_PATTERN = re.compile(
+    r"分数\s*[：:]\s*\**\s*([1-5])\s*\**\s*分",
+    re.IGNORECASE,
+)
+
 PAGE_FIGURE_FRAGMENT_PATTERN = re.compile(
-    r'\d+\s+(pages?|page)\s*,?\s*\d*\s*(figures?|figure)?\s*,?\s*\d*\s*(tables?|table)?',
-    re.IGNORECASE  # 不区分大小写
+    r"\d+\s+(pages?|page)\s*,?\s*\d*\s*(figures?|figure)?"
+    r"\s*,?\s*\d*\s*(tables?|table)?",
+    re.IGNORECASE,
+)
+
+ARXIV_DATE_PATTERN = re.compile(
+    r"^([A-Za-z]{3},\s+\d{1,2}\s+[A-Za-z]{3}\s+\d{4})"
+)
+
+ARXIV_TOTAL_PATTERN = re.compile(
+    r"\bof\s+(\d+)\s+entries\b",
+    re.IGNORECASE,
+)
+
+ARXIV_SIMPLE_TOTAL_PATTERN = re.compile(
+    r"\((?:[^)]*?\b)?(\d+)\s+entries\b",
+    re.IGNORECASE,
+)
+
+ARXIV_ID_PATTERN = re.compile(
+    r"arxiv\.org/(?:abs|html|pdf)/([^/?#]+)",
+    re.IGNORECASE,
 )
 
 
-# -------------------------- 工具函数 --------------------------
+# -------------------------- 基础工具 --------------------------
+
+def save_json() -> None:
+    """保存当前全局论文数据。"""
+    with open(JSON_SAVE_PATH, "w", encoding="utf-8") as f:
+        json.dump(all_papers_global, f, ensure_ascii=False, indent=4)
+
+
+def signal_handler(sig, frame):
+    """处理 Ctrl+C，确保中断时保存数据。"""
+    logging.info("\n检测到手动中断（Ctrl+C），正在保存当前数据...")
+    try:
+        if all_papers_global:
+            save_json()
+            logging.info(
+                "已保存数据到 JSON，包含 %d 个日期的数据",
+                len(all_papers_global),
+            )
+            json_to_markdown(JSON_SAVE_PATH, MD_SAVE_PATH)
+        else:
+            logging.info("当前无爬取数据，无需保存")
+    except Exception as e:
+        logging.error("中断时保存数据失败：%s", str(e))
+    finally:
+        sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
+
+
 def get_arxiv_soup(url: str) -> Optional[BeautifulSoup]:
-    """获取arxiv页面的BeautifulSoup对象"""
+    """获取 arXiv 页面并返回 BeautifulSoup。"""
     try:
         response = requests.get(
             url=url,
             headers=ARXIV_HEADERS,
             proxies=None,
-            timeout=20
+            timeout=30,
         )
-        response.raise_for_status()  # 触发HTTP错误（4xx/5xx）
-        time.sleep(REQUEST_INTERVAL)  # 反爬间隔
-        return BeautifulSoup(response.text, "html.parser")
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "html.parser")
+        time.sleep(REQUEST_INTERVAL)
+        return soup
     except Exception as e:
-        logging.error(f"arXiv 页面请求失败（{url}）：{str(e)}")
+        logging.error("arXiv 页面请求失败（%s）：%s", url, str(e))
         return None
 
 
+def parse_score_from_summary(summary: str) -> int:
+    """从 LLM 文本中尽可能稳健地解析 1~5 分。"""
+    if not summary:
+        return 0
+
+    for pattern in (LLM_SCORE_PATTERN, LLM_SCORE_FALLBACK_PATTERN):
+        match = pattern.search(summary)
+        if match:
+            try:
+                score = int(match.group(1))
+                if 1 <= score <= 5:
+                    return score
+            except (TypeError, ValueError):
+                pass
+    return 0
+
+
+def normalize_arxiv_id(value: str) -> str:
+    """将 arXiv ID 统一为不带版本号、不带 .pdf 的形式。"""
+    if not value:
+        return ""
+
+    value = value.strip()
+    match = ARXIV_ID_PATTERN.search(value)
+    if match:
+        value = match.group(1)
+
+    value = value.replace(".pdf", "")
+    value = re.sub(r"v\d+$", "", value)
+    return value
+
+
+def extract_arxiv_id_from_dt(dt_tag: BeautifulSoup) -> str:
+    """优先从 Abstract 链接提取 arXiv ID。"""
+    abs_tag = dt_tag.find("a", title="Abstract")
+    if abs_tag and abs_tag.get("href"):
+        return normalize_arxiv_id(abs_tag["href"])
+
+    # fallback：找 /abs/、/html/ 或 /pdf/
+    for a in dt_tag.find_all("a", href=True):
+        href = a["href"]
+        if "/abs/" in href or "/html/" in href or "/pdf/" in href:
+            arxiv_id = normalize_arxiv_id(href)
+            if arxiv_id:
+                return arxiv_id
+    return ""
+
+
+def paper_identity(paper: Dict) -> str:
+    """历史数据兼容：优先 arxiv_id，否则从链接提取。"""
+    arxiv_id = normalize_arxiv_id(str(paper.get("arxiv_id", "")))
+    if arxiv_id:
+        return arxiv_id
+
+    for key in ("arxiv_abs_link", "arxiv_html_link", "pdf_link"):
+        arxiv_id = normalize_arxiv_id(str(paper.get(key, "")))
+        if arxiv_id:
+            return arxiv_id
+
+    return ""
+
+
+def summary_is_successful(paper: Dict) -> bool:
+    summary = str(paper.get("llm_summary", "") or "").strip()
+    if not summary:
+        return False
+    if summary == "大模型总结失败":
+        return False
+    return True
+
+
+def repair_historical_scores() -> int:
+    """
+    修复历史 JSON 中：
+    llm_summary 明明写了 1~5 分，但 llm_score 因旧正则失败而为 0 的记录。
+    """
+    fixed = 0
+    for papers in all_papers_global.values():
+        for paper in papers:
+            old_score = paper.get("llm_score", 0)
+            try:
+                old_score_int = int(old_score)
+            except (TypeError, ValueError):
+                old_score_int = 0
+
+            if 1 <= old_score_int <= 5:
+                paper["llm_score"] = old_score_int
+                continue
+
+            score = parse_score_from_summary(
+                str(paper.get("llm_summary", "") or "")
+            )
+            if score:
+                paper["llm_score"] = score
+                fixed += 1
+
+            # 顺便补 arxiv_id，兼容旧数据
+            if not paper.get("arxiv_id"):
+                arxiv_id = paper_identity(paper)
+                if arxiv_id:
+                    paper["arxiv_id"] = arxiv_id
+
+    return fixed
+
+
+def find_existing_paper(arxiv_id: str) -> Optional[Tuple[str, int, Dict]]:
+    """在所有历史日期中按 arXiv ID 查找论文。"""
+    if not arxiv_id:
+        return None
+
+    for date_key, papers in all_papers_global.items():
+        for idx, paper in enumerate(papers):
+            if paper_identity(paper) == arxiv_id:
+                return date_key, idx, paper
+    return None
+
+
+def remove_duplicate_identity(arxiv_id: str, keep_date: str, keep_index: int) -> int:
+    """删除同一 arXiv ID 的其它重复记录。"""
+    removed = 0
+
+    for date_key in list(all_papers_global.keys()):
+        papers = all_papers_global[date_key]
+        new_papers = []
+
+        for idx, paper in enumerate(papers):
+            is_keep = (date_key == keep_date and idx == keep_index)
+            if not is_keep and paper_identity(paper) == arxiv_id:
+                removed += 1
+                continue
+            new_papers.append(paper)
+
+        all_papers_global[date_key] = new_papers
+
+    return removed
+
+
+def upsert_paper(target_date: str, paper_data: Dict) -> None:
+    """
+    同一 arXiv ID 只保留一条。
+    若历史失败后重跑成功，则更新原论文并移动到 arXiv 实际日期，
+    不会 append 到 crawler 运行日期。
+    """
+    arxiv_id = paper_identity(paper_data)
+    all_papers_global.setdefault(target_date, [])
+
+    existing = find_existing_paper(arxiv_id) if arxiv_id else None
+
+    if existing is None:
+        all_papers_global[target_date].append(paper_data)
+        return
+
+    old_date, old_idx, _ = existing
+
+    if old_date == target_date:
+        all_papers_global[old_date][old_idx] = paper_data
+        keep_index = old_idx
+    else:
+        del all_papers_global[old_date][old_idx]
+        all_papers_global[target_date].append(paper_data)
+        keep_index = len(all_papers_global[target_date]) - 1
+
+    if arxiv_id:
+        remove_duplicate_identity(arxiv_id, target_date, keep_index)
+
+
+# -------------------------- arXiv 日期与分页 --------------------------
+
+def parse_arxiv_heading_date(text: str) -> Optional[str]:
+    """
+    例如：
+    Fri, 18 Sep 2026 (showing first 100 of 133 entries)
+    -> 2026-09-18
+    """
+    match = ARXIV_DATE_PATTERN.search(text.strip())
+    if not match:
+        return None
+
+    try:
+        dt = datetime.strptime(match.group(1), "%a, %d %b %Y")
+        return dt.strftime("%Y-%m-%d")
+    except ValueError:
+        return None
+
+
+def parse_latest_batch_info(soup: BeautifulSoup) -> Tuple[str, int]:
+    """
+    从 recent 页第一个日期标题读取：
+      1) arXiv 最新批次日期
+      2) 该日期总 entry 数
+
+    例如：
+      Fri, 18 Sep 2026 (showing first 100 of 133 entries)
+    """
+    h3_list = soup.find_all("h3")
+    for h3 in h3_list:
+        text = h3.get_text(" ", strip=True)
+        arxiv_date = parse_arxiv_heading_date(text)
+        if not arxiv_date:
+            continue
+
+        total_match = ARXIV_TOTAL_PATTERN.search(text)
+        if total_match:
+            return arxiv_date, int(total_match.group(1))
+
+        total_match = ARXIV_SIMPLE_TOTAL_PATTERN.search(text)
+        if total_match:
+            return arxiv_date, int(total_match.group(1))
+
+        # 如果标题里没明确总数，先退化为当前页文章数
+        pairs = extract_article_pairs(soup)
+        return arxiv_date, len(pairs)
+
+    raise RuntimeError("无法从 arXiv recent 页面解析最新论文日期")
+
+
+def build_recent_page_url(skip: int) -> str:
+    """构造 arXiv recent 分页 URL。"""
+    return (
+        "https://arxiv.org/list/cs.RO/recent"
+        f"?skip={skip}&show={PAPERS_PER_PAGE}"
+    )
+
+
+def extract_article_pairs(soup: BeautifulSoup) -> List[Tuple[BeautifulSoup, BeautifulSoup]]:
+    """
+    提取页面中的 (dt, dd)。
+    兼容 arXiv 页面使用一个或多个 dl#articles 的情况。
+    """
+    pairs: List[Tuple[BeautifulSoup, BeautifulSoup]] = []
+
+    dls = soup.select("dl#articles")
+
+    if not dls:
+        dlpage = soup.find("div", id="dlpage")
+        search_root = dlpage if dlpage else soup
+        dls = [
+            dl for dl in search_root.find_all("dl")
+            if dl.find("dt") is not None and dl.find("dd") is not None
+        ]
+
+    for dl in dls:
+        dt_list = dl.find_all("dt", recursive=False)
+        dd_list = dl.find_all("dd", recursive=False)
+
+        # 某些 HTML parser 情况下 recursive=False 可能取不到，做 fallback
+        if not dt_list:
+            dt_list = dl.find_all("dt")
+        if not dd_list:
+            dd_list = dl.find_all("dd")
+
+        if len(dt_list) != len(dd_list):
+            min_len = min(len(dt_list), len(dd_list))
+            logging.warning(
+                "页面 dt/dd 数量不一致：dt=%d, dd=%d，仅处理前 %d 条",
+                len(dt_list),
+                len(dd_list),
+                min_len,
+            )
+            dt_list = dt_list[:min_len]
+            dd_list = dd_list[:min_len]
+
+        pairs.extend(zip(dt_list, dd_list))
+
+    return pairs
+
+
+# -------------------------- 论文内容提取 --------------------------
+
 def extract_abstract(soup: BeautifulSoup) -> str:
-    """提取论文摘要"""
+    """兼容 arXiv HTML 页面与 abs 页面。"""
+    # arXiv HTML
     abstract_container = soup.find("div", class_="ltx_abstract")
-    if not abstract_container:
-        logging.warning("摘要容器缺失")
-        return "未获取到摘要"
-    abstract_p = abstract_container.find("p", class_="ltx_p")
-    return abstract_p.get_text(strip=False).strip().replace("\xa0", " ") if abstract_p else "未获取到摘要"
+    if abstract_container:
+        abstract_p = abstract_container.find("p", class_="ltx_p")
+        if abstract_p:
+            return (
+                abstract_p.get_text(" ", strip=True)
+                .replace("\xa0", " ")
+                .strip()
+            )
+
+    # arXiv abs 页面
+    abstract_block = soup.find("blockquote", class_=lambda c: c and "abstract" in c)
+    if abstract_block:
+        text = abstract_block.get_text(" ", strip=True).replace("\xa0", " ")
+        text = re.sub(r"^\s*Abstract:\s*", "", text, flags=re.IGNORECASE)
+        return text.strip()
+
+    logging.warning("摘要容器缺失")
+    return "未获取到摘要"
 
 
 def extract_introduction(soup: BeautifulSoup) -> str:
-    """提取论文引言（S1章节）"""
+    """从 arXiv HTML 中提取 S1。abs 页面会返回未获取到引言。"""
     intro_section = soup.find("section", id="S1")
     if not intro_section:
-        logging.warning("引言容器缺失")
         return "未获取到引言"
-    # 移除分页、隐藏按钮等无关元素
+
     for tag in intro_section.find_all(["div", "button"], class_=["ltx_pagination", "sr-only button"]):
         tag.decompose()
+
     contents = []
-    # 提取段落内容
+
     for para_div in intro_section.find_all("div", class_="ltx_para"):
         para_p = para_div.find("p", class_="ltx_p")
         if para_p:
-            contents.append(para_p.get_text(strip=False).strip().replace("\xa0", " "))
-    # 提取列表内容（如研究点列表）
+            contents.append(
+                para_p.get_text(" ", strip=True).replace("\xa0", " ")
+            )
+
     for ul in intro_section.find_all("ul", class_="ltx_itemize"):
         for idx, li in enumerate(ul.find_all("li", class_="ltx_item"), 1):
-            li_p = li.find("div", class_="ltx_para").find("p", class_="ltx_p")
+            para_div = li.find("div", class_="ltx_para")
+            li_p = para_div.find("p", class_="ltx_p") if para_div else None
             if li_p:
-                # contents.append(f"{idx}. {li_p.get_text(strip=False).strip().replace('\xa0', ' ')}")
-                text = li_p.get_text(strip=False).strip().replace('\xa0', ' ')
+                text = li_p.get_text(" ", strip=True).replace("\xa0", " ")
                 contents.append(f"{idx}. {text}")
+
     return "\n\n".join(contents) if contents else "未获取到引言"
 
 
+def extract_related_work(soup: BeautifulSoup) -> str:
+    """从 arXiv HTML 中提取 S2。"""
+    related_work_section = soup.find("section", id="S2")
+    if not related_work_section:
+        return "未获取到相关工作"
+
+    for tag in related_work_section.find_all(
+        ["div", "button"],
+        class_=["ltx_pagination", "sr-only button"],
+    ):
+        tag.decompose()
+
+    contents = []
+
+    section_title = related_work_section.find("h2", class_="ltx_title_section")
+    if section_title:
+        contents.append(
+            "# " + section_title.get_text(" ", strip=True).replace("\xa0", " ")
+        )
+
+    subsection_list = related_work_section.find_all(
+        "section", class_="ltx_subsection"
+    )
+
+    if subsection_list:
+        for subsection in subsection_list:
+            sub_title = subsection.find("h3", class_="ltx_title_subsection")
+            if sub_title:
+                contents.append(
+                    "## " + sub_title.get_text(" ", strip=True).replace("\xa0", " ")
+                )
+
+            for para_div in subsection.find_all("div", class_="ltx_para"):
+                para_p = para_div.find("p", class_="ltx_p")
+                if para_p:
+                    contents.append(
+                        para_p.get_text(" ", strip=True).replace("\xa0", " ")
+                    )
+    else:
+        # 某些论文 S2 没有 subsection，直接提取段落
+        for para_div in related_work_section.find_all("div", class_="ltx_para"):
+            para_p = para_div.find("p", class_="ltx_p")
+            if para_p:
+                contents.append(
+                    para_p.get_text(" ", strip=True).replace("\xa0", " ")
+                )
+
+    return "\n\n".join(contents) if contents else "未获取到相关工作"
+
+
 def process_comment_and_code(comment_tag: BeautifulSoup) -> Tuple[str, str]:
-    """处理评论和代码链接"""
+    """处理 comments 与其中的外部链接。"""
     if not comment_tag:
         return "", ""
-    
-    # 提取所有链接（优先代码链接）
-    a_tags = comment_tag.find_all("a", href=True)
-    urls = set()
-    for tag in a_tags:
-        url = tag["href"].strip()
-        if url.startswith(("/", "http://", "https://")):
-            full_url = f"https://arxiv.org{url}" if url.startswith("/") else url
-            urls.add(full_url)
-    code = ", ".join(urls) if urls else ""
-    
-    # 清理评论（移除链接）
-    raw_text = comment_tag.get_text(strip=True).replace("Comments:", "").strip()
-    clean_comment = URL_PATTERN.sub("", raw_text).strip()
-    clean_comment = re.sub(r'[,; ]+$', '', clean_comment)
 
-    # 3. 新增：过滤掉包含的页数/图表数片段（如 "8 pages, 4 figures"）
+    urls = []
+    seen = set()
+
+    for tag in comment_tag.find_all("a", href=True):
+        url = tag["href"].strip()
+        if url.startswith("/"):
+            url = urljoin("https://arxiv.org", url)
+
+        if url.startswith(("http://", "https://")) and url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    code = ", ".join(urls)
+
+    raw_text = (
+        comment_tag.get_text(" ", strip=True)
+        .replace("Comments:", "")
+        .strip()
+    )
+    clean_comment = URL_PATTERN.sub("", raw_text).strip()
+    clean_comment = re.sub(r"[,; ]+$", "", clean_comment)
+
     if clean_comment:
-        # 第一步：移除匹配的片段
         clean_comment = PAGE_FIGURE_FRAGMENT_PATTERN.sub("", clean_comment)
-        # 第二步：清理残留的标点符号和空格（如 ",  " 变成 ""）
-        clean_comment = re.sub(r'\s*,\s*', ', ', clean_comment)  # 规范逗号格式
-        clean_comment = re.sub(r'^[,; ]+|[,:; ]+$', '', clean_comment)  # 移除首尾多余符号
-        clean_comment = clean_comment.strip()  # 最终清理
-    
+        clean_comment = re.sub(r"\s*,\s*", ", ", clean_comment)
+        clean_comment = re.sub(r"^[,; ]+|[,:; ]+$", "", clean_comment)
+        clean_comment = clean_comment.strip()
+
     return clean_comment, code
 
 
 def extract_pdf_link(dt_tag: BeautifulSoup) -> str:
-    """从dt标签提取所有链接，筛选含"pdf"的链接"""
-    all_a_tags = dt_tag.find_all("a", href=True)
-    if not all_a_tags:
-        logging.warning("dt标签中无链接，无法提取PDF")
-        return ""
-    
-    # 筛选含"pdf"关键词的链接（不区分大小写）
-    for a_tag in all_a_tags:
+    """从 dt 中提取 PDF 链接。"""
+    for a_tag in dt_tag.find_all("a", href=True):
         href = a_tag["href"].strip()
         if PDF_LINK_PATTERN.search(href):
-            # 补全相对路径
-            if href.startswith("/"):
-                return f"https://arxiv.org{href}"
-            elif href.startswith(("http://", "https://")):
-                return href
-    
-    logging.warning("dt标签中无含'pdf'的链接")
+            return urljoin("https://arxiv.org", href)
     return ""
 
 
+def extract_links(dt_tag: BeautifulSoup) -> Tuple[str, str, str]:
+    """返回 abs_link, html_link, pdf_link。"""
+    abs_link = ""
+    html_link = ""
+
+    abs_tag = dt_tag.find("a", title="Abstract")
+    if abs_tag and abs_tag.get("href"):
+        abs_link = urljoin("https://arxiv.org", abs_tag["href"].strip())
+
+    html_tag = dt_tag.find("a", title="View HTML")
+    if html_tag and html_tag.get("href"):
+        html_link = urljoin("https://arxiv.org", html_tag["href"].strip())
+
+    pdf_link = extract_pdf_link(dt_tag)
+    return abs_link, html_link, pdf_link
+
+
+def extract_list_metadata(dd: BeautifulSoup) -> Tuple[str, str, str, str, str]:
+    """从 arXiv recent 页 dd 中提取基本元数据。"""
+    meta_div = dd.find("div", class_="meta") or dd
+
+    title_tag = meta_div.find("div", class_="list-title")
+    title = (
+        title_tag.get_text(" ", strip=True).replace("Title:", "").strip()
+        if title_tag else "未知标题"
+    )
+
+    authors_tag = meta_div.find("div", class_="list-authors")
+    authors = (
+        authors_tag.get_text(" ", strip=True).replace("Authors:", "").strip()
+        if authors_tag else "未知作者"
+    )
+
+    subjects_tag = meta_div.find("div", class_="list-subjects")
+    subjects = (
+        subjects_tag.get_text(" ", strip=True).replace("Subjects:", "").strip()
+        if subjects_tag else "未知学科"
+    )
+
+    comment_tag = meta_div.find("div", class_="list-comments")
+    comment, code = process_comment_and_code(comment_tag)
+
+    return title, authors, subjects, comment, code
+
+
+# -------------------------- LLM --------------------------
+
+def call_llm_for_summary(
+    title: str,
+    abstract: str,
+    introduction: str,
+    relate_work: str,
+) -> Dict:
+    """调用 LLM，并解析 1~5 分相关性评分。"""
+    global llm_quota_exhausted
+
+    if llm_quota_exhausted:
+        return {
+            "summary": "大模型总结失败",
+            "score": 0,
+            "error": "本次运行已检测到 LLM 429，停止继续请求，等待下次重试",
+            "quota_exhausted": True,
+        }
+
+    system_prompt = LLM_PROMPT or (
+        "请总结论文，并在开头使用固定格式“【相关性】分数：5分”，"
+        "其中分数必须为1到5的整数。"
+    )
+
+    user_prompt = (
+        f"标题：{title}\n"
+        f"摘要：{abstract}\n"
+        f"引言：{introduction}\n"
+        f"相关工作：{relate_work}"
+    )
+
+    payload = json.dumps(
+        {
+            "model": LLM_MODEL,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.3,
+            "max_tokens": 500,
+        },
+        ensure_ascii=False,
+    )
+
+    headers = {
+        "Authorization": f"Bearer {LLM_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    conn = None
+
+    try:
+        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=60)
+        conn.request("POST", LLM_API_ENDPOINT, payload, headers)
+        res = conn.getresponse()
+        body = res.read().decode("utf-8", errors="replace")
+
+        if res.status != 200:
+            if res.status == 429:
+                llm_quota_exhausted = True
+
+            raise RuntimeError(
+                f"API 状态码异常：{res.status}，响应：{body}"
+            )
+
+        data = json.loads(body)
+        summary = data["choices"][0]["message"]["content"].strip()
+        score = parse_score_from_summary(summary)
+
+        if score == 0:
+            logging.warning(
+                "LLM 总结成功，但未能解析评分。标题：%s；总结开头：%s",
+                title[:80],
+                summary[:120].replace("\n", " "),
+            )
+
+        print(summary)
+
+        return {
+            "summary": summary,
+            "score": score,
+            "error": "",
+            "quota_exhausted": False,
+        }
+
+    except Exception as e:
+        error_msg = str(e)
+        logging.error("大模型调用失败：%s", error_msg)
+
+        return {
+            "summary": "大模型总结失败",
+            "score": 0,
+            "error": error_msg,
+            "quota_exhausted": llm_quota_exhausted,
+        }
+
+    finally:
+        if conn is not None:
+            try:
+                conn.close()
+            except Exception:
+                pass
+
+
+# -------------------------- Markdown 输出 --------------------------
+
+def get_latest_data_dates(date_papers: Dict[str, List[Dict]], limit: int) -> List[str]:
+    """
+    不再用“今天往前数 N 个日历日”。
+    直接取 JSON 中最近 N 个有数据的 arXiv 日期，周末也不会少显示。
+    """
+    valid = [
+        date for date, papers in date_papers.items()
+        if papers and re.fullmatch(r"\d{4}-\d{2}-\d{2}", date)
+    ]
+    valid.sort(reverse=True)
+    return valid[:limit]
+
+
 def get_first_author(authors_str: str) -> str:
-    """提取第一作者"""
     if not authors_str:
         return "未知作者"
     first_author = authors_str.split(",")[0].strip()
     return first_author if first_author else "未知作者"
 
 
-def extract_related_work(soup: BeautifulSoup) -> str:
-    """提取论文相关工作（S2章节）"""
-    # 定位ID为S2的Related work章节
-    related_work_section = soup.find("section", id="S2")
-    if not related_work_section:
-        logging.warning("Related work（S2章节）容器缺失")
-        return "未获取到相关工作"
-    
-    # 移除分页、隐藏按钮等无关元素
-    for tag in related_work_section.find_all(["div", "button"], class_=["ltx_pagination", "sr-only button"]):
-        tag.decompose()
-    
-    contents = []
-    # 1. 提取章节标题（如"II Related work"）
-    section_title = related_work_section.find("h2", class_="ltx_title_section")
-    if section_title:
-        title_text = section_title.get_text(strip=True).replace("\xa0", " ")
-        contents.append(f"# {title_text}")  # 用Markdown标题格式区分
-    
-    # 2. 提取所有子章节（如II-A、II-B）
-    subsection_list = related_work_section.find_all("section", class_="ltx_subsection")
-    for subsection in subsection_list:
-        # 子章节标题（如"II-A Human-in-the-loop learning..."）
-        sub_title = subsection.find("h3", class_="ltx_title_subsection")
-        if sub_title:
-            sub_title_text = sub_title.get_text(strip=True).replace("\xa0", " ")
-            contents.append(f"## {sub_title_text}")
-        
-        # 子章节下的段落内容
-        for para_div in subsection.find_all("div", class_="ltx_para"):
-            para_p = para_div.find("p", class_="ltx_p")
-            if para_p:
-                # 清理段落中的引用标记（如"[18, 30, 42]"），保留原文逻辑
-                para_text = para_p.get_text(strip=False).strip().replace("\xa0", " ")
-                contents.append(para_text)
-    
-    # 用空行分隔内容，增强可读性
-    return "\n\n".join(contents) if contents else "未获取到相关工作"
-
-
-def call_llm_for_summary(title: str, abstract: str, introduction: str,relate_work: str) -> Dict:
-    """调用LLM生成总结，并提取1-5分相关性评分"""
-    system_prompt = LLM_PROMPT
-    user_prompt = f"标题：{title}\n摘要：{abstract}\n引言：{introduction}\n相关工作:{relate_work}"
-    payload = json.dumps({
-        "model": LLM_MODEL,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt}
-        ],
-        "temperature": 0.3,
-        "max_tokens": 500
-    })
-    headers = {
-        "Authorization": f"Bearer {LLM_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    try:
-        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=40)
-        conn.request("POST", LLM_API_ENDPOINT, payload, headers)
-        res = conn.getresponse()
-        
-        if res.status != 200:
-            raise Exception(f"API 状态码异常：{res.status}，响应：{res.read().decode('utf-8')}")
-        
-        data = json.loads(res.read().decode("utf-8"))
-        conn.close()
-        
-        # 提取总结内容
-        summary = data["choices"][0]["message"]["content"].strip()
-        # 提取1-5分评分（默认0分表示提取失败）
-        print(summary)
-        score_match = LLM_SCORE_PATTERN.search(summary)
-        score = int(score_match.group(1)) if score_match and 1 <= int(score_match.group(1)) <= 5 else 0
-        
-        return {
-            "summary": summary,
-            "score": score,  # 评分（1-5或0）
-            "error": ""
-        }
-    except Exception as e:
-        error_msg = str(e)
-        logging.error(f"大模型调用失败：{error_msg}")
-        return {
-            "summary": "大模型总结失败",
-            "score": 0,  # 调用失败默认0分
-            "error": error_msg
-        }
-    
-
-def get_recent_dates(limit: int = 3) -> List[str]:
-    """获取最近的日期列表（含今天），格式YYYY-MM-DD"""
-    dates = []
-    for i in range(limit):
-        date = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
-        dates.append(date)
-    return dates
-
-
 def json_to_markdown(json_path: str, md_path: str) -> None:
-    """生成Markdown表格，最近三天数据，当天展开，其他日期折叠，添加日期导航"""
+    """生成 README Markdown。"""
     try:
         with open(json_path, "r", encoding="utf-8") as f:
             date_papers = json.load(f)
-        if not date_papers:
-            logging.warning("JSON 中无论文数据，无法生成 Markdown")
-            return
     except Exception as e:
-        logging.error(f"读取 JSON 失败：{str(e)}")
+        logging.error("读取 JSON 失败：%s", str(e))
         return
-    
-    # 获取最近n天日期（按从新到旧排序）
-    recent_dates = get_recent_dates(8)
-    # 筛选出有数据的日期，最多保留n天
-    valid_dates = [date for date in recent_dates if date in date_papers and len(date_papers[date]) > 0][:5]
 
-    # 确定最新有数据的日期（应该是valid_dates中的第一个）
-    latest_valid_date = valid_dates[0]
-    
+    if not date_papers:
+        logging.warning("JSON 中无论文数据，无法生成 Markdown")
+        return
+
+    valid_dates = get_latest_data_dates(
+        date_papers,
+        RECENT_DISPLAY_DAYS,
+    )
+
     if not valid_dates:
         logging.warning("无有效论文数据，无法生成 Markdown")
         return
-    
-    # 基础信息
-    total_papers = sum(len(date_papers[date]) for date in valid_dates)
+
+    latest_valid_date = valid_dates[0]
+    total_papers = sum(len(date_papers[d]) for d in valid_dates)
+
     md_title = f"# arXiv Robot 领域论文汇总（共{total_papers}篇）"
-    md_intro = "> 说明：仅显示最近五天数据，当天论文默认展开，其他日期点击标题可展开/折叠\n"
-    md_intro += "> 相关性评分：基于LLM对机器人领域的相关性评定（1-5分，★越多相关性越高）\n\n"
-    
-    # 添加日期导航超链接列表
+    md_intro = (
+        "> 说明：仅显示最近五个有数据的 arXiv 日期；最新日期默认展开。\n"
+        "> 相关性评分：基于LLM对机器人领域的相关性评定"
+        "（1-5分，★越多相关性越高）\n\n"
+    )
+
     nav_links = []
     for date in valid_dates:
         paper_count = len(date_papers[date])
-        date_display = f"{date}（{paper_count}篇论文）"
-        # 使用日期作为锚点ID（替换特殊字符）
         anchor_id = f"date-{date.replace('-', '')}"
-        nav_links.append(f"- [{date_display}](#{anchor_id})")
+        nav_links.append(
+            f"- [{date}（{paper_count}篇论文）](#{anchor_id})"
+        )
+
     md_nav = "## 日期导航\n" + "\n".join(nav_links) + "\n\n"
-    
-    # 表格表头
+
     md_table_header = """| Title | Author | Comment | PDF | Code | Relevance | Summary |
 |----------|----|---|---|---|---|----------|"""
-    
-    # 按日期生成内容（当天展开，其他日期折叠）
+
     date_sections = []
+
     for date in valid_dates:
         papers = date_papers[date]
-        paper_count = len(papers)
-        date_display = f"{date}（{paper_count}篇论文）"
-        # 为每个日期区块创建唯一锚点ID
-        anchor_id = f"date-{date.replace('-', '')}"
 
-        # 按评分降序排序
-        sorted_papers = sorted(papers, key=lambda x: x.get("llm_score", 0), reverse=True)
-        
-        # 生成表格行
-        table_rows = []
+        def effective_score(p):
+            score = p.get("llm_score", 0)
+            try:
+                score = int(score)
+            except (TypeError, ValueError):
+                score = 0
+
+            if not 1 <= score <= 5:
+                score = parse_score_from_summary(
+                    str(p.get("llm_summary", "") or "")
+                )
+            return score
+
+        sorted_papers = sorted(
+            papers,
+            key=effective_score,
+            reverse=True,
+        )
+
+        rows = []
+
         for paper in sorted_papers:
-            # 1. 文章标题（转义特殊字符）
-            title = paper.get("title", "未知标题").replace("|", "\\|").replace("\n", " ")
-            
-            # 2. 第一作者
-            first_author = get_first_author(paper.get("authors", "未知作者"))
-            
-            # 3. Comment（折叠长内容）
-            comment = paper.get("comment", "").replace("|", "\\|").replace("\n", "<br>")
-            comment_html = f"<details><summary>detail</summary>{comment}</details>" if comment else ""
-            
-            # 4. PDF链接（可点击）
-            pdf_link = paper.get("pdf_link", "")
+            title = (
+                str(paper.get("title", "未知标题"))
+                .replace("|", "\\|")
+                .replace("\n", " ")
+            )
+
+            first_author = get_first_author(
+                str(paper.get("authors", "未知作者"))
+            )
+
+            comment = (
+                str(paper.get("comment", ""))
+                .replace("|", "\\|")
+                .replace("\n", "<br>")
+            )
+            comment_html = (
+                f"<details><summary>detail</summary>{comment}</details>"
+                if comment else ""
+            )
+
+            pdf_link = str(paper.get("pdf_link", ""))
             pdf_html = f"[PDF]({pdf_link})" if pdf_link else "-"
-            
-            # 5. Code链接（多链接分行）
-            code = paper.get("code", "")
-            if not code:
+
+            code = str(paper.get("code", ""))
+            if code:
+                code_list = [
+                    url.strip()
+                    for url in code.split(",")
+                    if url.strip()
+                ]
+                code_html = "<br>".join(
+                    f"[code{i + 1}]({url})"
+                    for i, url in enumerate(code_list)
+                )
+            else:
                 code_html = "-"
-            else:
-                code_list = [url.strip() for url in code.split(",") if url.strip()]
-                code_html = "<br>".join([f"[code{i+1}]({url})" for i, url in enumerate(code_list)])
-            
-            # 6. 相关性评分（1-5个星星）
-            score = paper.get("llm_score", 0)
-            if 1 <= score <= 5:
-                score_html = "★" * score + "☆" * (5 - score)
-            else:
-                score_html = "-"
-            
-            # 7. LLM总结（折叠展示）
-            llm_summary = paper.get("llm_summary", "无").replace("|", "\\|").replace("\n", "<br>")
-            llm_html = f"<details><summary>总结</summary>{llm_summary}</details>" if llm_summary else "无"
-            
-            # 拼接表格行
-            row = f"| {title} | {first_author} | {comment_html} | {pdf_html} | {code_html} | {score_html} | {llm_html} |"
-            table_rows.append(row)
-        
-        # 组装日期区块（当天展开，其他折叠），并添加锚点
+
+            score = effective_score(paper)
+            score_html = (
+                "★" * score + "☆" * (5 - score)
+                if 1 <= score <= 5 else "-"
+            )
+
+            llm_summary = (
+                str(paper.get("llm_summary", "无"))
+                .replace("|", "\\|")
+                .replace("\n", "<br>")
+            )
+            llm_html = (
+                f"<details><summary>总结</summary>{llm_summary}</details>"
+                if llm_summary else "无"
+            )
+
+            rows.append(
+                f"| {title} | {first_author} | {comment_html} | "
+                f"{pdf_html} | {code_html} | {score_html} | {llm_html} |"
+            )
+
+        anchor_id = f"date-{date.replace('-', '')}"
+        date_display = f"{date}（{len(papers)}篇论文）"
+
         if date == latest_valid_date:
-            # 当天内容不折叠，添加锚点
-            section = f"## <a id='{anchor_id}'></a>{date_display}\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n"
+            section = (
+                f"## <a id='{anchor_id}'></a>{date_display}\n\n"
+                f"{md_table_header}\n"
+                + "\n".join(rows)
+                + "\n"
+            )
         else:
-            # 其他日期内容折叠
-            # table_content = f"{md_table_header}\n" + "\n".join(table_rows)
-            # section = f"## <details>\n<summary> {date_display} <a id='{anchor_id}'></a></summary>\n\n{table_content}\n\n</details>\n"
-            section = f"<details>\n<summary><a id='{anchor_id}'></a>{date_display}</summary>\n\n{md_table_header}\n" + "\n".join(table_rows) + "\n\n</details>\n"
-            # 其他日期内容折叠，添加锚点
-            # table_content = f"{md_table_header}\n" + "\n".join(table_rows)
-            # section = f"""<details>
-            # <summary>{date_display}</summary>
-            # <div class="markdown-content" data-content="## <a id='{anchor_id}'></a>{date_display}\n\n{table_content}"></div>
-            # </details>\n"""
-        
+            section = (
+                "<details>\n"
+                f"<summary><a id='{anchor_id}'></a>{date_display}</summary>\n\n"
+                f"{md_table_header}\n"
+                + "\n".join(rows)
+                + "\n\n</details>\n"
+            )
+
         date_sections.append(section)
-    
-    # 合并所有内容（标题 + 引言 + 导航 + 内容区块）
-    md_content = f"{md_title}\n\n{md_intro}{md_nav}" + "\n".join(date_sections)
-    
-    # 保存Markdown
+
+    md_content = (
+        f"{md_title}\n\n"
+        f"{md_intro}"
+        f"{md_nav}"
+        + "\n".join(date_sections)
+    )
+
     try:
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(md_content)
-        logging.info(f"Markdown 表格已保存至：{md_path}")
+        logging.info("Markdown 已保存至：%s", md_path)
     except Exception as e:
-        logging.error(f"保存 Markdown 失败：{str(e)}")
+        logging.error("保存 Markdown 失败：%s", str(e))
 
 
-# -------------------------- 核心函数 --------------------------
-def crawl_and_process_papers(initial_url: str, max_pages: Optional[int] = None) -> Dict[str, List[Dict]]:
-    """爬取arxiv论文列表，按日期组织论文数据"""
+# -------------------------- 单篇处理 --------------------------
+
+def build_paper_data(
+    dt: BeautifulSoup,
+    dd: BeautifulSoup,
+    target_date: str,
+) -> Optional[Dict]:
+    """
+    构建一篇论文的数据。
+    已成功总结过的论文由上层直接跳过；这里主要处理新论文或失败重试。
+    """
+    arxiv_id = extract_arxiv_id_from_dt(dt)
+    if not arxiv_id:
+        logging.warning("无法提取 arXiv ID，跳过该条目")
+        return None
+
+    title, authors, subjects, comment, code = extract_list_metadata(dd)
+    abs_link, html_link, pdf_link = extract_links(dt)
+
+    # 没有 abs link 时自行构造
+    if not abs_link:
+        abs_link = f"https://arxiv.org/abs/{arxiv_id}"
+
+    # 没有 pdf link 时自行构造
+    if not pdf_link:
+        pdf_link = f"https://arxiv.org/pdf/{arxiv_id}"
+
+    content_soup = None
+
+    # 优先 HTML：可以拿 abstract + introduction + related work
+    if html_link:
+        content_soup = get_arxiv_soup(html_link)
+
+    # HTML 不存在或请求失败，则 fallback 到 abs 页面，至少拿 abstract
+    if content_soup is None:
+        logging.info(
+            "论文 %s 无可用 HTML，fallback 到 abs 页面",
+            arxiv_id,
+        )
+        content_soup = get_arxiv_soup(abs_link)
+
+    if content_soup is not None:
+        abstract = extract_abstract(content_soup)
+        introduction = extract_introduction(content_soup)
+        relate_work = extract_related_work(content_soup)
+    else:
+        abstract = "未获取到摘要"
+        introduction = "未获取到引言"
+        relate_work = "未获取到相关工作"
+
+    llm_result = call_llm_for_summary(
+        title,
+        abstract,
+        introduction,
+        relate_work,
+    )
+
+    return {
+        "arxiv_id": arxiv_id,
+        "arxiv_date": target_date,
+        "crawl_datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "title": title,
+        "authors": authors,
+        "subjects": subjects,
+        "comment": comment,
+        "pdf_link": pdf_link,
+        "code": code,
+        "arxiv_abs_link": abs_link,
+        "arxiv_html_link": html_link,
+        "abstract": abstract,
+        "introduction": introduction,
+        "related_work": relate_work,
+        "llm_summary": llm_result["summary"],
+        "llm_score": llm_result["score"],
+        "llm_error": llm_result["error"],
+    }
+
+
+def refresh_existing_metadata(
+    existing_paper: Dict,
+    dt: BeautifulSoup,
+    dd: BeautifulSoup,
+    target_date: str,
+) -> Dict:
+    """
+    已成功总结过的论文无需重新调用 LLM，
+    但可以刷新标题/作者/资源链接，并确保 arxiv_date 正确。
+    """
+    paper = dict(existing_paper)
+
+    arxiv_id = extract_arxiv_id_from_dt(dt) or paper_identity(existing_paper)
+    title, authors, subjects, comment, code = extract_list_metadata(dd)
+    abs_link, html_link, pdf_link = extract_links(dt)
+
+    paper["arxiv_id"] = arxiv_id
+    paper["arxiv_date"] = target_date
+
+    if title != "未知标题":
+        paper["title"] = title
+    if authors != "未知作者":
+        paper["authors"] = authors
+    if subjects != "未知学科":
+        paper["subjects"] = subjects
+
+    paper["comment"] = comment
+    paper["code"] = code
+
+    if abs_link:
+        paper["arxiv_abs_link"] = abs_link
+    if html_link:
+        paper["arxiv_html_link"] = html_link
+    if pdf_link:
+        paper["pdf_link"] = pdf_link
+
+    # 旧记录 score=0 时直接从 summary 修复
+    parsed_score = parse_score_from_summary(
+        str(paper.get("llm_summary", "") or "")
+    )
+    if parsed_score:
+        paper["llm_score"] = parsed_score
+
+    return paper
+
+
+
+# -------------------------- 失败论文补跑 --------------------------
+
+def retry_failed_summaries_after_latest(
+    latest_date: str,
+) -> int:
+    """
+    只有“最新 arXiv 批次已经全部扫描完”之后，才使用剩余额度补跑失败论文。
+
+    优先级：
+      1. 最新日期中仍失败的论文
+      2. 更早日期的失败论文，按日期从新到旧
+      3. 同一天保持 JSON 中原有顺序
+
+    重要：
+    - 本函数不会在最新论文处理之前运行。
+    - 一旦检测到 429（llm_quota_exhausted=True），立即停止补跑。
+    - 补跑直接使用 JSON 中已经保存的 title / abstract /
+      introduction / related_work，不再重新请求 arXiv 页面。
+    """
+    global llm_quota_exhausted
+
+    if llm_quota_exhausted:
+        logging.info(
+            "最新批次处理阶段已经耗尽 LLM 额度，"
+            "本次不补跑历史失败论文"
+        )
+        return 0
+
+    # 日期从新到旧，因此永远优先补最近的失败论文。
+    sorted_dates = sorted(
+        all_papers_global.keys(),
+        reverse=True,
+    )
+
+    # latest_date 正常情况下本身就是最大日期。
+    # 这里显式把它放在最前，避免异常历史 key 干扰优先级。
+    if latest_date in sorted_dates:
+        sorted_dates.remove(latest_date)
+        sorted_dates.insert(0, latest_date)
+
+    candidates = []
+
+    for date_key in sorted_dates:
+        papers = all_papers_global.get(date_key, [])
+
+        for idx, paper in enumerate(papers):
+            if summary_is_successful(paper):
+                continue
+
+            candidates.append(
+                (date_key, idx, paper)
+            )
+
+    if not candidates:
+        logging.info(
+            "最新批次处理完成，当前没有需要补跑的失败论文"
+        )
+        return 0
+
+    logging.info("=" * 60)
+    logging.info(
+        "最新批次 %s 已全部扫描完成；"
+        "开始使用剩余 LLM 额度补跑失败论文，共 %d 条",
+        latest_date,
+        len(candidates),
+    )
+    logging.info(
+        "补跑顺序：最新日期优先，同日期保持原始论文顺序"
+    )
+    logging.info("=" * 60)
+
+    success_count = 0
+
+    for date_key, idx, paper in candidates:
+        if llm_quota_exhausted:
+            logging.info(
+                "补跑阶段检测到 LLM 额度耗尽，立即停止"
+            )
+            break
+
+        title = str(
+            paper.get("title", "未知标题") or "未知标题"
+        )
+        abstract = str(
+            paper.get("abstract", "未获取到摘要")
+            or "未获取到摘要"
+        )
+        introduction = str(
+            paper.get("introduction", "未获取到引言")
+            or "未获取到引言"
+        )
+        related_work = str(
+            paper.get("related_work", "未获取到相关工作")
+            or "未获取到相关工作"
+        )
+
+        arxiv_id = paper_identity(paper)
+
+        logging.info(
+            "补跑失败论文：date=%s, arXiv=%s, title=%s",
+            date_key,
+            arxiv_id or "unknown",
+            title[:100],
+        )
+
+        llm_result = call_llm_for_summary(
+            title,
+            abstract,
+            introduction,
+            related_work,
+        )
+
+        # 429：call_llm_for_summary 已设置全局标志。
+        # 不覆盖原始内容之外的字段，保留历史 metadata。
+        paper["llm_summary"] = llm_result["summary"]
+        paper["llm_score"] = llm_result["score"]
+        paper["llm_error"] = llm_result["error"]
+        paper["last_retry_datetime"] = (
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        )
+
+        all_papers_global[date_key][idx] = paper
+
+        # 每次补跑后立即保存，避免运行被中断时丢失已成功的结果。
+        save_json()
+
+        if summary_is_successful(paper):
+            success_count += 1
+            logging.info(
+                "补跑成功：%s，score=%s",
+                arxiv_id or title[:80],
+                paper.get("llm_score", 0),
+            )
+        else:
+            logging.warning(
+                "补跑仍失败：%s；error=%s",
+                arxiv_id or title[:80],
+                paper.get("llm_error", ""),
+            )
+
+        if llm_quota_exhausted:
+            logging.warning(
+                "补跑时遇到 429，停止继续消耗请求；"
+                "剩余失败论文留到下次运行"
+            )
+            break
+
+    logging.info(
+        "失败论文补跑结束：本次成功补回 %d 条",
+        success_count,
+    )
+
+    return success_count
+
+
+
+# -------------------------- 核心爬虫 --------------------------
+
+def crawl_and_process_papers(
+    initial_url: str,
+    max_pages: Optional[int] = None,
+) -> Dict[str, List[Dict]]:
+    """
+    只处理 arXiv recent 页“最新日期”的整批论文。
+
+    关键点：
+    1. 日期来自 arXiv 页面 h3，而不是 datetime.now()。
+    2. 总论文数来自 h3，例如 133 entries。
+    3. 自动使用 skip=100、200... 翻页。
+    4. 当天 133 篇就只处理前 133 条，不会把下一天混进来。
+    5. 失败重试按 arXiv ID 原地更新，不会 append 到 crawler 日期。
+    """
     global all_papers_global
-    # 加载历史数据（按日期组织）
+    global llm_quota_exhausted
+
+    llm_quota_exhausted = False
+
+    # 1. 载入历史数据
     try:
         with open(JSON_SAVE_PATH, "r", encoding="utf-8") as f:
             all_papers_global = json.load(f)
-        logging.info(f"已加载历史数据，包含 {len(all_papers_global)} 个日期的数据")
+        logging.info(
+            "已加载历史数据，包含 %d 个日期",
+            len(all_papers_global),
+        )
     except FileNotFoundError:
-        logging.info("无历史数据，将新建 JSON 文件")
+        logging.info("无历史 JSON，将创建新文件")
         all_papers_global = {}
     except Exception as e:
-        logging.warning(f"加载历史数据失败：{str(e)}，将重新爬取")
+        logging.warning(
+            "加载历史数据失败：%s，将从空数据开始",
+            str(e),
+        )
         all_papers_global = {}
-    
-    # 计算当前已爬取的论文总数
-    total_papers = sum(len(papers) for papers in all_papers_global.values())
-    current_page = 0  # 当前页码
-    current_date = datetime.now().strftime("%Y-%m-%d")  # 今日日期
-    
-    # 确保当前日期在字典中存在
-    if current_date not in all_papers_global:
-        all_papers_global[current_date] = []
-    
-    while True:
-        # 终止条件：达到最大页数
-        if current_page > max_pages:
-            logging.info(f"已达最大爬取页数 {max_pages}，停止爬取")
+
+    repaired = repair_historical_scores()
+    if repaired:
+        logging.info("已自动修复历史 llm_score：%d 条", repaired)
+        save_json()
+
+    # 2. 第一页：确定最新 arXiv 批次日期和总数
+    first_soup = get_arxiv_soup(initial_url)
+    if first_soup is None:
+        raise RuntimeError("无法获取 arXiv recent 第一页")
+
+    target_date, target_total = parse_latest_batch_info(first_soup)
+
+    if target_total <= 0:
+        logging.warning("arXiv 最新批次 %s 没有论文", target_date)
+        return all_papers_global
+
+    needed_pages = math.ceil(target_total / PAPERS_PER_PAGE)
+
+    if max_pages is not None:
+        actual_pages = min(needed_pages, max_pages)
+    else:
+        actual_pages = needed_pages
+
+    logging.info("=" * 60)
+    logging.info("arXiv 最新批次日期：%s", target_date)
+    logging.info("该日期 arXiv entries：%d", target_total)
+    logging.info("每页：%d", PAPERS_PER_PAGE)
+    logging.info("理论所需页数：%d", needed_pages)
+    logging.info("本次实际最多抓取页数：%d", actual_pages)
+    logging.info("=" * 60)
+
+    if actual_pages < needed_pages:
+        logging.warning(
+            "MAX_CRAWL_PAGES=%d 导致无法抓完整 %s："
+            "需要 %d 页，本次仅抓 %d 页",
+            max_pages,
+            target_date,
+            needed_pages,
+            actual_pages,
+        )
+
+    all_papers_global.setdefault(target_date, [])
+
+    processed_batch_entries = 0
+
+    # 3. 逐页抓取，只取最新日期需要的前 target_total 条
+    for page_idx in range(actual_pages):
+        skip = page_idx * PAPERS_PER_PAGE
+
+        if page_idx == 0:
+            list_soup = first_soup
+            page_url = initial_url
+        else:
+            page_url = build_recent_page_url(skip)
+            list_soup = get_arxiv_soup(page_url)
+
+        if list_soup is None:
+            logging.error(
+                "第 %d 页请求失败：%s",
+                page_idx + 1,
+                page_url,
+            )
             break
-        
-        logging.info(f"=== 开始爬取第 {current_page} 页：{initial_url} ===")
-        # 1. 获取列表页Soup
-        list_soup = get_arxiv_soup(initial_url)
-        if not list_soup:
-            logging.error(f"第 {current_page} 页列表页爬取失败，跳过")
+
+        pairs = extract_article_pairs(list_soup)
+
+        remaining = target_total - processed_batch_entries
+        if remaining <= 0:
             break
-        
-        # 2. 提取论文列表（dt=链接信息，dd=元数据）
-        articles_dl = list_soup.find("dl", id="articles")
-        if not articles_dl:
-            logging.error(f"第 {current_page} 页无论文数据，跳过")
+
+        # recent 排序中最新日期一定在最前面。
+        # page2 若包含 33 条最新日期 + 67 条上一日期，只取前 33 条。
+        pairs = pairs[:remaining]
+
+        logging.info(
+            "=== 第 %d/%d 页：skip=%d，本页处理 %d 条 ===",
+            page_idx + 1,
+            actual_pages,
+            skip,
+            len(pairs),
+        )
+
+        if not pairs:
+            logging.warning("本页未解析到论文条目，停止")
             break
-        
-        dt_list = articles_dl.find_all("dt")
-        dd_list = articles_dl.find_all("dd")
-        # 处理数据不匹配情况
-        if len(dt_list) != len(dd_list):
-            min_len = min(len(dt_list), len(dd_list))
-            dt_list, dd_list = dt_list[:min_len], dd_list[:min_len]
-            logging.warning(f"第 {current_page} 页数据不匹配，截取前 {min_len} 篇论文")
-        
-        # 3. 处理每篇论文
-        crawl_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        for idx, (dt, dd) in enumerate(zip(dt_list, dd_list), 1):
-            logging.info(f"第 {current_page} 页 - 处理第 {idx}/{len(dt_list)} 篇论文")
-            
-            # 3.1 提取HTML详情页链接
-            html_link_tag = dt.find("a", title="View HTML")
-            if not html_link_tag or "href" not in html_link_tag.attrs:
-                logging.warning("论文无HTML详情页链接，跳过")
+
+        for idx, (dt, dd) in enumerate(pairs, 1):
+            processed_batch_entries += 1
+
+            arxiv_id = extract_arxiv_id_from_dt(dt)
+
+            logging.info(
+                "[%d/%d] page %d item %d: arXiv:%s",
+                processed_batch_entries,
+                target_total,
+                page_idx + 1,
+                idx,
+                arxiv_id or "unknown",
+            )
+
+            if not arxiv_id:
+                logging.warning("无法提取 arXiv ID，跳过")
                 continue
-            html_link = html_link_tag["href"].strip()
-            html_link = f"https://arxiv.org{html_link}" if html_link.startswith("/") else html_link
-            
-            # 检查是否已爬取（避免重复）
-            is_duplicate = False
-            for papers in all_papers_global.values():
-                for paper in papers:
-                    if paper.get("arxiv_html_link") == html_link and paper.get("llm_summary") != "大模型总结失败":
-                        is_duplicate = True
-                        break
-                if is_duplicate:
-                    break
-            if is_duplicate:
-                logging.info(f"论文已爬取，跳过：{html_link}")
+
+            existing = find_existing_paper(arxiv_id)
+
+            # 已成功总结：不重复消耗 LLM，只刷新 metadata 并确保日期正确
+            if existing is not None:
+                old_date, _, old_paper = existing
+
+                if summary_is_successful(old_paper):
+                    refreshed = refresh_existing_metadata(
+                        old_paper,
+                        dt,
+                        dd,
+                        target_date,
+                    )
+                    upsert_paper(target_date, refreshed)
+
+                    if old_date != target_date:
+                        logging.info(
+                            "已将历史论文 %s 从 %s 移动到 arXiv 日期 %s",
+                            arxiv_id,
+                            old_date,
+                            target_date,
+                        )
+                    else:
+                        logging.info(
+                            "论文已成功总结过，跳过 LLM：%s",
+                            arxiv_id,
+                        )
+                    continue
+
+                logging.info(
+                    "检测到历史失败记录，重新处理并原地更新：%s",
+                    arxiv_id,
+                )
+
+            paper_data = build_paper_data(
+                dt,
+                dd,
+                target_date,
+            )
+
+            if paper_data is None:
                 continue
-            
-            # 3.2 提取PDF链接
-            pdf_link = extract_pdf_link(dt)
-            
-            # 3.3 获取详情页Soup
-            paper_soup = get_arxiv_soup(html_link)
-            if not paper_soup:
-                logging.warning(f"论文详情页爬取失败（{html_link}），跳过")
-                continue
-            
-            # 3.4 提取元数据（标题、作者、学科等）
-            meta_div = dd.find("div", class_="meta")
-            if not meta_div:
-                logging.warning(f"论文无基本元数据（{html_link}），跳过")
-                continue
-            
-            # 标题
-            title_tag = meta_div.find("div", class_="list-title")
-            title = title_tag.get_text(strip=True).replace("Title:", "").strip() if title_tag else "未知标题"
-            # 作者
-            authors_tag = meta_div.find("div", class_="list-authors")
-            authors = authors_tag.get_text(strip=True).replace("Authors:", "").strip() if authors_tag else "未知作者"
-            # 学科
-            subjects_tag = meta_div.find("div", class_="list-subjects")
-            subjects = subjects_tag.get_text(strip=True).replace("Subjects:", "").strip() if subjects_tag else "未知学科"
-            # 评论和代码链接
-            comment_tag = meta_div.find("div", class_="list-comments")
-            comment, code = process_comment_and_code(comment_tag)
-            # 摘要链接（备用）
-            abs_link_tag = dt.find("a", title="Abstract")
-            abs_link = ""
-            if abs_link_tag and "href" in abs_link_tag.attrs:
-                abs_link = abs_link_tag["href"].strip()
-                abs_link = f"https://arxiv.org{abs_link}" if abs_link.startswith("/") else abs_link
-            
-            # 3.5 提取摘要和引言
-            abstract = extract_abstract(paper_soup)
-            introduction = extract_introduction(paper_soup)
-            relate_work = extract_related_work(paper_soup)
-            
-            # 3.6 调用LLM生成总结和评分
-            llm_result = call_llm_for_summary(title, abstract, introduction,relate_work)
-            
-            # 3.7 组装论文数据
-            paper_data = {
-                "crawl_datetime": crawl_datetime,  # 更详细的时间戳
-                "title": title,
-                "authors": authors,
-                "subjects": subjects,
-                "comment": comment,
-                "pdf_link": pdf_link,
-                "code": code,
-                "arxiv_abs_link": abs_link,
-                "arxiv_html_link": html_link,
-                "abstract": abstract,
-                "introduction": introduction,
-                "llm_summary": llm_result["summary"],
-                "llm_score": llm_result["score"],
-                "llm_error": llm_result["error"]
-            }
-            # 添加到当前日期的列表中
-            all_papers_global[current_date].append(paper_data)
-            logging.info(f"第 {current_page} 页 - 完成第 {idx} 篇论文：{title[:30]}...")
-        
-        # 4. 保存当前页数据到JSON
-        try:
-            with open(JSON_SAVE_PATH, "w", encoding="utf-8") as f:
-                json.dump(all_papers_global, f, ensure_ascii=False, indent=4)
-            logging.info(f"第 {current_page} 页数据已保存至 JSON：{JSON_SAVE_PATH}")
-        except Exception as e:
-            logging.error(f"保存第 {current_page} 页数据失败：{str(e)}")
-        
-        # 5. 获取下一页链接
-        next_page_tag = list_soup.find("a", string=lambda x: x and "next" in x.lower() and ">" in x)
-        if not next_page_tag or "href" not in next_page_tag.attrs:
-            logging.info("无下一页链接，爬取任务结束")
+
+            upsert_paper(target_date, paper_data)
+
+        # 每页保存一次，避免中途失败丢数据
+        save_json()
+        logging.info(
+            "第 %d 页处理完成并已保存 JSON",
+            page_idx + 1,
+        )
+
+        if processed_batch_entries >= target_total:
             break
-        
-        next_page_href = next_page_tag["href"].strip()
-        initial_url = f"https://arxiv.org{next_page_href}" if next_page_href.startswith("/") else next_page_href
-        current_page += 1
+
+    # 4. 最新批次的所有页面已经扫描完。
+    #    只有到这里，才允许使用剩余 LLM 额度补跑失败论文。
+    #
+    #    优先级严格为：
+    #    最新论文 > 最新日期失败论文 > 更早日期失败论文。
+    #
+    #    如果最新论文阶段已经遇到 429，则这里不会再调用 LLM。
+    retry_failed_summaries_after_latest(target_date)
+
+    # 5. 最终去掉空日期 key
+    all_papers_global = {
+        date: papers
+        for date, papers in all_papers_global.items()
+        if papers
+    }
+
+    save_json()
+
+    final_count = len(all_papers_global.get(target_date, []))
+
+    logging.info("=" * 60)
+    logging.info(
+        "本次 arXiv 批次 %s：页面声明 %d entries，JSON 当前保存 %d 条",
+        target_date,
+        target_total,
+        final_count,
+    )
+
+    if processed_batch_entries < target_total:
+        logging.warning(
+            "本次只扫描到 %d/%d 个最新批次条目",
+            processed_batch_entries,
+            target_total,
+        )
+
+    if llm_quota_exhausted:
+        logging.warning(
+            "本次运行遇到 LLM 429。后续论文已保留元数据并标记总结失败，"
+            "下次运行会自动重试失败项。"
+        )
+
+    logging.info("=" * 60)
 
     return all_papers_global
 
 
 # -------------------------- 程序入口 --------------------------
+
 if __name__ == "__main__":
-    # 1. 前置检查：LLM API Key是否配置
     if not LLM_API_KEY or LLM_API_KEY.startswith("sk-xxxx"):
-        logging.error("请先替换 LLM_API_KEY 为真实有效的 API Key！")
+        logging.error("请通过环境变量 LLM_API_KEY 配置真实 API Key")
         sys.exit(1)
-    
-    # 2. 初始化日志
-    logging.info("="*60)
-    logging.info("          arXiv cs.RO 领域论文爬取与LLM总结程序          ")
-    logging.info("="*60)
-    logging.info(f"配置信息：")
-    logging.info(f"- 初始爬取页：{INITIAL_ARXIV_URL}")
-    logging.info(f"- 最大爬取页数：{MAX_CRAWL_PAGES if MAX_CRAWL_PAGES else '无限制'}")
-    logging.info(f"- JSON保存路径：{JSON_SAVE_PATH}")
-    logging.info(f"- Markdown保存路径：{MD_SAVE_PATH}")
-    logging.info("="*60)
-    
-    # 3. 启动爬取任务
+
+    logging.info("=" * 60)
+    logging.info("arXiv cs.RO daily crawler")
+    logging.info("初始页面：%s", INITIAL_ARXIV_URL)
+    logging.info(
+        "最大页数：%s",
+        "自动抓完整最新批次"
+        if MAX_CRAWL_PAGES is None
+        else str(MAX_CRAWL_PAGES),
+    )
+    logging.info("JSON：%s", JSON_SAVE_PATH)
+    logging.info("Markdown：%s", MD_SAVE_PATH)
+    logging.info("=" * 60)
+
     try:
         all_papers = crawl_and_process_papers(
             initial_url=INITIAL_ARXIV_URL,
-            max_pages=MAX_CRAWL_PAGES
+            max_pages=MAX_CRAWL_PAGES,
         )
-        
-        # 4. 生成Markdown报告
-        logging.info("\n=== 开始生成 Markdown 报告 ===")
+
+        logging.info("=== 生成 Markdown ===")
         json_to_markdown(JSON_SAVE_PATH, MD_SAVE_PATH)
-        
-        # 5. 任务完成总结
-        total_count = sum(len(papers) for papers in all_papers.values())
-        logging.info("\n" + "="*60)
-        logging.info("          任务全部完成！          ")
-        logging.info(f"- 日期数量：{len(all_papers)} 个")
-        logging.info(f"- 最终爬取论文总数：{total_count} 篇")
-        logging.info(f"- JSON原始数据：{JSON_SAVE_PATH}")
-        logging.info(f"- Markdown报告：{MD_SAVE_PATH}")
-        logging.info("="*60)
-    
+
+        total_count = sum(
+            len(papers)
+            for papers in all_papers.values()
+        )
+
+        logging.info("=" * 60)
+        logging.info("任务完成")
+        logging.info("日期数量：%d", len(all_papers))
+        logging.info("历史论文总数：%d", total_count)
+        logging.info("=" * 60)
+
     except Exception as e:
-        # 异常处理：保存已爬取数据
-        error_msg = f"任务运行异常：{str(e)}\n{traceback.format_exc()}"
+        error_msg = (
+            f"任务运行异常：{str(e)}\n"
+            f"{traceback.format_exc()}"
+        )
         logging.error(error_msg)
+
         if all_papers_global:
             try:
-                with open(JSON_SAVE_PATH, "w", encoding="utf-8") as f:
-                    json.dump(all_papers_global, f, ensure_ascii=False, indent=4)
-                total_count = sum(len(papers) for papers in all_papers_global.values())
-                logging.info(f"已保存异常中断前的 {total_count} 篇论文数据")
+                save_json()
+                logging.info("异常中断前数据已保存")
             except Exception as save_e:
-                logging.error(f"异常中断时保存数据失败：{str(save_e)}")
+                logging.error(
+                    "异常中断时保存失败：%s",
+                    str(save_e),
+                )
+
         sys.exit(1)
