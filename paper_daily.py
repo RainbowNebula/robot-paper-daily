@@ -667,11 +667,11 @@ def call_llm_for_summary(
             "max_tokens": 500,
         },
         ensure_ascii=False,
-    )
+    ).encode("utf-8")
 
     headers = {
         "Authorization": f"Bearer {LLM_API_KEY}",
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
     }
 
     conn = None
