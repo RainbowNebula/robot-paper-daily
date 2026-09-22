@@ -42,12 +42,29 @@ ARXIV_HEADERS = {
     "Connection": "keep-alive",
 }
 
-# LLM 配置
-LLM_API_KEY = os.getenv("LLM_API_KEY")
-LLM_API_HOST = "api.chatanywhere.org"
-LLM_API_ENDPOINT = "/v1/chat/completions"
-LLM_MODEL = "gpt-5.6-luna"
+# LLM 配置（OpenRouter）
+# 推荐在环境变量中使用 OPENROUTER_API_KEY。
+# 为兼容旧的 GitHub Actions / 本地配置，也继续支持 LLM_API_KEY。
+LLM_API_KEY = os.getenv("OPENROUTER_API_KEY") or os.getenv("LLM_API_KEY")
+LLM_API_HOST = "openrouter.ai"
+LLM_API_ENDPOINT = "/api/v1/chat/completions"
+LLM_MODEL = "qwen/qwen3.8-27b:free"
 LLM_PROMPT = os.getenv("LLM_PROMPT")
+
+# OpenRouter 的这类 free endpoint 当前有每分钟请求限制。
+# 设为略高于 3 秒，避免 crawler 连续处理论文时轻易触发 20 RPM。
+LLM_REQUEST_INTERVAL = 3.2
+_last_llm_request_at = 0.0
+
+# OpenRouter 可选的应用标识头；不影响鉴权。
+OPENROUTER_HTTP_REFERER = os.getenv(
+    "OPENROUTER_HTTP_REFERER",
+    "https://github.com/RainbowNebula/robot-paper-daily",
+)
+OPENROUTER_APP_TITLE = os.getenv(
+    "OPENROUTER_APP_TITLE",
+    "robot-paper-daily",
+)
 
 # 爬取配置
 REQUEST_INTERVAL = 1.2
@@ -635,6 +652,7 @@ def call_llm_for_summary(
 ) -> Dict:
     """调用 LLM，并解析 1~5 分相关性评分。"""
     global llm_quota_exhausted
+    global _last_llm_request_at
 
     if llm_quota_exhausted:
         return {
@@ -672,12 +690,22 @@ def call_llm_for_summary(
     headers = {
         "Authorization": f"Bearer {LLM_API_KEY}",
         "Content-Type": "application/json; charset=utf-8",
+        "HTTP-Referer": OPENROUTER_HTTP_REFERER,
+        "X-Title": OPENROUTER_APP_TITLE,
     }
 
     conn = None
 
     try:
-        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=60)
+        # OpenRouter free models 当前限制请求速率。按“上一次请求开始时间”节流，
+        # 避免即使模型响应很快也超过每分钟限制。
+        elapsed = time.monotonic() - _last_llm_request_at
+        if _last_llm_request_at > 0 and elapsed < LLM_REQUEST_INTERVAL:
+            time.sleep(LLM_REQUEST_INTERVAL - elapsed)
+
+        _last_llm_request_at = time.monotonic()
+
+        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=180)
         conn.request("POST", LLM_API_ENDPOINT, payload, headers)
         res = conn.getresponse()
         body = res.read().decode("utf-8", errors="replace")
@@ -1446,11 +1474,16 @@ def crawl_and_process_papers(
 
 if __name__ == "__main__":
     if not LLM_API_KEY or LLM_API_KEY.startswith("sk-xxxx"):
-        logging.error("请通过环境变量 LLM_API_KEY 配置真实 API Key")
+        logging.error(
+            "请通过环境变量 OPENROUTER_API_KEY 配置 OpenRouter API Key "
+            "（也兼容旧变量 LLM_API_KEY）"
+        )
         sys.exit(1)
 
     logging.info("=" * 60)
     logging.info("arXiv cs.RO daily crawler")
+    logging.info("LLM provider：OpenRouter")
+    logging.info("LLM model：%s", LLM_MODEL)
     logging.info("初始页面：%s", INITIAL_ARXIV_URL)
     logging.info(
         "最大页数：%s",
