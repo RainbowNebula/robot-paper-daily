@@ -54,6 +54,7 @@ jobs:
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}  # 注入密钥到环境变量
           LLM_PROMPT: ${{ vars.LLM_PROMPT }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           python paper_daily.py
           python create_index.py
