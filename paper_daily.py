@@ -49,7 +49,9 @@ LLM_API_KEY = (
     or ""
 ).strip()
 LLM_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-LLM_MODEL = "z-ai/glm-5.2:free"
+OPENROUTER_MODELS_URL = "https://openrouter.ai/api/v1/models"
+PREFERRED_LLM_MODEL = "qwen/qwen3.8-27b:free"
+LLM_MODEL = PREFERRED_LLM_MODEL
 LLM_PROMPT = os.getenv("LLM_PROMPT")
 
 # 请求节流与共享池临时 429 的退避。
@@ -645,6 +647,166 @@ def extract_list_metadata(dd: BeautifulSoup) -> Tuple[str, str, str, str, str]:
 
 # -------------------------- LLM --------------------------
 
+def _openrouter_headers() -> Dict[str, str]:
+    """统一构造 OpenRouter 请求头。"""
+    headers = {
+        "Authorization": f"Bearer {LLM_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    if OPENROUTER_HTTP_REFERER:
+        headers["HTTP-Referer"] = OPENROUTER_HTTP_REFERER
+    if OPENROUTER_APP_TITLE:
+        headers["X-OpenRouter-Title"] = OPENROUTER_APP_TITLE
+    return headers
+
+
+def _model_is_free_chat(model: Dict) -> bool:
+    """只保留 :free 且可 text-in/text-out 的生成模型，排除 embedding 等专用模型。"""
+    model_id = str(model.get("id", "") or "")
+    name = str(model.get("name", "") or "")
+    if not model_id.endswith(":free"):
+        return False
+
+    architecture = model.get("architecture") or {}
+    if not isinstance(architecture, dict):
+        architecture = {}
+
+    input_modalities = set(architecture.get("input_modalities") or [])
+    output_modalities = set(architecture.get("output_modalities") or [])
+
+    if input_modalities and "text" not in input_modalities:
+        return False
+    if output_modalities and "text" not in output_modalities:
+        return False
+
+    # API 元数据偶尔不完整，再用名字兜底排除非 chat 类模型。
+    label = f"{model_id} {name}".lower()
+    excluded = (
+        "embed", "embedding", "rerank", "transcrib",
+        "text-to-speech", "speech-to-text", "tts", "moderation",
+    )
+    return not any(word in label for word in excluded)
+
+
+def _free_model_sort_key(model: Dict) -> Tuple[int, int, str]:
+    """优先 Qwen3.8；其余优先上下文更大的模型，保证顺序稳定。"""
+    model_id = str(model.get("id", "") or "")
+    try:
+        context_length = int(model.get("context_length") or 0)
+    except (TypeError, ValueError):
+        context_length = 0
+    preferred = 0 if model_id == PREFERRED_LLM_MODEL else 1
+    return preferred, -context_length, model_id
+
+
+def _list_free_chat_models() -> List[Dict]:
+    """从 OpenRouter 实时模型目录获取 free chat 模型。GET 目录本身不做推理。"""
+    response = requests.get(
+        OPENROUTER_MODELS_URL,
+        headers=_openrouter_headers(),
+        timeout=30,
+    )
+    response.raise_for_status()
+
+    payload = response.json()
+    models = payload.get("data", []) if isinstance(payload, dict) else []
+    candidates = [m for m in models if isinstance(m, dict) and _model_is_free_chat(m)]
+    candidates.sort(key=_free_model_sort_key)
+    return candidates
+
+
+def _probe_free_model(model_id: str) -> Tuple[str, str]:
+    """
+    用极小请求探测一个 free 模型。
+
+    返回 (state, detail)：state 为 ok / skip / fatal。
+    shared-pool 429 直接 skip，不在启动阶段原地等待。
+    """
+    _wait_for_llm_slot()
+    payload = {
+        "model": model_id,
+        "messages": [{"role": "user", "content": "Reply with exactly OK."}],
+        "temperature": 0,
+        "max_tokens": 8,
+    }
+
+    try:
+        response = requests.post(
+            LLM_API_URL,
+            headers=_openrouter_headers(),
+            json=payload,
+            timeout=45,
+            allow_redirects=False,
+        )
+    except requests.RequestException as exc:
+        return "skip", f"network error: {exc}"
+
+    if response.status_code == 200:
+        try:
+            data = response.json()
+        except ValueError:
+            return "skip", "HTTP 200 but invalid JSON"
+        if _extract_message_text(data):
+            return "ok", "HTTP 200"
+        return "skip", "HTTP 200 but empty content"
+
+    error = _openrouter_error(response)
+    if _is_shared_pool_429(response, error):
+        provider = error["provider"] or "unknown"
+        return "skip", f"upstream shared-pool 429 ({provider})"
+
+    if response.status_code in (401, 403):
+        return "fatal", f"HTTP {response.status_code}: {response.text}"
+
+    if _is_account_quota_429(response, error):
+        return "fatal", f"account quota 429: {response.text}"
+
+    detail = error["raw"] or error["message"] or response.text
+    return "skip", f"HTTP {response.status_code}: {detail}"
+
+
+def select_available_free_model() -> Optional[str]:
+    """启动时枚举 free chat 模型，依次探测，选择第一个实际可返回文本的模型。"""
+    global LLM_MODEL
+    global llm_quota_exhausted
+
+    try:
+        candidates = _list_free_chat_models()
+    except Exception as exc:
+        logging.exception("获取 OpenRouter free 模型列表失败：%s", exc)
+        return None
+
+    if not candidates:
+        logging.error("OpenRouter 模型目录中没有找到可用的 :free text chat 模型")
+        return None
+
+    logging.info(
+        "启动模型检测：发现 %d 个 free text chat 模型（已排除 embedding/rerank 等）",
+        len(candidates),
+    )
+
+    for index, model in enumerate(candidates, 1):
+        model_id = str(model.get("id", ""))
+        logging.info("[%d/%d] 探测 free 模型：%s", index, len(candidates), model_id)
+
+        state, detail = _probe_free_model(model_id)
+        if state == "ok":
+            LLM_MODEL = model_id
+            logging.info("✓ 选定可用 free 模型：%s (%s)", model_id, detail)
+            return model_id
+
+        if state == "fatal":
+            if "quota" in detail.lower():
+                llm_quota_exhausted = True
+            logging.error("模型探测遇到不可继续错误：%s", detail)
+            return None
+
+        logging.warning("✗ 跳过 %s：%s", model_id, detail)
+
+    logging.error("已遍历全部 free text chat 模型，没有找到当前可正常返回文本的模型")
+    return None
+
+
 def _llm_result(summary: str = "大模型总结失败", score: int = 0,
                 error: str = "", quota_exhausted: bool = False) -> Dict:
     """统一构造 LLM 返回值，避免每个分支重复堆字典。"""
@@ -744,22 +906,35 @@ def _format_openrouter_error(response: requests.Response,
     )
 
 
+def _extract_message_text(data: Dict) -> str:
+    """从 OpenRouter/OpenAI 兼容响应中提取最终文本；空响应返回空字符串。"""
+    try:
+        content = data["choices"][0]["message"].get("content")
+    except (KeyError, IndexError, TypeError, AttributeError):
+        return ""
+
+    if isinstance(content, str):
+        return content.strip()
+
+    # 兼容部分 provider 返回 typed content blocks。
+    if isinstance(content, list):
+        parts = []
+        for item in content:
+            if isinstance(item, dict) and isinstance(item.get("text"), str):
+                parts.append(item["text"])
+        return "\n".join(parts).strip()
+
+    return ""
+
+
 def _post_openrouter(payload: Dict, title: str) -> requests.Response:
     """
     发起 OpenRouter 请求。
 
-    共享池 429：按退避策略重试；重试耗尽后只失败当前论文。
-    其它响应：立即返回给上层统一处理。
+    可恢复异常（共享池 429、HTTP 200 但正文为空）会退避重试；
+    重试耗尽后只失败当前论文，不影响后续论文。
     """
-    headers = {
-        "Authorization": f"Bearer {LLM_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    if OPENROUTER_HTTP_REFERER:
-        headers["HTTP-Referer"] = OPENROUTER_HTTP_REFERER
-    if OPENROUTER_APP_TITLE:
-        headers["X-OpenRouter-Title"] = OPENROUTER_APP_TITLE
-
+    headers = _openrouter_headers()
     max_attempts = len(LLM_TRANSIENT_429_BACKOFF) + 1
 
     for attempt in range(max_attempts):
@@ -779,6 +954,35 @@ def _post_openrouter(payload: Dict, title: str) -> requests.Response:
             timeout=180,
             allow_redirects=False,
         )
+
+        # 有些免费 provider 会返回 HTTP 200，但 choices[0].message.content=null。
+        # 对 paper-daily 来说这不是成功，按临时上游异常重试。
+        if response.status_code == 200:
+            try:
+                data = response.json()
+            except ValueError:
+                data = {}
+
+            if _extract_message_text(data):
+                return response
+
+            if attempt == max_attempts - 1:
+                logging.warning(
+                    "<<< LLM 200 但正文为空 | 重试耗尽，放弃当前论文 | %s\n%s",
+                    title[:100],
+                    response.text,
+                )
+                return response
+
+            delay = float(LLM_TRANSIENT_429_BACKOFF[attempt])
+            logging.warning(
+                "<<< LLM 200 但正文为空 | %.0fs 后重试 | %s\n%s",
+                delay,
+                title[:100],
+                response.text,
+            )
+            time.sleep(delay)
+            continue
 
         if response.status_code != 429:
             return response
@@ -854,7 +1058,15 @@ def call_llm_for_summary(
 
         if response.status_code == 200:
             data = response.json()
-            summary = data["choices"][0]["message"]["content"].strip()
+            summary = _extract_message_text(data)
+            if not summary:
+                error_msg = (
+                    "OpenRouter 返回 HTTP 200，但最终正文为空。\n"
+                    f"response_body={response.text}"
+                )
+                logging.error("大模型调用失败：\n%s", error_msg)
+                return _llm_result(error=error_msg)
+
             score = parse_score_from_summary(summary)
 
             logging.info(
@@ -1612,6 +1824,12 @@ if __name__ == "__main__":
     logging.info("=" * 60)
     logging.info("arXiv cs.RO daily crawler")
     logging.info("LLM provider：OpenRouter")
+    logging.info("开始检测当前可用的 free 模型...")
+
+    if not select_available_free_model():
+        logging.error("没有可用的 free LLM，终止本次任务，避免把论文批量写成总结失败")
+        sys.exit(1)
+
     logging.info("LLM model：%s", LLM_MODEL)
     logging.info("初始页面：%s", INITIAL_ARXIV_URL)
     logging.info(
