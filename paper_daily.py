@@ -56,7 +56,7 @@ LLM_PROMPT = os.getenv("LLM_PROMPT")
 
 # 请求节流与共享池临时 429 的退避。
 LLM_REQUEST_INTERVAL = 3.2
-LLM_TRANSIENT_429_BACKOFF = (10, 20, 40, 60, 90)
+LLM_TRANSIENT_429_BACKOFF = (10, 20, 40)
 _last_llm_request_at = 0.0
 
 # OpenRouter 可选的应用标识头；不影响鉴权。
@@ -755,8 +755,11 @@ def _probe_free_model(model_id: str) -> Tuple[str, str]:
         provider = error["provider"] or "unknown"
         return "skip", f"upstream shared-pool 429 ({provider})"
 
-    if response.status_code in (401, 403):
-        return "fatal", f"HTTP {response.status_code}: {response.text}"
+    # 只有鉴权失败才中止整个启动流程。
+    # 403 往往只是某个 free 模型有调用条件（例如仅允许 agentic harness），
+    # 属于模型级不可用，应该跳过后继续探测其它 free 模型。
+    if response.status_code == 401:
+        return "fatal", f"HTTP 401 authentication failed: {response.text}"
 
     if _is_account_quota_429(response, error):
         return "fatal", f"account quota 429: {response.text}"
