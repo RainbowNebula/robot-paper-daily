@@ -8,7 +8,6 @@ from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 import logging
 import re
-import http.client
 import traceback
 import os
 import math
@@ -44,8 +43,8 @@ ARXIV_HEADERS = {
 
 # LLM 配置（OpenRouter）
 # 推荐在环境变量中使用 OPENROUTER_API_KEY。
-# 为兼容旧的 GitHub Actions / 本地配置，也继续支持 LLM_API_KEY。
-LLM_API_KEY = os.getenv("OPENROUTER_API_KEY") or os.getenv("LLM_API_KEY")
+# 只读取 OpenRouter 专用环境变量，避免误用旧 provider 的 key。
+LLM_API_KEY = (os.getenv("OPENROUTER_API_KEY") or "").strip()
 LLM_API_HOST = "openrouter.ai"
 LLM_API_ENDPOINT = "/api/v1/chat/completions"
 LLM_MODEL = "qwen/qwen3.8-27b:free"
@@ -650,7 +649,7 @@ def call_llm_for_summary(
     introduction: str,
     relate_work: str,
 ) -> Dict:
-    """调用 LLM，并解析 1~5 分相关性评分。"""
+    """通过 OpenRouter 调用 LLM，并解析 1~5 分相关性评分。"""
     global llm_quota_exhausted
     global _last_llm_request_at
 
@@ -660,6 +659,16 @@ def call_llm_for_summary(
             "score": 0,
             "error": "本次运行已检测到 LLM 429，停止继续请求，等待下次重试",
             "quota_exhausted": True,
+        }
+
+    if not LLM_API_KEY:
+        error_msg = "未读取到 OpenRouter API Key。请设置环境变量 OPENROUTER_API_KEY。"
+        logging.error(error_msg)
+        return {
+            "summary": "大模型总结失败",
+            "score": 0,
+            "error": error_msg,
+            "quota_exhausted": False,
         }
 
     system_prompt = LLM_PROMPT or (
@@ -674,51 +683,61 @@ def call_llm_for_summary(
         f"相关工作：{relate_work}"
     )
 
-    payload = json.dumps(
-        {
-            "model": LLM_MODEL,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            "temperature": 0.3,
-            "max_tokens": 500,
-        },
-        ensure_ascii=False,
-    ).encode("utf-8")
-
-    headers = {
-        "Authorization": f"Bearer {LLM_API_KEY}",
-        "Content-Type": "application/json; charset=utf-8",
-        "HTTP-Referer": OPENROUTER_HTTP_REFERER,
-        "X-Title": OPENROUTER_APP_TITLE,
+    payload = {
+        "model": LLM_MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        "temperature": 0.3,
+        "max_tokens": 500,
     }
 
-    conn = None
+    # OpenRouter 要求 API key 以 Bearer token 放在 Authorization header 中。
+    headers = {
+        "Authorization": f"Bearer {LLM_API_KEY}",
+        "Content-Type": "application/json",
+    }
+
+    # 这两个头是 OpenRouter 可选的应用标识，不参与鉴权。
+    if OPENROUTER_HTTP_REFERER:
+        headers["HTTP-Referer"] = OPENROUTER_HTTP_REFERER
+    if OPENROUTER_APP_TITLE:
+        headers["X-Title"] = OPENROUTER_APP_TITLE
 
     try:
-        # OpenRouter free models 当前限制请求速率。按“上一次请求开始时间”节流，
-        # 避免即使模型响应很快也超过每分钟限制。
         elapsed = time.monotonic() - _last_llm_request_at
         if _last_llm_request_at > 0 and elapsed < LLM_REQUEST_INTERVAL:
             time.sleep(LLM_REQUEST_INTERVAL - elapsed)
 
         _last_llm_request_at = time.monotonic()
 
-        conn = http.client.HTTPSConnection(LLM_API_HOST, timeout=180)
-        conn.request("POST", LLM_API_ENDPOINT, payload, headers)
-        res = conn.getresponse()
-        body = res.read().decode("utf-8", errors="replace")
+        api_url = f"https://{LLM_API_HOST}{LLM_API_ENDPOINT}"
+        response = requests.post(
+            api_url,
+            headers=headers,
+            json=payload,
+            timeout=180,
+        )
+        body = response.text
 
-        if res.status != 200:
-            if res.status == 429:
+        if response.status_code != 200:
+            if response.status_code == 429:
                 llm_quota_exhausted = True
 
+            if response.status_code == 401:
+                raise RuntimeError(
+                    "OpenRouter 鉴权失败（401）。"
+                    "请确认 GitHub Actions 已把 OPENROUTER_API_KEY 注入到 Python 进程，"
+                    "且该值是有效的 OpenRouter key。"
+                    f" 响应：{body}"
+                )
+
             raise RuntimeError(
-                f"API 状态码异常：{res.status}，响应：{body}"
+                f"API 状态码异常：{response.status_code}，响应：{body}"
             )
 
-        data = json.loads(body)
+        data = response.json()
         summary = data["choices"][0]["message"]["content"].strip()
         score = parse_score_from_summary(summary)
 
@@ -748,13 +767,6 @@ def call_llm_for_summary(
             "error": error_msg,
             "quota_exhausted": llm_quota_exhausted,
         }
-
-    finally:
-        if conn is not None:
-            try:
-                conn.close()
-            except Exception:
-                pass
 
 
 # -------------------------- Markdown 输出 --------------------------
@@ -1475,8 +1487,7 @@ def crawl_and_process_papers(
 if __name__ == "__main__":
     if not LLM_API_KEY or LLM_API_KEY.startswith("sk-xxxx"):
         logging.error(
-            "请通过环境变量 OPENROUTER_API_KEY 配置 OpenRouter API Key "
-            "（也兼容旧变量 LLM_API_KEY）"
+            "请通过环境变量 OPENROUTER_API_KEY 配置 OpenRouter API Key"
         )
         sys.exit(1)
 
