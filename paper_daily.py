@@ -44,7 +44,7 @@ ARXIV_HEADERS = {
 # LLM 配置（OpenRouter）
 # 推荐在环境变量中使用 OPENROUTER_API_KEY。
 # 只读取 OpenRouter 专用环境变量，避免误用旧 provider 的 key。
-LLM_API_KEY = (os.getenv("OPENROUTER_API_KEY") or "").strip()
+LLM_API_KEY = os.getenv("OPENROUTER_API_KEY").strip()
 LLM_API_HOST = "openrouter.ai"
 LLM_API_ENDPOINT = "/api/v1/chat/completions"
 LLM_MODEL = "qwen/qwen3.8-27b:free"
