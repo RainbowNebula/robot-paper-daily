@@ -49,7 +49,7 @@ LLM_API_KEY = (
     or ""
 ).strip()
 LLM_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-LLM_MODEL = "qwen/qwen3.8-27b:free"
+LLM_MODEL = "z-ai/glm-5.2:free"
 LLM_PROMPT = os.getenv("LLM_PROMPT")
 
 # 请求节流与共享池临时 429 的退避。
