@@ -3,7 +3,7 @@
         {
             "arxiv_id": "/abs/2610.02204",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:14",
+            "crawl_datetime": "2026-10-04 06:41:55",
             "title": "Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents",
             "authors": "Yen-Jen Wang , Haozhe Jiang , Shuying Deng , Haoru Xue , Weirui Ye , Rocky Duan , Nika Haghtalab , S. Shankar Sastry , Pieter Abbeel , Haozhi Qi",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Systems and Control (eess.SY)",
@@ -18,12 +18,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:50"
+            "last_retry_datetime": "2026-10-04 06:44:39"
         },
         {
             "arxiv_id": "/abs/2610.02196",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:16",
+            "crawl_datetime": "2026-10-04 06:41:57",
             "title": "InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation",
             "authors": "Zhuo Lin , Sirui Xu , Liuyu Bian , Yu-Xiong Wang , Liang-Yan Gui",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV); Graphics (cs.GR)",
@@ -38,12 +38,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:50"
+            "last_retry_datetime": "2026-10-04 06:44:39"
         },
         {
             "arxiv_id": "/abs/2610.02170",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:17",
+            "crawl_datetime": "2026-10-04 06:41:58",
             "title": "Watch, Infer, Coordinate: Inferring Robot Partner Constraints for Zero-Shot Coordination",
             "authors": "Suyu Ye , Zheyuan Zhang , Vaishnav Tadiparthi , Hossein Nourkhiz Mahjoub , Ehsan Moradi Pari , Tianmin Shu , Homanga Bharadhwaj , Nakul Agarwal",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Multiagent Systems (cs.MA)",
@@ -58,12 +58,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:50"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.02161",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:18",
+            "crawl_datetime": "2026-10-04 06:42:00",
             "title": "DuoMind: Enabling Distributed Multi-Robot Coordination with Semantic Communication",
             "authors": "Hanchu Zhou , Dechen Gao , Hang Wang , Brendan Lynch , Boqi Zhao , Qiyao Ma , Raman Goyal , Junshan Zhang",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -78,12 +78,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:50"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.02120",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:20",
+            "crawl_datetime": "2026-10-04 06:42:02",
             "title": "SkeleWAM: Skeleton World-Action Modeling for Efficient Robotic Manipulation",
             "authors": "Juyi Sheng , Hua Wang , Mengyuan Liu",
             "subjects": "Robotics (cs.RO)",
@@ -98,12 +98,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:50"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.02110",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:21",
+            "crawl_datetime": "2026-10-04 06:42:03",
             "title": "GlassGuard: Verified Glass Plane Mapping for Robot Navigation",
             "authors": "Hanwen Guo , Zhengzhi Lin , Yusen Xie , Ji Zhang",
             "subjects": "Robotics (cs.RO)",
@@ -118,12 +118,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.02089",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:23",
+            "crawl_datetime": "2026-10-04 06:42:04",
             "title": "HumanoidToolBench: Benchmarking Humanoid Tool Use from Selection to Mobile Execution",
             "authors": "Kyochul Jang , Seohyeon Park , Ohchul Kwon , Sangjun Park , Junhyeok Choi , Seungyeop Yi , Chaeyun Kim , Sangkyu Lee , Idan Szpektor , Avi Caciularu , Jongmin Park , Youngjae Yu",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -138,12 +138,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.02054",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:24",
+            "crawl_datetime": "2026-10-04 06:42:06",
             "title": "UniWAM: Unified World-Action Model",
             "authors": "Jiayi Chen , Wenxuan Song , Jingbo Wang , Shuai Zhou , Xicheng Gong , Zehua Fan , Ziyang Zhou , Junwu E , Haodong Yan , Fuhao Li , Qize Yu , Xu Huang , Pengwei Wang , Wen Chen , Shunbo Zhou , Haoang Li",
             "subjects": "Robotics (cs.RO)",
@@ -158,12 +158,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.01985",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:26",
+            "crawl_datetime": "2026-10-04 06:42:08",
             "title": "H-SPAR: Hydrodynamic-aware Simulation for Particle Transport and Autonomous Robots",
             "authors": "Navid Zarrabi , Nariman Yousefi , Sajad Saeedi",
             "subjects": "Robotics (cs.RO)",
@@ -178,12 +178,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.01972",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:27",
+            "crawl_datetime": "2026-10-04 06:42:09",
             "title": "BLT*: Informed Belief Localization Trees for Uncertainty-Aware Planning on Digital Twins",
             "authors": "Elliot Preston-Krebs , Abhishek Goudar , Timothy D. Barfoot",
             "subjects": "Robotics (cs.RO)",
@@ -198,12 +198,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:40"
         },
         {
             "arxiv_id": "/abs/2610.01959",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:29",
+            "crawl_datetime": "2026-10-04 06:42:11",
             "title": "Training-Free Diffusion Planning with Analytical Local Scores",
             "authors": "Michael Y. Fatemi , Jinhao Liang , Ferdinando Fioretto",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG)",
@@ -218,12 +218,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01943",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:30",
+            "crawl_datetime": "2026-10-04 06:42:13",
             "title": "TouchTherm: Building Multimodal Digital Twins of Objects for Tactile and Thermal Rendering",
             "authors": "Yitao Zhang (1), Hong Ying (1), Haoran Guo (1), Xiaoying Zhou (1), Guanyu Chen (1), Chenxi Xiao (1) ((1) ShanghaiTech University, Shanghai, China)",
             "subjects": "Robotics (cs.RO)",
@@ -238,12 +238,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01910",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:32",
+            "crawl_datetime": "2026-10-04 06:42:14",
             "title": "Robot Learning on Discrete Surfaces: Theory and Applications",
             "authors": "Matteo Dalle Vedove , Fares J. Abu-Dakka , Luigi Palopoli , Daniele Fontanelli , Matteo Saveriano",
             "subjects": "Robotics (cs.RO)",
@@ -258,12 +258,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:51"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01906",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:33",
+            "crawl_datetime": "2026-10-04 06:42:16",
             "title": "Towards Physical Underwater Robotic Assistance for Scuba Diver Movement in Confined Spaces",
             "authors": "Demetrious T. Kutzke , Junaed Sattar",
             "subjects": "Robotics (cs.RO)",
@@ -278,12 +278,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01856",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:35",
+            "crawl_datetime": "2026-10-04 06:42:17",
             "title": "ChunkVLA-AM: Parallel Action Chunking for Vision-Language-Action Robot Control in Additive Manufacturing",
             "authors": "Zhugang Liu , Kaichuang Zhang , Jinman Zhang , Pu Sun , Martha Asare , Jose Hernandez , Maxim Ermolinsky , Efren Saenz , Qi Lu , Jinghao Yang",
             "subjects": "Robotics (cs.RO)",
@@ -298,12 +298,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01849",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:36",
+            "crawl_datetime": "2026-10-04 06:42:19",
             "title": "FlashDexRetarget: Accelerating Dexterous Manipulation Data Generation through Multi-Motion Retargeting",
             "authors": "Kyungmin Lee , Sibeen Kim , Dongyoon Hwang , Yoonsang Oh , Donghu Kim , Youngdo Lee , I Made Aswin Nahrendra , Jaegul Choo , Hojoon Lee",
             "subjects": "Robotics (cs.RO)",
@@ -318,12 +318,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01746",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:37",
+            "crawl_datetime": "2026-10-04 06:42:20",
             "title": "End-to-End Learning vs. Modular Architectures: Comparative Insights into Autonomous Driving Systems",
             "authors": "Kartik B. Kapse",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG)",
@@ -338,12 +338,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:41"
         },
         {
             "arxiv_id": "/abs/2610.01742",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:39",
+            "crawl_datetime": "2026-10-04 06:42:22",
             "title": "World Motion Models: Flexible Sequence Modeling of SE(3) Trajectories",
             "authors": "Jiahui Lei , Qianqian Wang , Trevor Darrell , Angjoo Kanazawa",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
@@ -358,12 +358,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01726",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:40",
+            "crawl_datetime": "2026-10-04 06:42:23",
             "title": "Query-Conditioned Articulation Estimation from a Single Image",
             "authors": "Abdelrhman Werby , Fabio Scaparro , Kai O. Arra",
             "subjects": "Robotics (cs.RO)",
@@ -378,12 +378,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01698",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:42",
+            "crawl_datetime": "2026-10-04 06:42:25",
             "title": "ActiveWAM: Evidence-Aware Active Vision for World-Action Models",
             "authors": "Renjun Wu , Luzhou Ge , Xuesong Li",
             "subjects": "Robotics (cs.RO)",
@@ -398,12 +398,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01682",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:43",
+            "crawl_datetime": "2026-10-04 06:42:26",
             "title": "Beyond Leaderboard Scores: A Deployment-Focused Protocol for Interpretable Tracking Evaluation in Pedestrian-Centric Environments",
             "authors": "Dominik Wojcikiewicz , Diego Paez-Granados",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
@@ -418,12 +418,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01668",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:44",
+            "crawl_datetime": "2026-10-04 06:42:28",
             "title": "Learning a Resolution-Consistent Jacobian Field for Bio-Inspired Rigid-Soft Finger",
             "authors": "Tianyou Liang , Haisen Zeng , Shanjun Chen , YiMing Zhu , Zhongyue Lu , Zirong Luo",
             "subjects": "Robotics (cs.RO)",
@@ -438,12 +438,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:52"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01644",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:46",
+            "crawl_datetime": "2026-10-04 06:42:29",
             "title": "SonarVoxNet: Diver Detection in 3D Bounding Box using 3D Sonar",
             "authors": "Eugene Park , Jiwon Lee , Seyoung Kan , Trung Dong , Xiaomin Lin , Jane Shin",
             "subjects": "Robotics (cs.RO)",
@@ -458,12 +458,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01612",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:47",
+            "crawl_datetime": "2026-10-04 06:42:31",
             "title": "ReCo: Response-Consistent Locomotion with Policy-Aware MPC for Legged Manipulation",
             "authors": "Kuankuan Sima , Yichao Gao , Chenxi Gu , Kefan Zhao , Lin Zhao",
             "subjects": "Robotics (cs.RO)",
@@ -478,12 +478,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:42"
         },
         {
             "arxiv_id": "/abs/2610.01573",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:49",
+            "crawl_datetime": "2026-10-04 06:42:32",
             "title": "LiDARFlow: Real-Time Panel-Based MAV Guidance in Unknown Environments",
             "authors": "João Machado (ENAC-LAB), Zeynep Bilgin , Matthieu Verdoucq (ENAC-LAB), Murat Bronz (ENAC)",
             "subjects": "Robotics (cs.RO)",
@@ -498,12 +498,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01559",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:50",
+            "crawl_datetime": "2026-10-04 06:42:34",
             "title": "Completion Aware Guidance for World Action Models",
             "authors": "Seungyeon Kim , Junhoo Lee , Baekseung Kim , Minkyu Kim , Nojun Kwak",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Machine Learning (cs.LG)",
@@ -518,12 +518,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01505",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:51",
+            "crawl_datetime": "2026-10-04 06:42:35",
             "title": "OpenSpace Lab Solution to the IROS 2026 Indoor Exploration Competition",
             "authors": "Yuxuan Zhang , Dong Li , Zezhou Sun , Yuxuan Xu , Siyu Teng , Yuchen Li , Jianjian Yang , Long Chen",
             "subjects": "Robotics (cs.RO)",
@@ -538,12 +538,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01477",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:53",
+            "crawl_datetime": "2026-10-04 06:42:37",
             "title": "ALFRED: Requirement-driven development of an open-source mobile manipulator for long-term plant monitoring",
             "authors": "Ciarán Miceal Johnson , Christopher Quail , Garry Ellard , Alistair McConnell , Steve Tonneau , Fernando Auat Cheein",
             "subjects": "Robotics (cs.RO) ; Hardware Architecture (cs.AR); Computer Vision and Pattern Recognition (cs.CV)",
@@ -558,12 +558,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01397",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:54",
+            "crawl_datetime": "2026-10-04 06:42:38",
             "title": "Continue, Abort, or Fall: Viability-Aware Policy Selection (VAPS) for Safe Humanoid Acrobatics",
             "authors": "Siwei Ju , Lu Liu , Jan Peters , Oleg Arenz",
             "subjects": "Robotics (cs.RO)",
@@ -578,12 +578,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01351",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:56",
+            "crawl_datetime": "2026-10-04 06:42:40",
             "title": "Is Success All You Need? Investigating the Impact of Input Perturbations on VLA Behaviour in Tabletop Manipulation Tasks",
             "authors": "Sophie Higham , Riccardo Andrea Izzo , Matteo Matteucci , Alessandro Suglia",
             "subjects": "Robotics (cs.RO)",
@@ -598,12 +598,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01319",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:57",
+            "crawl_datetime": "2026-10-04 06:42:41",
             "title": "Cross-entropy optimization with prioritized constraints",
             "authors": "Francisco Roldan Sanchez , Pau de las Heras Molins , David Fridovich-Keil , Georgios Bakirtzis",
             "subjects": "Robotics (cs.RO)",
@@ -618,12 +618,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:53"
+            "last_retry_datetime": "2026-10-04 06:44:43"
         },
         {
             "arxiv_id": "/abs/2610.01310",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:16:59",
+            "crawl_datetime": "2026-10-04 06:42:43",
             "title": "Ex vivo breach detection using electrical conductivity during robotic pedicle drilling in the spine",
             "authors": "Jorge Andrés Pérez Velásquez , François Teyssere , Thibault Chandanson , Quentin Grimal , Brahim Tamadazte",
             "subjects": "Robotics (cs.RO)",
@@ -638,12 +638,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01301",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:00",
+            "crawl_datetime": "2026-10-04 06:42:44",
             "title": "Continual Learning for 6-DoF Grasp Synthesis via Experience and Demonstrations",
             "authors": "Giulio Schiavi , Andrei Cramariuc , Michael Pantic , Roland Siegwart",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG)",
@@ -658,12 +658,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01288",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:02",
+            "crawl_datetime": "2026-10-04 06:42:46",
             "title": "Interaction-Stiffness-Guided Basis Allocation in Dynamic Movement Primitives for Efficient Skill Transfer",
             "authors": "Chan Xu , Silu Chen , Dehao Wang , Xiyu Chen , Dexin Jiang , Chi Zhang , Guilin Yang , Chenguang Yang , Zaojun Fang",
             "subjects": "Robotics (cs.RO)",
@@ -678,12 +678,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01260",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:03",
+            "crawl_datetime": "2026-10-04 06:42:47",
             "title": "PROMO: Preference-conditioned Multi-Objective Reinforcement Learning for Quadrupedal Robots",
             "authors": "Amr Mousa , Rifny Rachman , Neil Karavis , Michele Caprio , Richard Allmendinger",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Human-Computer Interaction (cs.HC); Machine Learning (cs.LG); Systems and Control (eess.SY)",
@@ -698,12 +698,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01258",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:04",
+            "crawl_datetime": "2026-10-04 06:42:49",
             "title": "ColoACT: Multi-Cue Action Chunking for Smooth Autonomous Colon Navigation on a Self-Propelled Endoscopic Robot",
             "authors": "Jian Hu , Shujing He , Leixin Chang , Zongze Li , Ding Huang , Chaoyang Shi , Chengzhi Hu",
             "subjects": "Robotics (cs.RO)",
@@ -718,12 +718,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01219",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:06",
+            "crawl_datetime": "2026-10-04 06:42:50",
             "title": "EIDA: Execution-Interface Dynamics Adaptation for Real-to-Sim-to-Real Robot Navigation",
             "authors": "Yiwei Qian , Shanze Wang , Qingyuan Hu , Xinming Zhang , Wei Zhang",
             "subjects": "Robotics (cs.RO)",
@@ -738,12 +738,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01185",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:07",
+            "crawl_datetime": "2026-10-04 06:42:52",
             "title": "AFD-CAMLs: Agile Force-Distribution-Aware Planning and Control for Cable-Suspended Aerial Multi-Lifting Systems",
             "authors": "Antreas Kourris , Sihao Sun",
             "subjects": "Robotics (cs.RO)",
@@ -758,12 +758,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:44"
         },
         {
             "arxiv_id": "/abs/2610.01178",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:09",
+            "crawl_datetime": "2026-10-04 06:42:53",
             "title": "Recova: Agent-Guided Failure Recovery for Autonomous Robotic Manipulation",
             "authors": "Isabella Liu , An-Chieh Cheng , Johan Bjorck , Zhiding Yu , Hongxu Yin , Jan Kautz , Linxi Fan , Yuke Zhu , Sifei Liu",
             "subjects": "Robotics (cs.RO)",
@@ -778,12 +778,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:54"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01171",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:10",
+            "crawl_datetime": "2026-10-04 06:42:55",
             "title": "Experience-Based Feasibility-Aware Generative Adversarial Imitation from Observation under Embodiment Mismatch",
             "authors": "Yoshiki Takebayashi , Giovanni Perantoni , Hikaru Sasaki , Matteo Saveriano , Takamitsu Matsubara",
             "subjects": "Robotics (cs.RO)",
@@ -798,12 +798,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01105",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:11",
+            "crawl_datetime": "2026-10-04 06:42:56",
             "title": "Extreme Length Generalization in a Compact Recurrent Architecture for One-Shot Exploration",
             "authors": "Izen Thornton , Aaron Shey , William Su",
             "subjects": "Robotics (cs.RO)",
@@ -818,12 +818,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01102",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:13",
+            "crawl_datetime": "2026-10-04 06:42:58",
             "title": "MASkillBlender: Decentralized Whole-Body Coordination for Multi-Humanoid Loco-Manipulation via Skill Blending",
             "authors": "Yifan Hu , Luhang Hong , Mingkang Long , Danning Wang , Chengfeng Jia , Rong Su , Junjie Fu , Guanghui Wen",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG); Multiagent Systems (cs.MA)",
@@ -838,12 +838,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01093",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:14",
+            "crawl_datetime": "2026-10-04 06:43:00",
             "title": "OrbitTAMP: Grounding Language Models for Task and Motion Planning in Spacecraft Rendezvous",
             "authors": "Yuji Takubo , Daniele Gammelli , Marco Pavone , Simone D'Amico",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Optimization and Control (math.OC)",
@@ -858,12 +858,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01083",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:16",
+            "crawl_datetime": "2026-10-04 06:43:01",
             "title": "WBAG: A Whole-Body and Attached-Geometry Safety Framework for Vision-Language-Action Manipulation",
             "authors": "Samuel Zhen , Siwon Jo , Yanze Zhang , Wenhao Luo",
             "subjects": "Robotics (cs.RO)",
@@ -878,12 +878,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01072",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:17",
+            "crawl_datetime": "2026-10-04 06:43:03",
             "title": "quARtet Marker: A 3D-Printable Multi-Tag Fiducial for Robust Near-Frontal Pose Estimation",
             "authors": "Araki Wakiuchi , Hikaru Sasaki , Takamitsu Matsubara",
             "subjects": "Robotics (cs.RO)",
@@ -898,12 +898,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:45"
         },
         {
             "arxiv_id": "/abs/2610.01067",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:19",
+            "crawl_datetime": "2026-10-04 06:43:04",
             "title": "Online Planning for Sparse Ground Target Search from a High-Altitude UAV under Partial Observability",
             "authors": "Ashik E Rasul , Hyung-Jin Yoon",
             "subjects": "Robotics (cs.RO)",
@@ -918,12 +918,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00982",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:20",
+            "crawl_datetime": "2026-10-04 06:43:06",
             "title": "Divide-and-Remember: Recursive Action-Relevant Memory for Long-Horizon VLA Policies",
             "authors": "Xuehui Yu , Eason Yu , Meiyi Wang , Haozhe Du , Stefano V. Albrecht , Harold Soh",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -938,12 +938,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:55"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00981",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:22",
+            "crawl_datetime": "2026-10-04 06:43:07",
             "title": "NarrativeFlow: Flow-Based Vision-Language-Action Model Using Robot Velocity Fields",
             "authors": "Shota Kobayashi , Koki Seno , Daichi Yashima , Komei Sugiura",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
@@ -958,12 +958,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00936",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:23",
+            "crawl_datetime": "2026-10-04 06:43:09",
             "title": "ShowerFlex: Achieving Pseudo-Static Balancing in a Continuum Shower Hose",
             "authors": "Zhiyu Ren , Girish Krishnan",
             "subjects": "Robotics (cs.RO)",
@@ -978,12 +978,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00926",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:25",
+            "crawl_datetime": "2026-10-04 06:43:10",
             "title": "A Survey on End-to-End Autonomous Driving Training from the Perspectives of Data, Strategy, and Platform",
             "authors": "Chengkai Xu , Yiming Cui , Jiaqi Liu , Yicheng Guo , Cheng Qin , Geyuan Zhang , Xinwei Dong , Shiyu Fang , Peng Hang , Jian Sun",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG)",
@@ -998,12 +998,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00913",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:26",
+            "crawl_datetime": "2026-10-04 06:43:12",
             "title": "eRLT: Efficient VLA Reinforcement Learning via Action-Relevant Token Routing",
             "authors": "Dehao Huang , Jianbang Liu , Jianpan Gao , Chao Tang , Zilang Cen , Zedong Dan , Jiaheng Wang , Tingguang Li , Yue Wang , Hong Zhang",
             "subjects": "Robotics (cs.RO)",
@@ -1018,12 +1018,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00904",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:28",
+            "crawl_datetime": "2026-10-04 06:43:14",
             "title": "Screw Attention: Rigid-Body Algebra Inside a Transformer",
             "authors": "Aly Magassouba",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -1038,12 +1038,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00899",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:29",
+            "crawl_datetime": "2026-10-04 06:43:15",
             "title": "TOAST: Stochastic Robot Action Tokenization for Autoregressive Vision-Language-Action Models",
             "authors": "Keisuke Shirai , Tomohiro Motoda , Hanbit Oh , Ryoichi Nakajo , Roman Mykhailyshyn , Ryo Hanai , Shotaro Miwa , Yukiyasu Domae",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Machine Learning (cs.LG)",
@@ -1058,12 +1058,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:46"
         },
         {
             "arxiv_id": "/abs/2610.00897",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:31",
+            "crawl_datetime": "2026-10-04 06:43:17",
             "title": "Real-Time Human-Adaptive Task Allocation for Multi-Human Multi-Robot Supervision",
             "authors": "Seabin Lee , Sujeong Park , Nayoung Kim , Sungjin Park , Haechan Jung , Changjoo Nam",
             "subjects": "Robotics (cs.RO)",
@@ -1078,12 +1078,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00878",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:32",
+            "crawl_datetime": "2026-10-04 06:43:18",
             "title": "UniTrackPLA: Unified Panorama-Language-Action Model for Instruction-Guided Navigation and Dynamic Person Tracking",
             "authors": "Pengfei Qi , Haoran Lin , Sizhuang Chen , Kai Luo , Sirui Zhang , Xinqi Liu , Fei Cheng , Wenrui Chen , Liming Yin , Kailun Yang",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV); Image and Video Processing (eess.IV)",
@@ -1098,12 +1098,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00864",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:34",
+            "crawl_datetime": "2026-10-04 06:43:20",
             "title": "Kinematic MeanFlow: One-Step Action Generation Policy for Robotic Foundation Models",
             "authors": "Jiawei Fan , Sifeng Wang , Yuqing Hou , Anbang Yao",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Computation and Language (cs.CL); Computer Vision and Pattern Recognition (cs.CV)",
@@ -1118,12 +1118,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:56"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00854",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:35",
+            "crawl_datetime": "2026-10-04 06:43:21",
             "title": "Are Frontier VLM Agents Ready to Be Robot Generalists? An Empirical Study with the Embodied Agent Arena",
             "authors": "Haojian Huang , Pukun Zhao , Zexi Li , Yehang Zhang , Yangkai Wei , Wenqian Li , Han Yang , Kaiwen Zhou , Ying-Cong Chen , Yinchuan Li",
             "subjects": "Robotics (cs.RO)",
@@ -1138,12 +1138,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00823",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:37",
+            "crawl_datetime": "2026-10-04 06:43:23",
             "title": "Reactive Humanoid Multi-Contact Using Learned Stability Models",
             "authors": "Stephen McCrory , Beomyeong Park , Nicholas Kitchel , Nehar Poddar , Robert Griffin",
             "subjects": "Robotics (cs.RO)",
@@ -1158,12 +1158,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00822",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:38",
+            "crawl_datetime": "2026-10-04 06:43:24",
             "title": "TRACE: Privacy-Preserving Next-Best-View Selection over Distributed 3D Gaussian-Splat Maps",
             "authors": "Amirhossein Mollaei Khass , Athanasios Cosse , Qiyu Sun , Nader Motee",
             "subjects": "Robotics (cs.RO)",
@@ -1178,12 +1178,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00821",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:40",
+            "crawl_datetime": "2026-10-04 06:43:26",
             "title": "Getting Out and Getting Back: World and Behavior Grounding in Real2Sim2Real Co-Training",
             "authors": "Samuel Liu , Youngsun Kim , Martin Matak , Gilwoo Lee",
             "subjects": "Robotics (cs.RO)",
@@ -1198,12 +1198,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:47"
         },
         {
             "arxiv_id": "/abs/2610.00801",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:41",
+            "crawl_datetime": "2026-10-04 06:43:27",
             "title": "ECoMEM: Explicit Concept Memory for Memory-Dependent Robot Control",
             "authors": "Yize Liu , Ke Wang , Mac Schwager , Yiqing Xu , Jiajun Wu",
             "subjects": "Robotics (cs.RO)",
@@ -1218,12 +1218,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00781",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:43",
+            "crawl_datetime": "2026-10-04 06:43:29",
             "title": "DITTO-X: Forward and Reverse Teleoperation for Dexterous Manipulation and Human Intervention",
             "authors": "Zhanpeng He , Joaquin Palacios , Zhangyu Wang , Chenhao Li , Katelyn Lee , Matei Ciocarlie , C. Karen Liu , Jiajun Wu",
             "subjects": "Robotics (cs.RO)",
@@ -1238,12 +1238,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00731",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:44",
+            "crawl_datetime": "2026-10-04 06:43:30",
             "title": "Measuring Asset and Scene Reconstruction Effects in Real-to-Sim Robot Evaluation",
             "authors": "Sanya Verma , Luca Cilio , Velissarios Christodoulou",
             "subjects": "Robotics (cs.RO)",
@@ -1258,12 +1258,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00727",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:46",
+            "crawl_datetime": "2026-10-04 06:43:32",
             "title": "CF-JEPA: Improving Robustness of JEPA World Models via Controllability Factorization",
             "authors": "Morgan Byrd , Robert Wright , Sehoon Ha",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG)",
@@ -1278,12 +1278,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:57"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00718",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:47",
+            "crawl_datetime": "2026-10-04 06:43:33",
             "title": "Toward Humanoid Robots in Construction: A Teleoperation Feasibility Study",
             "authors": "Parastoo Ali Pour , David R. Martin , Chang Min Hur , Bo Zhang , Tommy Zhou , Brandon Thomas Lichter , Shane Stanfield , Pramod Khargonekar , Mohammad Abdullah Al Faruque",
             "subjects": "Robotics (cs.RO) ; Human-Computer Interaction (cs.HC)",
@@ -1298,12 +1298,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00638",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:48",
+            "crawl_datetime": "2026-10-04 06:43:35",
             "title": "TacDyn-WAM: Learning Implicit Tactile Dynamics in a Heterogeneous Visuo-Tactile World Action Model",
             "authors": "Enyi Wang , Mingxin Wang , Quan Shi , Hetian Guo , Hongyu Wang , Xi Wang , Bin Qian , Yupeng Zheng , Wenxuan Song , Houde Liu , Yong Xu , Cheng Chi , Wenchao Ding , Yilun Chen , Yan Wang",
             "subjects": "Robotics (cs.RO)",
@@ -1318,12 +1318,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00601",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:50",
+            "crawl_datetime": "2026-10-04 06:43:36",
             "title": "When Reasoning Helps Action: Monitoring and Steering Chain-of-Thought in Vision-Language-Action Policies",
             "authors": "Sathwik Karnik , Joseph JR. Lee , Aryaman Gupta , Somil Bansal",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -1338,12 +1338,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:48"
         },
         {
             "arxiv_id": "/abs/2610.00575",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:51",
+            "crawl_datetime": "2026-10-04 06:43:38",
             "title": "Token-World: World Modeling in Vision-Language Model Token Space for Robot Manipulation",
             "authors": "Chuyao Fu , Xiaowei Chi , Yuhan Rui , Yu-kai Wang , Zezhong Qian , Xiaojie Zhang , Yunfan Lou , Kevin Zhang , Kuangzhi Ge , Chak Wing Mak , Zhiyang Chen , Athena Zhuoming Zhong , Hongyang Chen , Haoran Li , Yike Guo , Sirui Han , Shanghang Zhang",
             "subjects": "Robotics (cs.RO)",
@@ -1358,12 +1358,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00542",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:53",
+            "crawl_datetime": "2026-10-04 06:43:39",
             "title": "Does Continual Imitation Learning Remain Grounded? A Language-Perturbed Benchmark for Robotic Task Retention",
             "authors": "Siddeshwar Raghavan , Ziqin Yuan , Fengqing Zhu , Byung-Cheol Min",
             "subjects": "Robotics (cs.RO)",
@@ -1378,12 +1378,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00524",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:54",
+            "crawl_datetime": "2026-10-04 06:43:41",
             "title": "Same Scene, Different Task: Skill Alignment for Compositional Generalization in VLAs",
             "authors": "Taegeun Yang , Youngju Na , Yoonki Cho , Sung-Eui Yoon",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG)",
@@ -1398,12 +1398,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00487",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:56",
+            "crawl_datetime": "2026-10-04 06:43:42",
             "title": "ScaffoldM3C: A Multimodal Sequential Monte Carlo Framework for Generative Stable Construction Planning",
             "authors": "Gadiel Sznaier Camps , Chengyang He , Guillaume Sartoretti , Eduardo Montijano , Mac Schwager",
             "subjects": "Robotics (cs.RO) ; Machine Learning (cs.LG)",
@@ -1418,12 +1418,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00438",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:57",
+            "crawl_datetime": "2026-10-04 06:43:44",
             "title": "Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining",
             "authors": "Chongyang Xu , Zhao Wu , Jin Chen , Yiming Jiang , Jinhui Ye , Yuming Jiang , Shifeng Zhang , Ziliang Feng , Mu Xu , Yilun Chen , Li Lu , Steven C.H. Hoi",
             "subjects": "Robotics (cs.RO)",
@@ -1438,12 +1438,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00404",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:17:59",
+            "crawl_datetime": "2026-10-04 06:43:45",
             "title": "Whole-Body Aerial Grasping and Lifting via Partial Visual Observations",
             "authors": "Jiaye Jin , Rui Jin , Xinhang Xu , Haotian Jin , Ruiyang Liu , Yi Wang , Jiayan Zhao , Kun Cao , Lihua Xie",
             "subjects": "Robotics (cs.RO)",
@@ -1458,12 +1458,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:58"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00368",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:00",
+            "crawl_datetime": "2026-10-04 06:43:47",
             "title": "DeepJEPA: Scaling World Models from Within",
             "authors": "Zijian Jin , Yunbei Zhang , Yuanzhe Liu , Ming Liu , Baian Chen , Weirui Ye , Shilong Liu , Marco Pavone",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -1478,12 +1478,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00360",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:01",
+            "crawl_datetime": "2026-10-04 06:43:48",
             "title": "DexPolicy: Scheduled Exploration for Trajectory-Guided Dexterous Manipulation",
             "authors": "Haoyu Wang , Siyuan Qian , Yanjun Li , Zeyu Zhang , Yandong Guo , Boxin Shi , Hao Tang",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
@@ -1498,12 +1498,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:49"
         },
         {
             "arxiv_id": "/abs/2610.00355",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:03",
+            "crawl_datetime": "2026-10-04 06:43:50",
             "title": "IndoorBEV: A Lightweight Real-Time LiDAR BEV Perception System for Indoor Mobile Robots",
             "authors": "Haichuan Li",
             "subjects": "Robotics (cs.RO)",
@@ -1518,12 +1518,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00330",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:04",
+            "crawl_datetime": "2026-10-04 06:43:51",
             "title": "Retrospective Open-Vocabulary Memory for Long-Term Object Search",
             "authors": "Jiaming Wang , Zhiwei Xue , Chen Jizhuo , Peng Shiqi , Harold Soh",
             "subjects": "Robotics (cs.RO) ; Computer Vision and Pattern Recognition (cs.CV)",
@@ -1538,12 +1538,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00317",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:06",
+            "crawl_datetime": "2026-10-04 06:43:53",
             "title": "DriftOPD: Sequence-Level Reverse-KL Distillation for One-Step VLA Policies",
             "authors": "Youngjun Jun , Kyumin Choi , Youngmin Kim , Seonghyun Jin , Sunwoo Park , Jangho Park , Jong Chul Ye",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG)",
@@ -1558,12 +1558,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00220",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:08",
+            "crawl_datetime": "2026-10-04 06:43:55",
             "title": "Real-Time Whole-Body Safe Motion Generation for Multi-Segment Tendon-Driven Continuum Robots",
             "authors": "Fangju Yang , Siyi Ma , Tonghao Guan , Tingcong Liu , Hang Yang , Zhengqiang Zhang , Jian S. Dai , Ke Wu",
             "subjects": "Robotics (cs.RO)",
@@ -1578,12 +1578,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00198",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:09",
+            "crawl_datetime": "2026-10-04 06:43:56",
             "title": "HumanoidTTT: Test-Time Capability Reuse for Efficient Humanoid Control",
             "authors": "Jingtai Yang , Yining Wu , Yanjun Li , Zeyu Zhang , Hao Tang",
             "subjects": "Robotics (cs.RO)",
@@ -1598,12 +1598,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00065",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:11",
+            "crawl_datetime": "2026-10-04 06:43:58",
             "title": "Probabilistic Plan Legibility with Off-the-shelf Planners",
             "authors": "Michele Persiani , Thomas Hellström",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -1618,12 +1618,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:18:59"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00057",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:12",
+            "crawl_datetime": "2026-10-04 06:43:59",
             "title": "Multi-Reference Path Tracking Control for an Agricultural Tractor with Nonlinear Model Predictive Control",
             "authors": "Marcel Moll , Timo Oksanen",
             "subjects": "Robotics (cs.RO)",
@@ -1638,12 +1638,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:50"
         },
         {
             "arxiv_id": "/abs/2610.00008",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:13",
+            "crawl_datetime": "2026-10-04 06:44:01",
             "title": "Bounded-Fidelity Sim-as-Demo-Stage: Mocap Handoff for Governance Benchmarks",
             "authors": "Xue Qin , Simin Luan , Cong Yang , Zhijun Li",
             "subjects": "Robotics (cs.RO) ; Artificial Intelligence (cs.AI)",
@@ -1658,12 +1658,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.02198",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:15",
+            "crawl_datetime": "2026-10-04 06:44:02",
             "title": "FERPO: Forward Entropy-Regularized Policy Optimization",
             "authors": "Sebastian Sanokowski , Alireza Sarmadi , Majid Khadiv",
             "subjects": "Machine Learning (cs.LG) ; Artificial Intelligence (cs.AI); Robotics (cs.RO); Machine Learning (stat.ML)",
@@ -1678,12 +1678,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01927",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:16",
+            "crawl_datetime": "2026-10-04 06:44:04",
             "title": "CLoSeR: Closing the Loop for Long-Context Streaming Reconstruction",
             "authors": "Moyang Li , Zihan Zhu , Wei Zhang , Marc Pollefeys , Daniel Barath",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1698,12 +1698,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01863",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:18",
+            "crawl_datetime": "2026-10-04 06:44:06",
             "title": "LiteReality-Agent: An Agentic System for Interactable 3D Indoor Scene Reconstruction",
             "authors": "Zhening Huang , Yueyan Li , Johnathan Chiu , Xiaoyang Lyu , Matt Zhou , Yuxin Yao , Joan Lasenby , Shangzhe Wu",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Graphics (cs.GR); Robotics (cs.RO)",
@@ -1718,12 +1718,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01820",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:19",
+            "crawl_datetime": "2026-10-04 06:44:07",
             "title": "Finite-Data Safety Informativity Under Dynamic Asymmetric Actuation",
             "authors": "Abhinav Sinha , Praveen Kumar Ranjan , Yongcan Cao",
             "subjects": "Systems and Control (eess.SY) ; Robotics (cs.RO); Dynamical Systems (math.DS)",
@@ -1738,12 +1738,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01794",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:21",
+            "crawl_datetime": "2026-10-04 06:44:09",
             "title": "Continuous Conditioning of VLAs with Augmenting EMG and Visual Task Descriptors",
             "authors": "Edward W. Staley , Connor O. Pyles , Rahul Hingorani , Frank Camargo , Griffin Milsap , Jared Markowitz , Matthew S. Fifer , Michael Wolmetz",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1758,12 +1758,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01744",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:22",
+            "crawl_datetime": "2026-10-04 06:44:10",
             "title": "3DROID: A Renderable 3D Gaussian Dataset with Measured Per-Scene Reliability",
             "authors": "Wonguen Cho , Junhoo Lee , Nojun Kwak",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1778,12 +1778,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01569",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:24",
+            "crawl_datetime": "2026-10-04 06:44:12",
             "title": "Managing Context and Communication in Distributed Agentic UAV Swarms",
             "authors": "Andrea Iannoli , Ivan Zyrianoff , Angelo Trotta , Lorenzo Gigli , Marco Di Felice",
             "subjects": "Multiagent Systems (cs.MA) ; Artificial Intelligence (cs.AI); Machine Learning (cs.LG); Networking and Internet Architecture (cs.NI); Robotics (cs.RO)",
@@ -1798,12 +1798,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:00"
+            "last_retry_datetime": "2026-10-04 06:44:51"
         },
         {
             "arxiv_id": "/abs/2610.01510",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:25",
+            "crawl_datetime": "2026-10-04 06:44:13",
             "title": "FedCKA: Representation-Guided Layer Personalization for Federated 3D Perception Across Driving Domains",
             "authors": "Jolle Verhoog , Ali Burak Ünal , Holger Caesar",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1818,12 +1818,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:01"
+            "last_retry_datetime": "2026-10-04 06:44:52"
         },
         {
             "arxiv_id": "/abs/2610.01224",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:26",
+            "crawl_datetime": "2026-10-04 06:44:15",
             "title": "Supervise What Decides Success: Criterion-Aligned Auxiliary Losses for Latent World-Model Planning",
             "authors": "Takumi Hara , Kanata Suzuki",
             "subjects": "Machine Learning (cs.LG) ; Robotics (cs.RO)",
@@ -1838,12 +1838,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:01"
+            "last_retry_datetime": "2026-10-04 06:44:52"
         },
         {
             "arxiv_id": "/abs/2610.01162",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:28",
+            "crawl_datetime": "2026-10-04 06:44:16",
             "title": "PhysicsLENS: Diagnosing Physical Property Blindness in Video Generation Models",
             "authors": "Isaiah Milkey , Som Sagar , Aditya Taparia , Xinyuan Liu , Jiqing Wen , Ransalu Senanayake",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1858,12 +1858,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:01"
+            "last_retry_datetime": "2026-10-04 06:44:52"
         },
         {
             "arxiv_id": "/abs/2610.01019",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:29",
+            "crawl_datetime": "2026-10-04 06:44:18",
             "title": "FutureWorlds: Learning Robotic World Models from Alternative Futures",
             "authors": "Hao Wu , Shengju Qian , Weiyan Wang , Fan Xu , Fan Zhang , Yuanpeng He , Qingsong Wen , Yuxuan Liang",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1878,12 +1878,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：403，响应：{\"error\":{\"message\":\"由于违规行为，当前账户已被禁止继续使用免费额度，付费使用不受影响。如有异议，请加入用户群联系管理员解封。(当前请求使用的ApiKey: sk-Qb****WDX)【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"403 FORBIDDEN\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:01"
+            "last_retry_datetime": "2026-10-04 06:44:52"
         },
         {
             "arxiv_id": "/abs/2610.01004",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:31",
+            "crawl_datetime": "2026-10-04 06:44:19",
             "title": "The Effect of Gait Stability Based on Two Types of Impact Strategies for Two-Link Walking and Brachiating Robots",
             "authors": "Alan Estrada Flores , Nelson Rosa Jr",
             "subjects": "Chaotic Dynamics (nlin.CD) ; Robotics (cs.RO)",
@@ -1898,12 +1898,12 @@
             "llm_summary": "大模型总结失败",
             "llm_score": 0,
             "llm_error": "API 状态码异常：429，响应：{\"error\":{\"message\":\"异常请求过多，暂时禁止访问。Too many requests for exceptions, temporarily disabling access.【如果您遇到问题，欢迎加入QQ群咨询：868139438】\",\"type\":\"chatanywhere_error\",\"param\":null,\"code\":\"429 TOO_MANY_REQUESTS\"}}",
-            "last_retry_datetime": "2026-10-03 06:19:01"
+            "last_retry_datetime": "2026-10-04 06:44:52"
         },
         {
             "arxiv_id": "/abs/2610.00992",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:32",
+            "crawl_datetime": "2026-10-04 06:44:21",
             "title": "Closed-Loop Refinement and Execution for Learned Driving Planners",
             "authors": "Huaijin Hu , Shanting Wang , Zhongyu Mo , Andreas A. Malikopoulos",
             "subjects": "Systems and Control (eess.SY) ; Robotics (cs.RO)",
@@ -1922,7 +1922,7 @@
         {
             "arxiv_id": "/abs/2610.00921",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:34",
+            "crawl_datetime": "2026-10-04 06:44:22",
             "title": "In CEM, a World Model Is Also a Proposal Mechanism",
             "authors": "Oliver Obst , Frieder Stolzenburg",
             "subjects": "Machine Learning (cs.LG) ; Robotics (cs.RO)",
@@ -1941,7 +1941,7 @@
         {
             "arxiv_id": "/abs/2610.00855",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:35",
+            "crawl_datetime": "2026-10-04 06:44:24",
             "title": "Lang3DSeg: Annotation-Free Open-Vocabulary 3D Segmentation with Point Transformers",
             "authors": "Cigdem Kokenoz , Amir Salarpour , Alkim Domeke , Christopher Salas , Pedram MohajerAnsari , Long Cheng , Mert D. Pesé , Bing Li",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO)",
@@ -1960,7 +1960,7 @@
         {
             "arxiv_id": "/abs/2610.00729",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:37",
+            "crawl_datetime": "2026-10-04 06:44:25",
             "title": "Reward as Observation: Learning Reward-Based Policies for Rapid Adaptation",
             "authors": "Morgan Byrd , Maks Sorokin , Robert Wright , Sehoon Ha",
             "subjects": "Machine Learning (cs.LG) ; Robotics (cs.RO)",
@@ -1979,7 +1979,7 @@
         {
             "arxiv_id": "/abs/2610.00676",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:38",
+            "crawl_datetime": "2026-10-04 06:44:27",
             "title": "Learning Transferable Skills using Goal-Conditioned Bisimulation",
             "authors": "Mohammad Amin Abbasfar , Farbod Azimmohseni , Mohammad Hossein Rohban",
             "subjects": "Machine Learning (cs.LG) ; Artificial Intelligence (cs.AI); Robotics (cs.RO)",
@@ -1998,7 +1998,7 @@
         {
             "arxiv_id": "/abs/2610.00613",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:41",
+            "crawl_datetime": "2026-10-04 06:44:30",
             "title": "Spatial Strategies, Not Actions: Vector-Quantized Geodesics as Tools for LLM-Driven Agents",
             "authors": "Gabriel Turinici",
             "subjects": "Artificial Intelligence (cs.AI) ; Robotics (cs.RO); Systems and Control (eess.SY)",
@@ -2017,7 +2017,7 @@
         {
             "arxiv_id": "/abs/2610.00604",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:42",
+            "crawl_datetime": "2026-10-04 06:44:31",
             "title": "MIKASA-Robo-VLA: Benchmarking Memory in VLA Models for Long-Horizon Manipulation",
             "authors": "Egor Cherepanov , Nikita Kachaev , Aleksandr I. Panov , Alexey K. Kovalev",
             "subjects": "Machine Learning (cs.LG) ; Artificial Intelligence (cs.AI); Robotics (cs.RO)",
@@ -2036,7 +2036,7 @@
         {
             "arxiv_id": "/abs/2610.00533",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:44",
+            "crawl_datetime": "2026-10-04 06:44:33",
             "title": "Admissibility-Preserving Control for Multi-Input Systems with Joint Capacity Constraints",
             "authors": "Saurabh Kumar , Lohitvel Gopikannan , Shashi Ranjan Kumar , Abhinav Sinha",
             "subjects": "Systems and Control (eess.SY) ; Robotics (cs.RO); Dynamical Systems (math.DS); Optimization and Control (math.OC)",
@@ -2055,7 +2055,7 @@
         {
             "arxiv_id": "/abs/2610.00319",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:45",
+            "crawl_datetime": "2026-10-04 06:44:34",
             "title": "EgoRefine: Ego-Referenced Predictive Alignment and Trajectory-Conditioned Reliability-Aware Fusion for Asynchronous Collaborative Perception",
             "authors": "Lingzhao Kong , Yongsheng Zang , Yu Kang , Kailun Yang , Jie Fu , Yukun Zuo , Zhiyong Li",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Robotics (cs.RO); Image and Video Processing (eess.IV)",
@@ -2074,7 +2074,7 @@
         {
             "arxiv_id": "/abs/2610.00208",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:47",
+            "crawl_datetime": "2026-10-04 06:44:36",
             "title": "Decentralized Safe Path Following for Multiple Quadrotors on Intersecting Paths with Theoretical Guarantees",
             "authors": "Hamza Tariq , Adeel Akhtar",
             "subjects": "Systems and Control (eess.SY) ; Robotics (cs.RO); Optimization and Control (math.OC)",
@@ -2093,7 +2093,7 @@
         {
             "arxiv_id": "/abs/2610.00199",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:48",
+            "crawl_datetime": "2026-10-04 06:44:38",
             "title": "The Geometry of Time: Horizon-Independent Feasibility and Repair for STL",
             "authors": "Avinash Malik",
             "subjects": "Systems and Control (eess.SY) ; Robotics (cs.RO)",
@@ -2112,7 +2112,7 @@
         {
             "arxiv_id": "/abs/2610.00003",
             "arxiv_date": "2026-10-02",
-            "crawl_datetime": "2026-10-03 06:18:50",
+            "crawl_datetime": "2026-10-04 06:44:39",
             "title": "STATERA: Hidden Mass Estimation via Zero-Shot Sim-to-Real Kinematics using Frozen Temporal Tubelets",
             "authors": "Animesh Varma",
             "subjects": "Computer Vision and Pattern Recognition (cs.CV) ; Artificial Intelligence (cs.AI); Machine Learning (cs.LG); Robotics (cs.RO)",
